@@ -71,7 +71,7 @@ public class TrorMainOrderHeaderFlyControllerFrisokvei {
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(2000);
 	private UrlRequestParameterMapper urlRequestParameterMapper = new UrlRequestParameterMapper();
 	
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	private DateTimeManager dateTimeMgr = new DateTimeManager();

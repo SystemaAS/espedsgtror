@@ -38,7 +38,7 @@ import no.systema.z.main.maintenance.util.MessageSourceHelper;
 @Controller
 public class MainMaintenanceGateController {
 	private static final Logger logger = Logger.getLogger(MainMaintenanceGateController.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private final String LANGUAGE_CODE_NORWAY = "NO";
 	private final String LANGUAGE_CODE_SWEDEN = "SV";
 	private final String LANGUAGE_CODE_DENMARK = "DA";

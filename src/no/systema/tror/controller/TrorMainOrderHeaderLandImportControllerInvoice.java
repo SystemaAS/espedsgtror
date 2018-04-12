@@ -82,7 +82,7 @@ import no.systema.tvinn.sad.util.TvinnSadConstants;
 public class TrorMainOrderHeaderLandImportControllerInvoice {
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(1500);
 	private static Logger logger = Logger.getLogger(TrorMainOrderHeaderLandImportControllerInvoice.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	private UrlRequestParameterMapper urlRequestParameterMapper = new UrlRequestParameterMapper();

@@ -77,7 +77,7 @@ public class TransportDispWorkflowHeaderController {
 	private LoginValidator loginValidator = new LoginValidator();
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(8000);
 	
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	
 	

@@ -74,7 +74,7 @@ public class TransportDispWorkflowTripListController {
 	private DateTimeManager dateTimeManager = new DateTimeManager();
 	
 	
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	

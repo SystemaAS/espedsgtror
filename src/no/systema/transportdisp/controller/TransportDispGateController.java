@@ -40,7 +40,7 @@ import no.systema.main.util.AppConstants;
 @Controller
 public class TransportDispGateController {
 	private static final Logger logger = Logger.getLogger(TransportDispGateController.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	
 	/**
 	 * 

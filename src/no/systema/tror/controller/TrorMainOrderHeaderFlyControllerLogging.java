@@ -54,7 +54,7 @@ public class TrorMainOrderHeaderFlyControllerLogging {
 	private static final Logger logger = Logger.getLogger(TrorMainOrderHeaderFlyControllerLogging.class.getName());
 	private PayloadContentFlusher payloadContentFlusher = new PayloadContentFlusher();
 	
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	
 	@InitBinder

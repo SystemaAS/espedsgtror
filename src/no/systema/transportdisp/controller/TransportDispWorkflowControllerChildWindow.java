@@ -146,7 +146,7 @@ public class TransportDispWorkflowControllerChildWindow {
 	private final String POSTALCODE_DIRECTION = "direction";
 	
 	
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	//private CodeDropDownMgr codeDropDownMgr = new CodeDropDownMgr();

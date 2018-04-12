@@ -86,7 +86,7 @@ import no.systema.tvinn.sad.z.maintenance.nctsexport.service.MaintNctsExportTrko
 @Scope("session")
 public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 	private static Logger logger = Logger.getLogger(TrorMainOrderHeaderFlyControllerAirFreightBill.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(1500);
 	private UrlRequestParameterMapper urlRequestParameterMapper = new UrlRequestParameterMapper();
 	private CodeDropDownMgr codeDropDownMgr = new CodeDropDownMgr();

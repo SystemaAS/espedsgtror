@@ -78,7 +78,7 @@ import no.systema.tvinn.sad.util.TvinnSadConstants;
 public class TransportDispMainOrderInvoiceController {
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(2000);
 	private static Logger logger = Logger.getLogger(TransportDispMainOrderInvoiceController.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	private RpgReturnResponseHandler rpgReturnResponseHandler = new RpgReturnResponseHandler();

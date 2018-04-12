@@ -74,7 +74,7 @@ import no.systema.transportdisp.util.manager.java.reflect.ReflectionUrlStoreMgr;
 public class TransportDispMainOrderListController {
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(1500);
 	private static Logger logger = Logger.getLogger(TransportDispMainOrderListController.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	private ControllerAjaxCommonFunctionsMgr controllerAjaxCommonFunctionsMgr;

@@ -95,7 +95,7 @@ public class TrorMainOrderHeaderControllerChildWindow {
 	private DateTimeManager dateTimeManager = new DateTimeManager();
 	private StringManager strMgr = new StringManager();
 	
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	

@@ -78,7 +78,7 @@ import no.systema.z.main.maintenance.service.MaintMainKodtaService;
 public class TrorMainOrderHeaderLandExportController {
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(1500);
 	private static Logger logger = Logger.getLogger(TrorMainOrderHeaderLandExportController.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
 	//

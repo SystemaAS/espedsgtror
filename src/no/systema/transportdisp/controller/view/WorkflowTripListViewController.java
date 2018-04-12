@@ -39,7 +39,7 @@ import no.systema.transportdisp.util.TransportDispConstants;
 @Controller
 public class WorkflowTripListViewController {
 	private static final Logger logger = Logger.getLogger(WorkflowTripListViewController.class.getName());
-	private ModelAndView loginView = new ModelAndView("login");
+	private ModelAndView loginView = new ModelAndView("redirect:logout.do");
 	
 	/**
 	 * 
