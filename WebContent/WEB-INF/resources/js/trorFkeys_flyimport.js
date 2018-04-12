@@ -76,7 +76,7 @@
 		  	}else if (charCode == f2){
 	  			 //Orderlist link 
 	  			setBlockUIKeys();
-	  			window.location.href = "tror_mainorderlist.do?action=doFind"; 
+	  			window.location.href = "tror_mainorderlist.do?action=doFind&avd=" + jq('#fkeysavd').val() + "&sign=" + jq('#fkeyssign').val();  
 	  		 
 	  		 }else if (charCode == f4){
 	  			 //Order link 

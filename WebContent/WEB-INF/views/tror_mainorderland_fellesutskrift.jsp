@@ -122,7 +122,7 @@
 			<%--for F-Keys shortcuts. Used only in trorFkeys_...js --%>
 			<input type="hidden" name="fkeysavd" id="fkeysavd" value='${model.avd}'>
 			<input type="hidden" name="fkeysopd" id="fkeysopd" value='${model.opd}'>
-			<input type="hidden" name="fkyessign" id="fkyessign" value='${model.sign}'>
+			<input type="hidden" name="fkeyssign" id="fkeyssign" value='${model.sign}'>
 			<%-- --%>
 			<input type="hidden" name="action" id="action" value='${model.action}'>
 			

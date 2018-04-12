@@ -187,7 +187,7 @@
 				<%--for F-Keys shortcuts. Used only in trorFkeys_...js --%>
 				<input type="hidden" name="fkeysavd" id="fkeysavd" value='${recordOrderTrorFly.heavd}'>
 				<input type="hidden" name="fkeysopd" id="fkeysopd" value='${recordOrderTrorFly.heopd}'>
-				<input type="hidden" name="fkyessign" id="fkyessign" value='${recordOrderTrorFly.hesg}'>
+				<input type="hidden" name="fkeyssign" id="fkeyssign" value='${recordOrderTrorFly.hesg}'>
 				<c:choose>
 					<c:when test="${recordOrderTrorFly.heur == 'C'}">
 						<input type="hidden" name="fkyessubsys" id="fkyessubsys" value='mainorderflyimport'>

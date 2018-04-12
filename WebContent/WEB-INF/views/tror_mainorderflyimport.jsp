@@ -337,7 +337,7 @@
 						<%--for F-Keys shortcuts. Used only in trorFkeys_...js --%>
 						<input type="hidden" name="fkeysavd" id="fkeysavd" value='${model.record.heavd}'>
 						<input type="hidden" name="fkeysopd" id="fkeysopd" value='${model.record.heopd}'>
-						<input type="hidden" name="fkyessign" id="fkyessign" value='${model.record.hesg}'>
+						<input type="hidden" name="fkeyssign" id="fkeyssign" value='${model.record.hesg}'>
 						<c:choose>
 							<c:when test="${model.record.heur == 'C'}">
 								<input type="hidden" name="fkyessubsys" id="fkyessubsys" value='mainorderflyimport'>
