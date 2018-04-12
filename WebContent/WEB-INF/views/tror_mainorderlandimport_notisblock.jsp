@@ -9,7 +9,6 @@
 		specified in servlet.xml as static <mvc:resources mapping="/resources/**" location="WEB-INF/resources/" order="1"/> --%>
 	<SCRIPT type="text/javascript" src="resources/js/jquery.calculator.js"></SCRIPT>
 	<SCRIPT type="text/javascript" src="resources/js/jquery-ui-timepicker-addon.js"></SCRIPT>
-	<%--<SCRIPT type="text/javascript" src="resources/js/tvinnsadglobal_edit.js?ver=${user.versionEspedsg}"></SCRIPT>--%>			
 	<SCRIPT type="text/javascript" src="resources/js/tror_mainorderlandimport_notisblock.js?ver=${user.versionEspedsg}"></SCRIPT>
 	<SCRIPT type="text/javascript" src="resources/js/trorFkeys_landimport.js?ver=${user.versionEspedsg}"></SCRIPT>
 	
@@ -220,7 +219,7 @@
 					<table width="80%" cellspacing="0" border="0" cellpadding="0">
 						<tr>
 							<td class="text12Bold">
-								<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="<spring:message code="systema.tvinn.sad.export.item.line.init.createnew.submit"/>">
+								<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="<spring:message code="systema.tror.submit.createnew"/>">
 							</td>
 						</tr>
 						
