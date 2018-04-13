@@ -354,20 +354,19 @@
 		               				<c:when test="${user.filand == 'NO' || user.filand == 'SE' || user.filand == 'DK' }">
 		               					<c:if test="${user.filand == 'NO'}">
 		               						<c:if test="${ record.heur == 'A' }">
-			               						<a style="cursor:pointer;" onClick="setBlockUI(this);" href="tror_mainorderlist_toSadImport.do?avd=${record.heavd}&opd=${record.heopd}&sign=${record.hesg}">
+		               							<a style="cursor:pointer;" onClick="setBlockUI(this);" href="/espedsgtvinnsad/logonTrorList_toSad.do?user=${user.user}&avd=${record.heavd}&opd=${record.heopd}&sysg=${record.hesg}&dp=${user.encryptedPassword}">
 						               				<span title="Til SAD Import">
 						               					<img style="vertical-align:middle;" src="resources/images/bulletGreen.gif" border="0" alt="SAD">
 						               				</span>	
 						               			</a>
 					               			</c:if>
 					               			<c:if test="${ record.heur == 'B' }">
-			               						<a style="cursor:pointer;" onClick="setBlockUI(this);" href="tror_mainorderlist_toSadExport.do?avd=${record.heavd}&opd=${record.heopd}&sign=${record.hesg}">
+					               				<a style="cursor:pointer;" onClick="setBlockUI(this);" href="/espedsgtvinnsad/logonTrorList_toSad.do?sade=Y&user=${user.user}&avd=${record.heavd}&opd=${record.heopd}&sysg=${record.hesg}&dp=${user.encryptedPassword}">
 						               				<span title="Til SAD Eksport">
 						               					<img style="vertical-align:middle;" src="resources/images/bulletGreen.gif" border="0" alt="SAD">
 						               				</span>	
 						               			</a>
 					               			</c:if>
-					               			
 					               		</c:if>
 		               					<c:if test="${user.filand == 'DK'}">
 		               						 <img title="To SKAT" style="vertical-align:middle;" src="resources/images/bulletGreen.gif" border="0" alt="SKAT">todo
