@@ -284,6 +284,8 @@
 	                </tr> 
 	                </thead>
 	                
+	               
+	                
 	                
 	                <tbody >
 		            <c:forEach items="${listOpenOrders}" var="record" varStatus="counter">  
@@ -353,15 +355,41 @@
 		               				<c:choose>
 		               				<c:when test="${user.filand == 'NO' || user.filand == 'SE' || user.filand == 'DK' }">
 		               					<c:if test="${user.filand == 'NO'}">
+		               						<c:choose>
+			               						<c:when test="${not empty user.tomcatPort}">
+					               					<c:set var="tomcatPORT" value=":${user.tomcatPort}" scope="page" />
+									            </c:when>
+									            <c:otherwise>
+					               					<c:set var="tomcatPORT" value="" scope="page" />
+									            </c:otherwise>
+								            </c:choose>
+								            
 		               						<c:if test="${ record.heur == 'A' }">
-		               							<a style="cursor:pointer;" onClick="setBlockUI(this);" href="/espedsgtvinnsad/logonTrorList_toSad.do?user=${user.user}&avd=${record.heavd}&opd=${record.heopd}&sysg=${record.hesg}&dp=${user.encryptedPassword}">
+		               							<%-- we MUST do so in order to send encrypted password with URLencoding --%>
+		               							<c:url value="${user.servletHost}${tomcatPORT}/espedsgtvinnsad/logonTrorList_toSad.do" var="urlSad">
+													<c:param name="user" value="${user.user}" />
+													<c:param name="avd" value="${record.heavd}" />
+													<c:param name="opd" value="${record.heopd}" />
+													<c:param name="sysg" value="${record.hesg}" />
+													<c:param name="dp" value="${user.encryptedPassword}" />													
+												</c:url>
+		               							<a style="cursor:pointer;" onClick="setBlockUI(this);" href="${urlSad}">
 						               				<span title="Til SAD Import">
 						               					<img style="vertical-align:middle;" src="resources/images/bulletGreen.gif" border="0" alt="SAD">
 						               				</span>	
 						               			</a>
 					               			</c:if>
 					               			<c:if test="${ record.heur == 'B' }">
-					               				<a style="cursor:pointer;" onClick="setBlockUI(this);" href="/espedsgtvinnsad/logonTrorList_toSad.do?sade=Y&user=${user.user}&avd=${record.heavd}&opd=${record.heopd}&sysg=${record.hesg}&dp=${user.encryptedPassword}">
+					               				<%-- we MUST do so in order to send encrypted password with URLencoding --%>
+									            <c:url value="${user.servletHost}${tomcatPORT}/espedsgtvinnsad/logonTrorList_toSad.do" var="urlSad">
+													<c:param name="sade" value="Y" />
+													<c:param name="user" value="${user.user}" />
+													<c:param name="avd" value="${record.heavd}" />
+													<c:param name="opd" value="${record.heopd}" />
+													<c:param name="sysg" value="${record.hesg}" />
+													<c:param name="dp" value="${user.encryptedPassword}" />
+												</c:url>
+					               				<a style="cursor:pointer;" onClick="setBlockUI(this);" href="${urlSad}">
 						               				<span title="Til SAD Eksport">
 						               					<img style="vertical-align:middle;" src="resources/images/bulletGreen.gif" border="0" alt="SAD">
 						               				</span>	
