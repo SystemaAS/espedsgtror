@@ -308,6 +308,10 @@
             <tr ondrop="drop(event)" ondragover="allowDrop(event)" >
             		<td>
             		<input type="hidden" name="applicationUser" id="applicationUser" value='${user.user}'>
+            		<input type="hidden" name="userEncrypted" id="userEncrypted" value='${user.encryptedPassword}'>
+            		<input type="hidden" name="servletHost" id="servletHost" value='${user.servletHost}'>
+            		<input type="hidden" name="tomcatPort" id="tomcatPort" value='${user.tomcatPort}'>
+            		
 					<input type="hidden" name="action" id="action" value='doUpdate'>
 					<input type="hidden" name="selectedType" id="selectedType" value='${model.selectedType}'>
 					<input type="hidden" name="heur" id="heur" value='${model.record.heur}'> <%--delsystem --%>
@@ -1493,7 +1497,7 @@
 									<td align="right">
 										<c:choose>
 						 				    <c:when test="${ not empty model.record.heopd }">
-						 				    	<c:if test="${empty model.record.hest || model.record.hest == 'U' || model.record.hest == 'O' || model.record.hest == 'F' }">
+						 				    	<c:if test="${empty model.record.hest || model.record.hest == 'U' || model.record.hest == 'O' || model.record.hest == 'F' || record.hest == 'C' || record.hest == 'K' }">
 						 				    		<input class="inputFormSubmit submitSaveClazz" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'/>
 						 				    	</c:if>
 						 				    </c:when>

@@ -14,7 +14,10 @@
 	  });
 	  jq("#buttonToSad").click(function() {
 		  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
-		  window.location = "tror_mainorderlist_toSadImport.do?avd="+ jq('#heavd').val() + '&opd=' + jq('#heopd').val() + "&sign=" + jq('#hesg').val();
+		  var url = jq('#servletHost').val() + ":" + jq('#tomcatPort').val() + "/espedsgtvinnsad/logonTrorList_toSad.do?user=" + jq('#applicationUser').val(); 
+		  var params = "&avd="+ jq('#heavd').val() + '&opd=' + jq('#heopd').val() + "&sysg=" + jq('#hesg').val() + "&dp=" + encodeURIComponent(jq('#userEncrypted').val()); 
+		  
+		  window.location = url + params;
 	  });
   });
   

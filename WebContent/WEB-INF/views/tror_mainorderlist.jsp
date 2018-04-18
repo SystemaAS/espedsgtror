@@ -295,26 +295,50 @@
 		            <tr class="tex14" >
 		               <td width="2%" align="center" class="text14MediumBlue">${record.heavd}</td>	
 		               <td class="text14" width="2%" align="center"  >
-			           		<c:if test="${empty record.hest || record.hest == 'U' || record.hest == 'O' || record.hest == 'F' }">
+		               		<c:choose>
+			           		<c:when test="${empty record.hest || record.hest == 'U' || record.hest == 'O' || record.hest == 'F' || record.hest == 'C' || record.hest == 'K' }">
 								<c:if test="${ record.heur == 'A' }">
 					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
-					           			onClick="setBlockUI(this);" href="tror_mainorderlandimport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}&status=${Xrecord.status}">
+					           			onClick="setBlockUI(this);" href="tror_mainorderlandimport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
 		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">
 		    		    			</a>
 	    		    			</c:if>
 	    		    			<c:if test="${ record.heur == 'B' }">
 					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
-					           			onClick="setBlockUI(this);" href="tror_mainorderlandexport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}&status=${Xrecord.status}">
+					           			onClick="setBlockUI(this);" href="tror_mainorderlandexport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
 		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">
 		    		    			</a>
 	    		    			</c:if>
 	    		    			<c:if test="${ record.heur == 'C' }">
 					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
-					           			onClick="setBlockUI(this);" href="tror_mainorderflyimport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}&status=${Xrecord.status}">
+					           			onClick="setBlockUI(this);" href="tror_mainorderflyimport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
 		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">
 		    		    			</a>
 	    		    			</c:if>
-    		    			</c:if>
+    		    			</c:when>
+    		    			<c:otherwise>
+    		    				<c:if test="${ record.heur == 'A' }">
+					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
+					           			onClick="setBlockUI(this);" href="tror_mainorderlandimport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
+		    		    				<img title="Read" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+		    		    			</a>
+	    		    			</c:if>
+	    		    			<c:if test="${ record.heur == 'B' }">
+					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
+					           			onClick="setBlockUI(this);" href="tror_mainorderlandexport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
+		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+		    		    			</a>
+	    		    			</c:if>
+	    		    			<c:if test="${ record.heur == 'C' }">
+					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
+					           			onClick="setBlockUI(this);" href="tror_mainorderflyimport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
+		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+		    		    			</a>
+	    		    			</c:if>
+    		    				
+    		    			</c:otherwise>
+    		    			</c:choose>
+    		    			
 			           </td>
 		               <td title="${record.heopd}" class="text14MediumBlue" id="opd_${record.heopd}@${counter.count}" >
 		               		<font class="text14"><b>${record.heopd}</b></font>
@@ -459,7 +483,7 @@
 							</div>
 			           </td> 
 		               <td align="center" class="text14MediumBlue">
-		               		<c:if test="${empty record.hest || record.hest == 'U' || record.hest == 'O' || record.hest == 'F' }">
+		               		<c:if test="${empty record.hest || record.hest == 'U' || record.hest == 'O' || record.hest == 'F' || record.hest == 'C' || record.hest == 'K' }">
 		               			<c:if test="${ record.heur == 'A'  }">
 								<a sytle="cursor:pointer;" id="avd_${record.heavd}@opd_${record.heopd}"  title="delete" onClick="doPermanentlyDeleteOrder(this)" tabindex=-1>
 			               			<img src="resources/images/delete.gif" border="0" alt="remove">
