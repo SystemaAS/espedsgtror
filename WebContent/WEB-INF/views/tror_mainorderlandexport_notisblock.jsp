@@ -176,13 +176,13 @@
 								<td class="text11">
 								<table id="tblNotes" class="display compact cell-border" >
 									<thead>
-									<tr style="background-color:#DDDDDD">
-									    <%-- <th width="2%" align="center" class="text12">&nbsp;Lnr.&nbsp;</th>  --%>   
-									    <th width="2%" align="center" class="text12">&nbsp;Endre&nbsp;</th>   
-									    <th class="text12" nowrap>&nbsp;Dato&nbsp;</th>
-					                    <th class="text12" nowrap>&nbsp;Part&nbsp;</th>
-					                    <th class="text12" nowrap>&nbsp;Fritekst&nbsp;</th>
-				                    	<th align="center" class="text12" nowrap>Slett</th>
+									<tr class="tableHeaderField" height="20">
+									    <%-- <th width="2%" align="center" class="text14">&nbsp;Lnr.&nbsp;</th>  --%>   
+									    <th width="2%" align="center" class="text14">&nbsp;Endre&nbsp;</th>   
+									    <th class="text14" nowrap>&nbsp;Dato&nbsp;</th>
+					                    <th class="text14" nowrap>&nbsp;Part&nbsp;</th>
+					                    <th class="text14" nowrap>&nbsp;Fritekst&nbsp;</th>
+				                    	<th align="center" class="text14" nowrap>Slett</th>
 					               </tr> 
 					               </thead>
 					               <tbody>
@@ -280,7 +280,7 @@
 								        		</span>
 				 				<img onClick="showPop('updateInfo');" src="resources/images/update.gif" border="0" alt="edit">
 				 				<span style="position:absolute; left:150px; top:200px; width:800px; height:400px;" id="updateInfo" class="popupWithInputText"  >
-		           		   			<div class="text12" align="left" style="display:block;width:700px;word-break:break-all;">
+		           		   			<div class="text14" align="left" style="display:block;width:700px;word-break:break-all;">
 		           		   				${TODOactiveUrlRPGUpdate_TvinnSad}<br/><br/>
 		           		   				<button name="updateInformationButtonClose" class="buttonGrayInsideDivPopup" type="button" onClick="hidePop('updateInfo');">Close</button> 
 		           		   			</div>
@@ -296,9 +296,9 @@
 					 		<td>
 						 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							 		<tr>
-							            <td class="text12" align="left"><span title="frtdt">&nbsp;Dato</span></td>
-							            <td class="text12" align="left"><span title="frtkod">&nbsp;Part</span></td>
-							            <td class="text12" align="left"><span title="frttxt">&nbsp;Tekst</span></td>
+							            <td class="text14" align="left"><span title="frtdt">&nbsp;Dato</span></td>
+							            <td class="text14" align="left"><span title="frtkod">&nbsp;Part</span></td>
+							            <td class="text14" align="left"><span title="frttxt">&nbsp;Tekst</span></td>
 							        </tr>
 							        <tr>
 						        		<td align="left" valign="top">
@@ -307,7 +307,7 @@
 										<td align="left" valign="top">
 						        			<input type="text" class="inputTextMediumBlueMandatoryField" name="frtkod" id="frtkod" size="2" maxlength="1" value="${model.record.frtkod}">
 										</td>
-										<td class="text12" align="left">
+										<td class="text14" align="left">
 						            		<textarea rows="1" cols="79" class="inputTextMediumBlueMandatoryField" name="frttxt" id="frttxt" maxlength="79">${model.record.frttxt}</textarea>
 							            </td>
 							        </tr>

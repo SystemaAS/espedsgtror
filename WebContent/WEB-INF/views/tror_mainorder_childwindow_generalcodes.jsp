@@ -39,21 +39,21 @@
 					<table id="merkelappList" class="display compact cell-border" width="100%">
 						<thead>
 						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.kode"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.name"/></th>
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.name.english"/></th>
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.kode"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.name"/></th>
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.name.english"/></th>
 
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.merkelappList}" varStatus="counter">    
-			               <tr class="text11" >
-			               <td width="2%" class="text11MediumBlue" style="cursor:pointer;" id="id_${record.kfkod}@name_${record.kftxt}@name2_${record.kftxte}@counter_${counter.count}">
+			               <tr class="text14" >
+			               <td width="2%" class="text14MediumBlue" style="cursor:pointer;" id="id_${record.kfkod}@name_${record.kftxt}@name2_${record.kftxte}@counter_${counter.count}">
 			               	 	${record.kfkod}
 			               </td>
-			               <td class="text11" >&nbsp;${record.kftxt}</td>
-			               <td class="text11" >&nbsp;${record.kftxte}</td> 
+			               <td class="text14" >&nbsp;${record.kftxt}</td>
+			               <td class="text14" >&nbsp;${record.kftxte}</td> 
 			                      
 			            </tr> 
 			            </c:forEach>

@@ -58,7 +58,7 @@
 			<tr height="10"><td></td></tr>
 			<%-- Should be set-on for the whole solution. This here was just a prototype
  	        <tr>
- 	        <td height="2px" valign="top" align="right"><font class="text11MediumBlue">Stretch workspace</font><input tabindex="-1" type="checkbox" id="checkBoxVisibility">&nbsp;&nbsp;</td>
+ 	        <td height="2px" valign="top" align="right"><font class="text14MediumBlue">Stretch workspace</font><input tabindex="-1" type="checkbox" id="checkBoxVisibility">&nbsp;&nbsp;</td>
  	        </tr>
  	        --%>
 		</table>		
@@ -130,13 +130,13 @@
 				
 			    	<table width="99%">
 			    		<tr > 
-				    		<td>&nbsp;<font title="avd" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.avd"/></font></td>
-				        	<td>&nbsp;<font title="sign" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.sign"/></font></td>
-				        	<td>&nbsp;<font title="orderNr" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.ordernr"/></font></td>
-				        	<td>&nbsp;<font title="date" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.date"/></font></td>
+				    		<td>&nbsp;<font title="avd" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.avd"/></font></td>
+				        	<td>&nbsp;<font title="sign" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.sign"/></font></td>
+				        	<td>&nbsp;<font title="orderNr" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.ordernr"/></font></td>
+				        	<td>&nbsp;<font title="date" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.date"/></font></td>
 				        	<td>
 				        		<img onMouseOver="showPop('status_info');" onMouseOut="hidePop('status_info');" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-				 				<font title="status" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.status"/></font>
+				 				<font title="status" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.status"/></font>
 				 				<div class="text11" style="position: relative; display: inline;" align="left" >
 				 				<span style="position:absolute;top:2px; width:400px;" id="status_info" class="popupWithInputText text11"  >
 					           		<p>Status på oppdraget. Denne koden forteller hvor langt et oppdrag har kommet i
@@ -160,13 +160,13 @@
 								</span>	
 								</div>
 				        	</td>
-				        	<td>&nbsp;<font title="orderNr" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.delsystem"/></font></td>
-				        	<td>&nbsp;<font title="orderNr" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.godsnr"/></font></td>
+				        	<td>&nbsp;<font title="orderNr" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.delsystem"/></font></td>
+				        	<td>&nbsp;<font title="orderNr" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.godsnr"/></font></td>
 				        	<%--<td>&nbsp;</td> --%>
-				        	<td>&nbsp;<font title="sender" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.sender"/></font></td>
-				        	<td>&nbsp;<font title="receiver" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.receiver"/></font></td>
-				        	<td>&nbsp;<font title="from" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.from"/></font></td>
-				        	<td>&nbsp;<font title="to" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.to"/></font></td>
+				        	<td>&nbsp;<font title="sender" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.sender"/></font></td>
+				        	<td>&nbsp;<font title="receiver" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.receiver"/></font></td>
+				        	<td>&nbsp;<font title="from" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.from"/></font></td>
+				        	<td>&nbsp;<font title="to" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.to"/></font></td>
 				        	
 			        	</tr>
 			        	<tr>
@@ -189,7 +189,7 @@
 				    		<td><input type="text" class="inputText" name="orderNr" id="orderNr" size="8" maxlength="7" value='${searchFilterTror.orderNr}'></td>
 					        <td><input type="text" class="inputText" name="date" id="date" size="9" maxlength="8" value='${searchFilterTror.date}'></td>
 					        <td>
-					        	<select name="status" id="status">
+					        	<select class="inputTextMediumBlue" name="status" id="status">
 			            			<option value="">-vælg-</option>
 			            			<option value=" " <c:if test="${searchFilterTror.status == ' '}"> selected </c:if> >Åpent</option>
 			            			<option value="U" <c:if test="${searchFilterTror.status == 'U'}"> selected </c:if> >U</option>
@@ -217,7 +217,7 @@
 					        <td><input type="text" class="inputText" name="godsNr" id="godsNr" size="10" maxlength="20" value='${searchFilterTror.godsNr}'></td>
 					        <%--
 					        <td nowrap>	
-				        		<font title="fromDate/fromDate" class="text12"></font>
+				        		<font title="fromDate/fromDate" class="text14"></font>
 					        	&nbsp;<input type="text" class="inputText" name="fromDate" id="fromDate" size="9" maxlength="8" value='${searchFilterTror.fromDate}'>
 					        	-<input type="text" class="inputText" name="toDate" id="toDate" size="9" maxlength="8" value='${searchFilterTror.toDate}'>
 					        </td>
@@ -249,25 +249,25 @@
 				<td >
 				<table style="width:100%;" id="openOrders" class="display compact cell-border" cellspacing="0" >
 					<thead >
-					<tr style="background-color:#BCC6CC">
-						<th width="2%" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.avd"/></th>
-						<th width="2%" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.edit"/></th>
-						<th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.ordernr"/></th> 
-						<th width="2%" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.sign"/></th>  
-						<th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.turnr"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.date"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.status"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.delsystem"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.godsnr"/></th>
-	                    <th width="20%" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.sender"/></th>
-	                    <th width="20%" class="text12"><spring:message code="systema.tror.orders.open.list.search.label.receiver"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.antall"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.weight"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.m3"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.from"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.to"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.fortullning"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.copy"/></th>
+					<tr class="tableHeaderField" height="20">
+						<th width="2%" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.avd"/></th>
+						<th width="2%" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.edit"/></th>
+						<th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.ordernr"/></th> 
+						<th width="2%" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.sign"/></th>  
+						<th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.turnr"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.date"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.status"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.delsystem"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.godsnr"/></th>
+	                    <th width="20%" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.sender"/></th>
+	                    <th width="20%" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.receiver"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.antall"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.weight"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.m3"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.from"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.to"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.fortullning"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.copy"/></th>
 	                    
 	                    <%-- START Print 
 	                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;F.br&nbsp;</td>
@@ -276,10 +276,10 @@
 	                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;Merk Zpl&nbsp;</td>
 	                    <%-- END Print --%>
 	                    <%-- Transmission 
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.transmit"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.transmit"/></th>
 	                    --%>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.statusUpdate"/></th>
-	                    <th class="text12"><spring:message code="systema.tror.orders.open.list.search.label.delete"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.statusUpdate"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.delete"/></th>
 	                    
 	                </tr> 
 	                </thead>
@@ -292,9 +292,9 @@
 		            <c:if test="${ record.heur == 'A' || record.heur == 'B' || record.heur == 'C' || record.heur == 'D' }">
 		            
 		            <input type="hidden" name="unik_${counter.count}" id="unik_${counter.count}" value='${Xrecord.unik}'>
-		            <tr class="tex11" >
-		               <td width="2%" align="center" class="text11MediumBlue">${record.heavd}</td>	
-		               <td width="2%" align="center"  >
+		            <tr class="tex14" >
+		               <td width="2%" align="center" class="text14MediumBlue">${record.heavd}</td>	
+		               <td class="text14" width="2%" align="center"  >
 			           		<c:if test="${empty record.hest || record.hest == 'U' || record.hest == 'O' || record.hest == 'F' }">
 								<c:if test="${ record.heur == 'A' }">
 					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
@@ -316,15 +316,15 @@
 	    		    			</c:if>
     		    			</c:if>
 			           </td>
-		               <td title="${record.heopd}" class="text11MediumBlue" id="opd_${record.heopd}@${counter.count}" >
-		               		<font class="text11"><b>${record.heopd}</b></font>
+		               <td title="${record.heopd}" class="text14MediumBlue" id="opd_${record.heopd}@${counter.count}" >
+		               		<font class="text14"><b>${record.heopd}</b></font>
 			           </td>
-			           <td width="2%" align="center" class="text11MediumBlue">&nbsp;${record.hesg}</td>
-			           <td align="center" class="text11MediumBlue">&nbsp;${record.hepro}</td>
-			           <td align="center" class="text11MediumBlue">&nbsp;${record.hedtop}</td>
+			           <td width="2%" align="center" class="text14MediumBlue">&nbsp;${record.hesg}</td>
+			           <td align="center" class="text14MediumBlue">&nbsp;${record.hepro}</td>
+			           <td align="center" class="text14MediumBlue">&nbsp;${record.hedtop}</td>
 			           
-			           <td width="2%" align="center" class="text11MediumBlue">&nbsp;<b><font style="color: orangered">${record.hest}</font></b></td>
-			           <td nowrap align="left" class="text11MediumBlue">
+			           <td width="2%" align="center" class="text14MediumBlue">&nbsp;<b><font style="color: orangered">${record.hest}</font></b></td>
+			           <td nowrap align="left" class="text14MediumBlue">
 							<c:if test="${ record.heur == 'A' }">
 								<img style="vertical-align:middle;" src="resources/images/lorry_green.png" width="16px" height="16px" border="0" alt="update sub-order">
 	           					&nbsp;<spring:message code="systema.tror.order.suborder.landimport"/>
@@ -342,15 +342,15 @@
 	           					&nbsp;<spring:message code="systema.tror.order.suborder.flyexport"/>
 	           				</c:if>
 			           </td>
-		               <td align="left" class="text11MediumBlue">&nbsp;${record.hegn}</td>
-		               <td width="20%" align="left" class="text11MediumBlue">&nbsp;${record.henas}</td>
-		               <td width="20%" align="left" class="text11MediumBlue">&nbsp;${record.henak}</td>
-		               <td align="center" class="text11MediumBlue">&nbsp;${record.hent}</td>
-		               <td align="center" class="text11MediumBlue">&nbsp;${record.hevkt}</td>
-		               <td align="center" class="text11MediumBlue">&nbsp;${record.hem3}</td>
-		               <td align="center" class="text11MediumBlue">&nbsp;${Xrecord.xfralk}${Xrecord.hesdf}</td>
-		               <td align="center" class="text11MediumBlue">&nbsp;${Xrecord.xtillk}${Xrecord.hesdt}</td>
-		               <td align="center" class="text11MediumBlue">
+		               <td align="left" class="text14MediumBlue">&nbsp;${record.hegn}</td>
+		               <td width="20%" align="left" class="text14MediumBlue">&nbsp;${record.henas}</td>
+		               <td width="20%" align="left" class="text14MediumBlue">&nbsp;${record.henak}</td>
+		               <td align="center" class="text14MediumBlue">&nbsp;${record.hent}</td>
+		               <td align="center" class="text14MediumBlue">&nbsp;${record.hevkt}</td>
+		               <td align="center" class="text14MediumBlue">&nbsp;${record.hem3}</td>
+		               <td align="center" class="text14MediumBlue">&nbsp;${Xrecord.xfralk}${Xrecord.hesdf}</td>
+		               <td align="center" class="text14MediumBlue">&nbsp;${Xrecord.xtillk}${Xrecord.hesdt}</td>
+		               <td align="center" class="text14MediumBlue">
 		               			<c:if test="${record.hepk4 == 'J'}">
 		               				<c:choose>
 		               				<c:when test="${user.filand == 'NO' || user.filand == 'SE' || user.filand == 'DK' }">
@@ -409,7 +409,7 @@
 		               				</c:choose>	
 		               			</c:if>
 		               </td>
-		               <td width="2%" align="center" class="text11MediumBlue">
+		               <td width="2%" align="center" class="text14MediumBlue">
 		               		<c:if test="${ record.heur == 'A' }">
            						<a style="cursor:pointer;" onClick="setBlockUI(this);" href="tror_mainorderlandimport_copy.do?heavd=${record.heavd}&heopd=${record.heopd}&hesg=${record.hesg}">
 		               				<span title="Kopiera Land import">
@@ -426,19 +426,19 @@
 	               			</c:if>	
 		               </td>
 		               
-		               <td width="2%" align="center" class="text11MediumBlue">
+		               <td width="2%" align="center" class="text14MediumBlue">
 			           		<img class="updateStatus" id="updateStatus${counter.count}" style="vertical-align: middle; cursor:pointer;" src="resources/images/changeStatus.png" width="12px" height="12px" border="0" alt="change status">
 			           		<%-- change status dialog --%>
 							<div style="display: none;" class="clazz_dialog" id="dialogUpdateStatus${counter.count}" title="Dialog">
 							 	<form action="tror_mainorderlandimport_updateStatus.do" name="updateStatusForm${counter.count}" id="updateStatusForm${counter.count}" >
 							 	<input type="hidden" name="currentAvd${counter.count}" id="currentAvd${counter.count}" value='${record.heavd}'>
 							 	<input type="hidden" name="currentOpd${counter.count}" id="currentOpd${counter.count}" value='${record.heopd}'>
-								<p class="text12" >&nbsp;Oppdatere status</p>
+								<p class="text14" >&nbsp;Oppdatere status</p>
 								<table>
 									<tr>
-										<td class="text12" align="left" >Status</td>
-										<td class="text12MediumBlue">
-											<select name="selectedStatus${counter.count}" id="selectedStatus${counter.count}">
+										<td class="text14" align="left" >Status</td>
+										<td class="text14MediumBlue">
+											<select class="inputTextMediumBlue" name="selectedStatus${counter.count}" id="selectedStatus${counter.count}">
 						            			<option value="">-vælg-</option>
 						            			<option value=" ">Åpent</option>
 						            			<option value="U">U</option>
@@ -458,7 +458,7 @@
 								</form>
 							</div>
 			           </td> 
-		               <td align="center" class="text11MediumBlue">
+		               <td align="center" class="text14MediumBlue">
 		               		<c:if test="${empty record.hest || record.hest == 'U' || record.hest == 'O' || record.hest == 'F' }">
 		               			<c:if test="${ record.heur == 'A'  }">
 								<a sytle="cursor:pointer;" id="avd_${record.heavd}@opd_${record.heopd}"  title="delete" onClick="doPermanentlyDeleteOrder(this)" tabindex=-1>
@@ -497,11 +497,11 @@
 				 	<input type="hidden" name="actionGS" id="actionGS" value='doUpdate'/>
 					<input type="hidden" name="applicationUser" id="applicationUser" value='${user.user}'>
 					
-					<p class="text12" >&nbsp;<spring:message code="systema.tror.order.suborder.title.types"/></p>
+					<p class="text14" >&nbsp;<spring:message code="systema.tror.order.suborder.title.types"/></p>
 					 				
 					<table>
 						<tr>
-							<td class="text12MediumBlue">Type&nbsp;
+							<td class="text14MediumBlue">Type&nbsp;
 								<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlue11MandatoryField" name="selectedType" id="selectedType">
 									<option value="A"><spring:message code="systema.tror.order.suborder.landimport"/></option>
 									<option value="B"><spring:message code="systema.tror.order.suborder.landexport"/></option>
@@ -512,7 +512,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="text12MediumBlue">Avd&nbsp;&nbsp;
+							<td class="text14MediumBlue">Avd&nbsp;&nbsp;
 								<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="heavd" id="heavd" >
 			 						<c:forEach var="record" items="${model.avdList}" >
 				 				  		<option value="${record.koakon}"<c:if test="${model.record.heavd == record.koakon}"> selected </c:if> >${record.koakon}</option>

@@ -52,7 +52,7 @@
 					<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
 					<td width="12%" valign="bottom" class="tab" align="center" nowrap>
 						<img style="vertical-align:middle;" src="resources/images/lorry_blue.png" width="18px" height="18px" border="0" alt="update">
-						<font class="tabLink"><spring:message code="systema.tror.order.tab"/></font><font class="text12">&nbsp;${model.record.heavd}/${model.record.heopd}</font>&nbsp;<font class="text10Orange">F4</font>
+						<font class="tabLink"><spring:message code="systema.tror.order.tab"/></font><font class="text14">&nbsp;${model.record.heavd}/${model.record.heopd}</font>&nbsp;<font class="text10Orange">F4</font>
 					</td>
 					<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
 					<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
@@ -393,11 +393,11 @@
 				 						<table width="100%" border="0">
 				 						
 					 					<tr>
-					 						<td class="text12" title="hedtop"><font class="text16RedBold" >*</font><spring:message code="systema.tror.orders.form.update.label.date"/></td>
-							 				<td class="text12" >	
+					 						<td class="text14" title="hedtop"><font class="text16RedBold" >*</font><spring:message code="systema.tror.orders.form.update.label.date"/></td>
+							 				<td class="text14" >	
 							 					<input type="text" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="hedtop" id="hedtop" size="9" maxlength="8" value="${model.record.hedtop}">
 							 				</td>
-							 				<td class="text12" title="hepro">
+							 				<td class="text14" title="hepro">
 							 					<img onMouseOver="showPop('turnr_info');" onMouseOut="hidePop('turnr_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.turnr"/>
 							 					<div class="text11" style="position: relative;" align="left" >
@@ -409,7 +409,7 @@
 												</div>
 							 				
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<c:choose>
 						 						<c:when test="${'0' != model.record.hepro}">
 							 						<input <c:if test="${ not empty model.record.heopd }"> autofocus </c:if>  type="text" class="inputTextMediumBlue" name="hepro" id="hepro" size="9" maxlength="8" value="${model.record.hepro}">
@@ -419,7 +419,7 @@
 							 					</c:otherwise>
 							 					</c:choose>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 								 			<img onMouseOver="showPop('hevalt_info');" onMouseOut="hidePop('hevalt_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 								 			<span title="hetrcn"><spring:message code="systema.tror.orders.form.update.label.tillegg"/></span>
 								 			<div class="text11" style="position: relative;" align="left" >
@@ -431,14 +431,14 @@
 													</span>	
 											</div>
 								 			</td>
-								 			<td class="text12">
+								 			<td class="text14">
 								 				<input type="text" class="inputTextMediumBlue" name="hevalt" id="hevalt" size="4" maxlength="3" value="${model.record.hevalt}">
 								 				&nbsp;<input onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue" name="hevalp" id="hevalp" size="8" maxlength="7" value="${model.record.hevalp}">
 								 			</td>
 							 				
 							 			</tr>
 							 			<tr>	
-							 				<td class="text12" title="hetll">
+							 				<td class="text14" title="hetll">
 							 					<img onMouseOver="showPop('hetll_info');" onMouseOut="hidePop('hetll_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.lopenr"/>
 							 					<div class="text11" style="position: relative;" align="left" >
@@ -448,10 +448,10 @@
 													</span>	
 												</div>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="hetll" id="hetll" size="11" maxlength="10" value="${model.record.hetll}">
 							 				</td>
-							 				<td class="text12" title="hetle">
+							 				<td class="text14" title="hetle">
 							 					<img onMouseOver="showPop('hetle_info');" onMouseOut="hidePop('hetle_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.eksp.enhet"/>
 							 					<div class="text11" style="position: relative;" align="left" >
@@ -461,10 +461,10 @@
 													</span>	
 												</div>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<input type="text" class="inputTextMediumBlue" name="hetle" id="hetle" size="7" maxlength="6" value="${model.record.hetle}">
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<img onMouseOver="showPop('hesdl_info');" onMouseOut="hidePop('hesdl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<img style="vertical-align:middle;" src="resources/images/loading.png" width="15px" height="15px" border="0" alt="load/unload">
 				 								<span title="hesdl"><spring:message code="systema.tror.orders.form.update.label.load"/></span>
@@ -485,7 +485,7 @@
 											</td>
 						 				</tr>
 						 				<tr>	
-							 				<td class="text12" title="hestd">
+							 				<td class="text14" title="hestd">
 							 					<img onMouseOver="showPop('hestd_info');" onMouseOut="hidePop('hestd_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.baerer"/>
 							 					<div class="text11" style="position: relative;" align="left" >
@@ -495,7 +495,7 @@
 													</span>	
 												</div>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="hestd" id="hestd" size="5" maxlength="4" value="${model.record.hestd}">
 							 				</td>
 						 				</tr>
@@ -506,7 +506,7 @@
 					 				<td valign="top" align="left" width="50%">
 						 				<table width="100%" border="0">
 						 				<tr>
-						 					<td class="text12" title="hekna">
+						 					<td class="text14" title="hekna">
 						 						<img onMouseOver="showPop('hekna_info');" onMouseOut="hidePop('hekna_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 						<spring:message code="systema.tror.orders.form.update.label.agent"/>
 						 						<a tabindex="-1" id="trorAgentIdLink" >
@@ -519,7 +519,7 @@
 													</span>	
 												</div>
 		 									</td>
-		 									<td class="text12" >
+		 									<td class="text14" >
 		 										<c:choose>
 						 						<c:when test="${'0' != model.record.hekna}">	
 						 							<input type="text" class="inputTextMediumBlue" name="hekna" id="hekna" size="9" maxlength="8" value="${model.record.hekna}">
@@ -529,10 +529,10 @@
 						 						</c:otherwise>
 						 						</c:choose>
 						 					</td>
-						 					<td class="text12" title="henaa">	
+						 					<td class="text14" title="henaa">	
 						 						<input type="text" class="inputTextReadOnly" name="henaa" id="henaa" size="20" maxlength="30" value="${model.record.henaa}">
 							 				</td>
-									 		<td class="text12" title="herfa">
+									 		<td class="text14" title="herfa">
 									 			<img onMouseOver="showPop('herfa_info');" onMouseOut="hidePop('herfa_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 									 			<spring:message code="systema.tror.orders.form.update.label.agentRef"/>&nbsp;
 									 			<div class="text11" style="position: relative;" align="left" >
@@ -542,13 +542,13 @@
 													</span>	
 												</div>
 									 		</td>
-									 		<td class="text12">
+									 		<td class="text14">
 									 			<input type="text" class="inputTextMediumBlue" name="herfa" id="herfa" size="16" maxlength="14" value="${model.record.herfa}">
 									 		</td>
 							 				
 							 			</tr>
 							 			<tr>
-							 				<td class="text12" title="heknt">
+							 				<td class="text14" title="heknt">
 							 					<img onMouseOver="showPop('heknt_info');" onMouseOut="hidePop('heknt_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.transport"/>
 							 					<a tabindex="-1" id="trorCarrierIdLink" >
@@ -561,7 +561,7 @@
 													</span>	
 												</div>
 		 									</td>
-		 									<td class="text12" >
+		 									<td class="text14" >
 		 										<c:choose>
 						 						<c:when test="${'0' != model.record.heknt}">	
 							 						<input type="text" class="inputTextMediumBlue" name="heknt" id="heknt" size="9" maxlength="8" value="${model.record.heknt}">
@@ -571,10 +571,10 @@
 							 					</c:otherwise>
 							 					</c:choose>
 							 				</td>
-							 				<td class="text12" title="ownheknt">	
+							 				<td class="text14" title="ownheknt">	
 							 					<input type="text" class="inputTextReadOnly" name="ownheknt" id="ownheknt" size="30" maxlength="30" value="${Xmodel.record.ownTODO}">
 							 				</td>
-							 				<td class="text12" title="hehawb">
+							 				<td class="text14" title="hehawb">
 							 					<img onMouseOver="showPop('hehawb_info');" onMouseOut="hidePop('hehawb_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.bilnr" />
 							 					<div class="text11" style="position: relative;"" align="left" >
@@ -645,18 +645,18 @@
 				 			 <table style="width:97%" class="tableBorderWithRoundCornersGray" cellspacing="1" cellpadding="0" border="0">
 						 		<tr height="10"><td ></td></tr>
 						 		<tr>
-						 			<td class="text12">
+						 			<td class="text14">
 					 					&nbsp;<span title="hekns"><spring:message code="systema.tror.orders.form.update.label.shipper.id"/>&nbsp;</span>
 					 					<a tabindex="-1" id="trorSellerIdLink" >
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
  										</a>
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					&nbsp;<span title="whenas"><spring:message code="systema.tror.orders.form.update.label.shipper.seller"/>&nbsp;</span>
 					 				</td>
 					 			</tr>
 					 			<tr>
-					 				<td class="text12" >
+					 				<td class="text14" >
 				 						<c:choose>
 						 				<c:when test="${'0' != model.record.hekns}">
 				 							<input type="text" class="inputTextMediumBlue" name="hekns" id="hekns" size="10" maxlength="8" value="${model.record.hekns}">
@@ -667,11 +667,11 @@
 				 						</c:choose>
 				 					</td>
 					 				
-								 	<td colspan="4" class="text12" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenas" id="whenas" size="50" value="${XXmodel.record.heknsNavn}&nbsp;-&nbsp;${XXmodel.record.heknsPnSt}"></td>
+								 	<td colspan="4" class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenas" id="whenas" size="50" value="${XXmodel.record.heknsNavn}&nbsp;-&nbsp;${XXmodel.record.heknsPnSt}"></td>
 				 				</tr>
 								<tr height="5"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">&nbsp;<font class="text16RedBold" >*</font><span title="henas"><spring:message code="systema.tror.orders.form.update.label.shipper.name"/></span>
+					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="henas"><spring:message code="systema.tror.orders.form.update.label.shipper.name"/></span>
 					 					<%-- <c:if test="${Xmodel.record.fakBetExists}">
 						 					<a href="javascript:void(0);" onClick="window.open('tror_childwindow_customer_addresses.do?action=doFind&ctype=s&wkundnr=${user.custNr}','customerWin','top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no')">
 		 										<img id="imgShipperSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
@@ -681,16 +681,16 @@
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>	 									
 					 				</td>
-					 				<td class="text12">&nbsp;<font class="text16RedBold" >*</font><span title="heads1"><spring:message code="systema.tror.orders.form.update.label.shipper.adr1"/></span></td>
+					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="heads1"><spring:message code="systema.tror.orders.form.update.label.shipper.adr1"/></span></td>
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="henas" id="henas" size="25" maxlength="30" value="${model.record.henas}"></td>
-				 					<td class="text12"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="heads1" id="heads1" size="25" maxlength="30" value="${model.record.heads1}"></td>
+				 					<td class="text14"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="henas" id="henas" size="25" maxlength="30" value="${model.record.henas}"></td>
+				 					<td class="text14"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="heads1" id="heads1" size="25" maxlength="30" value="${model.record.heads1}"></td>
 				 				</tr>
 					 			<tr>	
-					 				<td class="text12">&nbsp;<span title="heads2"><spring:message code="systema.tror.orders.form.update.label.shipper.adr2"/></span></td>
-					 				<td class="text12">&nbsp;<span title="heads3"><spring:message code="systema.tror.orders.form.update.label.shipper.adr3"/></span></td>
-		 							<td class="text12">&nbsp;
+					 				<td class="text14">&nbsp;<span title="heads2"><spring:message code="systema.tror.orders.form.update.label.shipper.adr2"/></span></td>
+					 				<td class="text14">&nbsp;<span title="heads3"><spring:message code="systema.tror.orders.form.update.label.shipper.adr3"/></span></td>
+		 							<td class="text14">&nbsp;
 			 							<img onMouseOver="showPop('heans_info');" onMouseOut="hidePop('heans_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 				<span title="heans">Avt.nr.</span>
 						 				<div class="text11" style="position: relative;" align="left">
@@ -710,7 +710,7 @@
 		 							
 		 							
 		 							</td>
-					 				<td class="text12">&nbsp;
+					 				<td class="text14">&nbsp;
 					 					<img onMouseOver="showPop('hekdfs_info');" onMouseOut="hidePop('hekdfs_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 				<span title="hekdfs">Fakt.mot selger?</span>
 						 				<div class="text11" style="position: relative;" align="left">
@@ -727,14 +727,14 @@
 										</span>
 										</div>
 					 				</td>
-					 				<td class="text12" width="100px">&nbsp;</td>
+					 				<td class="text14" width="100px">&nbsp;</td>
 					 			</tr>
 								<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="text" class="inputTextMediumBlueUPPERCASE" name="heads2" id="heads2" size="25" maxlength="30" value="${model.record.heads2}">
 				 					</td>
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="heads3" id="heads3" size="25" maxlength="30" value="${model.record.heads3}"></td>
-				 					<td class="text12">
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="heads3" id="heads3" size="25" maxlength="30" value="${model.record.heads3}"></td>
+				 					<td class="text14">
 				 						<select class="inputTextMediumBlue" name="heans" id="heans" >
 				 							  <option value="0" <c:if test="${ empty model.record.heans || model.record.heans == '0' }"> selected </c:if> >0</option>
 											  <option value="1" <c:if test="${ model.record.heans == '1' }"> selected </c:if> >1</option>
@@ -748,7 +748,7 @@
 											  <option value="9" <c:if test="${ model.record.heans == '9' }"> selected </c:if> >9</option>
 										</select>
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<select class="inputTextMediumBlue" name="hekdfs" id="hekdfs" >
 				 							  <option value="" <c:if test="${ empty model.record.hekdfs }"> selected </c:if> >-velg-</option>	
 						 					  <option value="X" <c:if test="${ model.record.hekdfs == 'X' }"> selected </c:if> >X</option>
@@ -757,28 +757,28 @@
 											  
 										</select>
 				 					</td>
-				 					<td class="text12" width="100px">&nbsp;</td>
+				 					<td class="text14" width="100px">&nbsp;</td>
 				 				</tr>
 				 				
 				 				<tr height="5"><td ></td></tr>	
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="ownSenderContactName"><spring:message code="systema.tror.orders.form.update.label.shipper.contactName"/></span></td>
-					 				<td class="text12">&nbsp;<span title="ownSenderMobile"><spring:message code="systema.tror.orders.form.update.label.shipper.mobile"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownSenderContactName"><spring:message code="systema.tror.orders.form.update.label.shipper.contactName"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownSenderMobile"><spring:message code="systema.tror.orders.form.update.label.shipper.mobile"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="hidden" name="ownSenderPartId" id="ownSenderPartId" value='CN'>
 				 						<input type="text" class="inputTextMediumBlue" name="ownSenderContactName" id="ownSenderContactName" size="25" maxlength="60" value="${model.record.ownSenderContactName}">
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<input type="text" class="inputTextMediumBlue" name="ownSenderMobile" id="ownSenderMobile" size="25" maxlength="60" value="${model.record.ownSenderMobile}">
 				 					</td>
 		 						</tr>	
 		 						<tr>	
-					 				<td class="text12">&nbsp;<span title="ownSenderEmail"><spring:message code="systema.tror.orders.form.update.label.shipper.email"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownSenderEmail"><spring:message code="systema.tror.orders.form.update.label.shipper.email"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="text" class="inputTextMediumBlue" name="ownSenderEmail" id="ownSenderEmail" size="25" maxlength="60" value="${model.record.ownSenderEmail}">
 				 					</td>
 		 						</tr>	
@@ -796,16 +796,16 @@
 				 					<td colspan="4">
 				 					<table class="tableBorderWithRoundCornersLightGray">
 					 					<tr>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					&nbsp;<span title="heknsf"><spring:message code="systema.tror.orders.form.update.label.shipper.invoicee.id"/>&nbsp;</span>
 							 					<a tabindex="-1" id="trorSellerFmIdLink" >
 		 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					&nbsp;<span title="whenasf"><spring:message code="systema.tror.orders.form.update.label.shipper.invoicee.name"/>&nbsp;</span>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<img onMouseOver="showPop('shipperCurr_info');" onMouseOut="hidePop('shipperCurr_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 								 				<span title="hevals"><spring:message code="systema.tror.orders.form.update.label.shipper.invoicee.currencyCode"/>&nbsp;</span>
 								 				<div class="text11" style="position: relative;" align="left">
@@ -824,7 +824,7 @@
 							 				
 						 				</tr>
 						 				<tr>	
-						 					<td class="text12" >
+						 					<td class="text14" >
 						 						<c:choose>
 						 						<c:when test="${'0' != model.record.heknsf}">
 						 							<input type="text" class="inputTextMediumBlue" name="heknsf" id="heknsf" size="10" maxlength="8" value="${model.record.heknsf}">
@@ -834,8 +834,8 @@
 						 						</c:otherwise>
 						 						</c:choose>
 						 					</td>
-										 	<td class="text12" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenasf" id="whenasf" size="50" value="${Xmodel.record.heknsfNavn} - ${Xmodel.record.heknsfPnSt}"></td>
-						 					<td class="text12" >
+										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenasf" id="whenasf" size="50" value="${Xmodel.record.heknsfNavn} - ${Xmodel.record.heknsfPnSt}"></td>
+						 					<td class="text14" >
 						 						<select name="hevals" id="hevals">
 							 						<option value="">-valuta-</option>
 								 				  	<c:forEach var="record" items="${model.currencyCodeList}" >
@@ -855,18 +855,18 @@
 				 			 <table style="width:97%" class="tableBorderWithRoundCornersGray" cellspacing="1" cellpadding="0">
 					 			<tr height="10"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					&nbsp;<span title="heknk"><spring:message code="systema.tror.orders.form.update.label.consignee.id"/>&nbsp;</span>
 					 					<a tabindex="-1" id="trorBuyerIdLink" >
  											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
  										</a>
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					&nbsp;<span title="whenak"><spring:message code="systema.tror.orders.form.update.label.consignee.buyer"/>&nbsp;</span>
 					 				</td>	
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<c:choose>
 						 				<c:when test="${'0' != model.record.heknk}">
 				 							<input type="text" class="inputTextMediumBlue" name="heknk" id="heknk" size="10" maxlength="8" value="${model.record.heknk}">
@@ -876,11 +876,11 @@
 				 						</c:otherwise>
 				 						</c:choose>
 				 					</td>
-				 					<td colspan="4" class="text12" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenak" id="whenak" size="50" value="${Xmodel.record.heknkNavn}&nbsp;-&nbsp;${Xmodel.record.heknkPnSt}"></td>
+				 					<td colspan="4" class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenak" id="whenak" size="50" value="${Xmodel.record.heknkNavn}&nbsp;-&nbsp;${Xmodel.record.heknkPnSt}"></td>
 				 				</tr>
 				 				<tr height="5"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">&nbsp;<font class="text16RedBold" >*</font><span title="henak"><spring:message code="systema.tror.orders.form.update.label.consignee.name"/></span>
+					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="henak"><spring:message code="systema.tror.orders.form.update.label.consignee.name"/></span>
 					 					<%-- <c:if test="${Xmodel.record.fakBetExists}">
 						 					<a href="javascript:void(0);" onClick="window.open('tror_childwindow_customer_addresses.do?action=doFind&ctype=c&wkundnr=${user.custNr}','customerWin','top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no')">
 		 										<img id="imgConsigneeSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
@@ -890,16 +890,16 @@
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>
 					 				</td>
-					 				<td class="text12">&nbsp;<font class="text16RedBold" >*</font><span title="headk1"><spring:message code="systema.tror.orders.form.update.label.consignee.adr1"/></span></td>
+					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="headk1"><spring:message code="systema.tror.orders.form.update.label.consignee.adr1"/></span></td>
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="henak" id="henak" size="25" maxlength="30" value="${model.record.henak}"></td>
-				 					<td class="text12"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="headk1" id="headk1" size="25" maxlength="30" value="${model.record.headk1}"></td>
+				 					<td class="text14"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="henak" id="henak" size="25" maxlength="30" value="${model.record.henak}"></td>
+				 					<td class="text14"><input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="headk1" id="headk1" size="25" maxlength="30" value="${model.record.headk1}"></td>
 				 				</tr>
 					 			<tr>	
-					 				<td class="text12">&nbsp;<span title="headk2"><spring:message code="systema.tror.orders.form.update.label.consignee.adr2"/></span></td>
-					 				<td class="text12">&nbsp;<span title="headk3"><spring:message code="systema.tror.orders.form.update.label.consignee.adr3"/></span></td>
-					 				<td class="text12">
+					 				<td class="text14">&nbsp;<span title="headk2"><spring:message code="systema.tror.orders.form.update.label.consignee.adr2"/></span></td>
+					 				<td class="text14">&nbsp;<span title="headk3"><spring:message code="systema.tror.orders.form.update.label.consignee.adr3"/></span></td>
+					 				<td class="text14">
 					 					<img onMouseOver="showPop('heank_info');" onMouseOut="hidePop('heank_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 				<span title="heank">Avt.nr.</span>
 						 				<div class="text11" style="position: relative;" align="left">
@@ -916,7 +916,7 @@
 										</span>
 										</div>
 					 				</td>
-					 				<td class="text12">&nbsp;
+					 				<td class="text14">&nbsp;
 					 					<img onMouseOver="showPop('hekdfk_info');" onMouseOut="hidePop('hekdfk_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 				<span title="hekdfk">Fakt.mot selger?</span>
 						 				<div class="text11" style="position: relative;" align="left">
@@ -933,14 +933,14 @@
 										</span>
 										</div>
 					 				</td>
-					 				<td class="text12" width="100px">&nbsp;</td>
+					 				<td class="text14" width="100px">&nbsp;</td>
 					 				
 					 			</tr>
 								<tr>	
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="headk2" id="headk2" size="25" maxlength="30" value="${model.record.headk2}"></td>
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="headk3" id="headk3" size="25" maxlength="30" value="${model.record.headk3}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="headk2" id="headk2" size="25" maxlength="30" value="${model.record.headk2}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="headk3" id="headk3" size="25" maxlength="30" value="${model.record.headk3}"></td>
 				 					
-					 				<td class="text12">
+					 				<td class="text14">
 				 						<select class="inputTextMediumBlue" name="heank" id="heank" >
 				 							  <option value="0" <c:if test="${ empty model.record.heank || model.record.heank == '0' }"> selected </c:if> >0</option>
 											  <option value="1" <c:if test="${ model.record.heank == '1' }"> selected </c:if> >1</option>
@@ -954,7 +954,7 @@
 											  <option value="9" <c:if test="${ model.record.heank == '9' }"> selected </c:if> >9</option>
 										</select>
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<select class="inputTextMediumBlue" name="hekdfk" id="hekdfk" >
 				 							  <option value="" <c:if test="${ empty model.record.hekdfk }"> selected </c:if> >-velg-</option>	
 						 					  <option value="X" <c:if test="${ model.record.hekdfk == 'X' }"> selected </c:if> >X</option>
@@ -962,29 +962,29 @@
 											  <option value="B" <c:if test="${ model.record.hekdfk == 'B' }"> selected </c:if> >B</option>
 										</select>
 				 					</td>
-				 					<td class="text12" width="100px">&nbsp;</td>
+				 					<td class="text14" width="100px">&nbsp;</td>
 					 				
 				 				</tr>
 				 				
 				 				<tr height="5"><td ></td></tr>
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="ownReceiverContactName"><spring:message code="systema.tror.orders.form.update.label.consignee.contactName"/></span></td>
-					 				<td class="text12">&nbsp;<span title="ownReceiverMobile"><spring:message code="systema.tror.orders.form.update.label.consignee.mobile"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownReceiverContactName"><spring:message code="systema.tror.orders.form.update.label.consignee.contactName"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownReceiverMobile"><spring:message code="systema.tror.orders.form.update.label.consignee.mobile"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="hidden" name="ownReceiverPartId" id="ownReceiverPartId" value='CZ'>
 				 						<input type="text" class="inputTextMediumBlue" name="ownReceiverContactName" id="ownReceiverContactName" size="25" maxlength="60" value="${model.record.ownReceiverContactName}">
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<input type="text" class="inputTextMediumBlue" name="ownReceiverMobile" id="ownReceiverMobile" size="25" maxlength="60" value="${model.record.ownReceiverMobile}">
 				 					</td>
 		 						</tr>	
 		 						<tr>	
-					 				<td class="text12">&nbsp;<span title="ownReceiverEmail"><spring:message code="systema.tror.orders.form.update.label.consignee.email"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownReceiverEmail"><spring:message code="systema.tror.orders.form.update.label.consignee.email"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="text" class="inputTextMediumBlue" name="ownReceiverEmail" id="ownReceiverEmail" size="25" maxlength="60" value="${model.record.ownReceiverEmail}">
 				 					</td>
 		 						</tr>	
@@ -1000,16 +1000,16 @@
 				 					<td colspan="4">
 				 					<table class="tableBorderWithRoundCornersLightGray">
 					 					<tr>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					&nbsp;<span title="heknkf"><spring:message code="systema.tror.orders.form.update.label.consignee.invoicee.id"/>&nbsp;</span>
 						 						<a tabindex="-1" id="trorBuyerFmIdLink" >
 		 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					&nbsp;<span title="whenakf"><spring:message code="systema.tror.orders.form.update.label.consignee.invoicee.name"/>&nbsp;</span>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<img onMouseOver="showPop('consigneeCurr_info');" onMouseOut="hidePop('consigneeCurr_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 								 				<span title="hevalk"><spring:message code="systema.tror.orders.form.update.label.consignee.invoicee.currencyCode"/>&nbsp;</span>
 								 				<div class="text11" style="position: relative;" align="left">
@@ -1027,7 +1027,7 @@
 							 				</td>
 						 				</tr>
 						 				<tr>	
-						 					<td class="text12" >
+						 					<td class="text14" >
 						 						<c:choose>
 						 						<c:when test="${'0' != model.record.heknkf}">
 						 							<input type="text" class="inputTextMediumBlue" name="heknkf" id="heknkf" size="10" maxlength="8" value="${model.record.heknkf}">
@@ -1037,8 +1037,8 @@
 						 						</c:otherwise>
 						 						</c:choose>
 						 					</td>
-										 	<td class="text12" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenakf" id="whenakf" size="50" value="${Xmodel.record.heknkfNavn} - ${Xmodel.record.heknkfPnSt}"></td>
-						 					<td class="text12" >
+										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenakf" id="whenakf" size="50" value="${Xmodel.record.heknkfNavn} - ${Xmodel.record.heknkfPnSt}"></td>
+						 					<td class="text14" >
 						 						<select name="hevalk" id="hevalk">
 							 						<option value="">-valuta-</option>
 								 				  	<c:forEach var="record" items="${model.currencyCodeList}" >
@@ -1068,7 +1068,7 @@
 								<table>
 						 		<tr height="2"><td ></td></tr>
 							 	<tr>	
-						 			<td class="text12">
+						 			<td class="text14">
 						 				<img onMouseOver="showPop('helka_info');" onMouseOut="hidePop('helka_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 				<font class="text12RedBold" >*</font><span title="helka/hesdf"><spring:message code="systema.tror.orders.form.update.label.from"/>&nbsp;</span>
 						 				<div class="text11" style="position: relative;" align="left">
@@ -1083,7 +1083,7 @@
 										</span>
 										</div>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="helka" id="helka">
 					 						<option value="">-landkode-</option>
 					 						<c:forEach var="record" items="${model.countryCodeList}" >
@@ -1093,7 +1093,7 @@
 										</select>
 										
 					 				</td>
-						 			<td class="text12" nowrap>
+						 			<td class="text14" nowrap>
 						 				<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="hesdf" id="hesdf" size="6" maxlength="5" value="${model.record.hesdf}">
 						 				<a tabindex=0 id="hesdfIdLink">
 	 										<img id="imgFromSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
@@ -1128,7 +1128,7 @@
 												</span>
 												</div>
 							 				</td>
-							 				<td class="text12">
+							 				<td class="text14">
 							 					<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="hetri" id="hetri">
 							 						<option value="">-landkode-</option>
 								 				  	<c:forEach var="record" items="${model.countryCodeList}" >
@@ -1136,16 +1136,16 @@
 													</c:forEach>  
 												</select>
 							 				</td>
-								 			<td class="text12" nowrap>
+								 			<td class="text14" nowrap>
 								 				<input type="text" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="hesdt" id="hesdt" size="6" maxlength="5" value="${model.record.hesdt}">
 								 				<a tabindex=0 id="hesdtIdLink" >
 			 										<img id="imgToSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
 			 									</a>
 							 				</td>
-											<td class="text12" colspan="2">
+											<td class="text14" colspan="2">
 								 				<input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="OWNwppns2" id="OWNwppns2" size="20" maxlength="35" value="${XXmodel.record.wppns2}">
 							 				</td>
-							 				<td class="text12">&nbsp;&nbsp;</td>
+							 				<td class="text14">&nbsp;&nbsp;</td>
 							 			</tr>			
 							 		</table>
 							 		</td>
@@ -1164,7 +1164,7 @@
 									<td align="left" width="100%" valign="top">
 									<table class="tableBorderWithRoundCornersLightGray" border="0">
 									<tr>
-						 				<td class="text12">
+						 				<td class="text14">
 						 					<img onMouseOver="showPop('heot_info');" onMouseOut="hidePop('heot_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 					<span title="heot"><spring:message code="systema.tror.orders.form.update.label.oppdragstype"/></span>
 						 					<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_oppdragstype.do?action=doFind&ctype=landexport','opptypeWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
@@ -1183,7 +1183,7 @@
 												</span>
 											</div>
 						 				</td>
-							 			<td class="text12">
+							 			<td class="text14">
 							 				<select name="heot" id="heot">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.oppdragstypeList}" varStatus="counter">
@@ -1193,7 +1193,7 @@
 											</select>
 											
 							 			</td>
-										<td class="text12">
+										<td class="text14">
 											<img onMouseOver="showPop('hefr_info');" onMouseOut="hidePop('hefr_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 					<span title="hefr"><spring:message code="systema.tror.orders.form.update.label.incoterms"/></span>
 											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_incoterms.do?action=doFind&ctype=landexport','incotermsWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
@@ -1212,7 +1212,7 @@
 												</span>
 											</div>
 										</td>
-							 			<td class="text12">
+							 			<td class="text14">
 							 				<select name="hefr" id="hefr">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.incotermsList}" varStatus="counter">
@@ -1222,7 +1222,7 @@
 							 					
 											</select>
 							 			</td>
-										<td class="text12">
+										<td class="text14">
 											<img onMouseOver="showPop('hekdpl_info');" onMouseOut="hidePop('hekdpl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 											<span title="hekdpl"><spring:message code="systema.tror.orders.form.update.label.productcode"/></span>
 											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_productcodes.do?action=doFind&ctype=landexport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
@@ -1242,7 +1242,7 @@
 											</div>
 	 										
 										</td>
-							 			<td class="text12">
+							 			<td class="text14">
 							 				<select name="hekdpl" id="hekdpl">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.produktList}" varStatus="counter">
@@ -1252,8 +1252,8 @@
 							 			</td>
 							 			
 										<%--	
-							 			<td class="text12" title="todo"><spring:message code="systema.tror.orders.form.update.label.forpassing"/></td>
-							    		<td class="text12">
+							 			<td class="text14" title="todo"><spring:message code="systema.tror.orders.form.update.label.forpassing"/></td>
+							    		<td class="text14">
 							    			<select class="inputTextMediumBlue" name="hepk2" id="hepk2" >
 							 				  <option value="">-velg-</option>
 											  <option value="J"<c:if test="${model.record.hepk2 == 'J'}"> selected </c:if> >Ja</option>
@@ -1261,16 +1261,16 @@
 											</select>
 						    			</td>
 						    			--%>
-							    		<td class="text12" title="hepk3">&nbsp;<spring:message code="systema.tror.orders.form.update.label.kkvittering"/></td>
-							    		<td class="text12">
+							    		<td class="text14" title="hepk3">&nbsp;<spring:message code="systema.tror.orders.form.update.label.kkvittering"/></td>
+							    		<td class="text14">
 							    			<select class="inputTextMediumBlue" name="hepk3" id="hepk3" >
 							 				  <option value="">-velg-</option>
 											  <option value="J"<c:if test="${model.record.hepk3 == 'J'}"> selected </c:if> >Ja</option>
 											  <option value="N"<c:if test="${model.record.hepk3 == 'N'}"> selected </c:if> >Nei</option>
 											</select>
 						    			</td>
-						    			<td class="text12" title="hepk4">&nbsp;<spring:message code="systema.tror.orders.form.update.label.tolldekl"/></td>
-							    		<td class="text12">
+						    			<td class="text14" title="hepk4">&nbsp;<spring:message code="systema.tror.orders.form.update.label.tolldekl"/></td>
+							    		<td class="text14">
 							    			<select class="inputTextMediumBlue" name="hepk4" id="hepk4" >
 							 				  <option value="">-velg-</option>
 											  <option value="J"<c:if test="${model.record.hepk4 == 'J'}"> selected </c:if> >Ja</option>
@@ -1279,14 +1279,14 @@
 											</select>
 						    			</td>
 						 			
-							 			<td class="text12" width="50px">&nbsp;</td>	
+							 			<td class="text14" width="50px">&nbsp;</td>	
 							 			<%-------------------------- --%>
 							 			<%-- START Fraktbrev section --%>
 							 			<%-------------------------- --%>
-							 			<td class="text12">
+							 			<td class="text14">
 							 				<img onMouseOver="showPop('fraktbrev_info');" onMouseOut="hidePop('fraktbrev_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 				<span title="hepk1"><b><spring:message code="systema.tror.orders.form.update.label.fraktbrev"/></b></span>
-							 				<div class="text12" style="position: relative;" align="left">
+							 				<div class="text14" style="position: relative;" align="left">
 												<span style="position:absolute; left:0px; top:0px; width:450px" id="fraktbrev_info" class="popupWithInputText"  >
 													<font class="text11">
 								           			<b>Fraktbrev</b>
@@ -1297,12 +1297,12 @@
 											</span>
 											</div>
 							 			</td>
-							 			<td class="text12">
+							 			<td class="text14">
 							 				<a tabindex=-1 id="fraktbrevRenderPdfLink" name="fraktbrevRenderPdfLink" target="_new" href="transportdisp_mainorderlist_renderFraktbrev.do?user=${user.user}&wsavd=${model.record.heavd}&wsopd=${model.record.heopd}&wstoll=${Xmodel.record.dftoll}">
 		    									<img id="imgFraktbrevPdf" title="Fraktbr.PDF" style="vertical-align:middle;" src="resources/images/pdf.png" width="16" height="16" border="0" alt="Fraktbr. PDF">
 											</a>
 										</td>
-							 			<td nowrap class="text12">
+							 			<td nowrap class="text14">
 							 				<select class="inputTextMediumBlue" name="hepk1" id="hepk1" >
 							 				  <option value="">-velg-</option>
 											  <option value="J"<c:if test="${model.record.hepk1 == 'J'}"> selected </c:if> >Ja</option>
@@ -1315,26 +1315,26 @@
 							 				 --%>
 							 			</td>
 							 			<%--
-							 			<td nowrap class="text12">&nbsp;&nbsp;<span title="dftoll"><spring:message code="systema.tror.orders.form.update.label.tollsted"/></span>
+							 			<td nowrap class="text14">&nbsp;&nbsp;<span title="dftoll"><spring:message code="systema.tror.orders.form.update.label.tollsted"/></span>
 							 				<a tabindex=0 id="dftollIdLink" >
 	 											<img id="imgToSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
 	 										</a>
 							 			</td>
-							 			<td class="text12">
+							 			<td class="text14">
 							 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" size="5" maxlength="4" name="dftoll" id="dftoll" value="${Xmodel.record.dftoll}">
 							 			</td>
 							 			
-							 			<td class="text12">&nbsp;&nbsp;<span title="todo"><spring:message code="systema.tror.orders.form.update.label.merkelapp"/></span></td>
-							 			<td nowrap class="text12">
+							 			<td class="text14">&nbsp;&nbsp;<span title="todo"><spring:message code="systema.tror.orders.form.update.label.merkelapp"/></span></td>
+							 			<td nowrap class="text14">
 							 				<input type="checkbox" id="todo" name="todo" value="S" <c:if test="${Xmodel.record.dfkdme == 'S'}"> checked </c:if>>
 							 				
 						 				</td>
-							 			<td class="text12">&nbsp;<span title="todo"><spring:message code="systema.tror.orders.form.update.label.etterkrav"/></span></td>
-							 			<td nowrap class="text12">
+							 			<td class="text14">&nbsp;<span title="todo"><spring:message code="systema.tror.orders.form.update.label.etterkrav"/></span></td>
+							 			<td nowrap class="text14">
 							 				<input type="checkbox" id="todo" name="todo" value="S" <c:if test="${Xmodel.record.dfkdme == 'S'}"> checked </c:if>>
 						 				</td>
-						 				<td class="text12">&nbsp;<span title="hentvs"><spring:message code="systema.tror.orders.form.update.label.antalVarelinjer"/></span></td>
-						 				<td class="text12">
+						 				<td class="text14">&nbsp;<span title="hentvs"><spring:message code="systema.tror.orders.form.update.label.antalVarelinjer"/></span></td>
+						 				<td class="text14">
 							 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" size="5" maxlength="3" name="hentvs" id="hentvs" value="${model.record.hentvs}">
 							 			</td>
 							 			<td>&nbsp;</td>
@@ -1519,13 +1519,13 @@
 						 	<form action="tror_mainorderlandexport_updateStatus.do" name="updateStatusForm" id="updateStatusForm" >
 						 	<input type="hidden" name="currentAvd" id="currentAvd" value='${model.record.heavd}'>
 						 	<input type="hidden" name="currentOpd" id="currentOpd" value='${model.record.heopd}'>
-							<p class="text12" >Change status as needed.</p>
+							<p class="text14" >Change status as needed.</p>
 							<table>
 								<tr>
-									<td class="text12" align="left" >
+									<td class="text14" align="left" >
 										Status
 									</td>
-									<td class="text12MediumBlue">
+									<td class="text14MediumBlue">
 										<select name="selectedStatus" id="selectedStatus">
 					            			<option value="">-vælg-</option>
 					            			<option value=" ">Åpent</option>

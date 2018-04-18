@@ -152,41 +152,41 @@
 							<td class="text11" >
 								<table id="tblMain" class="display compact cell-border" >
 									<thead>
-									<tr style="background-color:#DDDDDD">
-										<th align="center" width="2%" class="text12" >&nbsp;<span title="todo">Endre&nbsp;</span></th>
-										<th align="center" class="text12" width="2%" >&nbsp;<span title="todo">Lnr.</span></th>  
-										<th align="center" width="5%" class="text12" >&nbsp;<span title="todo">Fraktbrevnr.&nbsp;</span></th>
-										<th class="text12" >&nbsp;<span title="dfnavm">Mottaker</span></th>  
-										<th class="text12" >&nbsp;<span title="dfad3m">Poststed</span></th> 
-										<th align="center" class="text12" width="2%" >&nbsp;<span title="dfst">Status</span></th> 
-										<th class="text12" width="2%" >&nbsp;<span title="dfnt">Antall</span></th>
-										<th class="text12" width="5%" >&nbsp;<span title="dfvs">Vareslag</span></th>
-										<th class="text12" width="2%" >&nbsp;<span title="dfvkt">Vekt</span></th>
-										<th class="text12" >&nbsp;<span title="dfnavs">Transportør</span></th>
-					        			<th align="center" width="2%" class="text12" >&nbsp;Slett&nbsp;</th>
+									<tr class="tableHeaderField" height="20">
+										<th align="center" width="2%" class="text14" >&nbsp;<span title="todo">Endre&nbsp;</span></th>
+										<th align="center" class="text14" width="2%" >&nbsp;<span title="todo">Lnr.</span></th>  
+										<th align="center" width="5%" class="text14" >&nbsp;<span title="todo">Fraktbrevnr.&nbsp;</span></th>
+										<th class="text14" >&nbsp;<span title="dfnavm">Mottaker</span></th>  
+										<th class="text14" >&nbsp;<span title="dfad3m">Poststed</span></th> 
+										<th align="center" class="text14" width="2%" >&nbsp;<span title="dfst">Status</span></th> 
+										<th class="text14" width="2%" >&nbsp;<span title="dfnt">Antall</span></th>
+										<th class="text14" width="5%" >&nbsp;<span title="dfvs">Vareslag</span></th>
+										<th class="text14" width="2%" >&nbsp;<span title="dfvkt">Vekt</span></th>
+										<th class="text14" >&nbsp;<span title="dfnavs">Transportør</span></th>
+					        			<th align="center" width="2%" class="text14" >&nbsp;Slett&nbsp;</th>
 					               </tr> 
 					               </thead>
 					               <tbody>
 				 					  <c:forEach items="${model.list}" var="record" varStatus="counter">    
 							               <tr class="tableRow" height="20" >
 							                
-							               <td align="center" width="2%" class="text11" >
+							               <td align="center" width="2%" class="text14" >
 							     				<a id="recordUpdate_${record.dffbnr}" onClick="setBlockUI(this);" href="tror_mainorderland_freightbill_edit.do?dfavd=${record.dfavd}&sign=${record.dfsg}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
 							     					<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;						               				
 					               				</a>
 						               	   </td>
-						               	   <td align="center" class="text11" >${record.dffbnr}</td>
-						               	   <td align="center" width="4%" class="text11" align="left">${record.df1004}</td>
-							               <td class="text11" >${record.dfnavm}</td>
-						               	   <td class="text11" >${record.dfad3m}</td>
-						               	   <td align="center" class="text11" width="2%" >${record.dfst}</td>
-						               	   <td class="text11" width="2%" >${record.dfnt}</td>
-						               	   <td class="text11" width="5%" >${record.dfvs}</td>
-						               	   <td class="text11" width="2%" >${record.dfvkt}</td>
-						               	   <td class="text11" >${record.dfnavs}</td>
+						               	   <td align="center" class="text14" >${record.dffbnr}</td>
+						               	   <td align="center" width="4%" class="text14" align="left">${record.df1004}</td>
+							               <td class="text14" >${record.dfnavm}</td>
+						               	   <td class="text14" >${record.dfad3m}</td>
+						               	   <td align="center" class="text14" width="2%" >${record.dfst}</td>
+						               	   <td class="text14" width="2%" >${record.dfnt}</td>
+						               	   <td class="text14" width="5%" >${record.dfvs}</td>
+						               	   <td class="text14" width="2%" >${record.dfvkt}</td>
+						               	   <td class="text14" >${record.dfnavs}</td>
 							               
 							               <%-- DELETE cell --%>							           
-							               <td width="2%" class="text11" align="center">
+							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.dffbnr && record.dfst != 'P'}"> <%-- status P = not removable --%>
 							                   		<a style="cursor:pointer;" id="avd_${record.dfavd}@opd_${record.dfopd}@id_${record.dffbnr}@sign_${record.dfsg}" onClick="doDeleteItemLine(this);" tabindex=-1 >
 									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">

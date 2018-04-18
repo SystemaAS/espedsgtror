@@ -40,35 +40,35 @@
 					<%-- this is the datatables grid (content)--%>
 					<table id="customerAddressesList" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th class="text11">&nbsp;</th>
-							<th class="text11">&nbsp;Lev.kundenr</th>   
-		                    <th class="text11">&nbsp;Mott./ vadrn</th>
-		                    <th class="text11">&nbsp;Alfa</th>
-		                    <%-- <th width="2%" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.customeraddresses.label.customeradr.address.update"/></th> --%>
-		                    <th class="text11">&nbsp;Navn</th>
-		                    <th class="text11">&nbsp;Adr1</th>
-		                    <th class="text11">&nbsp;Adr2</th>
-		                    <th class="text11">&nbsp;Adr3</th>
-		                    <%-- <th width="2%" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.customeraddresses.label.customeradr.address.delete"/></th>  --%>
+						<tr class="tableHeaderField" height="20">
+							<th class="text14">&nbsp;</th>
+							<th class="text14">&nbsp;Lev.kundenr</th>   
+		                    <th class="text14">&nbsp;Mott./ vadrn</th>
+		                    <th class="text14">&nbsp;Alfa</th>
+		                    <%-- <th width="2%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.customeraddresses.label.customeradr.address.update"/></th> --%>
+		                    <th class="text14">&nbsp;Navn</th>
+		                    <th class="text14">&nbsp;Adr1</th>
+		                    <th class="text14">&nbsp;Adr2</th>
+		                    <th class="text14">&nbsp;Adr3</th>
+		                    <%-- <th width="2%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.customeraddresses.label.customeradr.address.delete"/></th>  --%>
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.sellerAddressesList}" varStatus="counter">    
-			               <tr class="text11" >
-			               <td width="2%" class="text11MediumBlue" >
+			               <tr class="text14" >
+			               <td width="2%" class="text14MediumBlue" >
 			               		<img style="vertical-align:middle;" src="resources/images/bebullet.gif" border="0" >
 			               </td>
-			               <td class="text11MediumBlue" style="cursor:pointer;" id="vadrnr_${record.kukun2}@navn_${record.navn}@adr1_${record.adr1}@adr2_${record.adr2}@postnrsted_${record.adr3}@postnr_dummy@sted_dummy@counter_${counter.count}">
-			               	 <font class="text12SkyBlue" >&nbsp;${record.kuintn}</font>
+			               <td class="text14MediumBlue" style="cursor:pointer;" id="vadrnr_${record.kukun2}@navn_${record.navn}@adr1_${record.adr1}@adr2_${record.adr2}@postnrsted_${record.adr3}@postnr_dummy@sted_dummy@counter_${counter.count}">
+			               	 <font class="text14MediumBlue" >&nbsp;${record.kuintn}</font>
 			               </td>
-			               <td class="text11" >&nbsp;${record.kukun2}</td>
-			               <td class="text11" >&nbsp;${record.kualfa}</td>
-			               <td class="text11" >&nbsp;${record.navn}</td>
-			               <td class="text11" >&nbsp;${record.adr1}</td>
-			               <td class="text11" >&nbsp;${record.adr2}</td>
-			               <td class="text11" >&nbsp;${record.adr3}</td>
+			               <td class="text14" >&nbsp;${record.kukun2}</td>
+			               <td class="text14" >&nbsp;${record.kualfa}</td>
+			               <td class="text14" >&nbsp;${record.navn}</td>
+			               <td class="text14" >&nbsp;${record.adr1}</td>
+			               <td class="text14" >&nbsp;${record.adr2}</td>
+			               <td class="text14" >&nbsp;${record.adr3}</td>
 			               
 			            </tr> 
 			            </c:forEach>

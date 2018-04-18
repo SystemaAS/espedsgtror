@@ -153,86 +153,86 @@
 							<td class="text11">
 								<table id="tblBudget" class="display compact cell-border" >
 									<thead>
-									<tr style="background-color:#DDDDDD">
-										<th width="2%" align="center" class="text12" >&nbsp;<span title="bukdm">M&nbsp;</span></th>
-									    <th width="2%" align="center" class="text12" >&nbsp;<span title="bust">S&nbsp;</span></th>
-									    <th width="2%" align="center" class="text12" >&nbsp;Endre&nbsp;</th>
-									    <th class="text12" >&nbsp;<span title="bubnr">Rekvnr&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="buvk">Geb&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="bubl">Beløp&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="buval">Val&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="bulnr">Leverandør&nbsp;</span></th>
-					                    <th width="2%" class="text12" >&nbsp;<span title="butype">Ty&nbsp;</span></th>
-					                    <th width="2%" class="text12" >&nbsp;<span title="bublst">Bls&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="busg">Sig&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="butunr">Turnr&nbsp;</span></th>
-   					                    <th class="text12" >&nbsp;<span title="buoavd">Avd</span></th>
-					                    <th class="text12" >&nbsp;<span title="buopd">Oppd&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="butxt">Fritekst&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="bubiln">Bilnr&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="bufedt">Dato&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="butnr">Transp.&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="bupMn/bupAr">Peri&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="todoDato">Plukk&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;Slett&nbsp;</th>
+									<tr class="tableHeaderField" height="20">
+										<th width="2%" align="center" class="text14" >&nbsp;<span title="bukdm">M&nbsp;</span></th>
+									    <th width="2%" align="center" class="text14" >&nbsp;<span title="bust">S&nbsp;</span></th>
+									    <th width="2%" align="center" class="text14" >&nbsp;Endre&nbsp;</th>
+									    <th class="text14" >&nbsp;<span title="bubnr">Rekvnr&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="buvk">Geb&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="bubl">Beløp&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="buval">Val&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="bulnr">Leverandør&nbsp;</span></th>
+					                    <th width="2%" class="text14" >&nbsp;<span title="butype">Ty&nbsp;</span></th>
+					                    <th width="2%" class="text14" >&nbsp;<span title="bublst">Bls&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="busg">Sig&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="butunr">Turnr&nbsp;</span></th>
+   					                    <th class="text14" >&nbsp;<span title="buoavd">Avd</span></th>
+					                    <th class="text14" >&nbsp;<span title="buopd">Oppd&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="butxt">Fritekst&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="bubiln">Bilnr&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="bufedt">Dato&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="butnr">Transp.&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="bupMn/bupAr">Peri&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="todoDato">Plukk&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;Slett&nbsp;</th>
 					               </tr> 
 					               </thead>
 					               <tbody>
 				 					  <c:forEach items="${model.list}" var="record" varStatus="counter">    
 							               <tr class="tableRow">
 							                   
-							               <td width="2%" align="center" class="text11" align="center">&nbsp;${record.bukdm}</td>
-							               <td width="2%" align="center" class="text11" >&nbsp;<b class="text11Red">${record.bust}</b></td>
-							               <td width="2%" align="center" class="text11" >&nbsp;
+							               <td width="2%" align="center" class="text14" align="center">&nbsp;${record.bukdm}</td>
+							               <td width="2%" align="center" class="text14" >&nbsp;<b class="text11Red">${record.bust}</b></td>
+							               <td width="2%" align="center" class="text14" >&nbsp;
 							               	   <c:if test="${record.bust!='S'}">
 								            	   	<a id="recordUpdate_${record.bubnr}" href="#" onClick="getBudgetItemData(this);">
 							               				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
 							               			</a>
 						               			</c:if>
 					               			</td>
-							               <td class="text11" >&nbsp;<font class="text11MediumBlue">${record.bubnr}</font></td>	
-							               <td class="text11" >&nbsp;${record.buvk}</td>
-							               <td class="text11" >&nbsp;${record.bubl}</td>
-							               <td class="text11" >&nbsp;${record.buval}</td>
-							               <td class="text11" >&nbsp;
+							               <td class="text14" >&nbsp;<font class="text11MediumBlue">${record.bubnr}</font></td>	
+							               <td class="text14" >&nbsp;${record.buvk}</td>
+							               <td class="text14" >&nbsp;${record.bubl}</td>
+							               <td class="text14" >&nbsp;${record.buval}</td>
+							               <td class="text14" >&nbsp;
 							               	 <c:if test="${not empty record.levNavn}">
 							               		<font class="text11MediumBlue">${record.levNavn}</font>&nbsp;[${record.bulnr}]
 							               	</c:if>	
 					               			</td>
-							               <td width="2%" class="text11" >&nbsp;${record.butype}</td>
-							               <td width="2%" class="text11" >&nbsp;${record.bublst}</td>
-							               <td class="text11" >&nbsp;${record.busg}</td>
-							               <td class="text11" >&nbsp;
+							               <td width="2%" class="text14" >&nbsp;${record.butype}</td>
+							               <td width="2%" class="text14" >&nbsp;${record.bublst}</td>
+							               <td class="text14" >&nbsp;${record.busg}</td>
+							               <td class="text14" >&nbsp;
 							               		<c:if test="${not empty record.butunr && record.butunr!='0'}">	
 							               			${record.butunr}
 							               		</c:if>	
 						               		</td>
-							               <td class="text11" >&nbsp;
+							               <td class="text14" >&nbsp;
 							               		<c:if test="${not empty record.buoavd && record.buoavd!='0'}">	
 							               			${record.buoavd}
 							               		</c:if>
 							               	</td>
-							               <td class="text11" >&nbsp;
+							               <td class="text14" >&nbsp;
 							               		<c:if test="${not empty record.buopd && record.buopd!='0'}">
 							               			${record.buopd}
 							               		</c:if>	
 							               	</td>
-							               <td class="text11" >&nbsp;${record.butxt}</td>
-							               <td class="text11" >&nbsp;${record.bubiln}</td>
-							               <td class="text11" >&nbsp;
+							               <td class="text14" >&nbsp;${record.butxt}</td>
+							               <td class="text14" >&nbsp;${record.bubiln}</td>
+							               <td class="text14" >&nbsp;
 							               		<c:if test="${not empty record.bufedt && record.bufedt!='0'}">
 							               			${record.bufedt}
 							               		</c:if>
 						               		</td>
-							               <td class="text11" >&nbsp;
+							               <td class="text14" >&nbsp;
 							               	  <c:if test="${not empty record.traNavn}">	
 							               		<font class="text11MediumBlue">${record.traNavn}</font>&nbsp;[${record.butnr}]
 							               	  </c:if>	
 					               			</td>
-							               <td class="text11" >&nbsp;${record.bupMn}/${record.bupCc}${record.bupAr}</td>
-							               <td class="text11" >&nbsp;todo</td>
+							               <td class="text14" >&nbsp;${record.bupMn}/${record.bupCc}${record.bupAr}</td>
+							               <td class="text14" >&nbsp;todo</td>
 							               <%-- DELETE cell --%>							           
-							               <td class="text11" align="center">
+							               <td class="text14" align="center">
 							               	   <c:if test="${not empty record.bubnr}">
 							                   		<a style="cursor:pointer;" id="avd_${record.buoavd}@opd_${record.buopd}@tur_${record.butunr}@bubnr_${record.bubnr}" onClick="doPermanentlyDeleteInvoiceLine(this);" tabindex=-1 >
 									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
@@ -327,7 +327,7 @@
 					        		</span>
 				 				<img onClick="showPop('updateInfo');" src="resources/images/update.gif" border="0" alt="edit">&nbsp;&nbsp;<font id="editLineNr"></font>
 				 				<span style="position:absolute; left:150px; top:200px; width:800px; height:400px;" id="updateInfo" class="popupWithInputText"  >
-		           		   			<div class="text12" align="left" style="display:block;width:700px;word-break:break-all;">
+		           		   			<div class="text14" align="left" style="display:block;width:700px;word-break:break-all;">
 		           		   				${XactiveUrlRPGUpdate_TvinnSad}<br/><br/>
 		           		   				<button name="updateInformationButtonClose" class="buttonGrayInsideDivPopup" type="button" onClick="hidePop('updateInfo');">Close</button> 
 		           		   			</div>
@@ -342,7 +342,7 @@
 						 		<table  class="tableBorderWithRoundCornersGray" width="100%" border="0" cellspacing="0" cellpadding="0">
 						 			<tr height="5"><td class="text" align="left"></td></tr>
 						 			<tr >
-						 				<td class="text12" align="left"><span title="bubnr">&nbsp;
+						 				<td class="text14" align="left"><span title="bubnr">&nbsp;
 							            	<img onMouseOver="showPop('rekvnr_info');" onMouseOut="hidePop('rekvnr_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 				Rekvnr.</span>
 							 			</td>
@@ -357,22 +357,22 @@
 						           			</font>
 											</span>
 											</div>
-							            <td class="text12" align="left"><span title="bukdm">&nbsp;MVA&nbsp;</span></td>
-						            	<td class="text12" align="left"><span title="buvk">&nbsp;Geb.</span>
+							            <td class="text14" align="left"><span title="bukdm">&nbsp;MVA&nbsp;</span></td>
+						            	<td class="text14" align="left"><span title="buvk">&nbsp;Geb.</span>
 							            	<a tabindex=-1 id="buvkIdLink">
 	 											<img id="imgGebyrCodesSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 							            </td>
 							            
-							            <td class="text12" align="left"><span title="bubl">&nbsp;Beløp</span></td>
-					            		<td class="text12" align="left"><span title="buval">&nbsp;Valuta</span></td>
-					            		<td class="text12" align="left"><span title="bulnr">&nbsp;Leverandør</span>
+							            <td class="text14" align="left"><span title="bubl">&nbsp;Beløp</span></td>
+					            		<td class="text14" align="left"><span title="buval">&nbsp;Valuta</span></td>
+					            		<td class="text14" align="left"><span title="bulnr">&nbsp;Leverandør</span>
 						            		<a tabindex=-1 id="bulnrIdLink">
 	 											<img id="imgSupplierSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 						            	</td>
-						            	<td class="text12" align="left"><span title="levNavn">&nbsp;Lev.navn</span></td>
-						            	<td class="text12" align="left"><span title="butype">&nbsp;
+						            	<td class="text14" align="left"><span title="levNavn">&nbsp;Lev.navn</span></td>
+						            	<td class="text14" align="left"><span title="butype">&nbsp;
 						            		<img onMouseOver="showPop('typekost_info');" onMouseOut="hidePop('typekost_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						            		Type&nbsp;</span>
 						            	</td>
@@ -393,7 +393,7 @@
 						           			</font>
 											</span>
 											</div>
-						            	<td class="text12" align="left"><span title="bublst">&nbsp;
+						            	<td class="text14" align="left"><span title="bublst">&nbsp;
 						            		<img onMouseOver="showPop('bls_info');" onMouseOut="hidePop('bls_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						            		Bls&nbsp;</span>
 						            	</td>
@@ -419,16 +419,16 @@
 						           			</font>
 											</span>
 											</div>
-						            	<td class="text12" align="left"><span title="busg">&nbsp;Sign&nbsp;</span></td>
-						            	<td class="text12" align="left" ><span title="butunr">&nbsp;Turnr</span></td>
-						            	<td class="text12" align="left"><span title="buoavd">&nbsp;&nbsp;&nbsp;Avd</span></td>
-						            	<td class="text12" align="left" ><span title="buopd">&nbsp;Oppd.</span></td>
+						            	<td class="text14" align="left"><span title="busg">&nbsp;Sign&nbsp;</span></td>
+						            	<td class="text14" align="left" ><span title="butunr">&nbsp;Turnr</span></td>
+						            	<td class="text14" align="left"><span title="buoavd">&nbsp;&nbsp;&nbsp;Avd</span></td>
+						            	<td class="text14" align="left" ><span title="buopd">&nbsp;Oppd.</span></td>
 							        </tr>
 							        <tr>
-						        		<td class="text12" align="left">&nbsp;
+						        		<td class="text14" align="left">&nbsp;
 						            		<input readonly type="text" class="inputTextReadOnly" name="bubnr" id="bubnr" size="8" maxlength="8" value="${model.record.bubnr}">
 							            </td>
-							            <td class="text12" align="left" valign="middle">
+							            <td class="text14" align="left" valign="middle">
 						            		<select class="inputTextMediumBlueField" id="bukdm" name="bukdm">
 						            			<option value="">-blank-</option>
 						            			<option value="J" <c:if test="${model.record.bukdm == 'J'}"> selected </c:if> >J</option>
@@ -443,7 +443,7 @@
 												</c:forEach>
 											</select>
 										</td>
-										<td class="text12" align="left">
+										<td class="text14" align="left">
 						            		<input type="text" onKeyPress="return amountKey(event)" class="inputTextMediumBlueMandatoryField" name="bubl" id="bubl" size="8" maxlength="8" value="${model.record.bubl}">
 							            </td>
 										<td align="left" nowrap valign="middle">
@@ -454,11 +454,11 @@
 												</c:forEach> 
 											</select>
 										</td>
-						        		<td class="text12" align="left" ><input type="text" class="inputText" name="bulnr" id="bulnr" size="9" maxlength="8" value="${model.record.bulnr}"></td>
-							            <td class="text12" align="left">&nbsp;
+						        		<td class="text14" align="left" ><input type="text" class="inputText" name="bulnr" id="bulnr" size="9" maxlength="8" value="${model.record.bulnr}"></td>
+							            <td class="text14" align="left">&nbsp;
 						            		<input readonly tabindex=-1 class="inputTextReadOnly" name="levNavn" id="levNavn" size="20" maxlength="35" value="${model.record.levNavn}">
 							            </td>
-							            <td class="text12" align="left" >
+							            <td class="text14" align="left" >
 							            	<select class="inputTextMediumBlueMandatoryField" name="butype" id="butype">
 						 						<option value="">-select-</option>
 						 						<c:choose>
@@ -475,7 +475,7 @@
 				           						</c:choose>						 						
 					           				</select>
 						            	</td>
-							            <td class="text12" align="left" >
+							            <td class="text14" align="left" >
 							            	<select class="inputTextMediumBlueMandatoryField" name="bublst" id="bublst">
 						 						<option value="">-select-</option>
 						 						<c:choose>
@@ -513,12 +513,12 @@
 				           						</c:choose>
 					           				</select>
 						            	</td>
-							            <td class="text12" align="left" ><input type="text" class="inputText" name="busg" id="busg" size="3" maxlength="3" value="${user.signatur}"></td>
+							            <td class="text14" align="left" ><input type="text" class="inputText" name="busg" id="busg" size="3" maxlength="3" value="${user.signatur}"></td>
 							            
-						        		<td class="text12" align="left" >
+						        		<td class="text14" align="left" >
 						        			<input type="text" class="inputText" name="butunr" id="butunr" size="8" maxlength="10" value="${model.container.tur}">
 						        		</td>
-						        		<td class="text12">&nbsp;
+						        		<td class="text14">&nbsp;
 						        			<c:choose>
 												<c:when test="${not empty model.record.buoavd}">
 							        				<input type="text" class="inputText" name="buoavd" id="buoavd" size="5" maxlength="4" value="${model.record.buoavd}">
@@ -535,7 +535,7 @@
 							        			</c:otherwise>
 						        			</c:choose>
 						        		</td>
-						        		<td class="text12" align="left" >
+						        		<td class="text14" align="left" >
 						        			<c:choose>
 												<c:when test="${not empty model.record.buopd}">
 							        				<input type="text" class="inputText" name="buopd" id="buopd" size="8" maxlength="7" value="${model.record.buopd}">
@@ -557,25 +557,25 @@
 							        <tr height="12"><td class="text" align="left" colspan="20"><hr></td></tr>
 							        <tr height="3"><td class="text" align="left"></td></tr>
 							        <tr>
-							 			<td colspan="2" class="text12" align="left" >&nbsp;&nbsp;<span title="butxt">Fritekst</span></td>
-							            <td class="text12" align="left" >&nbsp;<span title="bubiln">Bilnr.</td>
-							            <td class="text12" align="left" >&nbsp;<span title="bufedt">Dato</td>
-							            <td class="text12" align="left" >&nbsp;<span title="todoKo">Ko</td>
-							            <td class="text12" align="left" >&nbsp;<span title="butnr">Transp.
+							 			<td colspan="2" class="text14" align="left" >&nbsp;&nbsp;<span title="butxt">Fritekst</span></td>
+							            <td class="text14" align="left" >&nbsp;<span title="bubiln">Bilnr.</td>
+							            <td class="text14" align="left" >&nbsp;<span title="bufedt">Dato</td>
+							            <td class="text14" align="left" >&nbsp;<span title="todoKo">Ko</td>
+							            <td class="text14" align="left" >&nbsp;<span title="butnr">Transp.
 							            	<a tabindex=-1 id="butnrIdLink">
 		 										<img id="imgTruckersNrSearch" style="cursor:pointer;vertical-align: middle;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
 		 									</a>
 							            </td>
-							            <td class="text12" align="left"><span title="traNavn">&nbsp;Transp.navn</span></td>
-							            <td class="text12" align="left" >&nbsp;<span title="bupMn">Periode</td>
-							            <td class="text12" align="left" >&nbsp;<span title="bupAr">År</td>
-					            		<td class="text12" align="left" >&nbsp;<span title="bubilk">Bilkode</td>	
+							            <td class="text14" align="left"><span title="traNavn">&nbsp;Transp.navn</span></td>
+							            <td class="text14" align="left" >&nbsp;<span title="bupMn">Periode</td>
+							            <td class="text14" align="left" >&nbsp;<span title="bupAr">År</td>
+					            		<td class="text14" align="left" >&nbsp;<span title="bubilk">Bilkode</td>	
 							        </tr>
 							        <tr>
-							        	<td colspan="2" class="text12">&nbsp;	
+							        	<td colspan="2" class="text14">&nbsp;	
 						        			<input type="text" class="inputText" name="butxt" id="butxt" size="35" maxlength="35" value="${model.record.butxt}">
 										</td>
-										<td class="text12">
+										<td class="text14">
 											<c:choose>
 											<c:when test="${not empty model.record.bubiln}">	
 						        				<input type="text" class="inputText" name="bubiln" id="bubiln" size="10" maxlength="8" value="${model.record.bubiln}">
@@ -585,7 +585,7 @@
 						        			</c:otherwise>
 						        			</c:choose>
 										</td>
-										<td class="text12">	
+										<td class="text14">	
 											<c:choose>
 											<c:when test="${not empty model.record.bufedt}">
 						        				<input type="text" class="inputText" name="bufedt" id="bufedt" size="9" maxlength="8" value="${model.record.bufedt}">
@@ -595,13 +595,13 @@
 						        			</c:otherwise>
 						        			</c:choose>
 										</td>
-										<td class="text12">	
+										<td class="text14">	
 						        			<select class="inputTextMediumBlueField" name="todoKo" id="todoKo">
 						 						<option value="">-select-</option>
 							            		<option value="B" <c:if test="${Xmodel.record.todo == 'B'}"> selected </c:if> >?</option>
 					           				</select>
 										</td>
-										<td class="text12">	
+										<td class="text14">	
 											<c:choose>
 											<c:when test="${not empty model.record.butnr}">
 						        				<input onKeyPress="return numberKey(event)" type="text" class="inputText" name="butnr" id="butnr" size="9" maxlength="8" value="${model.record.butnr}">
@@ -611,10 +611,10 @@
 						        			</c:otherwise>
 						        			</c:choose>
 										</td>
-										<td class="text12" align="left">&nbsp;
+										<td class="text14" align="left">&nbsp;
 						            		<input tabindex=-1 readonly class="inputTextReadOnly" name="traNavn" id="traNavn" size="20" maxlength="35" value="${model.record.traNavn}">
 							            </td>
-										<td class="text12">	
+										<td class="text14">	
 											<c:choose>
 											<c:when test="${not empty model.record.bupMn}">
 						        				<input onKeyPress="return numberKey(event)" type="text" class="inputText" name="bupMn" id="bupMn" size="2" maxlength="2" value="${model.record.bupMn}">
@@ -624,7 +624,7 @@
 						        			</c:otherwise>
 						        			</c:choose>
 										</td>
-										<td class="text12">	
+										<td class="text14">	
 											<c:choose>
 											<c:when test="${not empty model.record.bupAr}">
 						        				<input onKeyPress="return numberKey(event)" type="text" class="inputText" name="bupAr" id="bupAr" size="4" maxlength="4" value="${model.record.bupCc}${model.record.bupAr}">
@@ -634,7 +634,7 @@
 						        			</c:otherwise>
 						        			</c:choose>
 										</td>
-										<td class="text12">&nbsp;
+										<td class="text14">&nbsp;
 											<c:choose>
 											<c:when test="${not empty model.record.bubilk}">	
 						        				<input onKeyPress="return numberKey(event)" type="text" class="inputText" name="bubilk" id="bubilk" size="3" maxlength="3" value="${model.record.bubilk}">

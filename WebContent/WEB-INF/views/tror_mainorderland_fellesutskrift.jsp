@@ -19,11 +19,11 @@
 	
 
 
-<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 	<tr>
 	<td>
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 		<tr height="2"><td></td></tr>
 		<tr height="25"> 
 			<td width="15%" valign="bottom" class="tabDisabled" align="center" nowrap>
@@ -127,28 +127,28 @@
 			<input type="hidden" name="action" id="action" value='${model.action}'>
 			
  	   	 	<tr>
-				<td align="center" width="99%">
-					<table width="99%" cellspacing="0" border="0">
+				<td align="center" width="100%">
+					<table width="100%" cellspacing="0" border="0">
  	   	 				<tr height="15px"><td ></td></tr>
  	   	 				<tr>
 							<td  >
 							<table width="50%" border="0">
 								<tr>
-									<td class="text12" title="wsavd">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.avd"/></td>
-									<td class="text12" title="wssg">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.sign"/></td>
-									<td class="text12" title="wspro">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.turnr"/></td>
-									<td class="text12" title="wsopd">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.oppdragnr"/></td>
-									<td class="text12" title="wsgn">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.godsnr"/></td>
-									<td class="text12" title="wsdt1">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.godsnr"/> fra dato</td>
+									<td class="text14" title="wsavd">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.avd"/></td>
+									<td class="text14" title="wssg">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.sign"/></td>
+									<td class="text14" title="wspro">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.turnr"/></td>
+									<td class="text14" title="wsopd">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.oppdragnr"/></td>
+									<td class="text14" title="wsgn">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.godsnr"/></td>
+									<td class="text14" title="wsdt1">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.godsnr"/> fra dato</td>
 									
 								</tr>
 								<tr>
-									<td class="text12" ><input type="text" class="inputTextMediumBlue"  name="wsavd" id="wsavd" size="5" maxlength="4" value='${model.record.wsavd}'></td>
-									<td class="text12" ><input type="text" class="inputTextMediumBlue"  name="wssg" id="wssg" size="5" maxlength="3" value='${model.record.wssg}'></td>
-									<td class="text12" ><input type="text" class="inputTextMediumBlue"  name="wspro" id="wspro" size="10" maxlength="8" value='${model.record.wspro}'></td>
-									<td class="text12" ><input type="text" class="inputTextMediumBlue"  name="wsopd" id="wsopd" size="10" maxlength="7" value='${model.record.wsopd}'></td>
-									<td class="text12" ><input type="text" class="inputTextMediumBlue"  name="wsgn" id="wsgn" size="17" maxlength="15" value='${model.record.wsgn}'></td>
-									<td class="text12" ><input type="text" class="inputTextMediumBlue"  name="wsdt1" id="wsdt1" size="10" maxlength="8" value='${model.record.wsdt1}'></td>
+									<td class="text14" ><input type="text" class="inputTextMediumBlue"  name="wsavd" id="wsavd" size="5" maxlength="4" value='${model.record.wsavd}'></td>
+									<td class="text14" ><input type="text" class="inputTextMediumBlue"  name="wssg" id="wssg" size="5" maxlength="3" value='${model.record.wssg}'></td>
+									<td class="text14" ><input type="text" class="inputTextMediumBlue"  name="wspro" id="wspro" size="10" maxlength="8" value='${model.record.wspro}'></td>
+									<td class="text14" ><input type="text" class="inputTextMediumBlue"  name="wsopd" id="wsopd" size="10" maxlength="7" value='${model.record.wsopd}'></td>
+									<td class="text14" ><input type="text" class="inputTextMediumBlue"  name="wsgn" id="wsgn" size="17" maxlength="15" value='${model.record.wsgn}'></td>
+									<td class="text14" ><input type="text" class="inputTextMediumBlue"  name="wsdt1" id="wsdt1" size="10" maxlength="8" value='${model.record.wsdt1}'></td>
 								</tr>	
 							</table>
 							</td>
@@ -170,16 +170,16 @@
 							 		<td>
 								 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									 		<tr>
-									 			<td class="text12" align="left" title="of/wsdt2">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.oppdformular"/>&nbsp;og fra dato</td>
-									            <td class="text12" align="left" title="vf">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.styckkfraktbrev"/></td>
-									            <td class="text12" align="left" title="tpfb">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.tpassfraktbrev"/></td>
-									            <td class="text12" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.fsad"/></td>
-									            <td class="text12" align="left" title="iffb">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.inlandflyfraktbrev"/></td>
-									            <td class="text12" align="left" title="loss">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.losselista"/></td>
-									            <td class="text12" align="left" title="ffak">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.ffaktura"/></td>
-									       		<td class="text12" align="left" title="cm">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.cmr"/></td>
-									       		<td class="text12" align="left" title="sakode/satype">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.sArk"/></td>
-									       		<td class="text12" align="left" title="wssum">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.belopLabels"/></td>
+									 			<td class="text14" align="left" title="of/wsdt2">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.oppdformular"/>&nbsp;og fra dato</td>
+									            <td class="text14" align="left" title="vf">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.styckkfraktbrev"/></td>
+									            <td class="text14" align="left" title="tpfb">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.tpassfraktbrev"/></td>
+									            <td class="text14" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.fsad"/></td>
+									            <td class="text14" align="left" title="iffb">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.inlandflyfraktbrev"/></td>
+									            <td class="text14" align="left" title="loss">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.losselista"/></td>
+									            <td class="text14" align="left" title="ffak">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.ffaktura"/></td>
+									       		<td class="text14" align="left" title="cm">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.cmr"/></td>
+									       		<td class="text14" align="left" title="sakode/satype">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.sArk"/></td>
+									       		<td class="text14" align="left" title="wssum">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.belopLabels"/></td>
 									       		
 									        </tr>
 									        <tr>
@@ -258,7 +258,7 @@
 									 			<td valign="top" colspan="3">
 									 				<table >
 									 					<tr>
-									 						<td colspan="3" class="text12" align="left" title="wsms1-6">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.faktoppdtyper"/></td>
+									 						<td colspan="3" class="text14" align="left" title="wsms1-6">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.faktoppdtyper"/></td>
 									 					</tr>
 									 					<tr>
 												        	<td align="left">
@@ -275,7 +275,7 @@
 									 			<td valign="top" colspan="3">
 									 				<table >
 									 					<tr>
-									 						<td colspan="3" class="text12" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.utelatoppdtyper"/></td>
+									 						<td colspan="3" class="text14" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.utelatoppdtyper"/></td>
 									 					</tr>
 									 					<tr>
 												        	<td align="left">
@@ -293,9 +293,9 @@
 									 			<td valign="top" colspan="3">
 									 				<table class="tableBorderWithRoundCornersLightGray"	>
 									 					<tr>
-									 						<td class="text12MediumBlue" align="left" title="jbk">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.jobbko"/></td>
-									            			<td class="text12MediumBlue" align="left" title="wsprt">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.avskriver"/></td>
-									            			<td class="text12MediumBlue" align="left" title="wsprt2">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.avskriver.mlapp"/></td>
+									 						<td class="text14MediumBlue" align="left" title="jbk">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.jobbko"/></td>
+									            			<td class="text14MediumBlue" align="left" title="wsprt">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.avskriver"/></td>
+									            			<td class="text14MediumBlue" align="left" title="wsprt2">&nbsp;<spring:message code="systema.tror.more.fellesutskrift.label.avskriver.mlapp"/></td>
 									            		</tr>
 									            		<tr>
 									            			<td align="left">
@@ -348,11 +348,11 @@
 				 	<input type="hidden" name="actionGS" id="actionGS" value='doUpdate'/>
 					<input type="hidden" name="applicationUser" id="applicationUser" value='${user.user}'>
 					
-					<p class="text12" >&nbsp;<spring:message code="systema.tror.order.suborder.title.types"/></p>
+					<p class="text14" >&nbsp;<spring:message code="systema.tror.order.suborder.title.types"/></p>
 					 				
 					<table>
 						<tr>
-							<td class="text12MediumBlue">Type&nbsp;
+							<td class="text14MediumBlue">Type&nbsp;
 								<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlue11MandatoryField" name="selectedType" id="selectedType">
 									<option value="A"><spring:message code="systema.tror.order.suborder.landimport"/></option>
 									<option value="B"><spring:message code="systema.tror.order.suborder.landexport"/></option>
@@ -363,7 +363,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="text12MediumBlue">Avd&nbsp;&nbsp;
+							<td class="text14MediumBlue">Avd&nbsp;&nbsp;
 								<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="heavd" id="heavd" >
 			 						<c:forEach var="record" items="${model.avdList}" >
 				 				  		<option value="${record.koakon}"<c:if test="${model.avd == record.koakon}"> selected </c:if> >${record.koakon}</option>

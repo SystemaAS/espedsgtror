@@ -32,10 +32,10 @@
 						<form name="trorPostalCodeForm" id="trorPostalCodeForm" action="tror_mainorder_childwindow_postalcodes_ponrn.do?action=doFind" method="post">
 						<input type="hidden" name="ctype" id="ctype" value="${model.ctype}">
 						<tr>
-							<td class="text12">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></td>
-							<td class="text12">&nbsp;<input type="text" class="inputText" name="ponnr" id="ponnr" size="10" maxlength="10" value="${model.record.ponnr}"></td>
+							<td class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></td>
+							<td class="text14">&nbsp;<input type="text" class="inputText" name="ponnr" id="ponnr" size="10" maxlength="10" value="${model.record.ponnr}"></td>
 							
-							<td class="text11">&nbsp;</td>
+							<td class="text12">&nbsp;</td>
 	           				<td align="right">&nbsp;<input class="inputFormSubmit" type="submit" name="submit" value='<spring:message code="search.label"/>'></td>
 		           		</tr>
 		           		</form>
@@ -43,40 +43,40 @@
 					</td>
 					</tr>								           		
 	           		<tr height="10"><td></td></tr>
-					<tr class="text12" >
+					<tr class="text14" >
 					<td class="ownScrollableSubWindowDynamicWidthHeight" width="100%" style="height:50em;">
 					<%-- this is the datatables grid (content)--%>
 					<table id="postalCodePonrnList" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.name"/></th>
-		                    <th class="text11">&nbsp;Beskr.</th>
-		                    <th class="text11">&nbsp;Type kort</th>
-		                    <th class="text11">&nbsp;Type</th>
-		                    <th width="5%" align="center" class="text11">&nbsp;Kommunenr.</th>
-		                    <th class="text11">&nbsp;Kommunenavn</th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.name"/></th>
+		                    <th class="text14">&nbsp;Beskr.</th>
+		                    <th class="text14">&nbsp;Type kort</th>
+		                    <th class="text14">&nbsp;Type</th>
+		                    <th width="5%" align="center" class="text14">&nbsp;Kommunenr.</th>
+		                    <th class="text14">&nbsp;Kommunenavn</th>
 		                    
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.postalCodePonrnList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14">
 			               <%-- 
 			               <td class="text11MediumBlue" style="cursor:pointer;" id="vadrnr_${record.vadrnr}@navn_${record.vadrna}@adr1_${record.vadrn1}@adr2_${record.vadrn2}@postnrsted_${record.vadrn3}@counter_${counter.count}img">
 			               	 <img style="vertical-align:middle;" src="resources/images/bebullet.gif" border="0" >
 			               </td>
 			               --%>
-			               <td width="5%" align="center" class="text11MediumBlue" style="cursor:pointer;" id="id_${record.ponnr}@name_${record.ponnav}@counter_${counter.count}">
+			               <td width="5%" align="center" class="text14MediumBlue" style="cursor:pointer;" id="id_${record.ponnr}@name_${record.ponnav}@counter_${counter.count}">
 			               	 	${record.ponnr}
 			               </td>
-			               <td class="text11" >&nbsp;${record.ponnav}</td> 
-			               <td class="text11" >&nbsp;${record.ponbes}</td>
-			               <td class="text11" >&nbsp;${record.pontyk}</td>
-			               <td class="text11" >&nbsp;${record.pontyp}</td>
-			               <td width="5%" align="center" class="text11" >&nbsp;${record.ponknr}</td>
-			               <td class="text11" >&nbsp;${record.ponkna}</td>
+			               <td class="text14" >&nbsp;${record.ponnav}</td> 
+			               <td class="text14" >&nbsp;${record.ponbes}</td>
+			               <td class="text14" >&nbsp;${record.pontyk}</td>
+			               <td class="text14" >&nbsp;${record.pontyp}</td>
+			               <td width="5%" align="center" class="text14" >&nbsp;${record.ponknr}</td>
+			               <td class="text14" >&nbsp;${record.ponkna}</td>
 			               
 			            </tr> 
 			            </c:forEach>

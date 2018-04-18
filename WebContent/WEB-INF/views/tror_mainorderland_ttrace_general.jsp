@@ -182,7 +182,7 @@
 									<td class="text11" >
 										<table id="tblMain" class="display compact cell-border">
 											<thead>
-											<tr style="background-color:#DDDDDD">
+											<tr class="tableHeaderField" height="20">
 												<th align="center" width="2%" class="text12">&nbsp;Endre&nbsp;</th>
 							        			<th align="center" width="2%" class="text12">&nbsp;<spring:message code="systema.tror.orders.tt.logging.list.label.avd"/>&nbsp;</th>
 							        			<th align="center" width="2%" class="text12">&nbsp;<spring:message code="systema.tror.orders.tt.logging.list.label.opd"/>&nbsp;</th>

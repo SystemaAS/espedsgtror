@@ -33,29 +33,29 @@
 	           		<tr height="15"><td></td></tr>
 					--%>
 					 
-					<tr class="text12" >
+					<tr class="text14" >
 					<td class="ownScrollableSubWindowDynamicWidthHeight" width="90%" style="height:30em;">
 					<%-- this is the datatables grid (content)--%>
 					<table id="uomList" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="2%" align="center" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.unitcodes.label.kode"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.unitcodes.label.name"/></th>
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.unitcodes.label.name.english"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="2%" align="center" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.unitcodes.label.kode"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.unitcodes.label.name"/></th>
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.unitcodes.label.name.english"/></th>
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.enhetList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               <%-- 
 			               <td class="text11MediumBlue" style="cursor:pointer;" id="vadrnr_${record.vadrnr}@navn_${record.vadrna}@adr1_${record.vadrn1}@adr2_${record.vadrn2}@postnrsted_${record.vadrn3}@counter_${counter.count}img">
 			               	 <img style="vertical-align:middle;" src="resources/images/bebullet.gif" border="0" >
 			               </td>
 			               --%>
-			               <td class="text11MediumBlue" style="cursor:pointer;" id="id_${record.tkkode}@name_${record.tktxtn}@counter_${counter.count}">${record.tkkode}</td>
-			               <td class="text11" >&nbsp;${record.tktxtn}</td>
-			               <td class="text11" >&nbsp;${record.tktxte}</td>
+			               <td class="text14MediumBlue" style="cursor:pointer;" id="id_${record.tkkode}@name_${record.tktxtn}@counter_${counter.count}">${record.tkkode}</td>
+			               <td class="text14" >&nbsp;${record.tktxtn}</td>
+			               <td class="text14" >&nbsp;${record.tktxte}</td>
 			            </tr> 
 			            </c:forEach>
 			            </tbody>

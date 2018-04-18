@@ -33,11 +33,11 @@
 	
 	</style>
 	
-<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 	<tr>
 	<td>	
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 		<%-- This part right here allows for the dynamic allocation of a JSP depending on whether it is IMPORT or EXPORT --%>
 		<c:choose>
 			<c:when test="${recordOrderTrorLand.heur == 'A'}">
@@ -145,27 +145,27 @@
        			<tr height="10"><td></td></tr> 
 				
 				<tr>
-					<td class="text11" >
+					<td class="text14" >
 					<%-- this table wrapper is needed for the datatables width --%>
 					<table width="80%" cellspacing="0" border="0">
 						<tr>
-							<td class="text11" >
+							<td class="text14" >
 								<table id="tblMain" class="display compact cell-border" >
 									<thead>
-									<tr style="background-color:#DDDDDD">
-										<th align="center" width="2%" class="text12" >&nbsp;<span title="todo">Endre&nbsp;</span></th>
-										<th align="center" width="4%" class="text12" >&nbsp;<span title="fskode">Kode&nbsp;</span></th>
-										<th class="text12" >&nbsp;<span title="fssok">Søketekst&nbsp;</span></th>  
-										<th width="4%" class="text12" >&nbsp;<span title="krav">Krav&nbsp;</span></th>
-					                    <th class="text12" >&nbsp;<span title="fsdokk">Dok.kode&nbsp;</span></th>
-					        			<th align="center" width="2%" class="text12" >&nbsp;Slett&nbsp;</th>
+									<tr class="tableHeaderField" height="20">
+										<th align="center" width="2%" class="text14" >&nbsp;<span title="todo">Endre&nbsp;</span></th>
+										<th align="center" width="4%" class="text14" >&nbsp;<span title="fskode">Kode&nbsp;</span></th>
+										<th class="text14" >&nbsp;<span title="fssok">Søketekst&nbsp;</span></th>  
+										<th width="4%" class="text14" >&nbsp;<span title="krav">Krav&nbsp;</span></th>
+					                    <th class="text14" >&nbsp;<span title="fsdokk">Dok.kode&nbsp;</span></th>
+					        			<th align="center" width="2%" class="text14" >&nbsp;Slett&nbsp;</th>
 					               </tr> 
 					               </thead>
 					               <tbody>
 				 					  <c:forEach items="${model.list}" var="record" varStatus="counter">    
 							               <tr class="tableRow" height="20" >
 							                
-							               <td align="center" width="2%" class="text11" >
+							               <td align="center" width="2%" class="text14" >
 							     				<a id="recordUpdate_${record.fskode}_${record.fssok}" href="#" onClick="getItemData(this);">
 							     					<c:choose>
 								     					<c:when test="${not empty record.fskode && not empty record.fssok}">
@@ -177,12 +177,12 @@
 					               					</c:choose>
 					               				</a>
 						               	   </td>
-						               	   <td align="center" width="4%" class="text11" align="center">&nbsp;${record.fskode}</td>
-							               <td class="text11" >&nbsp;${record.fssok}</td>
-							               <td width="4%" class="text11" >&nbsp;${record.krav}</td>
-							               <td class="text11" >&nbsp;${record.fsdokk}</td>
+						               	   <td align="center" width="4%" class="text14" align="center">&nbsp;${record.fskode}</td>
+							               <td class="text14" >&nbsp;${record.fssok}</td>
+							               <td width="4%" class="text14" >&nbsp;${record.krav}</td>
+							               <td class="text14" >&nbsp;${record.fsdokk}</td>
 							               <%-- DELETE cell --%>							           
-							               <td width="2%" class="text11" align="center">
+							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.fskode && not empty record.fssok}">
 							                   		<a style="cursor:pointer;" id="avd_${record.fsavd}@opd_${record.fsopd}@kode_${record.fskode}@sok_${record.fssok}" onClick="doDeleteItemLine(this);" tabindex=-1 >
 									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
@@ -251,11 +251,11 @@
 			   	<%-- DETAIL Section - Create Item line PRIMARY SECTION --%>
 			   	<%-- ------------------------------------------------- --%>
 			  	<tr>
-					<td class="text12" align="left" >
+					<td class="text14" align="left" >
 						<input tabindex=-1  class="inputFormSubmitStd" type="button" name="newRecordButton" id="newRecordButton" value='Lage ny'>
 					</td>
 				</tr>
-				<tr height="5"><td class="text12" align="left" ></td></tr>
+				<tr height="5"><td class="text14" align="left" ></td></tr>
 			         	<tr>
 						<td >
 							<form action="tror_mainorderland_frisokvei_edit.do" name="trorUpdateItemForm" id="trorUpdateItemForm" method="post">
@@ -287,13 +287,13 @@
 							 			<tr height="5"><td class="text" align="left"></td></tr>
 							 			<tr >
 							 				
-							            	<td class="text12" align="left">&nbsp;<font class="text14RedBold" >*</font><span title="fskode">&nbsp;Kode</span>
+							            	<td class="text14" align="left">&nbsp;<font class="text14RedBold" >*</font><span title="fskode">&nbsp;Kode</span>
 								            	<a tabindex=-1 id="fskodeIdLink">
 														<img id="imgFrisokveiCodesSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 													</a>
 								            </td>
-								            <td class="text12" align="left">&nbsp;<font class="text14RedBold" >*</font><span title="fssok">&nbsp;Søketekst</span></td>
-						            		<td class="text12" align="left">&nbsp;<span title="fsdokk">&nbsp;Dok.kode</span>
+								            <td class="text14" align="left">&nbsp;<font class="text14RedBold" >*</font><span title="fssok">&nbsp;Søketekst</span></td>
+						            		<td class="text14" align="left">&nbsp;<span title="fsdokk">&nbsp;Dok.kode</span>
 						            			<a tabindex=-1 id="fsdokkIdLink">
 														<img id="imgFrisokveiDocCodesSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 													</a>
@@ -301,11 +301,11 @@
 						            		
 								        </tr>
 								        <tr>
-							        		<td class="text12" align="left" >&nbsp;<input type="text" class="inputTextMediumBlueMandatoryField" name="fskode" id="fskode" size="4" maxlength="3" value="${model.record.fskode}"></td>
-								            <td class="text12" align="left" >
+							        		<td class="text14" align="left" >&nbsp;<input type="text" class="inputTextMediumBlueMandatoryField" name="fskode" id="fskode" size="4" maxlength="3" value="${model.record.fskode}"></td>
+								            <td class="text14" align="left" >
 							        			&nbsp;<input type="text" class="inputTextMediumBlueMandatoryField" name="fssok" id="fssok" size="36" maxlength="35" value="${model.record.fssok}">
 							        		</td>
-							        		<td class="text12" align="left" >&nbsp;<input type="text" class="inputTextMediumBlue" name="fsdokk" id="fsdokk" size="11" maxlength="10" value="${model.record.fsdokk}"></td>
+							        		<td class="text14" align="left" >&nbsp;<input type="text" class="inputTextMediumBlue" name="fsdokk" id="fsdokk" size="11" maxlength="10" value="${model.record.fsdokk}"></td>
 								            
 								        </tr>
 								        

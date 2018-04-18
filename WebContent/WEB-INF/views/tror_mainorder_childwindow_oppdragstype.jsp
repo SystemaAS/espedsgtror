@@ -31,32 +31,32 @@
 				<table id="containerdatatableTable" cellspacing="2" align="left" width="100%">
 				
 					
-					<tr class="text12" >
+					<tr class="text14" >
 					<td class="ownScrollableSubWindowDynamicWidthHeight" width="90%" style="height:30em;">
 					<%-- this is the datatables grid (content)--%>
 					<table id="oppdragstypeList" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.oppdragstype.label.kode"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.oppdragstype.label.name"/></th>
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.oppdragstype.label.name.english"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.oppdragstype.label.kode"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.oppdragstype.label.name"/></th>
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.oppdragstype.label.name.english"/></th>
 
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.oppdragstypeList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               <%-- 
 			               <td class="text11MediumBlue" style="cursor:pointer;" id="vadrnr_${record.vadrnr}@navn_${record.vadrna}@adr1_${record.vadrn1}@adr2_${record.vadrn2}@postnrsted_${record.vadrn3}@counter_${counter.count}img">
 			               	 <img style="vertical-align:middle;" src="resources/images/bebullet.gif" border="0" >
 			               </td>
 			               --%>
-			               <td width="2%" class="text11MediumBlue" style="cursor:pointer;" id="id_${record.ko1kod}@name_${record.ko1ntx}@name2_${record.ko1etx}@counter_${counter.count}">
+			               <td width="2%" class="text14MediumBlue" style="cursor:pointer;" id="id_${record.ko1kod}@name_${record.ko1ntx}@name2_${record.ko1etx}@counter_${counter.count}">
 			               	 	${record.ko1kod}
 			               </td>
-			               <td class="text11" >&nbsp;${record.ko1ntx}</td>
-			               <td class="text11" >&nbsp;${record.ko1etx}</td> 
+			               <td class="text14" >&nbsp;${record.ko1ntx}</td>
+			               <td class="text14" >&nbsp;${record.ko1etx}</td> 
 			                      
 			            </tr> 
 			            </c:forEach>

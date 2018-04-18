@@ -38,32 +38,32 @@
 					<%-- this is the datatables grid (content)--%>
 					<table id="list" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;Kollinr</th>   
-		                    <th class="text11">&nbsp;Merke/KolliID</th>
-		                    <th class="text11">&nbsp;Inn</th>
-		                    <th class="text11">&nbsp;Ut</th>
-		                    <th class="text11">&nbsp;Levert</th>
-		                    <th align="right" class="text11">&nbsp;Vekt</th>
-		                    <th align="right" class="text11">&nbsp;Lengde</th>
-		                    <th class="text11">&nbsp;Beskrivelse</th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;Kollinr</th>   
+		                    <th class="text14">&nbsp;Merke/KolliID</th>
+		                    <th class="text14">&nbsp;Inn</th>
+		                    <th class="text14">&nbsp;Ut</th>
+		                    <th class="text14">&nbsp;Levert</th>
+		                    <th align="right" class="text14">&nbsp;Vekt</th>
+		                    <th align="right" class="text14">&nbsp;Lengde</th>
+		                    <th class="text14">&nbsp;Beskrivelse</th>
 		                   
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.list}" varStatus="counter">    
-			               <tr class="text11" >
-			               <td width="2%" class="text11MediumBlue" style="cursor:pointer;" id="avd_${record.fmavd}@opd_${record.fmopd}@fbnr_${record.fmfbnr}@mknr_${record.fmmknr}@counter_${counter.count}">
+			               <tr class="text14" >
+			               <td width="2%" class="text14MediumBlue" style="cursor:pointer;" id="avd_${record.fmavd}@opd_${record.fmopd}@fbnr_${record.fmfbnr}@mknr_${record.fmmknr}@counter_${counter.count}">
 			               	 	${record.fmmknr}
 			               </td>
-			               <td class="text11" >&nbsp;${record.fmmrk1}</td>
-			               <td class="text11" >&nbsp;${record.fmiter}</td> 
-			               <td class="text11" >&nbsp;${record.fmuter}</td>
-			               <td class="text11" >&nbsp;${record.fmleve}</td> 
-			               <td align="right" class="text11" >&nbsp;${record.fmvkt}</td>
-			               <td align="right" class="text11" >&nbsp;${record.fmlen}</td> 
-			               <td class="text11" >&nbsp;</td>
+			               <td class="text14" >&nbsp;${record.fmmrk1}</td>
+			               <td class="text14" >&nbsp;${record.fmiter}</td> 
+			               <td class="text14" >&nbsp;${record.fmuter}</td>
+			               <td class="text14" >&nbsp;${record.fmleve}</td> 
+			               <td align="right" class="text14" >&nbsp;${record.fmvkt}</td>
+			               <td align="right" class="text14" >&nbsp;${record.fmlen}</td> 
+			               <td class="text14" >&nbsp;</td>
 			                      
 			            </tr> 
 			            </c:forEach>

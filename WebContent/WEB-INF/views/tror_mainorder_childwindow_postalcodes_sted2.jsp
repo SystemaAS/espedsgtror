@@ -32,13 +32,13 @@
 						<form name="trorPostalCodeForm" id="trorPostalCodeForm" action="tror_mainorder_childwindow_postalcodes_sted2.do?action=doFind" method="post">
 						<input type="hidden" name="ctype" id="ctype" value="${model.ctype}">
 						<tr>
-							<td class="text12">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></td>
-							<td class="text12">&nbsp;<input type="text" class="inputText" name="st2kod" id="st2kod" size="10" maxlength="10" value="${model.record.st2kod}"></td>
-							<td class="text11">&nbsp;</td>
-							<td class="text12">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.countryCode"/></td>
-							<td class="text12">&nbsp;<input type="text" class="inputText" name="st2lk" id="st2lk" size="4" maxlength="2" value="${model.record.st2lk}"></td>
+							<td class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></td>
+							<td class="text14">&nbsp;<input type="text" class="inputText" name="st2kod" id="st2kod" size="10" maxlength="10" value="${model.record.st2kod}"></td>
+							<td class="text14">&nbsp;</td>
+							<td class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.countryCode"/></td>
+							<td class="text14">&nbsp;<input type="text" class="inputText" name="st2lk" id="st2lk" size="4" maxlength="2" value="${model.record.st2lk}"></td>
 							
-							<td class="text11">&nbsp;</td>
+							<td class="text14">&nbsp;</td>
 	           				<td align="right">&nbsp;<input class="inputFormSubmit" type="submit" name="submit" value='<spring:message code="search.label"/>'></td>
 		           		</tr>
 		           		</form>
@@ -46,35 +46,35 @@
 					</td>
 					</tr>								           		
 	           		<tr height="10"><td></td></tr>
-					<tr class="text12" >
+					<tr class="text14" >
 					<td class="ownScrollableSubWindowDynamicWidthHeight" width="100%" style="height:50em;">
 					<%-- this is the datatables grid (content)--%>
 					<table id="postalCodeList" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.name"/></th>
-		                    <th width="2%" align="center" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.countryCode"/></th>
-		                    <th width="2%" align="center" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.stkode"/></th>
-		                    <th width="2%" align="center" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.norsksonefly"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.postnr"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.name"/></th>
+		                    <th width="2%" align="center" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.countryCode"/></th>
+		                    <th width="2%" align="center" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.stkode"/></th>
+		                    <th width="2%" align="center" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.postalcodes.label.norsksonefly"/></th>
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.postalCodeList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               <%-- 
 			               <td class="text11MediumBlue" style="cursor:pointer;" id="vadrnr_${record.vadrnr}@navn_${record.vadrna}@adr1_${record.vadrn1}@adr2_${record.vadrn2}@postnrsted_${record.vadrn3}@counter_${counter.count}img">
 			               	 <img style="vertical-align:middle;" src="resources/images/bebullet.gif" border="0" >
 			               </td>
 			               --%>
-			               <td class="text11MediumBlue" style="cursor:pointer;" id="postalcode_${record.st2kod}@country_${record.st2lk}@city_${record.st2nvn}@st2ko2_${record.st2ko2}@st2son_${record.st2son}@counter_${counter.count}">
+			               <td class="text14MediumBlue" style="cursor:pointer;" id="postalcode_${record.st2kod}@country_${record.st2lk}@city_${record.st2nvn}@st2ko2_${record.st2ko2}@st2son_${record.st2son}@counter_${counter.count}">
 			               	 	${record.st2kod}
 			               </td>
-			               <td class="text11" >&nbsp;${record.st2nvn}</td> 
-			               <td width="2%" align="center" class="text11" >&nbsp;${record.st2lk}</td>
-			               <td width="2%" align="center" class="text11" >&nbsp;${record.st2ko2}</td>
-			               <td width="2%" align="center" class="text11" >&nbsp;${record.st2son}</td>
+			               <td class="text14" >&nbsp;${record.st2nvn}</td> 
+			               <td width="2%" align="center" class="text14" >&nbsp;${record.st2lk}</td>
+			               <td width="2%" align="center" class="text14" >&nbsp;${record.st2ko2}</td>
+			               <td width="2%" align="center" class="text14" >&nbsp;${record.st2son}</td>
 			               
 			               
 			            </tr> 

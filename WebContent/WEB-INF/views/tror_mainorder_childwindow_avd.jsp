@@ -38,18 +38,18 @@
 					<%-- this is the datatables grid (content)--%>
 					<table id="avdList" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="2%" align="center" class="text11">&nbsp;<spring:message code="systema.tror.childwindow.avd.label"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.childwindow.avd.label.name"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="2%" align="center" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.avd.label"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.avd.label.name"/></th>
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.avdList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               
-			               <td class="text11MediumBlue" style="cursor:pointer;" id="id_${record.koakon}@name_${record.koanvn}@ctype_${model.ctype}@counter_${counter.count}">${record.koakon}</td>
-			               <td class="text11" >&nbsp;${record.koanvn}</td>
+			               <td class="text14MediumBlue" style="cursor:pointer;" id="id_${record.koakon}@name_${record.koanvn}@ctype_${model.ctype}@counter_${counter.count}">${record.koakon}</td>
+			               <td class="text14" >&nbsp;${record.koanvn}</td>
 			            </tr> 
 			            </c:forEach>
 			            </tbody>
