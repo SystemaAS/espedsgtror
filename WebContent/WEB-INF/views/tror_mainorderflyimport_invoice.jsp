@@ -685,7 +685,7 @@
 							        </tr>
 							        <tr>
 							        	<td class="text12">&nbsp;
-						        			<select name="fakduk" id="fakduk">
+						        			<select class="inputTextMediumBlue" name="fakduk" id="fakduk">
 						 						<option value=" ">-blank-</option>
 							 				  	<option value="B" <c:if test="${model.record.fakduk == 'B'}"> selected </c:if> >B</option>
 							 				  	<option value="N" <c:if test="${model.record.fakduk == 'N'}"> selected </c:if> >N</option>
@@ -695,7 +695,7 @@
 											</select>
 										</td>
 										<td class="text12">	
-						        			<select name="facu33" id="facu33">
+						        			<select class="inputTextMediumBlue" name="facu33" id="facu33">
 						 						<c:forEach var="record" items="${model.currencyCodeList}" >
 							 				  		<option value="${record.kvakod}"<c:if test="${model.record.facu33 == record.kvakod || (empty model.record.facu33 && record.kvakod=='NOK')}"> selected </c:if> >${record.kvakod}</option>
 												</c:forEach> 

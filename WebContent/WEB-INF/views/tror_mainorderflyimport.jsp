@@ -19,7 +19,7 @@
 	
 
 
-<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+<table id="topTableLocal" width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
 	<tr>
 	<td>
 	<%-- tab container component --%>
@@ -189,8 +189,8 @@
 		<c:if test="${not empty model.record.heopd}">
 			<tr>
 				<td valign="bottom" >
-					<span style="position:absolute; left:1500px; top:160px; width:550px; height:800px;" id="economyMatrixInfo" class="popupFloating"  >
-		           		<div class="text10" align="left">
+						<div id="dialogDraggableFileUpload" title="Last opp fil">
+		           		<p>
 		           		<table align="left" class="popupFloatingWithRoundCorners3D">
 						    <tr height="2"><td></td></tr>
 					    	<tr>
@@ -207,7 +207,7 @@
 										<tr>
 											<td colspan="3" class="text12Bold">&nbsp;
 												<img style="vertical-align:bottom;" src="resources/images/upload.png" border="0" width="20" height="20" alt="upload">
-												&nbsp;File Upload&nbsp;							
+												&nbsp;Last opp&nbsp;							
 											</td>
 										</tr>
 										<tr>
@@ -222,8 +222,8 @@
 											</tr>
 											 --%>
 											<tr>
-												<td class="text11">&nbsp;Arkiv typen:</td>
-												<td class="text11">&nbsp;
+												<td class="text12">&nbsp;Arkiv typen:</td>
+												<td class="text12">&nbsp;
 													<select tabindex=-1 name="wstype" id="wstype">
 														<c:forEach var="record" items="${user.arkivKodOpdList}" >
 								                       	 	<option value="${record.arkKod}">${record.arkKod}-${record.arkTxt}</option>
@@ -232,9 +232,9 @@
 												</td>
 											</tr>
 											<tr>	
-												<td class="text11">&nbsp;Fil:</td>
-												<td class="text11">
-					           						&nbsp;<input ondragenter="myFileUploadDragEnter(event)" ondragleave="myFileUploadDragLeave(event)" tabindex=-1 class="tableBorderWithRoundCornersLightYellow3D noFileChosenTransparent" style="width:300px;height:200px;display:block;" type="file" name="file" id="file" />
+												<td class="text12">&nbsp;Fil:</td>
+												<td class="text12">
+					           						&nbsp;<input ondragenter="myFileUploadDragEnter(event)" ondragleave="myFileUploadDragLeave(event)" tabindex=-1 class="tableBorderWithRoundCornersLightYellow3D noFileChosenTransparent" style="width:220px;height:120px;display:block;" type="file" name="file" id="file" />
 					       						</td>
 							           		</tr>
 							           		</table>
@@ -246,13 +246,12 @@
 							</td>
 							</tr>
 						</table>
+						</p>
 					  </div>
-					</span>  		
 				</td>
 			</tr>
 		</c:if>
 		
-
 		<tr>
 		<td>
 			<form action="tror_mainorderflyimport.do" name="trorOrderForm" id="trorOrderForm" method="post">
@@ -563,6 +562,10 @@
 							 				</td>
 							 				<td class="text12" title="ownheknt">	
 							 					<input type="text" class="inputTextReadOnly" name="ownheknt" id="ownheknt" size="30" maxlength="30" value="${Xmodel.record.ownTODO}">
+							 				</td>
+							 				<td class="text14" title="file upload">	
+							 					<button tabindex=-1 name="fileUpladButton" class="buttonGrayWithGreenFrame" type="button" onClick="showDialogFileUploadDraggable();" >Last opp fil</button>
+							 					
 							 				</td>
 							 			</tr>
 							 			</table>

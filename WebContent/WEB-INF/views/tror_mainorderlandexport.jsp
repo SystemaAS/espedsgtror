@@ -19,7 +19,7 @@
 	
 
 
-<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+<table id="topTableLocal" width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
 	<tr>
 	<td>
 	<%-- tab container component --%>
@@ -178,8 +178,8 @@
 		<c:if test="${not empty model.record.heopd}">
 			<tr>
 				<td valign="bottom" >
-					<span style="position:absolute; left:1500px; top:160px; width:550px; height:800px;" id="economyMatrixInfo" class="popupFloating"  >
-		           		<div class="text10" align="left">
+						<div id="dialogDraggableFileUpload" title="Last opp fil">
+		           		<p>
 		           		<table align="left" class="popupFloatingWithRoundCorners3D">
 						    <tr height="2"><td></td></tr>
 					    	<tr>
@@ -213,7 +213,7 @@
 											<tr>
 												<td class="text11">&nbsp;Arkiv typen:</td>
 												<td class="text11">&nbsp;
-													<select tabindex=-1 name="wstype" id="wstype">
+													<select class="inputTextMediumBlue" tabindex=-1 name="wstype" id="wstype">
 														<c:forEach var="record" items="${user.arkivKodOpdList}" >
 								                       	 	<option value="${record.arkKod}">${record.arkKod}-${record.arkTxt}</option>
 														</c:forEach> 
@@ -223,7 +223,7 @@
 											<tr>	
 												<td class="text11">&nbsp;Fil:</td>
 												<td class="text11">
-					           						&nbsp;<input ondragenter="myFileUploadDragEnter(event)" ondragleave="myFileUploadDragLeave(event)" tabindex=-1 class="tableBorderWithRoundCornersLightYellow3D noFileChosenTransparent" style="width:300px;height:200px;display:block;" type="file" name="file" id="file" />
+					           						&nbsp;<input ondragenter="myFileUploadDragEnter(event)" ondragleave="myFileUploadDragLeave(event)" tabindex=-1 class="tableBorderWithRoundCornersLightYellow3D noFileChosenTransparent" style="width:220px;height:120px;display:block;" type="file" name="file" id="file" />
 					       						</td>
 							           		</tr>
 							           		</table>
@@ -235,8 +235,7 @@
 							</td>
 							</tr>
 						</table>
-					  </div>
-					</span>  		
+					  </div>	
 				</td>
 			</tr>
 		</c:if>
@@ -375,7 +374,7 @@
 												</select>
 
 												&nbsp;&nbsp;<font class="text16RedBold" >*</font><span title="hesg"><spring:message code="systema.tror.orders.form.update.label.signature"/></span>
-							 					<select name="hesg" id="hesg" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" >
+							 					<select class="inputTextMediumBlue" name="hesg" id="hesg" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" >
 							 						<option value="">-velg-</option>
 								 				  	<c:forEach var="record" items="${model.signatureList}" >
 								 				  		<option value="${record.kosfsi}"<c:if test="${model.record.hesg == record.kosfsi}"> selected </c:if> >${record.kosfsi}</option>
@@ -585,6 +584,10 @@
 												</div>
 							 				</td>
 							 				<td><input type="text" class="inputTextMediumBlue" name="hehawb" id="hehawb" size="10" maxlength="9" value="${model.record.hehawb}"></td>
+							 				<td class="text14" title="file upload">	
+							 					<button tabindex=-1 name="fileUpladButton" class="buttonGrayWithGreenFrame" type="button" onClick="showDialogFileUploadDraggable();" >Last opp fil</button>
+							 				</td>
+
 							 			</tr>
 							 			
 							 			
@@ -612,9 +615,9 @@
 									<td class="text12Bold"><spring:message code="systema.tror.orders.form.update.label.shippingDates"/></td>
 									<td class="text11">&nbsp;<span title="wsetdd/wsetdk"><spring:message code="systema.tror.orders.form.update.label.shippingDates.etd"/></span></td>
 									<td class="text11">
-										<input type="text" class="inputTextMediumBlue11" name="wsetdd" id="wsetdd" size="9" maxlength="8" value="${XXmodel.record.wsetdd}">
+										<input type="text" class="inputTextMediumBlue" name="wsetdd" id="wsetdd" size="9" maxlength="8" value="${XXmodel.record.wsetdd}">
 									</td>
-									<td class="text11"><input type="text" class="inputTextMediumBlue11" name="wsetdk" id="wsetdk" size="4" maxlength="4" value="${XXmodel.record.wsetdk}"></td>
+									<td class="text11"><input type="text" class="inputTextMediumBlue" name="wsetdk" id="wsetdk" size="4" maxlength="4" value="${XXmodel.record.wsetdk}"></td>
 									
 						
 								</tr>
@@ -628,9 +631,9 @@
 									<td class="text12Bold"><spring:message code="systema.tror.orders.form.update.label.arrivalDates"/></td>
 									<td class="text11">&nbsp;<span title="wsetad/wsetak"><spring:message code="systema.tror.orders.form.update.label.arrivalDates.eta"/></span></td>
 									<td class="text11">
-										<input type="text" class="inputTextMediumBlue11" name="wsetad" id="wsetad" size="9" maxlength="8" value="${XXmodel.record.wsetad}">
+										<input type="text" class="inputTextMediumBlue" name="wsetad" id="wsetad" size="9" maxlength="8" value="${XXmodel.record.wsetad}">
 									</td>
-									<td class="text11"><input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="wsetak" id="wsetak" size="4" maxlength="4" value="${XXmodel.record.wsetak}"></td>
+									<td class="text11"><input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="wsetak" id="wsetak" size="4" maxlength="4" value="${XXmodel.record.wsetak}"></td>
 									
 								</tr>
 							</table>
@@ -836,7 +839,7 @@
 						 					</td>
 										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenasf" id="whenasf" size="50" value="${Xmodel.record.heknsfNavn} - ${Xmodel.record.heknsfPnSt}"></td>
 						 					<td class="text14" >
-						 						<select name="hevals" id="hevals">
+						 						<select class="inputTextMediumBlue" name="hevals" id="hevals">
 							 						<option value="">-valuta-</option>
 								 				  	<c:forEach var="record" items="${model.currencyCodeList}" >
 								 				  		<option value="${record.kvakod}"<c:if test="${model.record.hevals == record.kvakod || (empty model.record.hevals && record.kvakod=='NOK')}"> selected </c:if> >${record.kvakod}</option>
@@ -1039,7 +1042,7 @@
 						 					</td>
 										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenakf" id="whenakf" size="50" value="${Xmodel.record.heknkfNavn} - ${Xmodel.record.heknkfPnSt}"></td>
 						 					<td class="text14" >
-						 						<select name="hevalk" id="hevalk">
+						 						<select class="inputTextMediumBlue" name="hevalk" id="hevalk">
 							 						<option value="">-valuta-</option>
 								 				  	<c:forEach var="record" items="${model.currencyCodeList}" >
 								 				  		<option value="${record.kvakod}"<c:if test="${model.record.hevalk == record.kvakod || (empty model.record.hevalk && record.kvakod=='NOK')}"> selected </c:if> >${record.kvakod}</option>
@@ -1184,7 +1187,7 @@
 											</div>
 						 				</td>
 							 			<td class="text14">
-							 				<select name="heot" id="heot">
+							 				<select class="inputTextMediumBlue" name="heot" id="heot">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.oppdragstypeList}" varStatus="counter">
 							 						<option value='${record.ko1kod}' <c:if test="${record.ko1kod == model.record.heot}"> selected </c:if> >${record.ko1kod}</option>
@@ -1213,7 +1216,7 @@
 											</div>
 										</td>
 							 			<td class="text14">
-							 				<select name="hefr" id="hefr">
+							 				<select class="inputTextMediumBlue" name="hefr" id="hefr">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.incotermsList}" varStatus="counter">
 							 						<option value='${record.kfrkod}' <c:if test="${record.kfrkod == model.record.hefr}"> selected </c:if> >${record.kfrkod}</option>
@@ -1243,7 +1246,7 @@
 	 										
 										</td>
 							 			<td class="text14">
-							 				<select name="hekdpl" id="hekdpl">
+							 				<select class="inputTextMediumBlue" name="hekdpl" id="hekdpl">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.produktList}" varStatus="counter">
 							 						<option value='${record.kfkod}' <c:if test="${record.kfkod == model.record.hekdpl}"> selected </c:if> >${record.kfkod}</option>
@@ -1373,23 +1376,23 @@
 												<table align="left" border="0" style="width:100%;" >
 												<tr class="tableHeaderField10" >
 													
-										 			<td align="left" valign="bottom" class="tableHeaderFieldFirst11"><span title="hegm1/hegm2">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.marks"/></span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="hent">&nbsp;<font class="text12RedBold" >*</font><spring:message code="systema.tror.orders.form.detail.update.label.antal"/>&nbsp;</span></td>
-										 			<td align="center" valign="bottom" class="tableHeaderField11"><span title="ownEnhet1/ownEnhet2">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.forpak"/></span></td>
-										 			<td align="left" valign="bottom" class="tableHeaderField11"><span title="hevs1/hevs2">&nbsp;<font class="text12RedBold" >*</font><spring:message code="systema.tror.orders.form.detail.update.label.goodsDesc"/></span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="hevkt">&nbsp;<font class="text12RedBold" >*</font><spring:message code="systema.tror.orders.form.detail.update.label.weight"/>&nbsp;</span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="hem3">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.m3"/>&nbsp;</span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="helm">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.lm.fa"/>&nbsp;</span></td>
+										 			<td align="left" valign="bottom" class="tableHeaderFieldFirst"><span title="hegm1/hegm2">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.marks"/></span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="hent">&nbsp;<font class="text12RedBold" >*</font><spring:message code="systema.tror.orders.form.detail.update.label.antal"/>&nbsp;</span></td>
+										 			<td align="center" valign="bottom" class="tableHeaderField"><span title="ownEnhet1/ownEnhet2">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.forpak"/></span></td>
+										 			<td align="left" valign="bottom" class="tableHeaderField"><span title="hevs1/hevs2">&nbsp;<font class="text12RedBold" >*</font><spring:message code="systema.tror.orders.form.detail.update.label.goodsDesc"/></span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="hevkt">&nbsp;<font class="text12RedBold" >*</font><spring:message code="systema.tror.orders.form.detail.update.label.weight"/>&nbsp;</span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="hem3">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.m3"/>&nbsp;</span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="helm">&nbsp;<spring:message code="systema.tror.orders.form.detail.update.label.lm.fa"/>&nbsp;</span></td>
 										 		</tr>
 										 		<tr class="tableRow">
 										 			<td align="left" class="tableCell" nowrap>
-									 					<input type="text" class="inputTextMediumBlue11" name="hegm1" id="hegm1" size="16" maxlength="15" value="${model.record.hegm1}">
+									 					<input type="text" class="inputTextMediumBlue" name="hegm1" id="hegm1" size="16" maxlength="15" value="${model.record.hegm1}">
 									 				</td>
 									 				<td align="right" class="tableCell" nowrap>
-										 				<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11MandatoryField" style="text-align:right;" name="hent" id="hent" size="8" maxlength="7" value="${model.record.hent}">
+										 				<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlueMandatoryField" style="text-align:right;" name="hent" id="hent" size="8" maxlength="7" value="${model.record.hent}">
 									 				</td>
 									 				<td align="center" class="tableCell" nowrap>
-										 				<select name="ownEnhet1" id="ownEnhet1">
+										 				<select class="inputTextMediumBlue" name="ownEnhet1" id="ownEnhet1">
 										 					<option value="" >-velg-</option>
 										 					<c:forEach var="record" items="${model.enhetList}" varStatus="counter">
 										 						<c:choose>
@@ -1412,27 +1415,27 @@
 									 					<fmt:parseNumber scope="request" var="uom1Length" type="number" value="${model.uom1Length}" />
 									 					<c:choose>
 										 					<c:when test="${not empty model.uom1 && not empty model.record.hevs1 && fn:length(model.record.hevs1) > uom1Length}" >
-										 						<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlue11MandatoryField" name="hevs1" id="hevs1" size="30" maxlength="25" value="${ fn:substring(model.record.hevs1, uom1Length, fn:length(model.record.hevs1)) }">		
+										 						<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="hevs1" id="hevs1" size="30" maxlength="25" value="${ fn:substring(model.record.hevs1, uom1Length, fn:length(model.record.hevs1)) }">		
 										 					</c:when>
 										 					<c:otherwise>
-										 						<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlue11MandatoryField" name="hevs1" id="hevs1" size="30" maxlength="25" value="${ model.record.hevs1 }">
+										 						<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="hevs1" id="hevs1" size="30" maxlength="25" value="${ model.record.hevs1 }">
 										 					</c:otherwise>
 									 					</c:choose>
 									 				</td>
 									 				<td align="right" class="tableCell" nowrap>
-										 				<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11MandatoryField" style="text-align:right;" name="hevkt" id="hevkt" size="10" maxlength="9" value="${model.record.hevkt}">
+										 				<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlueMandatoryField" style="text-align:right;" name="hevkt" id="hevkt" size="10" maxlength="9" value="${model.record.hevkt}">
 									 				</td>
 									 				
 									 				<td align="right" class="tableCell" nowrap>
-										 				<input onFocus="calculateVolume(this);" onBlur="checkVolumeNewLine(this);" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="hem3" id="hem3" size="12" maxlength="11" value="${ fn:replace(model.record.hem3,'.',',') }">
+										 				<input onFocus="calculateVolume(this);" onBlur="checkVolumeNewLine(this);" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="hem3" id="hem3" size="12" maxlength="11" value="${ fn:replace(model.record.hem3,'.',',') }">
 									 				</td>
 									 				<td align="right" class="tableCell" nowrap>
-										 				<input onBlur="checkLmNewLine(this);validateNewItemLine();" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="helm" id="helm" size="8" maxlength="7" value="${ fn:replace(model.record.helm,'.',',') }"> 
+										 				<input onBlur="checkLmNewLine(this);validateNewItemLine();" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="helm" id="helm" size="8" maxlength="7" value="${ fn:replace(model.record.helm,'.',',') }"> 
 									 				</td>
 									 			</tr>
 									 			<tr class="tableRow">
 										 			<td align="left" class="tableCell" nowrap>
-									 					<input type="text" class="inputTextMediumBlue11" name="hegm2" id="hegm2" size="16" maxlength="15" value="${model.record.hegm2}">
+									 					<input type="text" class="inputTextMediumBlue" name="hegm2" id="hegm2" size="16" maxlength="15" value="${model.record.hegm2}">
 									 				</td>
 									 				<td align="right" class="tableCell" nowrap>&nbsp;</td>
 									 				<td align="center" class="tableCell" >&nbsp;
@@ -1458,10 +1461,10 @@
 									 				<td align="left" class="tableCell" nowrap>
 									 					<c:choose>
 										 					<c:when test="${not empty model.record.hevs2 && fn:length(model.record.hevs2) > 3}" >
-										 						<input type="text" class="inputTextMediumBlue11" name="hevs2" id="hevs2" size="30" maxlength="25" value="${ fn:substring(model.record.hevs2, 3, fn:length(model.record.hevs2)) }">		
+										 						<input type="text" class="inputTextMediumBlue" name="hevs2" id="hevs2" size="30" maxlength="25" value="${ fn:substring(model.record.hevs2, 3, fn:length(model.record.hevs2)) }">		
 										 					</c:when>
 										 					<c:otherwise>
-										 						<input type="text" class="inputTextMediumBlue11" name="hevs2" id="hevs2" size="30" maxlength="25" value="${ model.record.hevs2 }">
+										 						<input type="text" class="inputTextMediumBlue" name="hevs2" id="hevs2" size="30" maxlength="25" value="${ model.record.hevs2 }">
 										 					</c:otherwise>
 									 					</c:choose>
 									 					
@@ -1526,7 +1529,7 @@
 										Status
 									</td>
 									<td class="text14MediumBlue">
-										<select name="selectedStatus" id="selectedStatus">
+										<select class="inputTextMediumBlue" name="selectedStatus" id="selectedStatus">
 					            			<option value="">-vælg-</option>
 					            			<option value=" ">Åpent</option>
 					            			<option value="U">U</option>

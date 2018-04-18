@@ -35,7 +35,7 @@
 	</style>
 	
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 		<tr height="2">
 			<td>
 				<input type="hidden" name="modelStatus" id="modelStatus" value='${model.status}'>
@@ -115,15 +115,15 @@
 	 				<%-- MASTER Topic header --%>
 	 				<table width="100%" align="left" class="formFrameHeaderTransparent" border="0" cellspacing="0" cellpadding="0">
 				 		<tr height="15">
-				 			<td class="text12MediumBlue">
+				 			<td class="text14MediumBlue">
 				 				&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.avd"/>&nbsp;<b>${recordOrderTrorLand.heavd}</b>
 				 				&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.order"/>&nbsp;<b>${recordOrderTrorLand.heopd}</b>
 				 				&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.sign"/>&nbsp;<b>${recordOrderTrorLand.hesg}</b>
 				 				&nbsp;&nbsp;
 				 				<img onMouseOver="showPop('status_info');" onMouseOut="hidePop('status_info');" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 				 				<spring:message code="systema.tror.orders.invoice.update.label.status"/>&nbsp;<b>${recordOrderTrorLand.hest}</b>
-				 				<div class="text11" style="position: relative; display: inline;" align="left" >
-				 				<span style="position:absolute;top:2px; width:400px;" id="status_info" class="popupWithInputText text11"  >
+				 				<div class="text14" style="position: relative; display: inline;" align="left" >
+				 				<span style="position:absolute;top:2px; width:400px;" id="status_info" class="popupWithInputText text14"  >
 					           		<p>Status på oppdraget. Denne koden forteller hvor langt et oppdrag har kommet i
 										"syklusen" fra det første gang registreres til det er ferdig fakturert og avsluttet.</p> 
 				           			<ul>
@@ -160,26 +160,26 @@
 					 		<td width="50%">
 						 		<table width="100%" border="0" cellspacing="1" cellpadding="0">
 							 		<tr>
-							            <td width="30%" class="text11Bold" align="left" ><spring:message code="systema.tror.orders.form.update.label.shipper"/></td>
-							            <td class="text11" align="left" >&nbsp;&nbsp;</td>
+							            <td width="30%" class="text14Bold" align="left" ><spring:message code="systema.tror.orders.form.update.label.shipper"/></td>
+							            <td class="text14" align="left" >&nbsp;&nbsp;</td>
 							        </tr>
 							        
 							        <tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.name"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.henas}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.name"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.henas}</td>
 							        </tr>
 									<tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.adr1"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.heads1}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.adr1"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.heads1}</td>
 							        </tr>
 							        <tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.adr2"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.heads2}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.adr2"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.heads2}</td>
 							        </tr>
 							        
 									<tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.adr3"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.heads3}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.shipper.adr3"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.heads3}</td>
 							        </tr>
 							        						        
 			        	        </table>
@@ -187,25 +187,25 @@
 					        <td width="50%">
 						 		<table width="100%" border="0" cellspacing="1" cellpadding="0">
 							 		<tr>
-							            <td width="30%" class="text11Bold" align="left" ><spring:message code="systema.tror.orders.form.update.label.consignee"/></td>
-							            <td class="text11" align="left" >&nbsp;&nbsp;</td>
+							            <td width="30%" class="text14Bold" align="left" ><spring:message code="systema.tror.orders.form.update.label.consignee"/></td>
+							            <td class="text14" align="left" >&nbsp;&nbsp;</td>
 							        </tr>
 							        
 							        <tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.name"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.henak}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.name"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.henak}</td>
 							        </tr>
 									<tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.adr1"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.headk1}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.adr1"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.headk1}</td>
 							        </tr>
 							        <tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.adr2"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.headk2}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.adr2"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.headk2}</td>
 							        </tr>
 									<tr>
-							            <td width="30%" class="text11" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.adr3"/>&nbsp;</td>
-							           	<td class="text11MediumBlue" align="left">${recordOrderTrorLand.headk3}</td>
+							            <td width="30%" class="text14" align="left"><spring:message code="systema.tror.orders.form.update.label.consignee.adr3"/>&nbsp;</td>
+							           	<td class="text14MediumBlue" align="left">${recordOrderTrorLand.headk3}</td>
 							        </tr>
 							        
 			        	        </table>
@@ -228,11 +228,11 @@
 				           		&nbsp;<button name="readyMarkButton" id="readyMarkButton" class="buttonGrayWithGreenFrame" type="button" >&nbsp;Ferdigmelde</button>
 				           		<c:choose>
 					           		<c:when test="${not empty model.container.readyMarkStatus}">
-					           			<font id="readyMarkInvoice" class="text12MediumBlue">&nbsp;Status:&nbsp;${model.container.readyMarkStatus}</font>
+					           			<font id="readyMarkInvoice" class="text14MediumBlue">&nbsp;Status:&nbsp;${model.container.readyMarkStatus}</font>
 					           		</c:when>
 					           		<c:otherwise>
 					           			<%-- this id must always be present since AJAX call must fill upp with text... --%>
-					           			<font id="readyMarkInvoice" class="text12MediumBlue"></font>
+					           			<font id="readyMarkInvoice" class="text14MediumBlue"></font>
 					           		</c:otherwise>
 				           		</c:choose>
 				           		&nbsp;<button name="recalculateButton" id="recalculateButton" class="buttonGrayWithGreenFrame" type="button" >&nbsp;Ny beregning</button>
@@ -245,7 +245,7 @@
 				               		<input type="hidden" name="applicationUser" id="applicationUser" value="${user.user}">
 				 				<table id="container tableTable" width="100%" cellspacing="2" align="left" >
 								<tr>
-								<td class="text11">
+								<td class="text14">
 								<table width="100%" cellspacing="0" border="0" cellpadding="0">		
 								<%-- <table id="tblInvoices" class="display compact cell-border" >  --%>
 									<thead>
@@ -322,7 +322,7 @@
 							               <td width="2%" align="center" class="tableCell" >&nbsp;${record.fakdm}</td>
 							               <td width="2%" align="center" class="tableCell" >&nbsp;${record.fakda}</td>
 							               <td width="2%" align="center" class="tableCell" >&nbsp;${record.faopko}</td>
-							               <td align="left" class="tableCell" >&nbsp;<font class="text11MediumBlue"><b>${record.fakunr}</b></font>&nbsp;${record.knavn}</td>
+							               <td align="left" class="tableCell" >&nbsp;<font class="text14MediumBlue"><b>${record.fakunr}</b></font>&nbsp;${record.knavn}</td>
 							               <td align="right" class="tableCell" >${record.fabelu}</td>
 							               <%-- DELETE cell --%>
 							               <c:if test="${empty recordOrderTrorLand.hest || not empty recordOrderTrorLand.hest}">
@@ -425,11 +425,11 @@
 				 	<%-- Topic ITEM CREATE --%>
 	 				<table width="100%" align="left" class="formFrameHeader" border="0" cellspacing="0" cellpadding="0">
 				 		<tr height="15">
-				 			<td class="text12White" align="left" >
+				 			<td class="text14White" align="left" >
 				 				<b>&nbsp;&nbsp;V<label onClick="showPop('debugPrintlnAjaxItemFetchAdmin');" >a</label>relinje&nbsp;</b>
 				 				
 								<span style="position:absolute; left:150px; top:200px; width:800px; height:400px;" id="debugPrintlnAjaxItemFetchAdmin" class="popupWithInputText"  >
-				           		<div class="text11" align="left">
+				           		<div class="text14" align="left">
 				           			<label id="debugPrintlnAjaxItemFetchInfo"></label>
 				           			<br/>
 				           			&nbsp;&nbsp;
@@ -457,9 +457,9 @@
 							 			<td class="text14" align="left">
 							 				<img onMouseOver="showPop('sk_info');" onMouseOut="hidePop('sk_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 				<span title="fask"><spring:message code="systema.tror.orders.invoice.update.label.sk"/></span>
-							 				<div class="text11" style="position: relative; display: inline;" align="left">
+							 				<div class="text14" style="position: relative; display: inline;" align="left">
 											<span style="position:absolute; width:200px;" id="sk_info" class="popupWithInputText"  >
-												<font class="text11">
+												<font class="text14">
 							           			<b>SK</b>
 							           			<div>
 							           				<p>
@@ -494,9 +494,9 @@
 							            <td class="text14" align="left">
 								            <img onMouseOver="showPop('tnr_info');" onMouseOut="hidePop('tnr_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 								            <span title="wtnr">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.tnr"/></span>
-							            	<div class="text11" style="position: relative; display: inline;" align="left">
+							            	<div class="text14" style="position: relative; display: inline;" align="left">
 											<span style="position:absolute; width:200px;" id="tnr_info" class="popupWithInputText"  >
-												<font class="text11">
+												<font class="text14">
 							           			<b>Tabellnr</b>
 							           			<div>
 							           				<p>
@@ -546,7 +546,7 @@
 							            <td class="text14" align="left">
 						            		<input type="text" class="inputText" name="wtnr" id="wtnr" size="5" maxlength="5" value="${model.record.wtnr}">
 							            </td>
-										<td class="text12Grey" align="left" >
+										<td class="text14Grey" align="left" >
 							 				<input type="text" onKeyPress="return numberKey(event)" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="fabelv" id="fabelv" size="10" maxlength="8" value="${model.record.fabelv}">
 							 			</td>
 							 			<td class="text14" align="left">
@@ -586,9 +586,9 @@
 							 			<td class="text14" align="left" >&nbsp;
 							            	<img onMouseOver="showPop('utgift_info');" onMouseOut="hidePop('utgift_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 				<span title="fakduk/facu33/fabelu"><spring:message code="systema.tror.orders.invoice.update.label.utgift"/></span>
-							 				<div class="text11" style="position: relative; display: inline;" align="left">
+							 				<div class="text14" style="position: relative; display: inline;" align="left">
 											<span style="position:absolute; width:400px;" id="utgift_info" class="popupWithInputText"  >
-												<font class="text11">
+												<font class="text14">
 							           			<b>Utgift</b>
 							           			<div>
 							           				<p>Felt 1: fast kod</p>
@@ -635,9 +635,9 @@
 					            		<td class="text14" align="left"><span title="wkomp">
 						            		<img onMouseOver="showPop('komp_info');" onMouseOut="hidePop('komp_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						            		<spring:message code="systema.tror.orders.invoice.update.label.komplett"/></span>
-						            		<div class="text11" style="position: relative; display: inline;" align="left">
+						            		<div class="text14" style="position: relative; display: inline;" align="left">
 											<span style="position:absolute; width:350px" id="komp_info" class="popupWithInputText"  >
-												<font class="text11">
+												<font class="text14">
 							           			<b>Komplett</b>
 							           			<div>
 							           				<p>Man kan her, ved manuell oppretting av fakturalinje, angi hvilken bruttotabell gebyrprisen skal hentes fra.</p>
@@ -661,9 +661,9 @@
 					            		<td class="text14" align="left"><span title="facd11">
 						            		<img onMouseOver="showPop('sam_info');" onMouseOut="hidePop('sam_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						            		<spring:message code="systema.tror.orders.invoice.update.label.samm"/></span>
-						            		<div class="text11" style="position: relative; display: inline;" align="left">
+						            		<div class="text14" style="position: relative; display: inline;" align="left">
 											<span style="position:absolute; width:350px" id="sam_info" class="popupWithInputText"  >
-												<font class="text11">
+												<font class="text14">
 							           			<b>Samm</b>
 							           			<div>
 							           				<p>Hvis gebyret i fakturautskriften skal slås sammen med en eller flere andre gebyrlinjer under en felles gebyrtekst,

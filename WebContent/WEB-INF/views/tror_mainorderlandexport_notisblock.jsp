@@ -109,7 +109,7 @@
 	 				<%-- MASTER Topic header --%>
 	 				<table width="80%" align="left" class="formFrameHeaderTransparent" border="0" cellspacing="0" cellpadding="0">
 				 		<tr height="15">
-				 			<td class="text12MediumBlue">
+				 			<td class="text14MediumBlue">
 				 				&nbsp;Avd&nbsp;<b>${model.avd}</b>
 				 				&nbsp;Tolldeknr.&nbsp;<b>${model.opd}</b>
 			 				</td>
@@ -151,7 +151,7 @@
 								<table width="80%" cellspacing="0" border="0" cellpadding="0">
 									<tr>
 										<td class="text12Bold">
-											<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="<spring:message code="systema.tvinn.sad.export.item.line.init.createnew.submit"/>">
+											<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="Lagre notat">
 										</td>
 									</tr>
 									<tr>
@@ -165,7 +165,7 @@
 						</tr> 
 						
 						<tr>
-							<td class="text11" >
+							<td class="text14" >
 								<form name="formItemList" id="formItemList" method="POST" >
 			               		<input type="hidden" name="frtavd" id="frtavd" value="${model.avd}">
 		 						<input type="hidden" name="frtopd" id="frtopd" value="${model.opd}">
@@ -173,7 +173,7 @@
 		 						
 								<table id="containerdatatableTable" width="80%" cellspacing="2" align="left" >
 								<tr>
-								<td class="text11">
+								<td class="text14">
 								<table id="tblNotes" class="display compact cell-border" >
 									<thead>
 									<tr class="tableHeaderField" height="20">
@@ -188,17 +188,17 @@
 					               <tbody>
 				 					  <c:forEach items="${model.list}" var="record" varStatus="counter">    
 						               <tr class="tableRow" height="20" >
-							               <%-- <td width="2%" align="center" class="text11" >&nbsp;${record.frtli}</td>  --%>
-							               <td width="2%" align="center" class="text11" >
+							               <%-- <td width="2%" align="center" class="text14" >&nbsp;${record.frtli}</td>  --%>
+							               <td width="2%" align="center" class="text14" >
 							               		<a tabindex=-1 id="recordUpdate_${record.frtli}_${record.frtdt}" href="#" onClick="getNotisblockItemData(this);">
 							               			<img valign="bottom" src="resources/images/update.gif" border="0" alt="edit">
 							               		</a>
 							               </td>
 							               
-							               <td class="text11" >&nbsp;${record.frtdt}</td>
-							               <td class="text11" >&nbsp;${record.frtkod}</td>
-							               <td class="text11" >&nbsp;${record.frttxt}</td>
-									       <td class="text11" align="center" nowrap>
+							               <td class="text14" >&nbsp;${record.frtdt}</td>
+							               <td class="text14" >&nbsp;${record.frtkod}</td>
+							               <td class="text14" >&nbsp;${record.frttxt}</td>
+									       <td class="text14" align="center" nowrap>
 							               	<a onclick="javascript:return confirm('Er du sikker på at du vil slette denne?')" tabindex=-1 href="editNotisblock.do?action=doDelete&subsys=tror_le&orig=${model.orig}&sign=${model.sign}&frtli=${record.frtli}&frtdt=${record.frtdt}&opd=${record.frtopd}&avd=${record.frtavd}">
 							               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
 							               	</a>	&nbsp;

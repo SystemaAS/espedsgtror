@@ -33,11 +33,11 @@
 	
 	</style>
 	
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 	<tr>
 	<td>
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 		<tr height="2"><td></td></tr>
 		<tr height="25"> 
 			<td width="15%" valign="bottom" class="tabDisabled" align="center" nowrap>
@@ -131,7 +131,7 @@
 					<table width="100%" cellspacing="0" border="0" cellpadding="0">
 	    					
 						<tr>
-							<td class="text11" >
+							<td class="text14" >
 								<form name="formItemList" id="formItemList" method="POST" >
 			               		<input type="hidden" name="frtavd" id="frtavd" value="${model.avd}">
 		 						<input type="hidden" name="frtopd" id="frtopd" value="${model.opd}">
@@ -139,32 +139,32 @@
 		 						
 								<table id="containerdatatableTable" width="80%" cellspacing="2" align="left" >
 								<tr>
-								<td class="text11">
+								<td class="text14">
 								<table id="tblNotes" class="display compact cell-border" >
 									<thead>
 									<tr style="background-color:#DDDDDD">
-									    <%-- <th width="2%" align="center" class="text12">&nbsp;Lnr.&nbsp;</th>  --%>   
-									    <th width="2%" align="center" class="text12">&nbsp;Endre&nbsp;</th>   
-									    <th width="2%" class="text12" nowrap>&nbsp;Dato&nbsp;</th>
-					                    <th class="text12" nowrap>&nbsp;Part&nbsp;</th>
-					                    <th class="text12" nowrap>&nbsp;Fritekst&nbsp;</th>
-				                    	<th width="2%" align="center" class="text12" nowrap>Slett</th>
+									    <%-- <th width="2%" align="center" class="text14">&nbsp;Lnr.&nbsp;</th>  --%>   
+									    <th width="2%" align="center" class="text14">&nbsp;Endre&nbsp;</th>   
+									    <th width="2%" class="text14" nowrap>&nbsp;Dato&nbsp;</th>
+					                    <th class="text14" nowrap>&nbsp;Part&nbsp;</th>
+					                    <th class="text14" nowrap>&nbsp;Fritekst&nbsp;</th>
+				                    	<th width="2%" align="center" class="text14" nowrap>Slett</th>
 					               </tr> 
 					               </thead>
 					               <tbody>
 				 					  <c:forEach items="${model.list}" var="record" varStatus="counter">    
 						               <tr class="tableRow" height="20" >
-							               <%-- <td width="2%" align="center" class="text11" >&nbsp;${record.frtli}</td>  --%>
-							               <td width="2%" align="center" class="text11" >
+							               <%-- <td width="2%" align="center" class="text14" >&nbsp;${record.frtli}</td>  --%>
+							               <td width="2%" align="center" class="text14" >
 							               		<a tabindex=-1 id="recordUpdate_${record.frtli}_${record.frtdt}" href="#" onClick="getNotisblockItemData(this);">
 							               			<img valign="bottom" src="resources/images/update.gif" border="0" alt="edit">
 							               		</a>
 							               </td>
 							               
-							               <td width="2%" class="text11" >&nbsp;${record.frtdt}</td>
-							               <td width="2%" class="text11" >&nbsp;${record.frtkod}</td>
-							               <td class="text11" >&nbsp;${record.frttxt}</td>
-									       <td width="2%" class="text11" align="center" nowrap>
+							               <td width="2%" class="text14" >&nbsp;${record.frtdt}</td>
+							               <td width="2%" class="text14" >&nbsp;${record.frtkod}</td>
+							               <td class="text14" >&nbsp;${record.frttxt}</td>
+									       <td width="2%" class="text14" align="center" nowrap>
 							               	<a onclick="javascript:return confirm('Er du sikker på at du vil slette denne?')" tabindex=-1 href="editNotisblock.do?action=doDelete&subsys=tror_li&orig=${model.orig}&sign=${model.sign}&frtli=${record.frtli}&frtdt=${record.frtdt}&opd=${record.frtopd}&avd=${record.frtavd}">
 							               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
 							               	</a>	
@@ -223,7 +223,7 @@
 				 	
 					<table width="80%" cellspacing="0" border="0" cellpadding="0">
 						<tr>
-							<td class="text12Bold">
+							<td class="text14Bold">
 								<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="<spring:message code="systema.tvinn.sad.export.item.line.init.createnew.submit"/>">
 							</td>
 						</tr>
@@ -270,7 +270,7 @@
 								        		</span>
 				 				<img onClick="showPop('updateInfo');" src="resources/images/update.gif" border="0" alt="edit">
 				 				<span style="position:absolute; left:150px; top:200px; width:800px; height:400px;" id="updateInfo" class="popupWithInputText"  >
-		           		   			<div class="text12" align="left" style="display:block;width:700px;word-break:break-all;">
+		           		   			<div class="text14" align="left" style="display:block;width:700px;word-break:break-all;">
 		           		   				${TODOactiveUrlRPGUpdate_TvinnSad}<br/><br/>
 		           		   				<button name="updateInformationButtonClose" class="buttonGrayInsideDivPopup" type="button" onClick="hidePop('updateInfo');">Close</button> 
 		           		   			</div>
@@ -286,9 +286,9 @@
 					 		<td>
 						 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							 		<tr>
-							            <td class="text12" align="left"><span title="frtdt">&nbsp;Dato</span></td>
-							            <td class="text12" align="left"><span title="frtkod">&nbsp;Part</span></td>
-							            <td class="text12" align="left"><span title="frttxt">&nbsp;Tekst</span></td>
+							            <td class="text14" align="left"><span title="frtdt">&nbsp;Dato</span></td>
+							            <td class="text14" align="left"><span title="frtkod">&nbsp;Part</span></td>
+							            <td class="text14" align="left"><span title="frttxt">&nbsp;Tekst</span></td>
 							        </tr>
 							        <tr>
 						        		<td align="left" valign="top">
@@ -297,7 +297,7 @@
 										<td align="left" valign="top">
 						        			<input type="text" class="inputTextMediumBlueMandatoryField" name="frtkod" id="frtkod" size="2" maxlength="1" value="${model.record.frtkod}">
 										</td>
-										<td class="text12" align="left">
+										<td class="text14" align="left">
 						            		<textarea rows="1" cols="79" class="inputTextMediumBlueMandatoryField" name="frttxt" id="frttxt" maxlength="79">${model.record.frttxt}</textarea>
 							            </td>
 							        </tr>

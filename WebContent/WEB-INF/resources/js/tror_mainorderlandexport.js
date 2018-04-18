@@ -2171,9 +2171,28 @@
       jq('input.tblItemLines_filter').on( 'keyup click', function () {
       		filterGlobal();
       });
-	      
+      
+      //-----------------------------------
+      //init file upload draggable popup
+      //-----------------------------------
+      //showDialogFileUploadDraggable(); --> Change to ONLY when the user clicks
+      jq("#dialogDraggableFileUpload").hide();
+      
 	});
 	
+  //draggable window
+  function showDialogFileUploadDraggable(){
+	  //jq( "#dialogDraggableMatrix" ).removeClass("popup");
+	  jq( "#dialogDraggableFileUpload" ).dialog({
+		  minHeight: 310,
+		  minWidth:380,
+		  position: { my: "right bottom", at: "right center", of: "#topTableLocal" }
+	  }); 
+	  jq( "#dialogDraggableFileUpload" ).focus();
+  }
+  
+  
+  
   
   
   
