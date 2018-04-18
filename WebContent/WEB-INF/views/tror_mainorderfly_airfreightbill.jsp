@@ -241,7 +241,7 @@
 				 		<tr>
 							<td colspan="8">
 								
-								<table class="text12" border="0">
+								<table class="text14" border="0">
 								
 					 			<tr>
 					 				<td class="text14">
@@ -317,19 +317,19 @@
 						 			<td>
 						 			<table style="width:100%" >
 					 		 		<tr>
-						 				<td class="text12">&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.form.update.label.name"/></span></td>
-						 				<td class="text12">&nbsp;<span title="dftlfk"><spring:message code="systema.tror.flyfraktbrev.form.update.label.from"/></span></td>
-						 				<td class="text12">&nbsp;<span title="dftlfk"><spring:message code="systema.tror.flyfraktbrev.form.update.label.to"/></span></td>
-						 				<td class="text12">&nbsp;<span title="dftlfk"><spring:message code="systema.tror.flyfraktbrev.form.update.label.incoterms"/></span></td>
-						 				<td class="text12">&nbsp;<span title="dftlfs"><spring:message code="systema.tror.flyfraktbrev.form.update.label.phone"/></span></td>
+						 				<td class="text14">&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.form.update.label.name"/></span></td>
+						 				<td class="text14">&nbsp;<span title="dftlfk"><spring:message code="systema.tror.flyfraktbrev.form.update.label.from"/></span></td>
+						 				<td class="text14">&nbsp;<span title="dftlfk"><spring:message code="systema.tror.flyfraktbrev.form.update.label.to"/></span></td>
+						 				<td class="text14">&nbsp;<span title="dftlfk"><spring:message code="systema.tror.flyfraktbrev.form.update.label.incoterms"/></span></td>
+						 				<td class="text14">&nbsp;<span title="dftlfs"><spring:message code="systema.tror.flyfraktbrev.form.update.label.phone"/></span></td>
 						 				
 						 			</tr>
 						 			<tr>	
-						 				<td class="text12"><input readonly type="text" class="inputTextReadOnly" name="ownSenderName" id="ownSenderName" size="30" maxlength="50" value="${ownSenderName}"></td>
-					 					<td class="text12"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hesdf" id="header_imp.hesdf" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdf}"></td>
-					 					<td class="text12"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hesdt" id="header_imp.hesdt" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdt}"></td>
-					 					<td class="text12"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hefr" id="header_imp.hefr" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hefr}"></td>
-					 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dftlfs" id="dftlfs" size="16" maxlength="15" value="${model.record.dftlfs}"></td>
+						 				<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="ownSenderName" id="ownSenderName" size="30" maxlength="50" value="${ownSenderName}"></td>
+					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hesdf" id="header_imp.hesdf" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdf}"></td>
+					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hesdt" id="header_imp.hesdt" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdt}"></td>
+					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hefr" id="header_imp.hefr" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hefr}"></td>
+					 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dftlfs" id="dftlfs" size="16" maxlength="15" value="${model.record.dftlfs}"></td>
 					 				</tr>
 					 				</table>
 					 				</td>
@@ -345,13 +345,13 @@
 						 			<td>
 						 			<table style="width:60%" >
 							 		<tr>
-						 				<td class="text12">&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.form.update.label.name"/></span></td>
-						 				<td class="text12">&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.form.update.label.phone"/></span></td>
+						 				<td class="text14">&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.form.update.label.name"/></span></td>
+						 				<td class="text14">&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.form.update.label.phone"/></span></td>
 						 				
 						 			</tr>
 						 			<tr>	<%--${model[model.record.hekns]} --%>
-					 					<td class="text12"><input readonly type="text" class="inputTextReadOnly" name="todo" id="todo" size="30" maxlength="50" value="${recordOrderTrorFly.henak}"></td>
-					 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dftlfk" id="dftlfk" size="16" maxlength="15" value="${model.record.dftlfk}"></td>
+					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="todo" id="todo" size="30" maxlength="50" value="${recordOrderTrorFly.henak}"></td>
+					 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dftlfk" id="dftlfk" size="16" maxlength="15" value="${model.record.dftlfk}"></td>
 					 				</tr>
 					 				</table>
 					 				</td>
@@ -381,90 +381,90 @@
 				 							<table class="tableBorderWithRoundCornersLightGray">
 					 						<tr>
 					 					
-								 				<td class="text12">&nbsp;<span title="dfroa1"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/></b></span></td>
-								 				<td class="text12" >
+								 				<td class="text14">&nbsp;<span title="dfroa1"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/></b></span></td>
+								 				<td class="text14" >
 								 					<input type="text" class="inputTextMediumBlue" name="dfroa1" id="dfroa1" size="4" maxlength="3" value="${model.record.dfroa1}">
 								 				</td>
-							 					<td class="text12" >
+							 					<td class="text14" >
 								 					<input type="text" class="inputTextMediumBlue" name="dfrob1" id="dfrob1" size="8" maxlength="7" value="${model.record.dfrob1}">
 							 					</td>
-							 					<td class="text12" >
+							 					<td class="text14" >
 								 					<input type="text" class="inputTextMediumBlue" name="dfroc1" id="dfroc1" size="3" maxlength="2" value="${model.record.dfroc1}">
 							 					</td>
 							 					<td width="5">&nbsp;</td>
-							 					<td class="text12SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
-								 				<td class="text12" >
+							 					<td class="text14SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
+								 				<td class="text14" >
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfetd1" id="dfetd1" size="5" maxlength="4" value="${model.record.dfetd1}">
 								 				</td>
-								 				<td class="text12SkyBlue" >	
+								 				<td class="text14SkyBlue" >	
 							 						<span title="dfeta1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.eta"/></span>
 							 					</td>
-							 					<td class="text12" >	
+							 					<td class="text14" >	
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeta1" id="dfeta1" size="5" maxlength="4" value="${model.record.dfeta1}">
 								 				</td>
-								 				<td class="text12SkyBlue" >	
+								 				<td class="text14SkyBlue" >	
 							 						<span title="dfeda1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.estday"/></span>
 							 					</td>
-							 					<td class="text12" >	
+							 					<td class="text14" >	
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeda1" id="dfeda1" size="3" maxlength="2" value="${model.record.dfeda1}">							 					
 							 					</td>
 							 					
 							 					<td width="10">
-								 				<td class="text12">&nbsp;<span title="dfroa2"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-2</b></span></td>
-								 				<td class="text12" >
+								 				<td class="text14">&nbsp;<span title="dfroa2"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-2</b></span></td>
+								 				<td class="text14" >
 								 					<input type="text" class="inputTextMediumBlue" name="dfroa2" id="dfroa2" size="4" maxlength="3" value="${model.record.dfroa2}">
 								 				</td>
-								 				<td class="text12" >	
+								 				<td class="text14" >	
 								 					<input type="text" class="inputTextMediumBlue" name="dfrob2" id="dfrob2" size="8" maxlength="7" value="${model.record.dfrob2}">
 								 				</td>
-								 				<td class="text12" >	
+								 				<td class="text14" >	
 								 					<input type="text" class="inputTextMediumBlue" name="dfroc2" id="dfroc2" size="3" maxlength="2" value="${model.record.dfroc2}">
 							 					</td>
 							 					<td width="5">&nbsp;</td>
-							 					<td class="text12SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
-								 				<td class="text12" >
+							 					<td class="text14SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
+								 				<td class="text14" >
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfetd2" id="dfetd2" size="5" maxlength="4" value="${model.record.dfetd2}">
 								 				</td>	
-								 				<td class="text12SkyBlue" >	
+								 				<td class="text14SkyBlue" >	
 							 						<span title="dfeta1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.eta"/></span>
 							 					</td>
-							 					<td class="text12" >	
+							 					<td class="text14" >	
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeta2" id="dfeta2" size="5" maxlength="4" value="${model.record.dfeta2}">
 								 				</td>
-								 				<td class="text12SkyBlue" >	
+								 				<td class="text14SkyBlue" >	
 							 						<span title="dfeda1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.estday"/></span>
 							 					</td>
-							 					<td class="text12" >	
+							 					<td class="text14" >	
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeda2" id="dfeda2" size="3" maxlength="2" value="${model.record.dfeda2}">							 					
 							 					</td>
 						 					</tr>
 						 					
 					 						<tr>
-							 					<td class="text12">&nbsp;<span title="dfroa3"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-3</b></span></td>
-								 				<td class="text12" >
+							 					<td class="text14">&nbsp;<span title="dfroa3"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-3</b></span></td>
+								 				<td class="text14" >
 								 					<input type="text" class="inputTextMediumBlue" name="dfroa3" id="dfroa3" size="4" maxlength="3" value="${model.record.dfroa3}">
 								 				</td>	
-								 				<td class="text12" >	
+								 				<td class="text14" >	
 								 					<input type="text" class="inputTextMediumBlue" name="dfrob3" id="dfrob3" size="8" maxlength="7" value="${model.record.dfrob3}">
 								 				</td>
-								 				<td class="text12" >	
+								 				<td class="text14" >	
 								 					<input type="text" class="inputTextMediumBlue" name="dfroc3" id="dfroc3" size="3" maxlength="2" value="${model.record.dfroc3}">
 							 					</td>
 							 					<td width="5">&nbsp;</td>
-							 					<td class="text12SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
-								 				<td class="text12" >
+							 					<td class="text14SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
+								 				<td class="text14" >
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfetd3" id="dfetd3" size="5" maxlength="4" value="${model.record.dfetd3}">
 								 				</td>
-								 				<td class="text12SkyBlue" >	
+								 				<td class="text14SkyBlue" >	
 							 						<span title="dfeta1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.eta"/></span>
 							 					</td>
-							 					<td class="text12" >	
+							 					<td class="text14" >	
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeta3" id="dfeta3" size="5" maxlength="4" value="${model.record.dfeta3}">
 								 				</td>
-								 				<td class="text12SkyBlue" >	
+								 				<td class="text14SkyBlue" >	
 							 						<span title="dfeda1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.estday"/></span>
 							 					</td>
-							 					<td class="text12" >	
+							 					<td class="text14" >	
 								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeda3" id="dfeda3" size="3" maxlength="2" value="${model.record.dfeda3}">							 					
 							 					</td>
 						 					</tr>
@@ -491,19 +491,19 @@
 				 						<td>
 				 							<table width="80%" >
 				 								<tr>	
-										 			<td class="text12">
+										 			<td class="text14">
 										 				<span title="dfinfa">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.info"/></span>
 								 					</td>
-									 				<td colspan="10" class="text12">
+									 				<td colspan="10" class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfinf1" id="dfinf1" size="36" maxlength="35" value="${model.record.dfinf1}">
 									 					&nbsp;<input type="text" class="inputTextMediumBlue" name="dfinf2" id="dfinf2" size="36" maxlength="35" value="${model.record.dfinf2}">
 									 				</td>
 									 			</tr>	
 				 								<tr>	
-										 			<td class="text12">
+										 			<td class="text14">
 										 				<span title="dfval">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.currency"/></span>
 								 					</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<select name="dfval" id="dfval">
 									 						<option value="">-valuta-</option>
 										 				  	<c:forEach var="record" items="${model.currencyCodeList}" >
@@ -511,28 +511,28 @@
 															</c:forEach>  
 														</select>
 									 				</td>
-										 			<td class="text12">
+										 			<td class="text14">
 										 				<span title="dffvcu"><spring:message code="systema.tror.flyfraktbrev.form.update.label.oclca"/></span>
 								 					</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfdvca" id="dfdvca" size="8" maxlength="7" value="${model.record.dfdvca}">
 									 				</td>
-										 			<td class="text12">
+										 			<td class="text14">
 										 				<span title="dfpoli">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.oslcu"/></span>
 								 					</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfdvcu" id="dfdvcu" size="8" maxlength="7" value="${model.record.dfdvcu}">
 									 				</td>
-									 				<td class="text12">
+									 				<td class="text14">
 										 				<span title="dfbelf">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.forsikring"/></span>
 								 					</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfbelf" id="dfbelf" size="8" maxlength="7" value="${model.record.dfbelf}">
 									 				</td>
-										 			<td class="text12">
+										 			<td class="text14">
 										 				<span title="dftols">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.tollstatus"/></span>
 								 					</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dftols" id="dftols" size="3" maxlength="2" value="${model.record.dftols}">
 									 				</td>
 									 			</tr>
@@ -545,22 +545,22 @@
 				 							<table width="85%" >
 				 								<tr height="5"><td ></td></tr>	
 							 					<tr>	
-										 			<td class="text12">
+										 			<td class="text14">
 										 				<span title="dfinfa">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hinfo"/></span>
 								 					</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfinfa" id="dfinfa" size="75" maxlength="71" value="${model.record.dfinfa}">
 									 				</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfinfb" id="dfinfb" size="75" maxlength="71" value="${model.record.dfinfb}">
 									 				</td>
 									 				
 									 			</tr>
 									 			<tr>	
-										 			<td class="text12">
+										 			<td class="text14">
 										 				<span title="dfinfc">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.rdest"/></span>
 								 					</td>
-									 				<td class="text12">
+									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfinfc" id="dfinfc" size="75" maxlength="71" value="${model.record.dfinfc}">
 									 				</td>
 									 			</tr>
@@ -980,7 +980,7 @@
 	        										<table width="100%" align="left" class="tableBorderWithRoundCornersLightYellow" cellspacing="1" cellpadding="0">
 	        											<tr height="3"><td align="left" ></td></tr>
 		        										<tr>
-		        											<td class="text12"><span title="dfkddc/dfbldc">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.dueCarrier"/></span></td>
+		        											<td class="text14"><span title="dfkddc/dfbldc">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.dueCarrier"/></span></td>
 		        											<td>	
 		        												<select name="dfkddc" id="dfkddc">
 											 						<option value="">-velg-</option>
@@ -991,32 +991,32 @@
 		        											<td>	
 		        												<input onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" name="dfbldc" id="dfbldc" size="12" maxlength="10" value="${fn:replace(model.record.dfbldc,'.',',')}">
 		        											</td>
-		        											<td class="text12"><span title="dfbla"><spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.valuation"/></span></td>
+		        											<td class="text14"><span title="dfbla"><spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.valuation"/></span></td>
 		        											<td>	
 		        												<input onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" name="dfbla" id="dfbla" size="12" maxlength="10" value="${fn:replace(model.record.dfbla,'.',',')}">
 		        											</td>
-		        											<td class="text12"><span title="dfnett"><spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.weight"/></span></td>
+		        											<td class="text14"><span title="dfnett"><spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.weight"/></span></td>
 		        											<td>	
 		        												<input onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" name="dfnett" id="dfnett" size="12" maxlength="10" value="${fn:replace(model.record.dfnett,'.',',')}">
 		        											</td>
 		        										</tr>
 		        										<tr>
-		        											<td class="text12"><span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.dueAgent"/></span></td>
+		        											<td class="text14"><span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.dueAgent"/></span></td>
 		        											<td>&nbsp;</td>
 		        											<td>	
 		        												<input onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" name="todo" id="todo" size="12" maxlength="10" value="${Xmodel.record.todo}">
 		        											</td>
-		        											<td class="text12"><span title="dfblav"><spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.tax"/></span></td>
+		        											<td class="text14"><span title="dfblav"><spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.tax"/></span></td>
 		        											<td>	
 		        												<input onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" name="dfblav" id="dfblav" size="12" maxlength="10" value="${fn:replace(model.record.dfblav,'.',',')}">
 		        											</td>
-		        											<td class="text12"><span title="todo">R</span></td>
+		        											<td class="text14"><span title="todo">R</span></td>
 		        											<td>	
 		        												<input onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" name="todo" id="todo" size="12" maxlength="10" value="${Xmodel.record.todo}">
 		        											</td>
 		        										</tr>
 		        										<tr>
-		        											<td class="text12"><span title="dfft">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.text"/></span></td>
+		        											<td class="text14"><span title="dfft">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.charge.text"/></span></td>
 		        											<td colspan="10">	
 		        												<input type="text" class="inputTextMediumBlue11" name="dfft" id="dfft" size="45" maxlength="41" value="${model.record.dfft}">
 		        											</td>

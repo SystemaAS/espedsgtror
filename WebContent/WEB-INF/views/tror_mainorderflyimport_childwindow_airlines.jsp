@@ -31,28 +31,28 @@
 				<table id="containerdatatableTable" cellspacing="2" align="left" width="100%">
 				
 					
-					<tr class="text12" >
+					<tr class="text14" >
 					<td class="ownScrollableSubWindowDynamicWidthHeight" width="90%" style="height:40em;">
 					<%-- this is the datatables grid (content)--%>
 					<table id="mainList" class="display compact cell-border" >
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airlines.label.fsk"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airlines.label.text"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airlines.label.kd"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airlines.label.fsk"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airlines.label.text"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airlines.label.kd"/></th>
 		                    
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.mainList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               
-			               <td width="2%" class="text11MediumBlue" style="cursor:pointer;" id="id_${record.kfsfnr}@name_${record.kfsnav}@counter_${counter.count}">
+			               <td width="2%" class="text14MediumBlue" style="cursor:pointer;" id="id_${record.kfsfnr}@name_${record.kfsnav}@counter_${counter.count}">
 			               	 	${record.kfsfnr}
 			               </td>
-			               <td class="text11" >${record.kfsnav}</td>
-			               <td width="5%" class="text11" >${record.kfskd2}</td>
+			               <td class="text14" >${record.kfsnav}</td>
+			               <td width="5%" class="text14" >${record.kfskd2}</td>
 			                      
 			            </tr> 
 			            </c:forEach>

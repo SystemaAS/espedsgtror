@@ -36,23 +36,23 @@
 					<%-- this is the datatables grid (content)--%>
 					<table id="mainList" class="display compact cell-border" >
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.cities.label.kode"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.cities.label.text"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.cities.label.country"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.cities.label.kode"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.cities.label.text"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.cities.label.country"/></th>
 		                    
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.mainList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               
-			               <td width="2%" class="text11MediumBlue" style="cursor:pointer;" id="id_${record.st2kod}@name_${record.st2nvn}@country_${record.st2lk}@counter_${counter.count}">
+			               <td width="2%" class="text14MediumBlue" style="cursor:pointer;" id="id_${record.st2kod}@name_${record.st2nvn}@country_${record.st2lk}@counter_${counter.count}">
 			               	 	${record.st2kod}
 			               </td>
-			               <td class="text11" >${record.st2nvn}</td>
-			               <td width="5%" class="text11" >${record.st2lk}</td>
+			               <td class="text14" >${record.st2nvn}</td>
+			               <td width="5%" class="text14" >${record.st2lk}</td>
 			                      
 			            </tr> 
 			            </c:forEach>

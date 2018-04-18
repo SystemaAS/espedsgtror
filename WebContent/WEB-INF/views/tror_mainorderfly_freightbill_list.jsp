@@ -160,18 +160,18 @@
 							<td class="text11" >
 								<table id="tblMain" class="display compact cell-border" >
 									<thead>
-									<tr style="background-color:#DDDDDD">
-										<th align="center" width="2%" class="text12" >&nbsp;<span title="todo">Endre&nbsp;</span></th>
-										<th align="center" class="text12" width="2%" >&nbsp;<span title="todo">Lnr.</span></th>  
-										<th align="center" width="5%" class="text12" >&nbsp;<span title="todo">Fraktbrevnr.&nbsp;</span></th>
-										<th class="text12" >&nbsp;<span title="dfnavm">Mottaker</span></th>  
-										<th class="text12" >&nbsp;<span title="dfad3m">Poststed</span></th> 
-										<th align="center" class="text12" width="2%" >&nbsp;<span title="dfst">Status</span></th> 
-										<th class="text12" width="2%" >&nbsp;<span title="dfnt">Antall</span></th>
-										<th class="text12" width="5%" >&nbsp;<span title="dfvs">Vareslag</span></th>
-										<th class="text12" width="2%" >&nbsp;<span title="dfvkt">Vekt</span></th>
-										<th class="text12" >&nbsp;<span title="dfnavs">Transportør</span></th>
-					        			<th align="center" width="2%" class="text12" >&nbsp;Slett&nbsp;</th>
+									<tr class="tableHeaderField" height="20">
+										<th align="center" width="2%" class="text14" >&nbsp;<span title="todo">Endre&nbsp;</span></th>
+										<th align="center" class="text14" width="2%" >&nbsp;<span title="todo">Lnr.</span></th>  
+										<th align="center" width="5%" class="text14" >&nbsp;<span title="todo">Fraktbrevnr.&nbsp;</span></th>
+										<th class="text14" >&nbsp;<span title="dfnavm">Mottaker</span></th>  
+										<th class="text14" >&nbsp;<span title="dfad3m">Poststed</span></th> 
+										<th align="center" class="text14" width="2%" >&nbsp;<span title="dfst">Status</span></th> 
+										<th class="text14" width="2%" >&nbsp;<span title="dfnt">Antall</span></th>
+										<th class="text14" width="5%" >&nbsp;<span title="dfvs">Vareslag</span></th>
+										<th class="text14" width="2%" >&nbsp;<span title="dfvkt">Vekt</span></th>
+										<th class="text14" >&nbsp;<span title="dfnavs">Transportør</span></th>
+					        			<th align="center" width="2%" class="text14" >&nbsp;Slett&nbsp;</th>
 					               </tr> 
 					               </thead>
 					               <tbody>

@@ -142,7 +142,7 @@
 								<td class="text14">
 								<table id="tblNotes" class="display compact cell-border" >
 									<thead>
-									<tr style="background-color:#DDDDDD">
+									<tr class="tableHeaderField" height="20">
 									    <%-- <th width="2%" align="center" class="text14">&nbsp;Lnr.&nbsp;</th>  --%>   
 									    <th width="2%" align="center" class="text14">&nbsp;Endre&nbsp;</th>   
 									    <th width="2%" class="text14" nowrap>&nbsp;Dato&nbsp;</th>
@@ -224,7 +224,7 @@
 					<table width="80%" cellspacing="0" border="0" cellpadding="0">
 						<tr>
 							<td class="text14Bold">
-								<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="<spring:message code="systema.tvinn.sad.export.item.line.init.createnew.submit"/>">
+								<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="Lagre notat">
 							</td>
 						</tr>
 						
@@ -256,7 +256,7 @@
 				 	<%-- Topic ITEM CREATE --%>
 	 				<table width="80%" align="left" class="formFrameHeader" border="0" cellspacing="0" cellpadding="0">
 				 		<tr height="15">
-				 			<td class="text12White" align="left" >
+				 			<td class="text14White" align="left" >
 				 				<b>&nbsp;&nbsp;N<label onClick="showPop('debugPrintlnAjaxItemFetchAdmin');" >o</label>tat&nbsp;</b>
 		 									<span style="position:absolute; left:150px; top:200px; width:800px; height:400px;" id="debugPrintlnAjaxItemFetchAdmin" class="popupWithInputText"  >
 								           		<div class="text11" align="left">

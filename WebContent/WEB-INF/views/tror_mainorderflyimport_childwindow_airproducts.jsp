@@ -36,33 +36,33 @@
 					<%-- this is the datatables grid (content)--%>
 					<table id="mainList" class="display compact cell-border" >
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.kode"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.name"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.counter"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.fsc"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.tdv"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.awbfe"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.sec"/></th>
-		                    <th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.war"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.kode"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.name"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.counter"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.fsc"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.tdv"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.awbfe"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.sec"/></th>
+		                    <th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.airproducts.label.war"/></th>
 		                    
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.mainList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               
-			               <td width="2%" class="text11MediumBlue" style="cursor:pointer;" id="id_${record.kofmko}@name_${record.kofmnv}@counter_${counter.count}">
+			               <td width="2%" class="text14MediumBlue" style="cursor:pointer;" id="id_${record.kofmko}@name_${record.kofmnv}@counter_${counter.count}">
 			               	 	${record.kofmko}
 			               </td>
-			               <td class="text11" >${record.kofmnv}</td>
-			               <td width="5%" class="text11" >${record.kofmk2}</td>
-			               <td width="5%" class="text11" >${record.kofmk3}</td>
-			               <td width="5%" class="text11" >${record.kofmk4}</td>
-			               <td width="5%" class="text11" >${record.kofmk5}</td>
-			               <td width="5%" class="text11" >${record.kofmk6}</td>
-			               <td width="5%" class="text11" >${record.kofmk7}</td> 
+			               <td class="text14" >${record.kofmnv}</td>
+			               <td width="5%" class="text14" >${record.kofmk2}</td>
+			               <td width="5%" class="text14" >${record.kofmk3}</td>
+			               <td width="5%" class="text14" >${record.kofmk4}</td>
+			               <td width="5%" class="text14" >${record.kofmk5}</td>
+			               <td width="5%" class="text14" >${record.kofmk6}</td>
+			               <td width="5%" class="text14" >${record.kofmk7}</td> 
 			                      
 			            </tr> 
 			            </c:forEach>

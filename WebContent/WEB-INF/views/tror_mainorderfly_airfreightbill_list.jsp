@@ -175,15 +175,15 @@
 								<table id="tblMain" class="display compact cell-border" >
 									<thead>
 									<tr style="background-color:#DDDDDD">
-										<th align="center" width="2%" class="text12" >&nbsp;<span>Endre&nbsp;</span></th>
-										<th align="center" class="text12" width="2%" >&nbsp;<span title="imlop">Lnr.</span></th>  
-										<th align="left" class="text12" width="10%" >&nbsp;<span title="hehawb"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.awbnr.manualOrAuto"/>&nbsp;</span></th>
-										<th class="text12" width="15%" >&nbsp;<span title="hesdf"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDeparture"/></span></th> 
-										<th class="text12" width="15%" >&nbsp;<span title="hesdt"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDestination"/></span></th>
-										<th class="text12" width="5%" >&nbsp;<span title="hefr"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.incoterms"/></span></th>
+										<th align="center" width="2%" class="text14" >&nbsp;<span>Endre&nbsp;</span></th>
+										<th align="center" class="text14" width="2%" >&nbsp;<span title="imlop">Lnr.</span></th>  
+										<th align="left" class="text14" width="10%" >&nbsp;<span title="hehawb"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.awbnr.manualOrAuto"/>&nbsp;</span></th>
+										<th class="text14" width="15%" >&nbsp;<span title="hesdf"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDeparture"/></span></th> 
+										<th class="text14" width="15%" >&nbsp;<span title="hesdt"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDestination"/></span></th>
+										<th class="text14" width="5%" >&nbsp;<span title="hefr"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.incoterms"/></span></th>
 										 
-										<th align="left" class="text12" >&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.shipper"/></span></th> 
-										<th align="center" width="2%" class="text12" >&nbsp;Slett&nbsp;</th>
+										<th align="left" class="text14" >&nbsp;<span title="todo"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.shipper"/></span></th> 
+										<th align="center" width="2%" class="text14" >&nbsp;Slett&nbsp;</th>
 					               </tr> 
 					               </thead>
 					               <tbody>

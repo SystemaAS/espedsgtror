@@ -118,7 +118,7 @@
 	 				<%-- MASTER Topic header --%>
 	 				<table width="100%" align="left" class="formFrameHeaderTransparent" border="0" cellspacing="0" cellpadding="0">
 				 		<tr height="15">
-				 			<td class="text12MediumBlue">
+				 			<td class="text14MediumBlue">
 				 				&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.avd"/>&nbsp;<b>${recordOrderTrorFly.heavd}</b>
 				 				&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.order"/>&nbsp;<b>${recordOrderTrorFly.heopd}</b>
 				 				&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.sign"/>&nbsp;<b>${recordOrderTrorFly.hesg}</b>
@@ -231,11 +231,11 @@
 				           		&nbsp;<button name="readyMarkButton" id="readyMarkButton" class="buttonGrayWithGreenFrame" type="button" >&nbsp;Ferdigmelde</button>
 				           		<c:choose>
 					           		<c:when test="${not empty model.container.readyMarkStatus}">
-					           			<font id="readyMarkInvoice" class="text12MediumBlue">&nbsp;Status:&nbsp;${model.container.readyMarkStatus}</font>
+					           			<font id="readyMarkInvoice" class="text14MediumBlue">&nbsp;Status:&nbsp;${model.container.readyMarkStatus}</font>
 					           		</c:when>
 					           		<c:otherwise>
 					           			<%-- this id must always be present since AJAX call must fill upp with text... --%>
-					           			<font id="readyMarkInvoice" class="text12MediumBlue"></font>
+					           			<font id="readyMarkInvoice" class="text14MediumBlue"></font>
 					           		</c:otherwise>
 				           		</c:choose>
 				           		&nbsp;<button name="recalculateButton" id="recalculateButton" class="buttonGrayWithGreenFrame" type="button" >&nbsp;Ny beregning</button>
@@ -252,7 +252,7 @@
 								<table width="100%" cellspacing="0" border="0" cellpadding="0">		
 								<%-- <table id="tblInvoices" class="display compact cell-border" >  --%>
 									<thead>
-									<tr style="background-color:#DDDDDD" class="tableHeaderField" height="23" valign="left">
+									<tr class="tableHeaderField" height="23" valign="left">
 										<th width="2%" align="center" class="tableHeaderFieldFirst" title="fali">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.lineNr"/></th>
 										<c:if test="${empty recordOrderTrorFly.hest || not empty recordOrderTrorFly.hest }">
 									    	<th width="2%" align="center" class="tableHeaderField">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.edit"/></th> 
@@ -428,7 +428,7 @@
 				 	<%-- Topic ITEM CREATE --%>
 	 				<table width="100%" align="left" class="formFrameHeader" border="0" cellspacing="0" cellpadding="0">
 				 		<tr height="15">
-				 			<td class="text12White" align="left" >
+				 			<td class="text14White" align="left" >
 				 				<b>&nbsp;&nbsp;V<label onClick="showPop('debugPrintlnAjaxItemFetchAdmin');" >a</label>relinje&nbsp;</b>
 				 				
 								<span style="position:absolute; left:150px; top:200px; width:800px; height:400px;" id="debugPrintlnAjaxItemFetchAdmin" class="popupWithInputText"  >
@@ -443,7 +443,7 @@
 				        		</span>
 				 				<img onClick="showPop('updateInfo');" src="resources/images/update.gif" border="0" alt="edit" >&nbsp;&nbsp;<div name="editLineNr" id="editLineNr" style="display: inline;" >${model.record.fali}</div>
 				 				<span style="position:absolute; left:150px; top:200px; width:800px; height:400px;" id="updateInfo" class="popupWithInputText"  >
-		           		   			<div class="text12" align="left" style="display:block;width:700px;word-break:break-all;">
+		           		   			<div class="text14" align="left" style="display:block;width:700px;word-break:break-all;">
 		           		   				${todo_activeUrlRPGUpdate_TvinnSad}<br/><br/>
 		           		   				<button name="updateInformationButtonClose" class="buttonGrayInsideDivPopup" type="button" onClick="hidePop('updateInfo');">Close</button> 
 		           		   			</div>
@@ -457,7 +457,7 @@
 					 		<td>
 						 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 							 		<tr>
-							 			<td class="text12" align="left">
+							 			<td class="text14" align="left">
 							 				<img onMouseOver="showPop('sk_info');" onMouseOut="hidePop('sk_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 				<span title="fask"><spring:message code="systema.tror.orders.invoice.update.label.sk"/></span>
 							 				<div class="text11" style="position: relative; display: inline;" align="left">
@@ -489,12 +489,12 @@
 											</div>
 							 			
 							 			</td>
-							            <td class="text12" align="left"><span title="favk">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.gebyrCode"/></span>
+							            <td class="text14" align="left"><span title="favk">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.gebyrCode"/></span>
 							            	<a tabindex=-1 id="favkIdLink" >
 	 											<img id="imgGebyrCodesSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 							            </td>
-							            <td class="text12" align="left">
+							            <td class="text14" align="left">
 								            <img onMouseOver="showPop('tnr_info');" onMouseOut="hidePop('tnr_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 								            <span title="wtnr">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.tnr"/></span>
 							            	<div class="text11" style="position: relative; display: inline;" align="left">
@@ -511,19 +511,19 @@
 											</div>
 							            </td>
 							            
-							            <td class="text12" align="left"><span title="fabelv">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.amount1"/></span></td>
-					            		<td class="text12" align="left"><span title="faval">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.currency"/></span></td>
-					            		<td class="text12" align="left"><span title="fakdm">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.mva"/></span></td>
-					            		<td class="text12" align="left"><span title="faVT">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.freetext"/></span></td>
-					            		<td class="text12" align="left"><span title="wantall">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.wantall"/></span></td>
-					            		<td class="text12" align="left"><span title="fakunr">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.customer"/></span>
+							            <td class="text14" align="left"><span title="fabelv">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.amount1"/></span></td>
+					            		<td class="text14" align="left"><span title="faval">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.currency"/></span></td>
+					            		<td class="text14" align="left"><span title="fakdm">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.mva"/></span></td>
+					            		<td class="text14" align="left"><span title="faVT">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.freetext"/></span></td>
+					            		<td class="text14" align="left"><span title="wantall">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.wantall"/></span></td>
+					            		<td class="text14" align="left"><span title="fakunr">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.customer"/></span>
 							            	<a tabindex=-1 href="javascript:void(0);" onClick="window.open('transportdisp_workflow_childwindow_customer.do?action=doInit&ctype=il','customerWin','top=300px,left=50px,height=800px,width=900px,scrollbars=no,status=no,location=no')">
 	 											<img id="imgAgentSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 							            </td>
-							            <td class="text12" align="left"><span title="wkurs">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.kurs"/></span></td>
-					            		<td class="text12" align="left"><span title="faavdr">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.avdi"/></span></td>
-					            		<td class="text12" align="left"><span title="fadocnB">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.opdi"/></span></td>
+							            <td class="text14" align="left"><span title="wkurs">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.kurs"/></span></td>
+					            		<td class="text14" align="left"><span title="faavdr">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.avdi"/></span></td>
+					            		<td class="text14" align="left"><span title="fadocnB">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.opdi"/></span></td>
 							        </tr>
 							        <tr>
 						        		<td align="left">
@@ -538,7 +538,7 @@
 												<option value="X"<c:if test="${model.record.fask == 'X'}"> selected </c:if> >X</option>  
 											</select>
 										</td>
-										<td class="text12" align="left">
+										<td class="text14" align="left">
 						            		<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="favk" id="favk">
 						 						<option value="">-select-</option>
 							 				  	<c:forEach var="record" items="${model.gebyrCodesList}" >
@@ -546,13 +546,13 @@
 												</c:forEach> 
 											</select>
 							            </td>
-							            <td class="text12" align="left">
+							            <td class="text14" align="left">
 						            		<input type="text" class="inputText" name="wtnr" id="wtnr" size="5" maxlength="5" value="${model.record.wtnr}">
 							            </td>
-										<td class="text12Grey" align="left" >
+										<td class="text14Grey" align="left" >
 							 				<input type="text" onKeyPress="return numberKey(event)" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="fabelv" id="fabelv" size="10" maxlength="8" value="${model.record.fabelv}">
 							 			</td>
-							 			<td class="text12" align="left">
+							 			<td class="text14" align="left">
 						            		<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="faval" id="faval">
 						 						<option value="">-valuta-</option>
 							 				  	<c:forEach var="record" items="${model.currencyCodeList}" >
@@ -570,23 +570,23 @@
 										<td align="left" nowrap>
 											<input type="text" class="inputTextMediumBlue" name="faVT" id="faVT" size="21" maxlength="20" value="${model.record.faVT}">
 										</td>
-										<td class="text12" align="left" ><input type="text" class="inputText" onKeyPress="return numberKey(event)" name="wantall" id="wantall" size="5" maxlength="5" value="${model.record.wantall}"></td>
+										<td class="text14" align="left" ><input type="text" class="inputText" onKeyPress="return numberKey(event)" name="wantall" id="wantall" size="5" maxlength="5" value="${model.record.wantall}"></td>
 							            
-										<td class="text12" align="left">
+										<td class="text14" align="left">
 						            		<input type="text" class="inputText" onKeyPress="return numberKey(event)" name="fakunr" id="fakunr" size="9" maxlength="8" value="${model.record.fakunr}">
 							            </td>
-							            <td class="text12" align="left" ><input type="text" class="inputText" onKeyPress="return amount(event)" name="wkurs" id="wkurs" size="6" maxlength="8" value="${model.record.wkurs}"></td>
-							            <td class="text12">
+							            <td class="text14" align="left" ><input type="text" class="inputText" onKeyPress="return amount(event)" name="wkurs" id="wkurs" size="6" maxlength="8" value="${model.record.wkurs}"></td>
+							            <td class="text14">
 						        			<input type="text" class="inputText" name="faavdr" id="faavdr" size="5" maxlength="4" value="${model.record.faavdr}">
 						        		</td>
-						        		<td class="text12" align="left" >
+						        		<td class="text14" align="left" >
 						        			<input type="text" class="inputText" name="fadocnB" id="fadocnB" size="8" maxlength="7" value="${model.record.fadocnB}">
 						        		</td>
 							        </tr>
 							        <tr height="12"><td class="text" align="left" colspan="20"><hr></td></tr>
 							        <tr height="3"><td class="text" align="left"></td></tr>
 							        <tr>
-							 			<td class="text12" align="left" >&nbsp;
+							 			<td class="text14" align="left" >&nbsp;
 							            	<img onMouseOver="showPop('utgift_info');" onMouseOut="hidePop('utgift_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 				<span title="fakduk/facu33/fabelu"><spring:message code="systema.tror.orders.invoice.update.label.utgift"/></span>
 							 				<div class="text11" style="position: relative; display: inline;" align="left">
@@ -626,16 +626,16 @@
 											</span>
 											</div>
 							            </td>
-							            <td class="text12" align="left" >&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.utgift.currency"/></td>
-							            <td class="text12" align="left" >&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.utgift.costbelopp"/></td>
-							            <td class="text12" align="left"><span title="falevn">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.supplier.id"/></span>
+							            <td class="text14" align="left" >&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.utgift.currency"/></td>
+							            <td class="text14" align="left" >&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.utgift.costbelopp"/></td>
+							            <td class="text14" align="left"><span title="falevn">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.supplier.id"/></span>
 						            		<a tabindex=-1 id="falevnIdLink" >
 	 											<img id="imgSupplierSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 						            	</td>
-						            	<td colspan="2" class="text12" align="left" ><span title="lnavn">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.supplier.name"/></span></td>
+						            	<td colspan="2" class="text14" align="left" ><span title="lnavn">&nbsp;<spring:message code="systema.tror.orders.invoice.update.label.supplier.name"/></span></td>
 							            
-					            		<td class="text12" align="left"><span title="wkomp">
+					            		<td class="text14" align="left"><span title="wkomp">
 						            		<img onMouseOver="showPop('komp_info');" onMouseOut="hidePop('komp_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						            		<spring:message code="systema.tror.orders.invoice.update.label.komplett"/></span>
 						            		<div class="text11" style="position: relative; display: inline;" align="left">
@@ -661,7 +661,7 @@
 											</div>
 
 					            		</td>
-					            		<td class="text12" align="left"><span title="facd11">
+					            		<td class="text14" align="left"><span title="facd11">
 						            		<img onMouseOver="showPop('sam_info');" onMouseOut="hidePop('sam_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						            		<spring:message code="systema.tror.orders.invoice.update.label.samm"/></span>
 						            		<div class="text11" style="position: relative; display: inline;" align="left">
@@ -684,7 +684,7 @@
 		            				
 							        </tr>
 							        <tr>
-							        	<td class="text12">&nbsp;
+							        	<td class="text14">&nbsp;
 						        			<select class="inputTextMediumBlue" name="fakduk" id="fakduk">
 						 						<option value=" ">-blank-</option>
 							 				  	<option value="B" <c:if test="${model.record.fakduk == 'B'}"> selected </c:if> >B</option>
@@ -694,26 +694,26 @@
 							 				  	<option value="H" <c:if test="${model.record.fakduk == 'H'}"> selected </c:if> >H</option>
 											</select>
 										</td>
-										<td class="text12">	
+										<td class="text14">	
 						        			<select class="inputTextMediumBlue" name="facu33" id="facu33">
 						 						<c:forEach var="record" items="${model.currencyCodeList}" >
 							 				  		<option value="${record.kvakod}"<c:if test="${model.record.facu33 == record.kvakod || (empty model.record.facu33 && record.kvakod=='NOK')}"> selected </c:if> >${record.kvakod}</option>
 												</c:forEach> 
 											</select>
 										</td>
-										<td class="text12">	
+										<td class="text14">	
 						        			<input type="text" class="inputText" onKeyPress="return amountKey(event)" name="fabelu" id="fabelu" size="15" maxlength="14" value="${model.record.fabelu}">
 										</td>
-										<td class="text12" align="left" >
+										<td class="text14" align="left" >
 											<input type="text" class="inputText" name="falevn" id="falevn" size="9" maxlength="8" value="${model.record.falevn}">
 										</td>
-							            <td colspan="2" class="text12" align="left" >
+							            <td colspan="2" class="text14" align="left" >
 											<input type="text" class="inputText" name="lnavn" id="lnavn" size="20" maxlength="35" value="${model.record.lnavn}">
 										</td>
-										<td class="text12" align="left" nowrap>
+										<td class="text14" align="left" nowrap>
 							            	<input type="text" class="inputText" name="wkomp" id="wkomp" size="5" maxlength="5" value="${model.record.wkomp}">
 										</td>
-						        		<td class="text12" align="left">
+						        		<td class="text14" align="left">
 						            		<input type="text" class="inputText" name="facd11" id="facd11" size="5" maxlength="5" value="${model.record.facd11}">
 						            	</td>
 			            				

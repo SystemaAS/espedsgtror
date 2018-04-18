@@ -66,14 +66,14 @@
 			<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
 				<a class="text14" onClick="setBlockUI(this);" href="tror_<c:out value="${tabLinkJsp}"/>_invoice.do?action=doFetch&heavd=${recordOrderTrorFly.heavd}&heopd=${recordOrderTrorFly.heopd}" > 	
 					<img style="vertical-align: bottom" src="resources/images/invoice.png" width="16" height="16" border="0" alt="show invoice">
-					<font class="tabDisabledLink"><spring:message code="systema.tror.order.faktura.tab"/></font><font class="text12">&nbsp;</font>&nbsp;<font class="text10Orange">F9</font>
+					<font class="tabDisabledLink"><spring:message code="systema.tror.order.faktura.tab"/></font><font class="text14">&nbsp;</font>&nbsp;<font class="text10Orange">F9</font>
 				</a>
 			</td>
 			<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
 			<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
 				<a class="text14" onClick="setBlockUI(this);" href="editNotisblock.do?action=doFetch&subsys=${subSystem}&avd=${recordOrderTrorFly.heavd}&opd=${recordOrderTrorFly.heopd}&sign=${recordOrderTrorFly.hesg}" > 	
 					<img style="vertical-align: bottom" src="resources/images/veiledning.png" width="16" height="16" border="0" alt="show messages">
-					<font class="tabDisabledLink"><spring:message code="systema.tror.order.notisblock.tab"/></font><font class="text12">&nbsp;</font>&nbsp;<font class="text10Orange">F10</font>
+					<font class="tabDisabledLink"><spring:message code="systema.tror.order.notisblock.tab"/></font><font class="text14">&nbsp;</font>&nbsp;<font class="text10Orange">F10</font>
 				</a>
 			</td>
 			<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
@@ -240,7 +240,7 @@
 							<%--
 							<table align="left" class="formFrameHeader" border="0" cellspacing="0" cellpadding="0">
 						 		<tr height="15">
-						 			<td colspan="10" class="text12White" align="left" >
+						 			<td colspan="10" class="text14White" align="left" >
 						 				<b>&nbsp;&nbsp;Tidsloggning avgang/ankomst på oppdrag</b>
 					 				</td>
 				 				</tr>
@@ -252,7 +252,7 @@
 						 			<td>
 								 		<table class="formFrameHeader" width="100%" border="0" cellspacing="0" cellpadding="0">
 								 		<tr>
-								 			<td class="text12White" align="left" >
+								 			<td class="text14White" align="left" >
 								 				<b>&nbsp;&nbsp;Tidsloggning avgang/ankomst på oppdrag</b>
 							 				</td>
 						 				</tr>
@@ -267,25 +267,25 @@
 									 		<td>
 									 		<table width="90%" >
 									 			<tr height="2px"><td class="text" align="left"></td></tr>
-										 		<tr>
+										 		<tr class="tableHeaderField" height="20">
 										 			
-										 			<td class="text12" align="left" title="todo"><b>&nbsp;<spring:message code="systema.tror.more.ttrace.label.avgang"/></b></td>
-										 			<td class="text12" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.etd"/></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEtd" id="todoEtd" size="10" maxlength="8" value=''></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEtdTid" id="todoEtdTid" size="5" maxlength="4" value=''></td>
-										 			<td class="text12" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.atd"/></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAtd" id="todoAtd" size="10" maxlength="8" value=''></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAtdTid" id="todoAtaTid" size="5" maxlength="4" value=''></td>
+										 			<td class="text14" align="left" title="todo"><b>&nbsp;<spring:message code="systema.tror.more.ttrace.label.avgang"/></b></td>
+										 			<td class="text14" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.etd"/></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEtd" id="todoEtd" size="10" maxlength="8" value=''></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEtdTid" id="todoEtdTid" size="5" maxlength="4" value=''></td>
+										 			<td class="text14" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.atd"/></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAtd" id="todoAtd" size="10" maxlength="8" value=''></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAtdTid" id="todoAtaTid" size="5" maxlength="4" value=''></td>
 										 			
 										        </tr>
 										        <tr>
-										        	<td class="text12" align="left" title="todo"><b>&nbsp;<spring:message code="systema.tror.more.ttrace.label.ankomst"/></b></td>
-										 			<td class="text12" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.eta"/></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEta" id="todoEta" size="10" maxlength="8" value=''></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEtaTid" id="todoEtaTid" size="5" maxlength="4" value=''></td>
-										 			<td class="text12" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.ata"/></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAta" id="todoAta" size="10" maxlength="8" value=''></td>
-										 			<td class="text12" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAtaTid" id="todoAtaTid" size="5" maxlength="4" value=''></td>
+										        	<td class="text14" align="left" title="todo"><b>&nbsp;<spring:message code="systema.tror.more.ttrace.label.ankomst"/></b></td>
+										 			<td class="text14" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.eta"/></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEta" id="todoEta" size="10" maxlength="8" value=''></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoEtaTid" id="todoEtaTid" size="5" maxlength="4" value=''></td>
+										 			<td class="text14" align="left" title="todo">&nbsp;<spring:message code="systema.tror.more.ttrace.label.ata"/></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAta" id="todoAta" size="10" maxlength="8" value=''></td>
+										 			<td class="text14" align="left"><input type="text" class="inputTextMediumBlue"  name="todoAtaTid" id="todoAtaTid" size="5" maxlength="4" value=''></td>
 										 			
 										        </tr>
 										        <tr height="2px"><td class="text" align="left"></td></tr>

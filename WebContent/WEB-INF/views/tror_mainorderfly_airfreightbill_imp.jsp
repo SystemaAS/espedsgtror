@@ -226,26 +226,26 @@
 				 			 <table align="center" class="tableBorderWithRoundCornersLightYellow" cellspacing="1" cellpadding="1" border="0">
 						 		<tr height="10"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">&nbsp;<span title="imlop"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.lopenr"/></span></td>
-					 				<td class="text12">&nbsp;<span title="trsta4"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.productCode"/></span>
+					 				<td class="text14">&nbsp;<span title="imlop"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.lopenr"/></span></td>
+					 				<td class="text14">&nbsp;<span title="trsta4"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.productCode"/></span>
 					 					<a tabindex="-1" id="prodKodeIdLink" >
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>
 					 				</td>
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12"><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="imlop" id="imlop" size="4" maxlength="3" value="${model.record.imlop}"></td>
-				 					<td class="text12"><input type="text" class="inputTextMediumBlueMandatoryField" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" name="trsta4" id="trsta4" size="2" maxlength="1" value="${model.record.trsta4}"></td>
+				 					<td class="text14"><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="imlop" id="imlop" size="4" maxlength="3" value="${model.record.imlop}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlueMandatoryField" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" name="trsta4" id="trsta4" size="2" maxlength="1" value="${model.record.trsta4}"></td>
 				 				</tr>
 					 			<tr>	
-					 				<td class="text12">&nbsp;<span title="hegn5_7"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.carrier"/></span>
+					 				<td class="text14">&nbsp;<span title="hegn5_7"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.carrier"/></span>
 					 					<a tabindex="-1" id="flyselskapIdLink" >
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>	 	
 					 				</td>
 					 			</tr>
 								<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<c:choose>
 					 						<c:when test="${ not empty model.record.hegn && fn:length(model.record.hegn)>8}">
 					 							<input type="text" onKeyPress="return numberKey(event)" class="inputTextMediumBlue" name="hegn5_7" id="hegn5_7" size="4" maxlength="3" value="${fn:substring(model.record.hegn, 4, 7)}">
@@ -257,12 +257,12 @@
 				 					</td>
 				 				</tr>
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="hesdf">&nbsp;<spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDeparture"/></span>
+					 				<td class="text14">&nbsp;<span title="hesdf">&nbsp;<spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDeparture"/></span>
 					 					<a tabindex="-1" id="flyplassFromIdLink" >
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>	
 					 				</td>
-					 				<td class="text12">&nbsp;<span title="hesdt">&nbsp;<spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDestination"/></span>
+					 				<td class="text14">&nbsp;<span title="hesdt">&nbsp;<spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.airportOfDestination"/></span>
 					 					<a tabindex="-1" id="flyplassToIdLink" >
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>	
@@ -283,23 +283,23 @@
 								
 								<tr height="25"><td ></td></tr>
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="hegn"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.awbnr.manualOrAuto"/></span></td>
-					 				<td class="text12">&nbsp;<span title="hefr"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.incoterms"/></span>
+					 				<td class="text14">&nbsp;<span title="hegn"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.awbnr.manualOrAuto"/></span></td>
+					 				<td class="text14">&nbsp;<span title="hefr"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.incoterms"/></span>
 					 					<a tabindex="-1" id="incotermsIdLink" >
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>	
 					 				</td>
-					 				<td class="text12">&nbsp;<span title="domoms"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.vat"/></span></td>
+					 				<td class="text14">&nbsp;<span title="domoms"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.vat"/></span></td>
 					 				
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="text" class="inputTextMediumBlue" name="hegn" id="hegn" size="12" maxlength="11" value="${model.record.hegn}">
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<input type="text" class="inputTextMediumBlueMandatoryField" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" name="hefr" id="hefr" size="4" maxlength="3" value="${model.record.hefr}">
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<select  class="inputTextMediumBlueMandatoryField" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" name="domoms" id="domoms" >
 					 						<option value="J"<c:if test="${model.record.domoms == 'J'}"> selected </c:if> >Ja</option>
 						 				  	<option value="N"<c:if test="${model.record.domoms == 'N'}"> selected </c:if> >Nei</option>
@@ -308,18 +308,18 @@
 				 					</td>
 		 						</tr>	
 		 						<tr>	
-					 				<td class="text12">&nbsp;<span title="hekns/ownHekns"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.shipper"/></span>
+					 				<td class="text14">&nbsp;<span title="hekns/ownHekns"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.shipper"/></span>
 					 					<a tabindex="-1" id="trorAvsenderImportIdLink" >
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>
 					 				</td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="text" onKeyPress="return numberKey(event)" class="inputTextMediumBlueMandatoryField" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" name="hekns" id="hekns" size="9" maxlength="8" value="${model.record.hekns}">
 				 						
 				 					</td>
-				 					<td colspan="3" class="text12" >
+				 					<td colspan="3" class="text14" >
 				 						<input type="text" class="inputTextMediumBlue" name="ownHekns" id="ownHekns" size="25" maxlength="20" value="${model[model.record.hekns]}">
 				 					</td>
 		 						</tr>	

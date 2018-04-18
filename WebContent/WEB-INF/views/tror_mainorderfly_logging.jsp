@@ -53,14 +53,14 @@
 				<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
 					<a class="text14" onClick="setBlockUI(this);" href="tror_<c:out value="${tabLinkJsp}"/>_invoice.do?action=doInit&heavd=${recordOrderTrorFly.heavd}&heopd=${recordOrderTrorFly.heopd}" >
 						<img style="vertical-align: bottom" src="resources/images/invoice.png" width="16" height="16" border="0" alt="show invoice">
-						<font class="tabDisabledLink"><spring:message code="systema.tror.order.faktura.tab"/></font><font class="text12"></font>&nbsp;<font class="text10Orange">F9</font>
+						<font class="tabDisabledLink"><spring:message code="systema.tror.order.faktura.tab"/></font><font class="text14"></font>&nbsp;<font class="text10Orange">F9</font>
 					</a>
 				</td>
 				<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
 				<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
 					<a class="text14" onClick="setBlockUI(this);" href="editNotisblock.do?action=doFetch&subsys=${subSystem}&avd=${recordOrderTrorFly.heavd}&opd=${recordOrderTrorFly.heopd}&sign=${recordOrderTrorFly.hesg}" > 	
 						<img style="vertical-align: bottom" src="resources/images/veiledning.png" width="16" height="16" border="0" alt="show messages">
-						<font class="tabDisabledLink"><spring:message code="systema.tror.order.notisblock.tab"/></font><font class="text12">&nbsp;</font><font class="text10Orange">F10</font>
+						<font class="tabDisabledLink"><spring:message code="systema.tror.order.notisblock.tab"/></font><font class="text14">&nbsp;</font><font class="text10Orange">F10</font>
 					</a>
 				</td>
 				
@@ -189,15 +189,8 @@
 		               </thead>
 		               <tbody>     
 			           	<c:forEach items="${list}" var="record" varStatus="counter">    
-			               <c:choose>           
-			                   <c:when test="${record.msr == 'R'}">
-			                       <tr class="tableRow" style="background-color:#EEEEEE;" height="25" >
-			                   </c:when>
-			                   <c:otherwise>   
-			                       <tr class="tableOddRow" height="25" >
-			                   </c:otherwise>
-			               </c:choose>
-			               
+			               <tr class="tableHeaderField" height="20">
+			                   
 			               <td class="tableCellFirst" <c:if test="${record.msr == 'R'}">style="color:#9F6000;"</c:if> >&nbsp;${record.mtdn}&nbsp;&nbsp;<font class="text8">[${model.sign}]</font></td>
 			               <td class="tableCell">&nbsp;
 			               		<a <c:if test="${record.msr == 'R'}">style="color:#9F6000;"</c:if> href="ediftplog.do?sssn=${record.msn}&ftplev=EDISS" target="_new" onClick="window.open(this.href,'targetWindow','top=200px,left=600px,height=800px,width=700px,scrollbars=no,status=no,location=no'); return false;">

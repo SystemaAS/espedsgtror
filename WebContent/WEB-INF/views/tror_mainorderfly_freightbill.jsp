@@ -21,7 +21,7 @@
 <form action="tror_mainorderfly_freightbill_edit.do" name="formRecord" id="formRecord" method="post">
 	
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text12" cellspacing="0" border="0" cellpadding="0">
 		<%-- This part right here allows for the dynamic allocation of a JSP depending on whether it is IMPORT or EXPORT --%>
 		<c:choose>
 			<c:when test="${recordOrderTrorFly.heur == 'C'}">
@@ -247,11 +247,11 @@
 				 		<tr>
 							<td colspan="8">
 								
-								<table class="text12" border="0">
+								<table class="text14" border="0">
 								
 					 			<tr>
 					 				<td align="left" class="text14" ><b>28.</b>&nbsp;<span title="dfbela"><spring:message code="systema.tror.fraktbrev.form.update.label.fraktbetaler"/></span></td>
-					 				<td class="text11">
+					 				<td class="text12">
 										<select class="inputTextMediumBlueMandatoryField" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" name="dfbela" id="dfbela">
 											<option value=''>-velg-</option>
 						 					<option value='S' <c:if test="${model.record.dfbela == 'S'}"> selected </c:if> ><spring:message code="systema.tror.fraktbrev.form.update.label.fraktbetaler.seller"/></option>
@@ -327,8 +327,8 @@
 					 				<td valign="top" align="left" width="50%">
 					 					<table width="100%" border="0">
 					 					<tr>
-					 						<td class="text12" title="hedtop"><font class="text16RedBold" >*</font><spring:message code="systema.tror.orders.form.update.label.date"/></td>
-							 				<td class="text12" >	
+					 						<td class="text14" title="hedtop"><font class="text16RedBold" >*</font><spring:message code="systema.tror.orders.form.update.label.date"/></td>
+							 				<td class="text14" >	
 							 					<input type="text" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="hedtop" id="hedtop" size="9" maxlength="8" value="${Xmodel.record.hedtop}">
 							 				</td>
 							 				
@@ -340,7 +340,7 @@
 					 				<td valign="top" align="left" width="50%">
 						 				<table width="100%" border="0">
 						 				<tr>
-						 					<td class="text12" title="hekna"><spring:message code="systema.tror.orders.form.update.label.agent"/>
+						 					<td class="text14" title="hekna"><spring:message code="systema.tror.orders.form.update.label.agent"/>
 						 						<a tabindex="-1" id="trorAgentIdLink" >
 		 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
@@ -367,24 +367,24 @@
 				 			 <table style="width:98%" class="tableBorderWithRoundCornersLightYellow" cellspacing="1" cellpadding="1" border="0">
 						 		<tr height="10"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					&nbsp;<span title="dfknss"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.id"/>&nbsp;</span>
 					 					<a tabindex="-1" id="trorSellerIdLink" >
  											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
  										</a>
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					&nbsp;<span title="whenas"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.seller"/>&nbsp;</span>
 					 	
 					 				</td>
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12" ><input type="text" class="inputTextMediumBlue" name="dfknss" id="dfknss" size="10" maxlength="8" value="${model.record.dfknss}"></td>
-								 	<td class="text12" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenas" id="whenas" size="50" value="${XXXmodel.record.heknsNavn}&nbsp;-&nbsp;${XXXmodel.record.heknsPnSt}"></td>
+				 					<td class="text14" ><input type="text" class="inputTextMediumBlue" name="dfknss" id="dfknss" size="10" maxlength="8" value="${model.record.dfknss}"></td>
+								 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenas" id="whenas" size="50" value="${XXXmodel.record.heknsNavn}&nbsp;-&nbsp;${XXXmodel.record.heknsPnSt}"></td>
 				 				</tr>
 								<tr height="5"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">&nbsp;<span title="dfnavs"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.name"/></span>
+					 				<td class="text14">&nbsp;<span title="dfnavs"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.name"/></span>
 					 					<%-- <c:if test="${XXmodel.record.fakBetExists}">
 						 					<a href="javascript:void(0);" onClick="window.open('tror_childwindow_customer_addresses.do?action=doFind&ctype=s&wkundnr=${user.custNr}','customerWin','top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no')">
 		 										<img id="imgShipperSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
@@ -394,58 +394,58 @@
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>	 									
 					 				</td>
-					 				<td class="text12">&nbsp;<span title="dfad1s"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.adr1"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfad1s"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.adr1"/></span></td>
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dfnavs" id="dfnavs" size="25" maxlength="30" value="${model.record.dfnavs}"></td>
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dfad1s" id="dfad1s" size="25" maxlength="30" value="${model.record.dfad1s}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dfnavs" id="dfnavs" size="25" maxlength="30" value="${model.record.dfnavs}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dfad1s" id="dfad1s" size="25" maxlength="30" value="${model.record.dfad1s}"></td>
 				 				</tr>
 					 			<tr>	
-					 				<td class="text12">&nbsp;<span title="dfad2s"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.adr2"/></span></td>
-					 				<td class="text12">&nbsp;<span title="dfpnls/dfad3s"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.adr3"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfad2s"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.adr2"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfpnls/dfad3s"><spring:message code="systema.tror.fraktbrev.form.update.label.shipper.adr3"/></span></td>
 					 			</tr>
 								<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 					<input type="text" class="inputTextMediumBlueUPPERCASE" name="dfad2s" id="dfad2s" size="25" maxlength="30" value="${model.record.dfad2s}">
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfpnls" id="dfpnls" size="5" maxlength="4" value="${model.record.dfpnls}">
 				 						<input type="text" class="inputTextMediumBlue" name="dfad3s" id="dfad3s" size="25" maxlength="30" value="${model.record.dfad3s}">
 				 					</td>
 				 				</tr>
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="dfsref"><b>16.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.avsRef"/></span></td>
-					 				<td class="text12">&nbsp;<span title="dfbref"><b>18.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.bokRef"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfsref"><b>16.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.avsRef"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfbref"><b>18.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.bokRef"/></span></td>
 					 				
 					 			</tr>
 					 			<tr>	
-				 					<td class="text11" >
+				 					<td class="text12" >
 				 						<input type="text" class="inputTextMediumBlue" name="dfsref" id="dfsref" size="20" maxlength="17" value="${model.record.dfsref}">
 								 	</td>
-								 	<td class="text11" >
+								 	<td class="text12" >
 				 						<input type="text" class="inputTextMediumBlue" name="dfbref" id="dfbref" size="20" maxlength="17" value="${model.record.dfbref}">
 								 	</td>
 								</tr> 
 								
 								<tr height="15"><td ></td></tr>
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="ownSenderContactName"><spring:message code="systema.tror.orders.form.update.label.shipper.contactName"/></span></td>
-					 				<td class="text12">&nbsp;<span title="ownSenderMobile"><spring:message code="systema.tror.orders.form.update.label.shipper.mobile"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownSenderContactName"><spring:message code="systema.tror.orders.form.update.label.shipper.contactName"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownSenderMobile"><spring:message code="systema.tror.orders.form.update.label.shipper.mobile"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="hidden" name="ownSenderPartId" id="ownSenderPartId" value='CN'>
 				 						<input type="text" class="inputTextMediumBlue" name="ownSenderContactName" id="ownSenderContactName" size="25" maxlength="60" value="${model.ownSenderContactName}">
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<input type="text" class="inputTextMediumBlue" name="ownSenderMobile" id="ownSenderMobile" size="25" maxlength="60" value="${model.ownSenderMobile}">
 				 					</td>
 		 						</tr>	
 		 						<tr>	
-					 				<td class="text12">&nbsp;<span title="ownSenderEmail"><spring:message code="systema.tror.orders.form.update.label.shipper.email"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownSenderEmail"><spring:message code="systema.tror.orders.form.update.label.shipper.email"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="text" class="inputTextMediumBlue" name="ownSenderEmail" id="ownSenderEmail" size="25" maxlength="60" value="${model.ownSenderEmail}">
 				 					</td>
 		 						</tr>	
@@ -453,7 +453,7 @@
 				 				<tr height="15"><td ></td></tr>	
 				 												 				
 								<tr>
-				 					<td class="text12Bold">&nbsp;
+				 					<td class="text14Bold">&nbsp;
 				 						<img style="vertical-align: bottom;" width="24px" height="24px" src="resources/images/invoice.png" border="0" alt="invoice">
 				 						Oppr. avsender/Fakturasender
 				 					</td>
@@ -462,10 +462,10 @@
 				 					<td colspan="2">
 				 					<table class="tableBorderWithRoundCorners" width="80%">
 					 					<tr>
-							 				<td class="text12">&nbsp;<span title="dffase">Navn&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dffase">Navn&nbsp;</span></td>
 						 				</tr>
 						 				<tr>	
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dffase" id="dffase" size="30" maxlength="25" value="${model.record.dffase}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dffase" id="dffase" size="30" maxlength="25" value="${model.record.dffase}"></td>
 					 					</tr>
 									</table>
 									</td>				 				
@@ -477,18 +477,18 @@
 				 			 <table style="width:98%" class="tableBorderWithRoundCornersLightYellow" cellspacing="1" cellpadding="1">
 					 			<tr height="10"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					&nbsp;<span title="dfknsm"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.id"/>&nbsp;</span>
 					 					<a tabindex="-1" id="trorBuyerIdLink" >
  											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
  										</a>
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					&nbsp;<span title="whenak"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.buyer"/>&nbsp;</span>
 					 				</td>	
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<c:choose>
 						 				<c:when test="${'0' != model.record.dfknsm}">
 				 							<input type="text" class="inputTextMediumBlue" name="dfknsm" id="dfknsm" size="10" maxlength="8" value="${model.record.dfknsm}">
@@ -498,11 +498,11 @@
 				 						</c:otherwise>
 				 						</c:choose>
 				 					</td>
-				 					<td class="text12" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenak" id="whenak" size="50" value="${XXmodel.record.heknkNavn}&nbsp;-&nbsp;${XXmodel.record.heknkPnSt}"></td>
+				 					<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenak" id="whenak" size="50" value="${XXmodel.record.heknkNavn}&nbsp;-&nbsp;${XXmodel.record.heknkPnSt}"></td>
 				 				</tr>
 				 				<tr height="5"><td ></td></tr>
 						 		<tr>
-					 				<td class="text12">&nbsp;<span title="dfnavm"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.name"/></span>
+					 				<td class="text14">&nbsp;<span title="dfnavm"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.name"/></span>
 					 					<%-- <c:if test="${XXmodel.record.fakBetExists}">
 						 					<a href="javascript:void(0);" onClick="window.open('tror_childwindow_customer_addresses.do?action=doFind&ctype=c&wkundnr=${user.custNr}','customerWin','top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no')">
 		 										<img id="imgConsigneeSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
@@ -512,48 +512,48 @@
 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 										</a>
 					 				</td>
-					 				<td class="text12">&nbsp;<span title="dfad1m"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.adr1"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfad1m"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.adr1"/></span></td>
 					 			</tr>
 					 			<tr>	
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dfnavm" id="dfnavm" size="25" maxlength="30" value="${model.record.dfnavm}"></td>
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dfad1m" id="dfad1m" size="25" maxlength="30" value="${model.record.dfad1m}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dfnavm" id="dfnavm" size="25" maxlength="30" value="${model.record.dfnavm}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dfad1m" id="dfad1m" size="25" maxlength="30" value="${model.record.dfad1m}"></td>
 				 				</tr>
 					 			<tr>	
-					 				<td class="text12">&nbsp;<span title="dfad2m"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.adr2"/></span></td>
-					 				<td class="text12">&nbsp;<span title="dfad3m"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.adr3"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfad2m"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.adr2"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfad3m"><spring:message code="systema.tror.fraktbrev.form.update.label.consignee.adr3"/></span></td>
 					 			</tr>
 								<tr>	
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dfad2m" id="dfad2m" size="25" maxlength="30" value="${model.record.dfad2m}"></td>
-				 					<td class="text12"><input type="text" class="inputTextMediumBlue" name="dfad3m" id="dfad3m" size="25" maxlength="30" value="${model.record.dfad3m}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dfad2m" id="dfad2m" size="25" maxlength="30" value="${model.record.dfad2m}"></td>
+				 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dfad3m" id="dfad3m" size="25" maxlength="30" value="${model.record.dfad3m}"></td>
 				 				</tr>
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="dfmref"><b>25.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.motRef"/></span></td>
+					 				<td class="text14">&nbsp;<span title="dfmref"><b>25.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.motRef"/></span></td>
 					 				
 					 			</tr>
 					 			<tr>	
-				 					<td class="text11" >
+				 					<td class="text12" >
 				 						<input type="text" class="inputTextMediumBlue" name="dfmref" id="dfmref" size="20" maxlength="17" value="${model.record.dfmref}">
 								 	</td>
 								 </tr>
 								 <tr height="15"><td ></td></tr>
 				 				<tr>	
-					 				<td class="text12">&nbsp;<span title="ownReceiverContactName"><spring:message code="systema.tror.orders.form.update.label.consignee.contactName"/></span></td>
-					 				<td class="text12">&nbsp;<span title="ownReceiverMobile"><spring:message code="systema.tror.orders.form.update.label.consignee.mobile"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownReceiverContactName"><spring:message code="systema.tror.orders.form.update.label.consignee.contactName"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownReceiverMobile"><spring:message code="systema.tror.orders.form.update.label.consignee.mobile"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="hidden" name="ownReceiverPartId" id="ownReceiverPartId" value='CZ'>
 				 						<input type="text" class="inputTextMediumBlue" name="ownReceiverContactName" id="ownReceiverContactName" size="25" maxlength="60" value="${model.ownReceiverContactName}">
 				 					</td>
-				 					<td class="text12">
+				 					<td class="text14">
 				 						<input type="text" class="inputTextMediumBlue" name="ownReceiverMobile" id="ownReceiverMobile" size="25" maxlength="60" value="${model.ownReceiverMobile}">
 				 					</td>
 		 						</tr>	
 		 						<tr>	
-					 				<td class="text12">&nbsp;<span title="ownReceiverEmail"><spring:message code="systema.tror.orders.form.update.label.consignee.email"/></span></td>
+					 				<td class="text14">&nbsp;<span title="ownReceiverEmail"><spring:message code="systema.tror.orders.form.update.label.consignee.email"/></span></td>
 		 						</tr>
 		 						<tr>	
-				 					<td class="text12" >
+				 					<td class="text14" >
 				 						<input type="text" class="inputTextMediumBlue" name="ownReceiverEmail" id="ownReceiverEmail" size="25" maxlength="60" value="${model.ownReceiverEmail}">
 				 					</td>
 		 						</tr>	
@@ -578,12 +578,12 @@
 				 					<table class="tableBorderWithRoundCorners" width="100%">
 					 					<tr>
 					 					
-							 				<td class="text12">&nbsp;<span title="dftran"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.id"/>&nbsp;</span>
+							 				<td class="text14">&nbsp;<span title="dftran"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.id"/>&nbsp;</span>
 							 					<a tabindex="-1" id="trorCarrierIdLink" >
 		 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 							 				</td>
-							 				<td class="text12" >
+							 				<td class="text14" >
 							 					<c:choose>
 								 				<c:when test="${'0' != model.record.dftran}">
 						 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dftran" id="dftran" size="9" maxlength="8" value="${model.record.dftran}">
@@ -594,14 +594,14 @@
 						 						</c:choose>
 							 				</td>
 							 				
-						 					<td class="text12">&nbsp;<span title="dfnat"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.name"/>&nbsp;</span></td>
-							 				<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfnat" id="dfnat" size="21" maxlength="20" value="${model.record.dfnat}"></td>
-							 				<td class="text12">&nbsp;<span title="dfknm"><b>23.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.carrier.kundnr.transport"/>&nbsp;</span></td>
-							 				<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfknm" id="dfknm" size="15" maxlength="12" value="${model.record.dfknm}"></td>
+						 					<td class="text14">&nbsp;<span title="dfnat"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.name"/>&nbsp;</span></td>
+							 				<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfnat" id="dfnat" size="21" maxlength="20" value="${model.record.dfnat}"></td>
+							 				<td class="text14">&nbsp;<span title="dfknm"><b>23.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.carrier.kundnr.transport"/>&nbsp;</span></td>
+							 				<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfknm" id="dfknm" size="15" maxlength="12" value="${model.record.dfknm}"></td>
 						 				</tr>
 						 				<tr>
-							 				<td class="text12">&nbsp;<span title="dfprok"><b>14.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.carrier.productCode"/>&nbsp;</span></td>
-							 				<td colspan="2" class="text12" >
+							 				<td class="text14">&nbsp;<span title="dfprok"><b>14.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.carrier.productCode"/>&nbsp;</span></td>
+							 				<td colspan="2" class="text14" >
 							 					<select name="dfprok" id="dfprok" class="inputTextMediumBlue" >
 							 						<option value="">-velg-</option>
 								 				  	<c:forEach var="record" items="${model.produktList}" >
@@ -614,8 +614,8 @@
 							 				</td>
 							 			</tr>
 							 			<tr>	
-						 					<td class="text12">&nbsp;<span title="dfpro1"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.productCode.txt1"/>&nbsp;</span></td>
-							 				<td colspan="4" class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfpro1" id="dfpro1" size="35" maxlength="30" value="${model.record.dfpro1}"></td>
+						 					<td class="text14">&nbsp;<span title="dfpro1"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.productCode.txt1"/>&nbsp;</span></td>
+							 				<td colspan="4" class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfpro1" id="dfpro1" size="35" maxlength="30" value="${model.record.dfpro1}"></td>
 							 			</tr>
 							 			<tr height="29"><td ></td></tr>
 									</table>
@@ -635,24 +635,24 @@
 				 					<td colspan="2">
 				 					<table class="tableBorderWithRoundCorners" width="100%">
 					 					<tr>
-							 				<td class="text12">&nbsp;<span title="dfnavl"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.name"/>&nbsp;</span></td>
-							 				<td class="text12">&nbsp;<span title="dfad1l"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.adr1"/>&nbsp;</span></td>
-							 				<td class="text12">&nbsp;<span title="dfad1l"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.adr2"/>&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dfnavl"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.name"/>&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dfad1l"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.adr1"/>&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dfad1l"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.adr2"/>&nbsp;</span></td>
 						 				</tr>
 						 				<tr>	
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfnavl" id="dfnavl" size="30" maxlength="30" value="${model.record.dfnavl}"></td>
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfad1l" id="dfad1l" size="25" maxlength="30" value="${model.record.dfad1l}"></td>
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfad2l" id="dfad2l" size="25" maxlength="30" value="${model.record.dfad2l}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfnavl" id="dfnavl" size="30" maxlength="30" value="${model.record.dfnavl}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfad1l" id="dfad1l" size="25" maxlength="30" value="${model.record.dfad1l}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfad2l" id="dfad2l" size="25" maxlength="30" value="${model.record.dfad2l}"></td>
 					 					</tr>
 					 					<tr>
-							 				<td class="text12">&nbsp;<span title="dfpoul"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.postcode"/></span>
+							 				<td class="text14">&nbsp;<span title="dfpoul"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.postcode"/></span>
 							 				<a tabindex="-1" id="trorPostalCodePonrnIdLink" >
 	 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 							 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span title="dfadul"><spring:message code="systema.tror.fraktbrev.form.update.label.deliveryaddress.adr3"/></span>&nbsp;</td>
 						 				</tr>
 						 				<tr>	
-						 					<td colspan="2" class="text12" >
+						 					<td colspan="2" class="text14" >
 						 						<c:choose>
 								 				<c:when test="${'0' != model.record.dfpoul}">
 						 							<input  onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfpoul" id="dfpoul" size="5" maxlength="4" value="${model.record.dfpoul}">
@@ -687,20 +687,20 @@
 				 					<td colspan="8">
 				 					<table class="tableBorderWithRoundCorners" width="100%">
 					 					<tr>
-					 						<td class="text12">&nbsp;<span title="dfknsx"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.knr"/>&nbsp;</span>
+					 						<td class="text14">&nbsp;<span title="dfknsx"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.knr"/>&nbsp;</span>
 					 							<a tabindex="-1" id="trorAnnenFraktbetalerIdLink" >
 													<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 												</a>	
 					 						</td>
-							 				<td class="text12">&nbsp;<span title="dfknx"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.knr.carrier"/>&nbsp;</span></td>
-							 				<td class="text12">&nbsp;<span title="dfnavx"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.name"/>&nbsp;</span></td>
-							 				<td class="text12">&nbsp;<span title="dfad1x"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.adr1"/>&nbsp;</span></td>
-							 				<td class="text12">&nbsp;<span title="dfad2x"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.adr2"/>&nbsp;</span></td>
-							 				<td class="text12">&nbsp;<span title="dfad3x"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.adr3"/></span>&nbsp;</td>
+							 				<td class="text14">&nbsp;<span title="dfknx"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.knr.carrier"/>&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dfnavx"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.name"/>&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dfad1x"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.adr1"/>&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dfad2x"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.adr2"/>&nbsp;</span></td>
+							 				<td class="text14">&nbsp;<span title="dfad3x"><spring:message code="systema.tror.fraktbrev.form.update.label.annenfraktbetaleraddress.adr3"/></span>&nbsp;</td>
 							 				
 						 				</tr>
 						 				<tr>
-					 						<td class="text12" >
+					 						<td class="text14" >
 							 					<c:choose>
 									 				<c:when test="${'0' != model.record.dfknsx}">
 							 							<input  onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfknsx" id="dfknsx" size="8" maxlength="8" value="${model.record.dfknsx}">
@@ -710,11 +710,11 @@
 							 						</c:otherwise>
 						 						</c:choose>
 						 					</td>
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfknx" id="dfknx" size="10" maxlength="12" value="${model.record.dfknx}"></td>
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfnavx" id="dfnavx" size="30" maxlength="30" value="${model.record.dfnavx}"></td>
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfad1x" id="dfad1x" size="25" maxlength="30" value="${model.record.dfad1x}"></td>
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfad2x" id="dfad2x" size="25" maxlength="30" value="${model.record.dfad2x}"></td>
-						 					<td class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfad3x" id="dfad3x" size="25" maxlength="30" value="${model.record.dfad3x}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfknx" id="dfknx" size="10" maxlength="12" value="${model.record.dfknx}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfnavx" id="dfnavx" size="30" maxlength="30" value="${model.record.dfnavx}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfad1x" id="dfad1x" size="25" maxlength="30" value="${model.record.dfad1x}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfad2x" id="dfad2x" size="25" maxlength="30" value="${model.record.dfad2x}"></td>
+						 					<td class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfad3x" id="dfad3x" size="25" maxlength="30" value="${model.record.dfad3x}"></td>
 						 				</tr>
 									</table>
 									</td>				 				 				
@@ -738,13 +738,13 @@
 								<table border="0">
 						 		<tr height="2"><td ></td></tr>
 							 	<tr>	
-						 			<td class="text12">
+						 			<td class="text14">
 						 				<span title="dffvcu/dffvbl"><b>24.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.vareforsverdi"/></span>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<input type="text" class="inputTextMediumBlue" name="dffvcu" id="dffvcu" size="4" maxlength="3" value="${model.record.dffvcu}">
 					 				</td>
-						 			<td class="text12">
+						 			<td class="text14">
 						 				<c:choose>
 						 				<c:when test="${'0' != model.record.dffvbl}">
 				 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dffvbl" id="dffvbl" size="12" maxlength="11" value="${fn:replace(model.record.dffvbl,'.',',')}">
@@ -755,44 +755,44 @@
 				 						</c:choose>
 				 						
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 						 				<span title="dffvcu"><spring:message code="systema.tror.fraktbrev.form.update.label.category"/></span>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<input type="text" class="inputTextMediumBlue" name="dffkat" id="dffkat" size="5" maxlength="4" value="${model.record.dffkat}">
 					 				</td>
-						 			<td class="text12">
+						 			<td class="text14">
 						 				<span title="dfpoli"><b>26.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.polis"/></span>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<input type="text" class="inputTextMediumBlue" name="dfpoli" id="dfpoli" size="15" maxlength="14" value="${model.record.dfpoli}">
 					 				</td>
-						 			<td class="text12">
+						 			<td class="text14">
 					 					<input type="text" class="inputTextMediumBlue" name="dfskfo" id="dfskfo" size="2" maxlength="1" value="${model.record.dfskfo}">
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 						 				<span title="dflevb"><b>27.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.levbetingelser"/></span>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<input type="text" class="inputTextMediumBlue" name="dflevb" id="dflevb" size="4" maxlength="3" value="${model.record.dflevb}">
 					 				</td>
-						 			<td class="text12">
+						 			<td class="text14">
 					 					<input type="text" class="inputTextMediumBlue" name="dflevt" id="dflevt" size="21" maxlength="20" value="${model.record.dflevt}">
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 						 				<span title="dflevi"><b>30.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.levintr"/></span>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<input type="text" class="inputTextMediumBlue" name="dflevi" id="dflevi" size="30" maxlength="30" value="${model.record.dflevi}">
 					 				</td>
 						 			
 					 			</tr>
 					 			<tr>
 					 				
-					 				<td class="text12">
+					 				<td class="text14">
 						 				<span title="dfnteu"><b>12.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.utv.pll"/></span>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<c:choose>
 						 				<c:when test="${'0' != model.record.dfnteu}">
 				 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfnteu" id="dfnteu" size="4	" maxlength="2" value="${model.record.dfnteu}">
@@ -803,11 +803,11 @@
 				 						</c:choose>
 					 					
 					 				</td>
-						 			<td class="text12">&nbsp;</td>
-						 			<td class="text12">
+						 			<td class="text14">&nbsp;</td>
+						 			<td class="text14">
 						 				<span title="dfntau"><b>13.</b>&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.andre.pll"/></span>
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 					 					<c:choose>
 						 				<c:when test="${'0' != model.record.dfntau}">
 				 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfntau" id="dfntau" size="5" maxlength="2" value="${model.record.dfntau}">
@@ -817,16 +817,16 @@
 				 						</c:otherwise>
 				 						</c:choose>
 					 				</td>
-					 				<td class="text12">
+					 				<td class="text14">
 						 				<span title="dfbele">Oppkravs Beløp</span>&nbsp;
 						 				
 				 					</td>
-					 				<td class="text12">
+					 				<td class="text14">
 						 				<input readonly type="text" class="inputTextReadOnly" name="dfbele" id="dfbele" size="15" maxlength="20" value="${ fn:replace(model.record.dfbele,'.',',') }">
 				 					</td>
-				 					<td class="text12">&nbsp;</td>
-				 					<td class="text12">&nbsp;<span title="dfpro2"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.productCode.txt2"/>&nbsp;</span></td>
-					 				<td colspan="4" class="text12" ><input  type="text" class="inputTextMediumBlue" name="dfpro2" id="dfpro2" size="30" maxlength="30" value="${model.record.dfpro2}"></td>
+				 					<td class="text14">&nbsp;</td>
+				 					<td class="text14">&nbsp;<span title="dfpro2"><spring:message code="systema.tror.fraktbrev.form.update.label.carrier.productCode.txt2"/>&nbsp;</span></td>
+					 				<td colspan="4" class="text14" ><input  type="text" class="inputTextMediumBlue" name="dfpro2" id="dfpro2" size="30" maxlength="30" value="${model.record.dfpro2}"></td>
 						 		</tr>
 					 			</table>
 							</td>
@@ -846,7 +846,7 @@
 										<tr height="5"><td align="left" ></td></tr>
 										
 								 		<tr >
-											<td align="bottom" colspan="3" class="text11">&nbsp;&nbsp;<img style="vertical-align:middle;" src="resources/images/update.gif" width="10px" height="10px" border="0" alt="update item line">
+											<td align="bottom" colspan="3" class="text12">&nbsp;&nbsp;<img style="vertical-align:middle;" src="resources/images/update.gif" width="10px" height="10px" border="0" alt="update item line">
 											&nbsp;<spring:message code="systema.tror.fraktbrev.form.detail.update.label.itemLine"/>
 											<c:if test="${not empty model.record.df1004}">
 												&nbsp;&nbsp;<button name="dokufmButton" id="dokufmButton" class="buttonGrayWithGreenFrame" type="button" >Merke, snd.nivå</button>
@@ -859,7 +859,7 @@
 												<tr class="tableHeaderField10" >
 													
 										 			<td align="left" valign="bottom" class="tableHeaderFieldFirst11"><span title="dfgm/dfgm2">&nbsp;<b>33.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.marks"/></span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="dfnt">&nbsp;<font class="text12RedBold" >*</font><b>34.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.antal"/>&nbsp;</span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="dfnt">&nbsp;<font class="text14RedBold" >*</font><b>34.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.antal"/>&nbsp;</span></td>
 										 			<td align="center" valign="bottom" class="tableHeaderField11"><span title="ownEnhet1/ownEnhet2">&nbsp;<b>35.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.forpak"/></span></td>
 										 			<td align="left" valign="bottom" class="tableHeaderField11"><span title="dfvs/dfvs2">&nbsp;<b>35.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.goodsDesc"/></span></td>
 										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="dfvkt/dfvktf">&nbsp;<b>36.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.weight"/>&nbsp;</span></td>
@@ -989,15 +989,15 @@
 							<table style="width:50%;">
 							<tr>
 	 				
-					 			<td valign="top" class="text12">Melding til Mottaker</td>
-					 			<td valign="top" class="text12">
-					 				<textarea class="text12" style="resize: none;overflow-y: scroll;" id="messageNoteConsignee" name="messageNoteConsignee" limit='65,10' cols="80" rows="6" >${model.messageNoteConsignee}</textarea>
+					 			<td valign="top" class="text14">Melding til Mottaker</td>
+					 			<td valign="top" class="text14">
+					 				<textarea class="text14" style="resize: none;overflow-y: scroll;" id="messageNoteConsignee" name="messageNoteConsignee" limit='65,10' cols="80" rows="6" >${model.messageNoteConsignee}</textarea>
 				 				</td>
 			 				</tr>
 			 				<tr>
-					 			<td valign="top" class="text12">Melding til Transportør</td>
-					 			<td valign="top" class="text12">
-					 				<textarea class="text12" style="resize: none;overflow-y: scroll;" id="messageNoteCarrier" name="messageNoteCarrier" limit='65,10' cols="80" rows="6">${model.messageNoteCarrier}</textarea>
+					 			<td valign="top" class="text14">Melding til Transportør</td>
+					 			<td valign="top" class="text14">
+					 				<textarea class="text14" style="resize: none;overflow-y: scroll;" id="messageNoteCarrier" name="messageNoteCarrier" limit='65,10' cols="80" rows="6">${model.messageNoteCarrier}</textarea>
 				 				</td>
 			 				</tr>
 		 					</table>

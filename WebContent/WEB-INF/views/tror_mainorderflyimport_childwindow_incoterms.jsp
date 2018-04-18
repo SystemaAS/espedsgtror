@@ -36,21 +36,21 @@
 					<%-- this is the datatables grid (content)--%>
 					<table id="mainList" class="display compact cell-border" >
 						<thead>
-						<tr style="background-color:#EEEEEE">
-							<th width="5%" class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.incoterms.label.kode"/></th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.incoterms.label.text"/></th>
+						<tr class="tableHeaderField" height="20">
+							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.incoterms.label.kode"/></th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.tror.flyfraktbrev.childwindow.incoterms.label.text"/></th>
 		                    
 		                </tr> 
 		                </thead>
 		                
 		                <tbody>
 		                <c:forEach var="record" items="${model.mainList}" varStatus="counter">    
-			               <tr class="text11" >
+			               <tr class="text14" >
 			               
-			               <td width="5%" class="text11MediumBlue" style="cursor:pointer;" id="id_${record.kfrkod}@name_${record.kfrntx}@counter_${counter.count}">
+			               <td width="5%" class="text14MediumBlue" style="cursor:pointer;" id="id_${record.kfrkod}@name_${record.kfrntx}@counter_${counter.count}">
 			               	 	${record.kfrkod}
 			               </td>
-			               <td class="text11" >${record.kfrntx}</td>
+			               <td class="text14" >${record.kfrntx}</td>
 			                      
 			            </tr> 
 			            </c:forEach>
