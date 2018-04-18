@@ -38,7 +38,7 @@
 					<%-- this is the datatables grid (content)--%>
 					<table id="merkelappList" class="display compact cell-border" width="100%">
 						<thead>
-						<tr style="background-color:#EEEEEE">
+						<tr class="tableHeaderField" height="20" >
 							<th width="5%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.kode"/></th>   
 		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.name"/></th>
 		                    <th class="text14">&nbsp;<spring:message code="systema.tror.childwindow.productcodes.label.name.english"/></th>

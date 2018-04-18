@@ -51,7 +51,7 @@
 		<tr height="2"><td></td></tr>
 		<tr height="25"> 
 			<td width="15%" valign="bottom" class="tabDisabled" align="center" nowrap>
-				<a class="text14" onClick="setBlockUI(this);" href="tror_mainorderlist.do?action=doFind&sign=${recordOrderTrorLand.hesg}" > 	
+				<a class="text14" onClick="setBlockUI(this);" href="tror_mainorderlist.do?action=doFind&avd=${recordOrderTrorLand.heavd}&sign=${recordOrderTrorLand.hesg}" > 	
 					<img style="vertical-align:middle;" src="resources/images/bulletGreen.png" width="6px" height="6px" border="0" alt="open orders">
 					<font class="tabDisabledLink">&nbsp;<spring:message code="systema.tror.orderlist.tab"/></font>&nbsp;<font class="text10Orange">F2</font>
 				</a>
@@ -190,7 +190,7 @@
 							               			</a>
 						               			</c:if>
 					               			</td>
-							               <td class="text14" >&nbsp;<font class="text11MediumBlue">${record.bubnr}</font></td>	
+							               <td class="text14" >&nbsp;<font class="text14MediumBlue">${record.bubnr}</font></td>	
 							               <td class="text14" >&nbsp;${record.buvk}</td>
 							               <td class="text14" >&nbsp;${record.bubl}</td>
 							               <td class="text14" >&nbsp;${record.buval}</td>
@@ -429,7 +429,7 @@
 						            		<input readonly type="text" class="inputTextReadOnly" name="bubnr" id="bubnr" size="8" maxlength="8" value="${model.record.bubnr}">
 							            </td>
 							            <td class="text14" align="left" valign="middle">
-						            		<select class="inputTextMediumBlueField" id="bukdm" name="bukdm">
+						            		<select class="inputTextMediumBlue" id="bukdm" name="bukdm">
 						            			<option value="">-blank-</option>
 						            			<option value="J" <c:if test="${model.record.bukdm == 'J'}"> selected </c:if> >J</option>
 						           				<option value="N" <c:if test="${model.record.bukdm == 'N'}"> selected </c:if> >N</option>
@@ -596,7 +596,7 @@
 						        			</c:choose>
 										</td>
 										<td class="text14">	
-						        			<select class="inputTextMediumBlueField" name="todoKo" id="todoKo">
+						        			<select class="inputTextMediumBlue" name="todoKo" id="todoKo">
 						 						<option value="">-select-</option>
 							            		<option value="B" <c:if test="${Xmodel.record.todo == 'B'}"> selected </c:if> >?</option>
 					           				</select>

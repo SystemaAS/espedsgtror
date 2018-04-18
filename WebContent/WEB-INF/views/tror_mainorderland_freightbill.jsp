@@ -38,7 +38,7 @@
 		<tr height="2"><td></td></tr>
 		<tr height="25"> 
 			<td width="15%" valign="bottom" class="tabDisabled" align="center" nowrap>
-				<a class="text14" onClick="setBlockUI(this);" href="tror_mainorderlist.do?action=doFind&sign=${recordOrderTrorLand.hesg}" > 	
+				<a class="text14" onClick="setBlockUI(this);" href="tror_mainorderlist.do?action=doFind&avd=${recordOrderTrorLand.heavd}&sign=${recordOrderTrorLand.hesg}" > 	
 					<img style="vertical-align:middle;" src="resources/images/bulletGreen.png" width="6px" height="6px" border="0" alt="open orders">
 					<font class="tabDisabledLink">&nbsp;<spring:message code="systema.tror.orderlist.tab"/></font>&nbsp;<font class="text10Orange">F2</font>
 				</a>
@@ -851,15 +851,15 @@
 								 		<tr>
 											<td colspan="2" style="padding: 0px;">
 												<table align="left" border="0" style="width:100%;" >
-												<tr class="tableHeaderField10" >
+												<tr class="tableHeaderField" >
 													
-										 			<td align="left" valign="bottom" class="tableHeaderFieldFirst11"><span title="dfgm/dfgm2">&nbsp;<b>33.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.marks"/></span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="dfnt">&nbsp;<font class="text12RedBold" >*</font><b>34.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.antal"/>&nbsp;</span></td>
-										 			<td align="center" valign="bottom" class="tableHeaderField11"><span title="ownEnhet1/ownEnhet2">&nbsp;<b>35.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.forpak"/></span></td>
-										 			<td align="left" valign="bottom" class="tableHeaderField11"><span title="dfvs/dfvs2">&nbsp;<b>35.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.goodsDesc"/></span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="dfvkt/dfvktf">&nbsp;<b>36.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.weight"/>&nbsp;</span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="dfm3">&nbsp;<b>37.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.m3"/>&nbsp;</span></td>
-										 			<td align="right" valign="bottom" class="tableHeaderField11"><span title="dflm">&nbsp;<b>37.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.lm.fa"/>&nbsp;</span></td>
+										 			<td align="left" valign="bottom" class="tableHeaderFieldFirst"><span title="dfgm/dfgm2">&nbsp;<b>33.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.marks"/></span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="dfnt">&nbsp;<font class="text12RedBold" >*</font><b>34.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.antal"/>&nbsp;</span></td>
+										 			<td align="center" valign="bottom" class="tableHeaderField"><span title="ownEnhet1/ownEnhet2">&nbsp;<b>35.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.forpak"/></span></td>
+										 			<td align="left" valign="bottom" class="tableHeaderField"><span title="dfvs/dfvs2">&nbsp;<b>35.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.goodsDesc"/></span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="dfvkt/dfvktf">&nbsp;<b>36.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.weight"/>&nbsp;</span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="dfm3">&nbsp;<b>37.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.m3"/>&nbsp;</span></td>
+										 			<td align="right" valign="bottom" class="tableHeaderField"><span title="dflm">&nbsp;<b>37.</b><spring:message code="systema.tror.fraktbrev.form.detail.update.label.lm.fa"/>&nbsp;</span></td>
 										 		</tr>
 										 		<tr class="tableRow">
 										 			<td align="left" class="tableCell" nowrap>
@@ -869,7 +869,7 @@
 										 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfnt" id="dfnt" size="8" maxlength="7" value="${model.record.dfnt}">
 									 				</td>
 									 				<td align="center" class="tableCell" nowrap>
-										 				<select name="ownEnhet1" id="ownEnhet1">
+										 				<select class="inputTextMediumBlue" name="ownEnhet1" id="ownEnhet1">
 										 					<option value="" >-velg-</option>
 										 					<c:forEach var="record" items="${model.enhetList}" varStatus="counter">
 										 						<c:choose>
@@ -892,27 +892,27 @@
 									 					<fmt:parseNumber scope="request" var="uom1Length" type="number" value="${model.uom1Length}" />
 									 					<c:choose>
 									 						<c:when test="${not empty model.uom1 && not empty model.record.dfvs && fn:length(model.record.dfvs) > uom1Length}" >
-										 						<input type="text" class="inputTextMediumBlue11" name="dfvs" id="dfvs" size="30" maxlength="25" value="${ fn:substring(model.record.dfvs, uom1Length, fn:length(model.record.dfvs)) }">		
+										 						<input type="text" class="inputTextMediumBlue" name="dfvs" id="dfvs" size="30" maxlength="25" value="${ fn:substring(model.record.dfvs, uom1Length, fn:length(model.record.dfvs)) }">		
 										 					</c:when>
 										 					<c:otherwise>
-										 						<input title="plaitxt" type="text" class="inputTextMediumBlue11" name="dfvs" id="dfvs" size="30" maxlength="25" value="${ model.record.dfvs }">
+										 						<input title="plaitxt" type="text" class="inputTextMediumBlue" name="dfvs" id="dfvs" size="30" maxlength="25" value="${ model.record.dfvs }">
 										 					</c:otherwise>
 									 					</c:choose>
 									 				</td>
 									 				<td align="right" class="tableCell" nowrap>
-										 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfvkt" id="dfvkt" size="10" maxlength="9" value="${model.record.dfvkt}">
+										 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="dfvkt" id="dfvkt" size="10" maxlength="9" value="${model.record.dfvkt}">
 									 				</td>
 									 				
 									 				<td align="right" class="tableCell" nowrap>
-										 				<input onFocus="calculateVolume(this);" onBlur="checkVolumeNewLine(this);" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfm3" id="dfm3" size="12" maxlength="11" value="${fn:replace(model.record.dfm3,'.',',')}">
+										 				<input onFocus="calculateVolume(this);" onBlur="checkVolumeNewLine(this);" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="dfm3" id="dfm3" size="12" maxlength="11" value="${fn:replace(model.record.dfm3,'.',',')}">
 									 				</td>
 									 				<td align="right" class="tableCell" nowrap>
-										 				<input onBlur="checkLmNewLine(this);validateNewItemLine();" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dflm" id="dflm" size="8" maxlength="7" value="${fn:replace(model.record.dflm,'.',',')}">
+										 				<input onBlur="checkLmNewLine(this);validateNewItemLine();" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="dflm" id="dflm" size="8" maxlength="7" value="${fn:replace(model.record.dflm,'.',',')}">
 									 				</td>
 									 			</tr>
 									 			<tr class="tableRow">
 										 			<td align="left" class="tableCell" nowrap>
-									 					<input type="text" class="inputTextMediumBlue11" name="dfgm2" id="dfgm2" size="15" maxlength="12" value="${model.record.dfgm2}">
+									 					<input type="text" class="inputTextMediumBlue" name="dfgm2" id="dfgm2" size="15" maxlength="12" value="${model.record.dfgm2}">
 									 				</td>
 									 				<td align="right" class="tableCell" nowrap>&nbsp;</td>
 									 				<td align="center" class="tableCell" >
@@ -937,15 +937,15 @@
 										 				
 									 				</td>
 									 				<td align="left" class="tableCell" nowrap>
-									 					<input type="text" class="inputTextMediumBlue11" name="dfvs2" id="dfvs2" size="30" maxlength="25" value="${ model.record.dfvs2 }">
+									 					<input type="text" class="inputTextMediumBlue" name="dfvs2" id="dfvs2" size="30" maxlength="25" value="${ model.record.dfvs2 }">
 									 				</td>
 									 				<td align="right" class="tableCell">
 									 					<c:choose>
 										 				<c:when test="${'0' != model.record.dfvktf}">
-								 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfvktf" id="dfvktf" size="10" maxlength="9" value="${model.record.dfvktf}">
+								 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="dfvktf" id="dfvktf" size="10" maxlength="9" value="${model.record.dfvktf}">
 								 						</c:when>
 								 						<c:otherwise>
-								 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfvktf" id="dfvktf" size="10" maxlength="9" value="">
+								 							<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="dfvktf" id="dfvktf" size="10" maxlength="9" value="">
 								 						</c:otherwise>
 								 						</c:choose>
 									 				</td>
