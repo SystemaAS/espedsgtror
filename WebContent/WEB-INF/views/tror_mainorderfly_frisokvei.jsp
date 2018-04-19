@@ -192,10 +192,11 @@
 							               <%-- DELETE cell --%>							           
 							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.fskode && not empty record.fssok}">
-							                   		<a style="cursor:pointer;" id="avd_${record.fsavd}@opd_${record.fsopd}@kode_${record.fskode}@sok_${record.fssok}" onClick="doDeleteItemLine(this);" tabindex=-1 >
-									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
-									               	</a>&nbsp;
-									               	
+							               	   		<c:if test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">
+								                   		<a style="cursor:pointer;" id="avd_${record.fsavd}@opd_${record.fsopd}@kode_${record.fskode}@sok_${record.fssok}" onClick="doDeleteItemLine(this);" tabindex=-1 >
+										               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
+										               	</a>&nbsp;
+									               	</c:if>
 								               	</c:if>
 					               		  </td> 
 							            </tr>

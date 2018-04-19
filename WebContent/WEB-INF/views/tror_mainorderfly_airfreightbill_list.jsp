@@ -188,28 +188,36 @@
 					               </thead>
 					               <tbody>
 				 					  <c:forEach items="${model.list}" var="record" varStatus="counter">    
-							               <tr class="tableRow" height="20" >
+							               <tr class="tableHeaderField" height="20">
 							                
-							               <td align="center" width="2%" class="text11" >
+							               <td align="center" width="2%" class="text14" >
 							     				<a id="recordUpdate_${record.imlop}" onClick="setBlockUI(this);" href="tror_mainorderfly_airfreightbill_imp_edit.do?action=doFetch&imavd=${record.imavd}&sign=${Xrecord.imsg}&imopd=${record.imopd}&imlop=${record.imlop}">
-							     					<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;						               				
+							     					<c:choose>
+								     					<c:when test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">		
+								     						<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;						               				
+								     					</c:when>
+								     					<c:otherwise>
+								     						<img title="Read" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+								     					</c:otherwise>
+							     					</c:choose>
 					               				</a>
 						               	   </td>
-						               	   <td align="center" class="text11" >${record.imlop}</td>
-						               	   <td align="left" class="text11" align="left">${record.hegn}</td>
-							               <td align="center" class="text11" width="15%" >${record.hesdf}&nbsp;&nbsp;<font class="text11SkyBlue">${record.helka}</font></td>
-							               <td align="center" class="text11" width="15%" >${record.hesdt}&nbsp;&nbsp;<font class="text11SkyBlue">${record.helkk}</font></td>
-						               	   <td align="center" class="text11" width="5%" >${record.hefr}</td>
+						               	   <td align="center" class="text14" >${record.imlop}</td>
+						               	   <td align="left" class="text14" align="left">${record.hegn}</td>
+							               <td align="center" class="text14" width="15%" >${record.hesdf}&nbsp;&nbsp;<font class="text14SkyBlue">${record.helka}</font></td>
+							               <td align="center" class="text14" width="15%" >${record.hesdt}&nbsp;&nbsp;<font class="text14SkyBlue">${record.helkk}</font></td>
+						               	   <td align="center" class="text14" width="5%" >${record.hefr}</td>
 						               	   
-							               <td align="left" class="text11" >${model[record.hekns]}</td>
+							               <td align="left" class="text14" >${model[record.hekns]}</td>
 						               	   
 							               <%-- DELETE cell --%>							           
-							               <td width="2%" class="text11" align="center">
+							               <td width="2%" class="text14" align="center">
 							               	    <%-- <c:if test="${not empty record.imlop && record.todo != 'P'}"> <%-- status P = not removable --%>
-							                   		<a style="cursor:pointer;" id="avd_${record.imavd}@opd_${record.imopd}@id_${record.imlop}" onClick="doDeleteItemLine(this);" tabindex=-1 >
-									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
-									               	</a>&nbsp;
-									               	
+							               	    	<c:if test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">
+							                   			<a style="cursor:pointer;" id="avd_${record.imavd}@opd_${record.imopd}@id_${record.imlop}" onClick="doDeleteItemLine(this);" tabindex=-1 >
+									               			<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
+									               		</a>&nbsp;
+									               	</c:if>
 								               	<%--  </c:if> --%>
 					               		  </td> 
 							            </tr>

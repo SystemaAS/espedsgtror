@@ -203,7 +203,14 @@
 								               		<c:if test="${not empty record.ttdate && not empty record.tttime}">
 								               	   		<c:if test="${record.ttmanu == 'J'}">
 										               	<a style="cursor:pointer;" id="recordUpdate_avd_${record.ttavd}@opd_${record.ttopd}@date_${record.ttdate}@time_${record.tttime}" onClick="getItemData(this);">
-								               				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
+										               		<c:choose>
+									               			<c:when test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
+									               				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
+									               			</c:when>
+									               			<c:otherwise>
+									     						<img title="Read" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+									     					</c:otherwise>
+									     					</c:choose>
 								               			</a>
 								               			</c:if>
 							               			</c:if>
@@ -234,9 +241,11 @@
 								               	<td width="2%" class="text14" align="center">
 								               	   <c:if test="${not empty record.ttdate && not empty record.tttime}">
 								               	   		<c:if test="${record.ttmanu == 'J'}">
-								                   		<a style="cursor:pointer;" id="avd_${record.ttavd}@opd_${record.ttopd}@date_${record.ttdate}@time_${record.tttime}" onClick="doDeleteItemLine(this);" tabindex=-1 >
-										               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
-										               	</a>&nbsp;
+								               	   		 	<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
+								                   			<a style="cursor:pointer;" id="avd_${record.ttavd}@opd_${record.ttopd}@date_${record.ttdate}@time_${record.tttime}" onClick="doDeleteItemLine(this);" tabindex=-1 >
+										               			<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
+										               		</a>&nbsp;
+										               		</c:if>
 										               	</c:if>
 									               	</c:if>
 						               		  	</td> 
@@ -261,6 +270,7 @@
 									<input type="hidden" name="ttavd" id="ttavd" value='${model.record.ttavd}'>
 									<input type="hidden" name="ttopd" id="ttopd" value='${model.record.ttopd}'>
 									<input tabindex=-1 class="inputFormSubmitStd" type="submit" name="submit" id="submit" value='Lage ny'>
+									
 								</form>
 							</td>
 						</tr>
@@ -427,10 +437,12 @@
 								        </td>
 							        </tr>
 								    <tr height="10"><td colspan="2" ></td></tr>
-								    <tr>	
-									    <td align="left" colspan="5">
-									    	<input class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'>
-										</td>
+								    <tr>
+								    	<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">	
+									    	<td align="left" colspan="5">
+									    		<input class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'>
+											</td>
+										</c:if>
 							        </tr>
 			        	        </table>
 			       	         	</form>

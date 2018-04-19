@@ -172,7 +172,14 @@
 							                
 							               <td align="center" width="2%" class="text14" >
 							     				<a id="recordUpdate_${record.dffbnr}" onClick="setBlockUI(this);" href="tror_mainorderland_freightbill_edit.do?dfavd=${record.dfavd}&sign=${record.dfsg}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
-							     					<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;						               				
+							     					<c:choose>
+								     					<c:when test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
+							     							<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
+							     						</c:when>
+							     						<c:otherwise>
+								     						<img title="Read" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+								     					</c:otherwise>
+							     					</c:choose>							               				
 					               				</a>
 						               	   </td>
 						               	   <td align="center" class="text14" >${record.dffbnr}</td>
@@ -188,10 +195,11 @@
 							               <%-- DELETE cell --%>							           
 							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.dffbnr && record.dfst != 'P'}"> <%-- status P = not removable --%>
-							                   		<a style="cursor:pointer;" id="avd_${record.dfavd}@opd_${record.dfopd}@id_${record.dffbnr}@sign_${record.dfsg}" onClick="doDeleteItemLine(this);" tabindex=-1 >
-									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
-									               	</a>&nbsp;
-									               	
+							               	   		<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
+							                   			<a style="cursor:pointer;" id="avd_${record.dfavd}@opd_${record.dfopd}@id_${record.dffbnr}@sign_${record.dfsg}" onClick="doDeleteItemLine(this);" tabindex=-1 >
+									               			<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
+									               		</a>&nbsp;
+									               	</c:if>
 								               	</c:if>
 					               		  </td> 
 							            </tr>

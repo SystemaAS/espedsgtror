@@ -156,9 +156,9 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		if (appUser == null) {
 			return this.loginView;
 		} else {
-			logger.info("inside: opd=" + recordToValidate.getImopd());
+			logger.info("inside <tror_mainorderland_airfreightbill_imp_gate>  < opd=" + recordToValidate.getImopd());
 			List<DokefimDao> list = this.fetchFlyImportFraktbrevList(model, appUser, recordToValidate.getImavd(), recordToValidate.getImopd(), recordToValidate.getImlop());
-			if(list!=null && list.size()>1){
+			if(list!=null && list.size()>=1){
 				successView = new ModelAndView("tror_mainorderfly_airfreightbill_list");
 				model.put("list", list);
 				
@@ -166,7 +166,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 			}else{
 				
 				//this will send the request with an implicit action of doFetch
-				successView = new ModelAndView("redirect:tror_mainorderfly_airfreightbill_imp_edit.do?" + "&dfavd=" + recordToValidate.getImavd() + "&sign=" + sign + "&dfopd=" + recordToValidate.getImopd());
+				successView = new ModelAndView("redirect:tror_mainorderfly_airfreightbill_imp_edit.do?" + "&imavd=" + recordToValidate.getImavd() + "&imopd=" + recordToValidate.getImopd() + "&imlop=" + recordToValidate.getImlop());
 			}
 		}
 		return successView;
@@ -634,13 +634,20 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		DokefDao record = null;
 		JsonDtoContainer<DokefDao> container = (JsonDtoContainer<DokefDao>) jsonReader.get(jsonPayload);
 		if (container != null) {
-			retval = container.getDtoList();
-			for(DokefDao dao : container.getDtoList()){
-				//this variable is not serialized on db as all other totals...
-				BigDecimal x = dao.getDffbv1().add(dao.getDffbv2().add(dao.getDffbv3().add(dao.getDffbv4().add(dao.getDffbv5().add(dao.getDffbv6())))));
-				//logger.info("FVekt:!!!!!!!:" + x);
-				model.put("fvektTotal", x);
-			}
+			
+			List<DokefDao> tmpList = container.getDtoList();
+			if(tmpList!=null && tmpList.size()>0){
+				retval = tmpList;
+				for(DokefDao dao : tmpList){
+					if(dao!=null){
+						//this variable is not serialized on db as all other totals...
+						BigDecimal x = dao.getDffbv1().add(dao.getDffbv2().add(dao.getDffbv3().add(dao.getDffbv4().add(dao.getDffbv5().add(dao.getDffbv6())))));
+						//logger.info("FVekt:!!!!!!!:" + x);
+						model.put("fvektTotal", x);
+					}
+				}
+			}	
+			
 		}
 		return retval;
 	

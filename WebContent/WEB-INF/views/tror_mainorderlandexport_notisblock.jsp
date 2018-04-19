@@ -191,7 +191,14 @@
 							               <%-- <td width="2%" align="center" class="text14" >&nbsp;${record.frtli}</td>  --%>
 							               <td width="2%" align="center" class="text14" >
 							               		<a tabindex=-1 id="recordUpdate_${record.frtli}_${record.frtdt}" href="#" onClick="getNotisblockItemData(this);">
-							               			<img valign="bottom" src="resources/images/update.gif" border="0" alt="edit">
+							               			<c:choose>
+							               			<c:when test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
+							               				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="edit">&nbsp;
+							               			</c:when>
+							               			<c:otherwise>
+							     						<img title="Read" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+							     					</c:otherwise>
+							     					</c:choose>
 							               		</a>
 							               </td>
 							               
@@ -199,10 +206,12 @@
 							               <td class="text14" >&nbsp;${record.frtkod}</td>
 							               <td class="text14" >&nbsp;${record.frttxt}</td>
 									       <td class="text14" align="center" nowrap>
+									       	<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
 							               	<a onclick="javascript:return confirm('Er du sikker på at du vil slette denne?')" tabindex=-1 href="editNotisblock.do?action=doDelete&subsys=tror_le&orig=${model.orig}&sign=${model.sign}&frtli=${record.frtli}&frtdt=${record.frtdt}&opd=${record.frtopd}&avd=${record.frtavd}">
 							               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
 							               	</a>	&nbsp;
-							               </td>
+							               </c:if>
+							                </td>
 							            </tr>
 								        <%-- this param is used ONLY in this JSP 
 								        <c:set var="totalNumberOfItemLines" value="${counter.count}" scope="request" />
@@ -316,10 +325,12 @@
 					        </td>
 				        </tr>
 					    <tr height="10"><td colspan="2" ></td></tr>
-					    <tr>	
-						    <td align="left" colspan="5">
-								<input class="inputFormSubmit" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="Lagre notat">
-							</td>							        	
+					    <tr>
+					    	<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">	
+							    <td align="left" colspan="5">
+									<input class="inputFormSubmit" type="submit" name="submit" onclick="javascript: form.action='editNotisblock.do';" value="Lagre notat">
+								</td>
+							</c:if>							        	
 				        </tr>
         	        </table>
         	        </form>

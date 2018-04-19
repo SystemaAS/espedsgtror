@@ -184,10 +184,11 @@
 							               <%-- DELETE cell --%>							           
 							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.fskode && not empty record.fssok}">
-							                   		<a style="cursor:pointer;" id="avd_${record.fsavd}@opd_${record.fsopd}@kode_${record.fskode}@sok_${record.fssok}" onClick="doDeleteItemLine(this);" tabindex=-1 >
-									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
-									               	</a>&nbsp;
-									               	
+							               	   		<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
+								                   		<a style="cursor:pointer;" id="avd_${record.fsavd}@opd_${record.fsopd}@kode_${record.fskode}@sok_${record.fssok}" onClick="doDeleteItemLine(this);" tabindex=-1 >
+										               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
+										               	</a>&nbsp;
+									               	</c:if>
 								               	</c:if>
 					               		  </td> 
 							            </tr>
@@ -314,13 +315,12 @@
 						        </td>
 					        </tr>
 						    <tr height="10"><td colspan="2" ></td></tr>
-						    <tr>	
-							    <td align="left" colspan="5">
-									<input class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'>
-									<%-- 
-									&nbsp;&nbsp;<input class="inputFormSubmitGray" type="button" name="updCancelButton" id="updCancelButton" value='<spring:message code="systema.transportdisp.cancel"/>'>
-									--%>
-								</td>
+						    <tr>
+						    	<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">	
+							    	<td align="left" colspan="5">
+										<input class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'>
+									</td>
+								</c:if>
 															        	
 					        </tr>
 			      	        </table>

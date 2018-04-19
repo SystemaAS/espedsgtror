@@ -1025,9 +1025,11 @@
 		        										<tr height="3"><td align="left" ></td></tr>
 		        										</table>
 	        										</td>
-									 				<td valign="bottom" align="right">
-														<input tabindex=-1 class="inputFormSubmit submitSaveClazz" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'/>
-								 				    </td>
+	        										<c:if test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">
+									 					<td valign="bottom" align="right">
+															<input tabindex=-1 class="inputFormSubmit submitSaveClazz" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'/>
+								 				    	</td>
+								 				    </c:if>
 									 			</tr>
 
 									 			</table>

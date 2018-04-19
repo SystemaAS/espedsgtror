@@ -326,10 +326,14 @@
 				 				<tr height="15"><td ></td></tr>
 				 				<tr>
 	 				 				<td colspan="5" align="right">
-						 				<input class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'>
-						 				&nbsp;<input class="inputFormSubmit" type="button" name="onwardButton" id="onwardButton" value='Videre'>
-										&nbsp;&nbsp;<input class="inputFormSubmitGray" type="button" name="backToFlyfraktbrevGateButton" id="backToFlyfraktbrevGateButton" value='Tilbake til flyfraktb.lista'>
-										
+	 				 					<c:if test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">
+						 					<input class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'>
+						 				</c:if>
+						 				<%-- only way to know if there is already an existing flyfraktbrev --%>
+						 				<c:if test="${not empty model.record.hesdf && not empty model.record.hesdt }"> 
+						 					&nbsp;<input class="inputFormSubmit" type="button" name="onwardButton" id="onwardButton" value='Videre'>
+						 				</c:if>
+						 				&nbsp;&nbsp;<input class="inputFormSubmitGray" type="button" name="backToFlyfraktbrevGateButton" id="backToFlyfraktbrevGateButton" value='Tilbake til flyfraktb.lista'>
 									</td>
 								</tr>
 							 </table>
