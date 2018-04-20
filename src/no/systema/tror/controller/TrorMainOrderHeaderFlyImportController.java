@@ -508,8 +508,12 @@ public class TrorMainOrderHeaderFlyImportController {
 		TrackfDao dao = new TrackfDao();
 		//keys
 		dao.setTtuser(recordToValidate.getHesg());
-		dao.setTtavd(Integer.parseInt(recordToValidate.getHeavd()));
-		dao.setTtopd(Integer.parseInt(recordToValidate.getHeopd()));
+		if(strMgr.isNotNull(recordToValidate.getHeavd())){
+			dao.setTtavd(Integer.parseInt(recordToValidate.getHeavd()));
+		}
+		if(strMgr.isNotNull(recordToValidate.getHeopd())){
+			dao.setTtopd(Integer.parseInt(recordToValidate.getHeopd()));
+		}
 		dao.setTtacti(status);
 		//time stamps
 		dao.setTtdate(today);
