@@ -426,9 +426,15 @@ public class TrorMainOrderHeaderLandImportController {
 	 */
 	private DokufeDao setDokufeDao (OrderContactInformationObject orderContactInfoObj){
 		DokufeDao dao = new DokufeDao();
-		dao.setFe_dfavd(Integer.valueOf(orderContactInfoObj.getAvd()));
-		dao.setFe_dfopd(Integer.valueOf(orderContactInfoObj.getOpd()));
-		dao.setFe_dffbnr(Integer.valueOf(orderContactInfoObj.getOwnPartyFbnr()));
+		if(strMgr.isNotNull(orderContactInfoObj.getAvd())){
+			dao.setFe_dfavd(Integer.valueOf(orderContactInfoObj.getAvd()));
+		}
+		if(strMgr.isNotNull(orderContactInfoObj.getOpd())){
+			dao.setFe_dfopd(Integer.valueOf(orderContactInfoObj.getOpd()));
+		}
+		if(strMgr.isNotNull(orderContactInfoObj.getOwnPartyFbnr())){
+			dao.setFe_dffbnr(Integer.valueOf(orderContactInfoObj.getOwnPartyFbnr()));
+		}
 		return dao;
 	}
 	/**

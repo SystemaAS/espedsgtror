@@ -565,13 +565,13 @@
 						 				<table width="97%" class="tableBorderWithRoundCornersLightGray" border="0">
 						 				<tr>		
 								 			<td class="text14">
-								 				<img onMouseOver="showPop('hekdtm_info');" onMouseOut="hidePop('hekdtm_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-							 					<span title="hekdtm"><spring:message code="systema.tror.orders.form.update.label.transporttype"/></span>
+								 				<img onMouseOver="showPop('hetrm_info');" onMouseOut="hidePop('hetrm_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
+							 					<span title="hetrm"><spring:message code="systema.tror.orders.form.update.label.transporttype"/></span>
 								 				<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_transporttypes.do?action=doFind&ctype=tror_landimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 		 											<img id="imgTransporttype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 		 										<div class="text11" style="position: relative;" align="left" >
-									 				<span style="position:absolute; top:2px; width:200px;" id="hekdtm_info" class="popupWithInputText text11"  >
+									 				<span style="position:absolute; top:2px; width:200px;" id="hetrm_info" class="popupWithInputText text11"  >
 										           		<p><b><spring:message code="systema.tror.orders.form.update.label.transporttype"/></b></p> 
 									           			Tast gyldig kode for transportmåte ved grense. Overføres SAD:
 									           			<ul>
@@ -593,19 +593,19 @@
 												</div>
 								 			</td>
 								 			<td class="text14">
-								 				<select class="inputTextMediumBlue" name="hekdtm" id="hekdtm">
+								 				<select class="inputTextMediumBlue" name="hetrm" id="hetrm">
 								 					<option value="" >-velg-</option>
 								 					<c:forEach var="record" items="${model.transporttypeList}" varStatus="counter">
-								 						<option value='${record.ks4trm}' <c:if test="${ model.record.hekdtm == record.ks4trm }"> selected </c:if> >${record.ks4trm}</option>
+								 						<option value='${record.ks4trm}' <c:if test="${ model.record.hetrm == record.ks4trm }"> selected </c:if> >${record.ks4trm}</option>
 								 					</c:forEach>
 												</select>
 												
 								 			</td>
 								 			<td class="text14">
-												<img onMouseOver="showPop('hetrm_info');" onMouseOut="hidePop('hetrm_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-												<span title="hetrm"><spring:message code="systema.tror.orders.form.update.label.transportland"/></span>
+												<img onMouseOver="showPop('hetri_info');" onMouseOut="hidePop('hetri_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
+												<span title="hetri"><spring:message code="systema.tror.orders.form.update.label.transportland"/></span>
 												<div class="text11" style="position: relative;" align="left" >
-									 				<span style="position:absolute; top:2px; width:200px;" id="hetrm_info" class="popupWithInputText text11"  >
+									 				<span style="position:absolute; top:2px; width:200px;" id="hetri_info" class="popupWithInputText text11"  >
 										           		<p><b><spring:message code="systema.tror.orders.form.update.label.transportland"/></b></p> 
 									           			Tast landkode (tobokstavs) for transportmidlets hjemland.
 									           			
@@ -613,10 +613,10 @@
 												</div>
 								 			</td>
 								 			<td class="text14">
-								 				<select class="inputTextMediumBlue" name="hetrm" id="hetrm">
+								 				<select class="inputTextMediumBlue" name="hetri" id="hetri">
 								 					<option value="" >-landkode-</option>
 								 					<c:forEach var="record" items="${model.countryCodeList}" varStatus="counter">
-								 						<option value='${record.klklk}' <c:if test="${ model.record.hetrm == record.klklk}"> selected </c:if> >${record.klklk}</option>
+								 						<option value='${record.klklk}' <c:if test="${ model.record.hetri == record.klklk}"> selected </c:if> >${record.klklk}</option>
 								 					</c:forEach>
 												</select>												
 								 			</td>
@@ -1131,7 +1131,7 @@
 										
 					 				</td>
 						 			<td class="text14" nowrap>
-						 				<input required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" type="text" class="inputTextMediumBlueMandatoryField" name="hesdf" id="hesdf" size="6" maxlength="5" value="${model.record.hesdf}">
+						 				<input type="text" class="inputTextMediumBlue" name="hesdf" id="hesdf" size="6" maxlength="5" value="${model.record.hesdf}">
 						 				<a tabindex=0 id="hesdfIdLink">
 	 										<img id="imgFromSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
 	 									</a>
@@ -1151,10 +1151,10 @@
 									<table>
 							 			<tr>	
 								 			<td class="text14">
-								 				<img onMouseOver="showPop('hetri_info');" onMouseOut="hidePop('hetri_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-								 				<font class="text12RedBold" >*</font><span title="hetri/hesdt"><spring:message code="systema.tror.orders.form.update.label.to"/></span>
+								 				<img onMouseOver="showPop('todo_info');" onMouseOut="hidePop('todo_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
+								 				<font class="text12RedBold" >*</font><span title="todo/hesdt"><spring:message code="systema.tror.orders.form.update.label.to"/></span>
 								 				<div class="text14" style="position: relative;" align="left">
-													<span style="position:absolute;top:0px; width:250px" id="hetri_info" class="popupWithInputText"  >
+													<span style="position:absolute;top:0px; width:250px" id="todo_info" class="popupWithInputText"  >
 														<font class="text14">
 									           			<b>Til sted</b>
 									           			<div>
@@ -1166,15 +1166,15 @@
 												</div>
 							 				</td>
 							 				<td class="text14">
-							 					<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="hetri" id="hetri">
+							 					<select name="ownFirmTODO" id="ownFirmTODO" readonly oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" >
 							 						<option value="">-landkode-</option>
 								 				  	<c:forEach var="record" items="${model.countryCodeList}" >
-						 				  				<option value="${record.klklk}"<c:if test="${model.record.hetri == record.klklk}"> selected </c:if> >${record.klklk}</option>
+						 				  				<option value="${record.klklk}"<c:if test="${'NO' == record.klklk}"> selected </c:if> >${record.klklk}</option>
 													</c:forEach>  
 												</select>
 							 				</td>
 								 			<td class="text14" nowrap>
-								 				<input type="text" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="hesdt" id="hesdt" size="6" maxlength="5" value="${model.record.hesdt}">
+								 				<input type="text" class="inputTextMediumBlue" name="hesdt" id="hesdt" size="6" maxlength="5" value="${model.record.hesdt}">
 								 				<a tabindex=0 id="hesdtIdLink" >
 			 										<img id="imgToSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
 			 									</a>

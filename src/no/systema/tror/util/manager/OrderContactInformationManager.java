@@ -139,8 +139,12 @@ public class OrderContactInformationManager {
 			//create new
 			logger.info("create CN...");
 			dao = new DokufeDao();
-			dao.setFe_dfavd(Integer.parseInt(orderContactInfoObj.getAvd()));
-			dao.setFe_dfopd(Integer.parseInt(orderContactInfoObj.getOpd()));
+			if(strMgr.isNotNull(orderContactInfoObj.getAvd())){
+				dao.setFe_dfavd(Integer.parseInt(orderContactInfoObj.getAvd()));
+			}
+			if(strMgr.isNotNull(orderContactInfoObj.getOpd())){
+				dao.setFe_dfopd(Integer.parseInt(orderContactInfoObj.getOpd()));
+			}
 			this.updateDokufe(appUser, TrorConstants.MODE_ADD, dao, orderContactInfoObj, this.PARTY_CONSIGNOR_CN);
 		}
 		//---------------------------
@@ -155,8 +159,12 @@ public class OrderContactInformationManager {
 			//create new
 			logger.info("create CZ...");
 			dao = new DokufeDao();
-			dao.setFe_dfavd(Integer.parseInt(orderContactInfoObj.getAvd()));
-			dao.setFe_dfopd(Integer.parseInt(orderContactInfoObj.getOpd()));
+			if(strMgr.isNotNull(orderContactInfoObj.getAvd())){
+				dao.setFe_dfavd(Integer.parseInt(orderContactInfoObj.getAvd()));
+			}
+			if(strMgr.isNotNull(orderContactInfoObj.getOpd())){
+				dao.setFe_dfopd(Integer.parseInt(orderContactInfoObj.getOpd()));
+			}
 			this.updateDokufe(appUser, TrorConstants.MODE_ADD, dao, orderContactInfoObj, PARTY_CONSIGNEE_CZ);
 		}
 		
