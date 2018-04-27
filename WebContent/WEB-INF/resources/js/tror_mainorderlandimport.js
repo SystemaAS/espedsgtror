@@ -19,6 +19,28 @@
 		  
 		  window.location = url + params;
 	  });
+	  //Godsnummer input sensor for auto-cursor-movement to the next input field
+	  jq("#ownHegn1").bind("input", function() {
+		    var $this = jq(this);
+		    setTimeout(function() {
+		        if ( $this.val().length >= parseInt($this.attr("maxlength"),10) )
+		            $this.next("input").focus();
+		    },0);
+		});
+	  jq("#ownHegn2").bind("input", function() {
+		    var $this = jq(this);
+		    setTimeout(function() {
+		        if ( $this.val().length >= parseInt($this.attr("maxlength"),10) )
+		            $this.next("input").focus();
+		    },0);
+		});
+	  jq("#ownHegn3").bind("input", function() {
+		    var $this = jq(this);
+		    setTimeout(function() {
+		        if ( $this.val().length >= parseInt($this.attr("maxlength"),10) )
+		            $this.next("input").focus();
+		    },0);
+		});
   });
   
   
@@ -1026,8 +1048,15 @@
 			  "packingCodesWin", "top=300px,left=450px,height=600px,width=800px,scrollbars=no,status=no,location=no");
   }
   
-  //Oppdragstype olika dokumentkrav
+  //Oppdragstype olika dokumentkrav, levbetingelser Mandatory
   jq(function() {
+	  
+	  jq('#hefr').focus(function() {
+	    	if(jq('#hefr').val()!=''){
+	    		refreshCustomValidity(jq('#hefr')[0]);
+	  		}
+	  	});
+	  
 	  jq('#heot').change(function() {
 		  var id = jq('#heot').val();
 		  if(id!=''){
@@ -2186,6 +2215,8 @@
       //showDialogFileUploadDraggable(); --> Change to ONLY when the user clicks
       jq("#dialogDraggableFileUpload").hide();
       
+      //focus
+      jq("#hedtop").focus();
 	});
 	
   //draggable window

@@ -456,7 +456,7 @@
 							 				<td class="text14">
 							 					<img onMouseOver="showPop('hesdl_info');" onMouseOut="hidePop('hesdl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<span title="hesdl"><spring:message code="systema.tror.orders.form.update.label.unload"/></span>
-				 								<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_loadunloadplaces.do?action=doFind&ctype=tror_landimport','loadunloadWin','top=300px,left=50px,height=600px,width=800px,scrollbars=no,status=no,location=no')">						 				
+				 								<a tabindex=-1 href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_loadunloadplaces.do?action=doFind&ctype=tror_landimport','loadunloadWin','top=300px,left=50px,height=600px,width=800px,scrollbars=no,status=no,location=no')">						 				
 						 							<img id="imgToSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 						 						</a>
 						 						<img style="vertical-align:middle;" src="resources/images/loading.png" width="15px" height="15px" border="0" alt="load/unload">
@@ -559,15 +559,13 @@
 					 			</tr>
 					 			
 					 			<tr>
-					 				<td align="left" width="50%">&nbsp;</td>
-								 	
-								 	<td align="left" width="50%">
-						 				<table width="97%" class="tableBorderWithRoundCornersLightGray" border="0">
+					 				<td align="left" width="50%">
+						 				<table width="100%" class="tableBorderWithRoundCornersWhite" border="0">
 						 				<tr>		
 								 			<td class="text14">
 								 				<img onMouseOver="showPop('hetrm_info');" onMouseOut="hidePop('hetrm_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<span title="hetrm"><spring:message code="systema.tror.orders.form.update.label.transporttype"/></span>
-								 				<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_transporttypes.do?action=doFind&ctype=tror_landimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+								 				<a tabindex=-1 href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_transporttypes.do?action=doFind&ctype=tror_landimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 		 											<img id="imgTransporttype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 		 										<div class="text11" style="position: relative;" align="left" >
@@ -620,9 +618,7 @@
 								 					</c:forEach>
 												</select>												
 								 			</td>
-								 		</tr>
 								 		
-								 		<tr>
 								 			<td class="text14">
 								 				<img onMouseOver="showPop('hetrc_info');" onMouseOut="hidePop('hetrc_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 												<span title="hetrc"><spring:message code="systema.tror.orders.form.update.label.container"/></span>
@@ -1099,7 +1095,6 @@
 			<tr>
             		<td>
 	        			<table style="width:98%;" align="left" class="tableBorderWithRoundCornersGray" cellspacing="0" cellpadding="0">
-				 		<tr height="5"><td colspan="2" ></td></tr>
 				 		<tr>
 							<td valign="top" style="width:50%;border-right:1px solid;border-color:#FFFFFF;""  >
 								<table>
@@ -1132,7 +1127,7 @@
 					 				</td>
 						 			<td class="text14" nowrap>
 						 				<input type="text" class="inputTextMediumBlue" name="hesdf" id="hesdf" size="6" maxlength="5" value="${model.record.hesdf}">
-						 				<a tabindex=0 id="hesdfIdLink">
+						 				<a tabindex=-1 tabindex=0 id="hesdfIdLink">
 	 										<img id="imgFromSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
 	 									</a>
 					 				</td>
@@ -1166,16 +1161,11 @@
 												</div>
 							 				</td>
 							 				<td class="text14">
-							 					<select name="ownFirmTODO" id="ownFirmTODO" readonly oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" >
-							 						<option value="">-landkode-</option>
-								 				  	<c:forEach var="record" items="${model.countryCodeList}" >
-						 				  				<option value="${record.klklk}"<c:if test="${'NO' == record.klklk}"> selected </c:if> >${record.klklk}</option>
-													</c:forEach>  
-												</select>
+							 					<input type="text" class="inputTextReadOnly" name="ownFiland" id="ownFiland" size="4" maxlength="2" value="${user.filand}">
 							 				</td>
 								 			<td class="text14" nowrap>
 								 				<input type="text" class="inputTextMediumBlue" name="hesdt" id="hesdt" size="6" maxlength="5" value="${model.record.hesdt}">
-								 				<a tabindex=0 id="hesdtIdLink" >
+								 				<a tabindex=-1 id="hesdtIdLink" >
 			 										<img id="imgToSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" width="13px" height="13px" border="0" alt="search">
 			 									</a>
 							 				</td>
@@ -1191,20 +1181,20 @@
 							</td>
 						</tr>
 
-						<tr height="6"><td colspan="2" ></td></tr>
+						<tr height="2"><td colspan="2" ></td></tr>
 						<tr height="1"><td colspan="2" style="border-bottom:1px solid;border-color:#FFFFFF;" class="text"></td></tr>
-						<tr height="6"><td colspan="2" ></td></tr>
+						<tr height="2"><td colspan="2" ></td></tr>
 						<tr>
 							<td colspan="10">
 							<table width="100%" border="0">	
 								<tr>
 									<td align="left" width="100%" valign="top">
-									<table class="tableBorderWithRoundCornersLightGray" border="0">
+									<table class="tableBorderWithRoundCornersWhite" border="0">
 									<tr>
 						 				<td class="text14">
 						 					<img onMouseOver="showPop('heot_info');" onMouseOut="hidePop('heot_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 					<span title="heot"><spring:message code="systema.tror.orders.form.update.label.oppdragstype"/></span>
-						 					<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_oppdragstype.do?action=doFind&ctype=landimport','opptypeWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+						 					<a tabindex=-1 href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_oppdragstype.do?action=doFind&ctype=landimport','opptypeWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 	 											<img id="imgOpptype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 	 										<div class="text11" style="position: relative;" align="left">
@@ -1233,7 +1223,7 @@
 										<td class="text14">
 											<img onMouseOver="showPop('hefr_info');" onMouseOut="hidePop('hefr_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 					<span title="hefr"><spring:message code="systema.tror.orders.form.update.label.incoterms"/></span>
-											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_incoterms.do?action=doFind&ctype=landimport','incotermsWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+											<a tabindex=-1 href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_incoterms.do?action=doFind&ctype=landimport','incotermsWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 	 											<img id="imgIncoterms" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 	 										<div class="text11" style="position: relative;" align="left">
@@ -1250,7 +1240,7 @@
 											</div>
 										</td>
 							 			<td class="text14">
-							 				<select class="inputTextMediumBlue" name="hefr" id="hefr">
+							 				<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="hefr" id="hefr">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.incotermsList}" varStatus="counter">
 							 						<option value='${record.kfrkod}' <c:if test="${record.kfrkod == model.record.hefr}"> selected </c:if> >${record.kfrkod}</option>
@@ -1262,7 +1252,7 @@
 										<td class="text14">
 											<img onMouseOver="showPop('hekdpl_info');" onMouseOut="hidePop('hekdpl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 											<span title="hekdpl"><spring:message code="systema.tror.orders.form.update.label.productcode"/></span>
-											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_productcodes.do?action=doFind&ctype=landimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+											<a tabindex=-1 href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_productcodes.do?action=doFind&ctype=landimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 	 											<img id="imgProductcodes" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 	 										<div class="text11" style="position: relative;" align="left">
@@ -1400,7 +1390,7 @@
 				        			<table width="98%" id="containerdatatableTable" cellspacing="0" align="left" >
 			
 									<%-- <c:if test="${not empty Xmodel.record.heunik}"> --%>
-										<tr height="5"><td align="left" ></td></tr>
+										<tr height="1"><td align="left" ></td></tr>
 										
 								 		<tr >
 											<td align="bottom" colspan="3" class="text14">&nbsp;&nbsp;<img style="vertical-align:bottom;" src="resources/images/update.gif" width="10px" height="10px" border="0" alt="update item line">
@@ -1442,7 +1432,7 @@
 										 					</c:forEach>
 														</select>
 														
-														<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_unitcodes.do?action=doFind&ctype=tror_landimport_e1','unitWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+														<a tabindex=-1 href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_unitcodes.do?action=doFind&ctype=tror_landimport_e1','unitWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 				 											<img id="imgTransporttype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="12px" width="12px" border="0" alt="search">
 				 										</a>
 														
