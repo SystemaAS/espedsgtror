@@ -203,7 +203,8 @@ public class LoginFromEspedsgTvinnController {
 			    	//Note: To allow for a correct Company Tomcat from a Holding Company Web Portal.
 			    	//TOTEN AS triggered this requirement
 			    	//------------------------------------------------------------------------------------------------------
-			    	/*
+			    	/* WE disconnect this login until someone like Toten (several firms) buy TVINN and OPPDR.REG
+			    	 * 
 			    	if(appUser.getTomcatPort()!=null && !"".equals(appUser.getTomcatPort())){
 				    	String urlRedirectTomcatToSubsidiaryCompany = this.getTomcatServerRedirectionUrl(appUser, request);
 				    	RedirectView rw = new RedirectView();
