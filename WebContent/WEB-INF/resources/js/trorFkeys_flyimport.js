@@ -10,7 +10,7 @@
   	 function setBlockUIKeys(){
   		 jq.blockUI({
   			css: { 
-  	            fontSize:'16px'
+  	            fontSize:'22px'
   	        },
   			 message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT}
   		 );

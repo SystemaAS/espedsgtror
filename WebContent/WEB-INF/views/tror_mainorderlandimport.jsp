@@ -867,7 +867,7 @@
 						 						</c:otherwise>
 						 						</c:choose>
 						 					</td>
-										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenasf" id="whenasf" size="50" value="${Xmodel.record.heknsfNavn} - ${Xmodel.record.heknsfPnSt}"></td>
+										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenasf" id="whenasf" size="50" value="${model.whenasf}"></td>
 						 					<td class="text14" >
 						 						<select class="inputTextMediumBlue" name="hevals" id="hevals">
 							 						<option value="">-valuta-</option>
@@ -1070,7 +1070,7 @@
 						 						</c:otherwise>
 						 						</c:choose>
 						 					</td>
-										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenakf" id="whenakf" size="50" value="${Xmodel.record.heknkfNavn} - ${Xmodel.record.heknkfPnSt}"></td>
+										 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenakf" id="whenakf" size="50" value="${model.whenakf}"></td>
 						 					<td class="text14" >
 						 						<select class="inputTextMediumBlue" name="hevalk" id="hevalk">
 							 						<option value="">-valuta-</option>

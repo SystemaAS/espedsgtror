@@ -294,6 +294,9 @@ public class TrorMainOrderHeaderLandImportController {
 				action = "doUpdate";
 			}
 			model.put("action", action);
+			//fill in some ready-only fields Fakturapart( avsend/mottak ) 
+			model.put("whenasf", request.getParameter("whenasf"));
+			model.put("whenakf", request.getParameter("whenakf"));
 			
 			//get dropdowns
 			Collection<JsonTransportDispWorkflowSpecificOrderArchivedDocsRecord> list = (ArrayList)model.get("archivedDocList");

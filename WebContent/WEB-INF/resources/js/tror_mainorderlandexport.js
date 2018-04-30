@@ -5,12 +5,12 @@
   //rest
   
   function setBlockUI(element){
-	  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
   }
   
   jq(function() {
 	  jq("#trorOrderForm").submit(function() {
-		  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT}); 
+		  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT}); 
 	  });
   });
   
@@ -75,7 +75,7 @@
   function uploadFile(){
 	//grab all form data  
 	  var form = new FormData(document.getElementById('uploadFileForm'));
-	  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 	  
 	  jq.ajax({
 	  	  type: 'POST',

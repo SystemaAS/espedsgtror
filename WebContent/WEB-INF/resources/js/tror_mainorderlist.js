@@ -5,7 +5,7 @@
 
   
   function setBlockUI(element){
-	  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
   }
   
   jq(function() {
@@ -118,7 +118,7 @@
 				 id: "dialogSaveTU",	
 				 text: "Fortsett",
 				 click: function(){
-					 		jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+					 		jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 			 				jq('#createNewOrderForm').submit();
 				 		}
 			 	 },
@@ -165,7 +165,7 @@
 		        Fortsett: function() {
 	        		jq( this ).dialog( "close" );
 		            //do delete
-		            jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+		            jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 		            window.location = "tror_mainorderlist_permanently_delete_order.do?action=doDelete" + "&avd=" + avd + "&orderNr=" + opd;
 		        },
 		        Avbryt: function() {

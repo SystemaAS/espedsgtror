@@ -5,15 +5,15 @@
   //rest
   
   function setBlockUI(element){
-	  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
   }
   
   jq(function() {
 	  jq("#trorOrderForm").submit(function() {
-		  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT}); 
+		  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT}); 
 	  });
 	  jq("#buttonToSad").click(function() {
-		  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+		  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 		  var url = jq('#servletHost').val() + ":" + jq('#tomcatPort').val() + "/espedsgtvinnsad/logonTrorList_toSad.do?user=" + jq('#applicationUser').val(); 
 		  var params = "&avd="+ jq('#heavd').val() + '&opd=' + jq('#heopd').val() + "&sysg=" + jq('#hesg').val() + "&dp=" + encodeURIComponent(jq('#userEncrypted').val()); 
 		  
@@ -105,7 +105,7 @@
   function uploadFile(){
 	//grab all form data  
 	  var form = new FormData(document.getElementById('uploadFileForm'));
-	  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 	  
 	  jq.ajax({
 	  	  type: 'POST',
@@ -812,133 +812,53 @@
 	    		});
     		}
 	    }
-	    //---------------------------------------------
-	    //OPPDGIV - PRINCIPAL - Get cascade other id's
-	    //---------------------------------------------
-	    /*
-	    jq('#trknfa').blur(function() {
-    		getPrincipalName();
-	    });
-	    //Invoice parties
-	    function setInvoiceParties() {
-	    	var SELLER = "S"; var BUYER = "K";
-			var id = jq('#trknfa').val();
-			if(id!=null && id!=""){
-				if(SELLER==jq('#trkdak').val()){
-					//(A) Seller Invoice party
-					//if(jq('#heknsf').val()==''){
-						jq('#heknsf').val(jq('#varFakknr').val());
-	    				jq('#heknkf').val("");
-	    				jq('#henakf').val("");
-	    				getInvoicePartySeller();
-					//}
-					//(B) Sender-Consignor
-					if(jq('#hekns').val()==''){
-	    				jq('#hekns').val(id);
-	    				jq('#hekns').blur(); //trigger the Consignor event
-					}
-				}else if(BUYER==jq('#trkdak').val()){
-					//(A) Buyer Invoice party
-					//if(jq('#heknkf').val()==''){
-	    				jq('#heknkf').val(jq('#varFakknr').val());
-	    				jq('#heknsf').val("");
-	    				jq('#henasf').val("");
-	    				getInvoicePartyBuyer();
-					//}
-					//(B) Receiver-Consignee
-					if(jq('#heknk').val()==''){
-	    				jq('#heknk').val(id);
-	    				jq('#heknk').blur(); //trigger the Consignee event
-					}
-				}
-			}
-	    	
-	    };
-	    //OPPDGIV. code
-	    jq(function() { 
-		    jq('#trkdak').change(function() {
-		    	setInvoiceParties();
-		    	jq('#trknfa').focus();
-		    	if(jq('#trkdak').val()=='S'){
-		    		//if(jq('#hefr').val() == ''){
-		    			jq('#hefr').val('S');
-		    		//}
-		    	} else if(jq('#trkdak').val()=='K'){
-		    		//if(jq('#hefr').val() == ''){
-		    			jq('#hefr').val('M');
-		    		//}
-		    	}
-		    });
-	    });
-	    */
+	    
+	    
 	    //Fakturapart Seller
 	    jq('#heknsf').blur(function() {
-	    	//getInvoicePartySeller();
+	    	getInvoicePartySeller();
 		});
 	    //Fakturapart Buyer
 	    jq('#heknkf').blur(function() {
-	    	//getInvoicePartyBuyer();
+	    	getInvoicePartyBuyer();
 	    });
-	    //-------------------
-	    //getPrincipalName()
-	    //-------------------
-	    /*
-	    function getPrincipalName() {
-	    	var id = jq('#trknfa').val();
-    		if(id!=null && id!=""){
-    			jq.getJSON('searchCustomer_TransportDisp.do', {
-				applicationUser : jq('#applicationUser').val(),
-				customerName : "",
-				customerNumber : id,
-				ajax : 'true'
-	    		}, function(data) {
-	    			//alert("Hello");
-	    			jq('#henaa').val("");
-	    			var len = data.length;
-	    			for ( var i = 0; i < len; i++) {
-	    				jq('#henaa').val(data[i].navn);
-	    				jq('#varFakknr').val(data[i].fakknr);
-	    				//----------------------------------------------------------------------------------------------
-	    				//INVOICE Parties fragment
-	    				//HAS TO BE HERE. 
-	    				//Can not move this fragment outside this ajax call. Otherwise there will not be a sync call...
-	    				//-----------------------------------------------------------------------------------------------
-	    				setInvoiceParties();
-	    			}
-				});
-    		}
-	    }
-	    */
+	   
 	    //--------------------------
 	    //getInvoicePartySeller()
 	    //--------------------------
 	    function getInvoicePartySeller() {
 	    	var id = jq('#heknsf').val();
     		if(id!=null && id!=""){
-	    		jq.getJSON('searchCustomer_Ebooking.do', {
+	    		jq.getJSON('getCustomer_Landimport.do', {
 				applicationUser : jq('#applicationUser').val(),
-				customerName : "",
-				customerNumber : id,
+				id : id,
 				ajax : 'true'
 	    		}, function(data) {
-	    			jq('#henasf').val("");
+	    			jq('#whenasf').val("");
 	    			var len = data.length;
 	    			for ( var i = 0; i < len; i++) {
+	    				jq('#whenasf').val(data[i].knavn + " " + data[i].adr3 + " " + data[i].postnr) ;
+    					//jq('#heknsf').addClass( "inputTextMediumBlueUPPERCASE" );
+    					jq('#heknsf').removeClass ("isa_warning");
+    					jq('#whenasf').removeClass ("isa_warning");
+    					
+	    				/*
 	    				if(data[i].aktkod != 'I'){
-	    					jq('#henasf').val(data[i].navn);
+	    					jq('#whenasf').val(data[i].knavn);
 	    					//jq('#heknsf').addClass( "inputTextMediumBlueUPPERCASE" );
 	    					jq('#heknsf').removeClass ("isa_warning");
-	    					jq('#henasf').removeClass ("isa_warning");
+	    					jq('#whenasf').removeClass ("isa_warning");
 	    				}else{
 	    					jq('#heknsf').addClass( "isa_warning" );
-	    					jq('#henasf').addClass( "isa_warning" );
+	    					jq('#whenasf').addClass( "isa_warning" );
 	    					//jq('#heknsf').removeClass ("inputTextMediumBlueUPPERCASE");
-	    					jq('#henasf').val("adr.kunde?" + data[i].navn);
+	    					jq('#whenasf').val("adr.kunde?" + data[i].knavn);
 	    				}
+	    				*/
 	    			}
 	    		});
     		}else{
-    			jq('#henasf').val("");
+    			jq('#whenasf').val("");
     		}
 	    }
 	    //--------------------------
@@ -947,31 +867,31 @@
 	    function getInvoicePartyBuyer() {
     		var id = jq('#heknkf').val();
     		if(id!=null && id!=""){
-	    		jq.getJSON('searchCustomer_Ebooking.do', {
+	    		jq.getJSON('getCustomer_Landimport.do', {
 				applicationUser : jq('#applicationUser').val(),
-				customerName : "",
-				customerNumber : id,
+				id : id,
 				ajax : 'true'
 	    		}, function(data) {
-	    			jq('#henakf').val("");
+	    			jq('#whenakf').val("");
 	    			var len = data.length;
 	    			for ( var i = 0; i < len; i++) {
-	    				jq('#henakf').val(data[i].navn);
-	    				
+	    				jq('#whenakf').val(data[i].knavn + " " + data[i].adr3 + " " + data[i].postnr) ;
+	    				/*
 	    				if(data[i].aktkod != 'I'){
-	    					jq('#henakf').val(data[i].navn);
+	    					jq('#whenakf').val(data[i].knavn);
 	    					jq('#heknkf').removeClass ("isa_warning");
-	    					jq('#henakf').removeClass ("isa_warning");
+	    					jq('#whenakf').removeClass ("isa_warning");
 	    				}else{
 	    					jq('#heknkf').addClass( "isa_warning" );
-	    					jq('#henakf').addClass( "isa_warning" );
-	    					jq('#henakf').val("adr.kunde?" + data[i].navn);
+	    					jq('#whenakf').addClass( "isa_warning" );
+	    					jq('#whenakf').val("adr.kunde?" + data[i].knavn);
 	    				}
+	    				*/
 	    				
 	    			}
 	    		});
     		}else{
-    			jq('#henakf').val("");
+    			jq('#whenakf').val("");
     		}
 		}
 	   

@@ -4,7 +4,7 @@
   var BLOCKUI_OVERLAY_MESSAGE_DEFAULT = "Please wait...";
   
   function setBlockUI(element){
-	  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
   }
   
   jq(document).ready(function() {
@@ -281,7 +281,7 @@
 	        Fortsett: function() {
       		jq( this ).dialog( "close" );
 	            //do delete
-	            jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	            jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 	            window.location = "tror_mainorderland_budget_edit.do?action=doDelete" + "&bubnr=" + bubnr + "&avd=" + avd + "&opd=" + opd + "&tur=" + tur;
 	        },
 	        Avbryt: function() {
