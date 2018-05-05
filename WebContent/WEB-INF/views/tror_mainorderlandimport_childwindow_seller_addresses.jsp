@@ -47,6 +47,7 @@
 		                    <th class="text14">&nbsp;Alfa</th>
 		                    <%-- <th width="2%" class="text14">&nbsp;<spring:message code="systema.tror.childwindow.customeraddresses.label.customeradr.address.update"/></th> --%>
 		                    <th class="text14">&nbsp;Navn</th>
+		                    <%-- <th class="text14">&nbsp;Orgnr.</th> --%>
 		                    <th class="text14">&nbsp;Adr1</th>
 		                    <th class="text14">&nbsp;Adr2</th>
 		                    <th class="text14">&nbsp;Adr3</th>
@@ -66,6 +67,7 @@
 			               <td class="text14" >&nbsp;${record.kukun2}</td>
 			               <td class="text14" >&nbsp;${record.kualfa}</td>
 			               <td class="text14" >&nbsp;${record.navn}</td>
+			               <%--<td class="text14" >&nbsp;${record.orgnr}</td> --%>
 			               <td class="text14" >&nbsp;${record.adr1}</td>
 			               <td class="text14" >&nbsp;${record.adr2}</td>
 			               <td class="text14" >&nbsp;${record.adr3}</td>

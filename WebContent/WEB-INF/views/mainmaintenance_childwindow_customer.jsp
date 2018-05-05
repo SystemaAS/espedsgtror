@@ -31,10 +31,13 @@
 						
 						<tr>
 							<td class="text14">&nbsp;Kundenr.</td>
-							<td class="text14">&nbsp;<input type="text" class="inputText" name="knr" id="knr" size="10" maxlength="10" value="${model.knr}"></td>
+							<td class="text14">&nbsp;<input type="text" class="inputTextMediumBlue" name="knr" id="knr" size="10" maxlength="10" value="${model.knr}"></td>
 							<td class="text14">&nbsp;</td>
 							<td class="text14">&nbsp;Navn</td>
-							<td class="text14">&nbsp;<input type="text" class="inputText" name="sonavn" id="sonavn" size="30" maxlength="50" value="${model.sonavn}"></td>
+							<td class="text14">&nbsp;<input type="text" class="inputTextMediumBlue" name="sonavn" id="sonavn" size="30" maxlength="50" value="${model.sonavn}"></td>
+							
+							<td class="text14">&nbsp;Orgnr</td>
+							<td class="text14">&nbsp;<input type="text" class="inputTextMediumBlue" name="syrg" id="syrg" size="30" maxlength="50" value="${model.syrg}"></td>
 							
 							<td class="text14">&nbsp;</td>
 	           				<td align="right">&nbsp;<input class="inputFormSubmit" type="submit" name="submit" value='<spring:message code="systema.main.maintenance.search"/>'></td>
@@ -55,7 +58,7 @@
 						<tr style="background-color:#EEEEEE">
 							<th class="text14" >&nbsp;Kundenr.&nbsp;</th>
 		                    <th class="text14" >&nbsp;Navn&nbsp;</th>
-		                    <th class="text14" >&nbsp;TIN / CVR/SE-nr&nbsp;</th>
+		                    <th class="text14" >&nbsp;Orgnr/CVR/SE-nr&nbsp;</th>
 		                    <th class="text14" >&nbsp;Adresse&nbsp;</th>
 		                    <th class="text14" >&nbsp;Postadresse&nbsp;</th>
 		                    <th class="text14" >&nbsp;Postnr&nbsp;</th>
@@ -76,7 +79,7 @@
 			                       <tr class="text14">
 			                   </c:otherwise>
 			               </c:choose>
-			               <td style="cursor:pointer;" class="text14MediumBlue" id="knr${record.kundnr}@knavn${record.knavn}@kadr1${record.adr1}@kadr3${record.adr3}@kpostnr${record.postnr}@kland${record.syland}@keori${record.syrg}@ctype${model.ctype}@kadr2${record.adr2}@firma${record.firma}" >
+			               <td style="cursor:pointer;" class="text14MediumBlue" id="knr${record.kundnr}@knavn${record.knavn}@kadr1${record.adr1}@kadr3${record.adr3}@kpostnr${record.postnr}@kland${record.syland}@keori${record.syrg}@ctype${model.ctype}@kadr2${record.adr2}@firma${record.firma}@syrg${record.syrg}" >
 			               		<img title="select" style="vertical-align:top;" src="resources/images/bebullet.gif" border="0" alt="edit">&nbsp;${record.kundnr}
 			               	</td>
 		               	   <td class="text14">&nbsp;${record.knavn}</td>

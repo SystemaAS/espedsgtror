@@ -182,7 +182,9 @@ public class TrorMainOrderHeaderLandImportControllerChildWindow {
 		    				//Step 1: check VADR. If MATCH = catch the address. If NO MATCH. go to Step 2
 		    				//Step 2: check CUNDF. 
 		    				boolean match1 = this.getFromVadr(record, appUser);
+		    				logger.info("VADR match?:" + match1);
 		    				if (!match1){
+		    					logger.info("getting addresses from CUNDF since there is no match in VADR...");
 		    					this.getFromCundf(record, appUser);
 		    				}
 		    				//
@@ -296,8 +298,8 @@ public class TrorMainOrderHeaderLandImportControllerChildWindow {
 		//firma
 		urlRequestParamsKeys.append("&firma=" + firma);
 		
-		//logger.info("URL: " + BASE_URL);
-		//logger.info("PARAMS: " + urlRequestParamsKeys);
+		logger.info("URL: " + BASE_URL);
+		logger.info("PARAMS: " + urlRequestParamsKeys);
 		//logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
 		String jsonPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParamsKeys.toString());
 		//Debug -->
@@ -313,6 +315,7 @@ public class TrorMainOrderHeaderLandImportControllerChildWindow {
     				parentRecord.setKuvadr(record.getVadrna() + " " + record.getVadrn2());
     				//for domain realted purposes
     				parentRecord.setNavn(record.getVadrna());
+    				parentRecord.setOrgnr(record.getVarg());
     				parentRecord.setAdr1(record.getVadrn1());
     				parentRecord.setAdr2(record.getVadrn2());
     				parentRecord.setAdr3(record.getVadrn3());
@@ -355,6 +358,7 @@ public class TrorMainOrderHeaderLandImportControllerChildWindow {
 					parentRecord.setKuvadr(record.getKnavn() + " " + record.getPostnr() + " " + record.getAdr3());
 					//for domain realted purposes
     				parentRecord.setNavn(record.getKnavn());
+    				parentRecord.setOrgnr(record.getSyrg());
     				parentRecord.setAdr1(record.getAdr1());
     				parentRecord.setAdr2(record.getAdr2());
     				parentRecord.setAdr3(record.getPostnr() + " " + record.getAdr3());

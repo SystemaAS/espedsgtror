@@ -51,6 +51,10 @@ public class JsonTrorSellerDeliveryAddressRecord extends JsonAbstractGrandFather
 	public void setAdr3(String value){ this.adr3 = value;}
 	public String getAdr3(){ return this.adr3; }
 	
+	private String orgnr = null;
+	public void setOrgnr(String value){ this.orgnr = value;}
+	public String getOrgnr(){ return this.orgnr; }
+	
 	
 	
 	/**

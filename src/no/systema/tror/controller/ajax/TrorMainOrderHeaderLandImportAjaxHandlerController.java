@@ -156,6 +156,45 @@ public class TrorMainOrderHeaderLandImportAjaxHandlerController {
 			 }
 			 return result;
 		}
+		
+		/**
+		 * 
+		 * @param applicationUser
+		 * @param id
+		 * @return
+		 */
+		@RequestMapping(value = "getCustomerByOrgnr_Landimport.do", method = RequestMethod.GET)
+	    public @ResponseBody Collection<JsonMaintMainCundfRecord> getCustomerByOrgnr
+		  						(@RequestParam String applicationUser, @RequestParam String id){
+			 logger.info("Inside: getCustomerByOrgnr_Landimport");
+			 Collection<JsonMaintMainCundfRecord> result = new ArrayList<JsonMaintMainCundfRecord>();
+			 
+			 //logger.info(requestString);
+			 if(strMgr.isNotNull(id)){
+				 String BASE_URL = MaintenanceMainUrlDataStore.MAINTENANCE_MAIN_BASE_SYCUNDFR_GET_LIST_URL;
+				 	
+				 String urlRequestParamsKeys = "user=" + applicationUser + "&syrg=" + id;
+				 logger.info("URL: " + BASE_URL);
+				 logger.info("PARAMS: " + urlRequestParamsKeys);
+				 logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
+				 String jsonPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParamsKeys);
+				 //debugger
+				 logger.debug(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
+				 logger.info(Calendar.getInstance().getTime() +  " CGI-end timestamp");
+				 if(jsonPayload!=null){
+					 jsonPayload = jsonPayload.replaceFirst("Customerlist", "customerlist");
+					 JsonMaintMainCundfContainer container = this.maintMainCundfService.getList(jsonPayload);
+					 if(container!=null){
+						 result = container.getList();
+						 for(JsonMaintMainCundfRecord  record : result){
+							 //logger.info("CUSTOMER via AJAX: " + record.getKnavn() + " NUMBER:" + record.getKundnr());
+							 //logger.info("KPERS: " + record.getKpers() + " TLF:" + record.getTlf());
+						 }
+					 }
+				 }
+			 }
+			 return result;
+		}
 		/**
 		 * 
 		 * @param applicationUser

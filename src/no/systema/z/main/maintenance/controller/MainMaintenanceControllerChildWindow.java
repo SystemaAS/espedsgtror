@@ -109,6 +109,8 @@ public class MainMaintenanceControllerChildWindow {
 		String firma = request.getParameter("firma");
 		String customerName = request.getParameter("sonavn");
 		String customerNr = request.getParameter("knr");
+		String syrg = request.getParameter("syrg");
+		
 		logger.info("callerType:" + callerType);
 		logger.info("customerName:" + customerName);
 		SystemaWebUser appUser = this.loginValidator.getValidUser(session);
@@ -123,10 +125,10 @@ public class MainMaintenanceControllerChildWindow {
 		}else{
 			Collection<JsonMaintMainCundfRecord> list = new ArrayList<JsonMaintMainCundfRecord>();
 			//prepare the access CGI with RPG back-end
-			if( (customerNr!=null && !"".equals(customerNr)) || (customerName!=null && !"".equals(customerName)) ){
+			if( (customerNr!=null && !"".equals(customerNr)) || (customerName!=null && !"".equals(customerName)) || (syrg!=null && !"".equals(syrg)) ){
 				
 				String BASE_URL = MaintenanceMainUrlDataStore.MAINTENANCE_MAIN_BASE_SYCUNDFR_GET_LIST_URL;
-				String urlRequestParamsKeys = this.getRequestUrlKeyParametersForSearchCustomer(appUser.getUser(), customerName, customerNr, firma);
+				String urlRequestParamsKeys = this.getRequestUrlKeyParametersForSearchCustomer(appUser.getUser(), customerName, customerNr, firma, syrg);
 				logger.info("URL: " + BASE_URL);
 				logger.info("PARAMS: " + urlRequestParamsKeys);
 				logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
@@ -152,6 +154,8 @@ public class MainMaintenanceControllerChildWindow {
 			model.put("knr", customerNr);
 			model.put("ctype", callerType);
 			model.put("firma", firma);
+			model.put("syrg", syrg);
+			
 			
 			successView.addObject(MainMaintenanceConstants.DOMAIN_MODEL , model);
 			
@@ -381,27 +385,35 @@ public class MainMaintenanceControllerChildWindow {
 	 * @param customerName
 	 * @param customerNumber
 	 * @param firma
+	 * @param syrg
 	 * @return
 	 */
-	private String getRequestUrlKeyParametersForSearchCustomer(String applicationUser, String customerName, String customerNumber, String firma){
+	private String getRequestUrlKeyParametersForSearchCustomer(String applicationUser, String customerName, String customerNumber, String firma, String syrg){
 		  StringBuffer sb = new StringBuffer();
 		  sb.append("user=" + applicationUser);
-		  if(customerName!=null && !"".equals(customerName) && customerNumber!=null && !"".equals(customerNumber)){
-			  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "knavn=" + customerName );
-			  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber );
+		  if(syrg!=null && !"".equals(syrg)){
+			  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "syrg=" + syrg );
 			  if(firma!=null && !"".equals(firma)){
 				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
 			  }
-			  
-		  }else if (customerName!=null && !"".equals(customerName)){
-			  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "knavn=" + customerName );
-			  if(firma!=null && !"".equals(firma)){
-				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
-			  }
-		  }else if (customerNumber!=null && !"".equals(customerNumber)){
-			  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber );
-			  if(firma!=null && !"".equals(firma)){
-				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
+		  }else{
+			  if(customerName!=null && !"".equals(customerName) && customerNumber!=null && !"".equals(customerNumber)){
+				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "knavn=" + customerName );
+				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber );
+				  if(firma!=null && !"".equals(firma)){
+					  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
+				  }
+				  
+			  }else if (customerName!=null && !"".equals(customerName)){
+				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "knavn=" + customerName );
+				  if(firma!=null && !"".equals(firma)){
+					  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
+				  }
+			  }else if (customerNumber!=null && !"".equals(customerNumber)){
+				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber );
+				  if(firma!=null && !"".equals(firma)){
+					  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
+				  }
 			  }
 		  }
 		  

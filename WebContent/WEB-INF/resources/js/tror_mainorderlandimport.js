@@ -172,7 +172,7 @@
 	  //Agent
 	  jq('#trorAgentIdLink').click(function() {
 		  jq('#trorAgentIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_ag&knr=' + jq('#hekna').val(),"customerWin","top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_ag&knr=' + jq('#hekna').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorAgentIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -182,7 +182,7 @@
 	  //Carrier
 	  jq('#trorCarrierIdLink').click(function() {
 		  jq('#trorCarrierIdLink').attr('target','_blank');
-		  window.open('tror_mainorder_childwindow_carrier.do?action=doFind&ctype=tror_car&knr=' + jq('#heknt').val(),"carrierWin","top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('tror_mainorder_childwindow_carrier.do?action=doFind&ctype=tror_car&knr=' + jq('#heknt').val(),"carrierWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorCarrierIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -192,7 +192,7 @@
 	  //Seller
 	  jq('#trorSellerIdLink').click(function() {
 		  jq('#trorSellerIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_se&knr=' + jq('#hekns').val(),"customerWin","top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_se&knr=' + jq('#hekns').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorSellerIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -202,7 +202,7 @@
 	  //Seller addresses
 	  jq('#trorSellerAddressesIdLink').click(function() {
 		  jq('#trorSellerAddressesIdLink').attr('target','_blank');
-		  window.open('tror_mainorderlandimport_childwindow_seller_addresses.do?action=doFind&ctype=tror_seadr&kukun1=' + jq('#hekns').val(),"sellerAdrWin","top=300px,left=150px,height=600px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('tror_mainorderlandimport_childwindow_seller_addresses.do?action=doFind&ctype=tror_seadr&kukun1=' + jq('#hekns').val(),"sellerAdrWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorSellerAddressesIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -212,7 +212,7 @@
 	  //Seller - Faktmott.
 	  jq('#trorSellerFmIdLink').click(function() {
 		  jq('#trorSellerFmIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_sefm&knr=' + jq('#heknsf').val(),"customerWin","top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_sefm&knr=' + jq('#heknsf').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorSellerFmIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -222,7 +222,7 @@
 	  //Buyer
 	  jq('#trorBuyerIdLink').click(function() {
 		  jq('#trorBuyerIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_by&knr=' + jq('#heknk').val(),"customerWin","top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_by&knr=' + jq('#heknk').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorBuyerIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -232,7 +232,7 @@
 	  //Buyer addresses
 	  jq('#trorBuyerAddressesIdLink').click(function() {
 		  jq('#trorBuyerAddressesIdLink').attr('target','_blank');
-		  window.open('tror_mainorderlandimport_childwindow_buyer_addresses.do?action=doFind&ctype=tror_byadr&kundnr=' + jq('#heknk').val(),"buyerAdrWin","top=300px,left=150px,height=600px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('tror_mainorderlandimport_childwindow_buyer_addresses.do?action=doFind&ctype=tror_byadr&kundnr=' + jq('#heknk').val(),"buyerAdrWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorBuyerAddressesIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -242,7 +242,7 @@
 	  //Buyer FMott
 	  jq('#trorBuyerFmIdLink').click(function() {
 		  jq('#trorBuyerFmIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_byfm&knr=' + jq('#heknkf').val(),"customerWin","top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_byfm&knr=' + jq('#heknkf').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorBuyerFmIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -622,6 +622,13 @@
 	    		getConsignor();
 	    	}
 		});
+	    jq('#syrg').blur(function() {
+	    	if(jq('#syrg').val() != ''){
+	    		if( (jq('#henas').val() == '' && jq('#heads1').val() == '') ){
+	    			getConsignorByOrgnr();
+	    		}
+	    	}
+		});
 	    //must be done since CustomValidity is HTML 5 and not jQuery
 	    //otherwise the validation is never removed (when the value was setted via jQuery in some event)
 	    jq('#henas').focus(function() {
@@ -638,11 +645,11 @@
 	  	});
 	    
 	    function getConsignor(){
-	    	var hekns = jq('#hekns').val();
-    		if(hekns!=null && hekns!=""){
+	    	var id = jq('#hekns').val();
+    		if(id!=null && id!=""){
 	    		jq.getJSON('getCustomer_Landimport.do', {
 				applicationUser : jq('#applicationUser').val(),
-				id : jq('#hekns').val(),
+				id : id,
 				ajax : 'true'
 	    		}, function(data) {
 					//alert("Hello");
@@ -656,6 +663,7 @@
 						customer.adr2 = data[i].adr2;
 						customer.adr3 = data[i].adr3;
 						customer.land = data[i].syland;
+						customer.orgnr = data[i].syrg;
 						//customer.auxtlf = data[i].auxtlf;
 						//customer.auxmail = data[i].auxmail;
 						map[customer.kundnr] = customer;
@@ -671,6 +679,7 @@
 						var name = jq('#henas').val().trim();
 		    			
 		    			jq('#hekns').val(customer.kundnr);
+		    			jq('#syrg').val(customer.orgnr);
 		    			
 		    			jq('#henas').val(seller);refreshCustomValidity(jq('#henas')[0]);
 		    			jq('#heads1').val(customer.adr1);refreshCustomValidity(jq('#heads1')[0]);
@@ -694,6 +703,91 @@
 						jq('#hekns').focus();
 						jq('#whenas').val("");
 						//
+						jq('#syrg').val("");
+						jq('#henas').val(NOT_EXISTS);
+						jq('#henas').addClass( "isa_error" );
+						//
+						jq('#heads1').val("");
+						jq('#heads2').val("");
+						jq('#heads3').val("");
+						jq('#whenas').val("");
+						//
+						jq('#heans').val("0");
+						jq('#hekdfs').val("");
+						
+						//Form field on "Fra"
+						jq('#helka').val("");
+						jq('#hesdf').val("");
+						//fakturapart
+						jq('#heknsf').val("");
+						jq('#whenasf').val("");
+						
+						
+					}
+	    		});
+    		}
+	    }
+	    
+	    function getConsignorByOrgnr(){
+	    	var id = jq('#syrg').val();
+    		if(id!=null && id!=""){
+	    		jq.getJSON('getCustomerByOrgnr_Landimport.do', {
+				applicationUser : jq('#applicationUser').val(),
+				id : id,
+				ajax : 'true'
+	    		}, function(data) {
+					//alert("Hello");
+					var len = data.length;
+					for ( var i = 0; i < len; i++) {
+						customer = new Object();
+						customer.kundnr = data[i].kundnr;
+						customer.knavn = data[i].knavn;
+						customer.postnr = data[i].postnr;
+						customer.adr1 = data[i].adr1;
+						customer.adr2 = data[i].adr2;
+						customer.adr3 = data[i].adr3;
+						customer.land = data[i].syland;
+						customer.orgnr = data[i].syrg;
+						//customer.auxtlf = data[i].auxtlf;
+						//customer.auxmail = data[i].auxmail;
+						map[customer.kundnr] = customer;
+					}
+					if(len > 0){
+						jq('#henas').removeClass( "isa_error" );
+						
+				  		
+						//always show seller
+						var seller = customer.knavn;
+						jq('#whenas').val(seller);
+		    			//now check ids (name and address in order to overdrive (when applicable)
+						var name = jq('#henas').val().trim();
+		    			
+		    			jq('#hekns').val(customer.kundnr);
+		    			jq('#syrg').val(customer.orgnr);
+		    			
+		    			jq('#henas').val(seller);refreshCustomValidity(jq('#henas')[0]);
+		    			jq('#heads1').val(customer.adr1);refreshCustomValidity(jq('#heads1')[0]);
+						
+						jq('#heads2').val(customer.adr2);
+						jq('#heads3').val(customer.adr3 + " " +  customer.postnr);
+						jq('#whenas').val(seller + " - " + jq('#heads3').val());
+						//init some records
+						jq('#heans').val("0");
+						jq('#hekdfs').val("");
+						//Form field on "Fra"
+						jq('#helka').val(customer.land); refreshCustomValidity(jq('#helka')[0]);
+						jq('#hesdf').val(customer.postnr); refreshCustomValidity(jq('#hesdf')[0]);
+						//Fakturapart
+						jq('#heknsf').val(jq('#hekns').val());
+						jq('#whenasf').val(jq('#whenas').val());
+		    			
+						
+					}else{
+						//init fields
+						jq('#hekns').focus();
+						jq('#whenas').val("");
+						//
+						jq('#syrg').val("");
 						jq('#henas').val(NOT_EXISTS);
 						jq('#henas').addClass( "isa_error" );
 						//
@@ -2136,7 +2230,7 @@
       jq("#dialogDraggableFileUpload").hide();
       
       //focus
-      jq("#hedtop").focus();
+      jq("#hepro").focus();
 	});
 	
   //draggable window
