@@ -581,11 +581,15 @@ public class TrorMainOrderHeaderLandImportController {
 		//CUNDF-related data
 		if(strMgr.isNotNull(record.getHekns())){
 			JsonMaintMainCundfRecord sender = this.getCustomer(appUser.getUser(), record.getHekns());
-			model.put("syrg", sender.getSyrg());
+			if(sender!=null){
+				model.put("syrg", sender.getSyrg());
+			}
 		}
 		if(strMgr.isNotNull(record.getHeknk())){
 			JsonMaintMainCundfRecord receiver = this.getCustomer(appUser.getUser(), record.getHeknk());
-			model.put("syrgby", receiver.getSyrg());
+			if(receiver!=null){
+				model.put("syrgby", receiver.getSyrg());
+			}
 		}
 		
 		
