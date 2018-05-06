@@ -707,16 +707,16 @@
 								 	<td class="text14" >
 								 		<c:choose>
 							 				<c:when test="${'0' != model.syrg}">
-									 			<input type="text" class="inputTextMediumBlue" name="syrg" id="syrg" size="15" maxlength="14" value="${model.syrg}">
+									 			<input tabindex=-1 type="text" class="inputTextMediumBlue" name="syrg" id="syrg" size="15" maxlength="14" value="${model.syrg}">
 									 		</c:when>
 									 		<c:otherwise>
-									 			<input type="text" class="inputTextMediumBlue" name="syrg" id="syrg" size="15" maxlength="14" value="">
+									 			<input tabindex=-1 type="text" class="inputTextMediumBlue" name="syrg" id="syrg" size="15" maxlength="14" value="">
 									 		</c:otherwise>
 								 		</c:choose>
 								 		
 								 	</td>
 								 	<td colspan="3" class="text14" >	
-								 		&nbsp;<input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenas" id="whenas" size="35" maxlength="50" value="${XXmodel.record.heknsNavn}&nbsp;-&nbsp;${XXmodel.record.heknsPnSt}">
+								 		&nbsp;<input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenas" id="whenas" size="40" maxlength="50" value="${XXmodel.record.heknsNavn}&nbsp;-&nbsp;${XXmodel.record.heknsPnSt}">
 								 	</td>
 				 				</tr>
 								<tr height="5"><td ></td></tr>
@@ -910,6 +910,9 @@
  											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
  										</a>
 					 				</td>
+					 				<td class="text12" style="color:darkgreen;">
+					 					&nbsp;<span title="syrgby">Hurtigsøk Orgnr.&nbsp;</span>
+					 				</td>
 					 				<td class="text14">
 					 					&nbsp;<span title="whenak"><spring:message code="systema.tror.orders.form.update.label.consignee.buyer"/>&nbsp;</span>
 					 				</td>	
@@ -925,7 +928,18 @@
 				 						</c:otherwise>
 				 						</c:choose>
 				 					</td>
-				 					<td colspan="4" class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenak" id="whenak" size="50" value="${Xmodel.record.heknkNavn}&nbsp;-&nbsp;${Xmodel.record.heknkPnSt}"></td>
+				 					<td class="text14" >
+								 		<c:choose>
+							 				<c:when test="${'0' != model.syrgby}">
+									 			<input tabindex=-1 type="text" class="inputTextMediumBlue" name="syrgby" id="syrgby" size="15" maxlength="14" value="${model.syrgby}">
+									 		</c:when>
+									 		<c:otherwise>
+									 			<input tabindex=-1 type="text" class="inputTextMediumBlue" name="syrgby" id="syrgby" size="15" maxlength="14" value="">
+									 		</c:otherwise>
+								 		</c:choose>
+								 		
+								 	</td>
+				 					<td colspan="3" class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenak" id="whenak" size="40" maxlength="50" value="${Xmodel.record.heknkNavn}&nbsp;-&nbsp;${Xmodel.record.heknkPnSt}"></td>
 				 				</tr>
 				 				<tr height="5"><td ></td></tr>
 						 		<tr>

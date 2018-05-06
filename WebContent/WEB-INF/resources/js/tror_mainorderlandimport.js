@@ -819,6 +819,13 @@
 	    		getConsignee();
 	    	}
 		});
+	    jq('#syrgby').blur(function() {
+	    	if(jq('#syrgby').val() != ''){
+	    		if( (jq('#henak').val() == '' && jq('#headk1').val() == '') ){
+	    			getConsigneeByOrgnr();
+	    		}
+	    	}
+		});
 	    //must be done since CustomValidity is HTML 5 and not jQuery
 	    //otherwise the validation is never removed (when the value was setted via jQuery in some event)
 	    jq('#henak').focus(function() {
@@ -831,6 +838,7 @@
 	    		refreshCustomValidity(jq('#headk1')[0]);
 	  		}
 	  	});
+	    
 	    function getConsignee(){
 	    	var hekns = jq('#heknk').val();
     		if(hekns!=null && hekns!=""){
@@ -850,6 +858,7 @@
 						customer.adr2 = data[i].adr2;
 						customer.adr3 = data[i].adr3;
 						customer.land = data[i].syland;
+						customer.orgnr = data[i].syrg;
 						//customer.auxtlf = data[i].auxtlf;
 						//customer.auxmail = data[i].auxmail;
 						map[customer.kundnr] = customer;
@@ -864,6 +873,7 @@
 						var name = jq('#henak').val().trim();
 		    			
 		    			jq('#heknk').val(customer.kundnr);
+		    			jq('#syrgby').val(customer.orgnr);
 		    			jq('#henak').val(seller); refreshCustomValidity(jq('#henak')[0]);
 						jq('#headk1').val(customer.adr1);refreshCustomValidity(jq('#headk1')[0]);
 						
@@ -885,6 +895,86 @@
 						jq('#heknk').focus();
 						jq('#whenak').val("");
 						//
+						jq('#syrgby').val("");
+						jq('#henak').val(NOT_EXISTS);
+						jq('#henak').addClass( "isa_error" );
+						//
+						jq('#headk1').val("");
+						jq('#headk2').val("");
+						jq('#headk3').val("");
+						jq('#whenak').val("");
+						//
+						jq('#heank').val("0");
+						jq('#hekdfk').val("");
+						//Form field on "Fra"
+						jq('#hetri').val("");
+						jq('#hesdt').val("");
+						//fakturapart
+						jq('#heknkf').val("");
+						jq('#whenakf').val("");
+						
+					}
+	    		});
+    		}	
+	    }
+	    
+	    function getConsigneeByOrgnr(){
+	    	var id = jq('#syrgby').val();
+    		if(id!=null && id!=""){
+	    		jq.getJSON('getCustomerByOrgnr_Landimport.do', {
+				applicationUser : jq('#applicationUser').val(),
+				id : id,
+				ajax : 'true'
+	    		}, function(data) {
+					//alert("Hello");
+					var len = data.length;
+					for ( var i = 0; i < len; i++) {
+						customer = new Object();
+						customer.kundnr = data[i].kundnr;
+						customer.knavn = data[i].knavn;
+						customer.postnr = data[i].postnr;
+						customer.adr1 = data[i].adr1;
+						customer.adr2 = data[i].adr2;
+						customer.adr3 = data[i].adr3;
+						customer.land = data[i].syland;
+						customer.orgnr = data[i].syrg;
+						//customer.auxtlf = data[i].auxtlf;
+						//customer.auxmail = data[i].auxmail;
+						map[customer.kundnr] = customer;
+					}
+					if(len > 0){
+						jq('#henak').removeClass( "isa_error" );
+						
+						//always show seller
+						var seller = customer.knavn;
+						jq('#whenak').val(seller);
+		    			//now check ids (name and address in order to overdrive (when applicable)
+						var name = jq('#henak').val().trim();
+		    			
+		    			jq('#heknk').val(customer.kundnr);
+		    			jq('#syrgby').val(customer.orgnr);
+		    			jq('#henak').val(seller); refreshCustomValidity(jq('#henak')[0]);
+						jq('#headk1').val(customer.adr1);refreshCustomValidity(jq('#headk1')[0]);
+						
+						jq('#headk2').val(customer.adr2);
+						jq('#headk3').val(customer.adr3 + " " +  customer.postnr);
+						jq('#whenak').val(seller + " - " + jq('#headk3').val());
+						//init some records
+						jq('#heank').val("0");
+						jq('#hekdfk').val("");
+						//Form field on "Fra"
+						jq('#hetri').val(customer.land);refreshCustomValidity(jq('#hetri')[0]);
+						jq('#hesdt').val(customer.postnr);refreshCustomValidity(jq('#hesdt')[0]);
+				  		//Fakturapart
+						jq('#heknkf').val(jq('#heknk').val());
+						jq('#whenakf').val(jq('#whenak').val());
+		    			
+					}else{
+						//init fields
+						jq('#heknk').focus();
+						jq('#whenak').val("");
+						//
+						jq('#syrgby').val("");
 						jq('#henak').val(NOT_EXISTS);
 						jq('#henak').addClass( "isa_error" );
 						//
@@ -906,6 +996,7 @@
 	    		});
     		}
 	    }
+	    
 	    
 	    
 	    //Fakturapart Seller

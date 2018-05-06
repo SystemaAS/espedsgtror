@@ -56,6 +56,7 @@
 			  
 			  }else if (callerType == 'tror_by'){ //Buyer
 				  opener.jq('#heknk').val(knr);
+				  opener.jq('#syrgby').val(orgnr);
 				  var compoundName = knavn + " - " + adr3 + " " + postnr;
 				  opener.jq('#whenak').val(compoundName);
 				  //?

@@ -19,6 +19,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +77,11 @@ import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
 import no.systema.tror.validator.TrorOrderHeaderValidator;
 import no.systema.tvinn.sad.z.maintenance.nctsexport.service.MaintNctsExportTrkodfService;
 import no.systema.tvinn.sad.z.maintenance.sadimport.service.gyldigekoder.MaintSadImportKodts4Service;
+import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCundfContainer;
+import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCundfRecord;
+import no.systema.z.main.maintenance.service.MaintMainCundfService;
 import no.systema.z.main.maintenance.service.MaintMainKodtaService;
+import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
 
 
 /**
@@ -264,7 +270,6 @@ public class TrorMainOrderHeaderLandImportController {
 					this.orderContactInformationMgr.getContactInformation(appUser, this.setDokufeDao(orderContactInformationObject), this.PARTY_CONSIGNOR_CN, true, orderContactInformationObject);
 					this.orderContactInformationMgr.getContactInformation(appUser, this.setDokufeDao(orderContactInformationObject), this.PARTY_CONSIGNEE_CZ, true, orderContactInformationObject);
 					this.setHeaderRecordContactInformation(headerOrderRecord, orderContactInformationObject);				
-					
 					
 					//set always status as in list (since we do not get this value from back-end)
 					//TODO headerOrderRecord.setStatus(orderStatus);
@@ -573,6 +578,13 @@ public class TrorMainOrderHeaderLandImportController {
 				}
 			}
 		}
+		//CUNDF-related data
+		JsonMaintMainCundfRecord sender = this.getCustomer(appUser.getUser(), record.getHekns());
+		JsonMaintMainCundfRecord receiver = this.getCustomer(appUser.getUser(), record.getHekns());
+		model.put("syrg", sender.getSyrg());
+		model.put("syrgby", receiver.getSyrg());
+		
+		
 	}
 	/**
 	 * 
@@ -948,6 +960,40 @@ public class TrorMainOrderHeaderLandImportController {
 		return record;
 	}
 	
+	/**
+	 * 
+	 * @param applicationUser
+	 * @param id
+	 * @return
+	 */
+	public JsonMaintMainCundfRecord getCustomer (String applicationUser, String id){
+		 //logger.info("Inside: getCustomer");
+		JsonMaintMainCundfRecord result = null;
+		 
+		 //logger.info(requestString);
+		 if(strMgr.isNotNull(id)){
+			 String BASE_URL = MaintenanceMainUrlDataStore.MAINTENANCE_MAIN_BASE_SYCUNDFR_GET_LIST_URL;
+			 	
+			 String urlRequestParamsKeys = "user=" + applicationUser + "&kundnr=" + id;
+			 logger.info("URL: " + BASE_URL);
+			 logger.info("PARAMS: " + urlRequestParamsKeys);
+			 logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
+			 String jsonPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParamsKeys);
+			 //debugger
+			 //logger.debug(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
+			 logger.info(Calendar.getInstance().getTime() +  " CGI-end timestamp");
+			 if(jsonPayload!=null){
+				 jsonPayload = jsonPayload.replaceFirst("Customerlist", "customerlist");
+				 JsonMaintMainCundfContainer container = this.maintMainCundfService.getList(jsonPayload);
+				 if(container!=null){
+					 for(JsonMaintMainCundfRecord  record : container.getList()){
+						 result = record;
+					 }
+				 }
+			 }
+		 }
+		 return result;
+	}
 	
 	
 	/**
@@ -1109,6 +1155,13 @@ public class TrorMainOrderHeaderLandImportController {
 	public void setMaintNctsExportTrkodfService (MaintNctsExportTrkodfService value){ this.maintNctsExportTrkodfService = value; }
 	public MaintNctsExportTrkodfService getMaintNctsExportTrkodfService(){ return this.maintNctsExportTrkodfService; }
 	
+	@Qualifier 
+	private MaintMainCundfService maintMainCundfService;
+	@Autowired
+	@Required	
+	public void setMaintMainCundfService(MaintMainCundfService value){this.maintMainCundfService = value;}
+	public MaintMainCundfService getMaintMainCundfService(){ return this.maintMainCundfService; }
+		
 	
 }
 

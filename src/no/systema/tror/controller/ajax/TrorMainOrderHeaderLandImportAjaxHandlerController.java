@@ -535,11 +535,11 @@ public class TrorMainOrderHeaderLandImportAjaxHandlerController {
 	  public MaintMainCundfService getMaintMainCundfService(){ return this.maintMainCundfService; }
 		
 	  @Qualifier 
-		private MaintMainKodtot2Service maintMainKodtot2Service;
-		@Autowired
-		@Required	
-		public void setMaintMainKodtot2Service(MaintMainKodtot2Service value){this.maintMainKodtot2Service = value;}
-		public MaintMainKodtot2Service getMaintMainKodtot2Service(){ return this.maintMainKodtot2Service; }
+	  private MaintMainKodtot2Service maintMainKodtot2Service;
+	  @Autowired
+	  @Required	
+	  public void setMaintMainKodtot2Service(MaintMainKodtot2Service value){this.maintMainKodtot2Service = value;}
+	  public MaintMainKodtot2Service getMaintMainKodtot2Service(){ return this.maintMainKodtot2Service; }
 		
 		
 }
