@@ -65,6 +65,7 @@
 		                    <th class="text14" >&nbsp;Land&nbsp;</th>
 		                    <th class="text14" >&nbsp;Tollkredit&nbsp;</th>
 		                    <th class="text14" >&nbsp;Firma&nbsp;</th>
+		                    <th class="text14" >&nbsp;Fakt.mottaker&nbsp;</th>
 		                    
 		                </tr> 
 		                </thead>
@@ -79,7 +80,7 @@
 			                       <tr class="text14">
 			                   </c:otherwise>
 			               </c:choose>
-			               <td style="cursor:pointer;" class="text14MediumBlue" id="knr${record.kundnr}@knavn${record.knavn}@kadr1${record.adr1}@kadr3${record.adr3}@kpostnr${record.postnr}@kland${record.syland}@keori${record.syrg}@ctype${model.ctype}@kadr2${record.adr2}@firma${record.firma}@syrg${record.syrg}" >
+			               <td style="cursor:pointer;" class="text14MediumBlue" id="knr${record.kundnr}@knavn${record.knavn}@kadr1${record.adr1}@kadr3${record.adr3}@kpostnr${record.postnr}@kland${record.syland}@keori${record.syrg}@ctype${model.ctype}@kadr2${record.adr2}@firma${record.firma}@syrg${record.syrg}@fmot${record.fmot}" >
 			               		<img title="select" style="vertical-align:top;" src="resources/images/bebullet.gif" border="0" alt="edit">&nbsp;${record.kundnr}
 			               	</td>
 		               	   <td class="text14">&nbsp;${record.knavn}</td>
@@ -90,6 +91,8 @@
 		               	   <td class="text14">&nbsp;${record.syland}</td>
 		               	   <td class="text14">&nbsp;${record.syfr02}&nbsp;${record.sykont}</td>
 		               	   <td class="text14">&nbsp;${record.firma}</td>
+		               	   <td class="text14">&nbsp;${record.fmot}</td>
+		               	   
 		               	   
 			            </tr> 
 			            </c:forEach>

@@ -399,7 +399,7 @@ public class MainMaintenanceControllerChildWindow {
 		  }else{
 			  if(customerName!=null && !"".equals(customerName) && customerNumber!=null && !"".equals(customerNumber)){
 				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "knavn=" + customerName );
-				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber );
+				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber.trim() );
 				  if(firma!=null && !"".equals(firma)){
 					  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
 				  }
@@ -410,7 +410,7 @@ public class MainMaintenanceControllerChildWindow {
 					  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
 				  }
 			  }else if (customerNumber!=null && !"".equals(customerNumber)){
-				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber );
+				  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "kundnr=" + customerNumber.trim() );
 				  if(firma!=null && !"".equals(firma)){
 					  sb.append( MainMaintenanceConstants.URL_CHAR_DELIMETER_FOR_PARAMS_WITH_HTML_REQUEST + "firma=" + firma );
 				  }

@@ -172,7 +172,7 @@
 	  //Agent
 	  jq('#trorAgentIdLink').click(function() {
 		  jq('#trorAgentIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_ag&knr=' + jq('#hekna').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_ag&knr=' + jq('#hekna').val(),"customerWin","top=300px,left=150px,height=700px,width=1200px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorAgentIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -182,7 +182,7 @@
 	  //Carrier
 	  jq('#trorCarrierIdLink').click(function() {
 		  jq('#trorCarrierIdLink').attr('target','_blank');
-		  window.open('tror_mainorder_childwindow_carrier.do?action=doFind&ctype=tror_car&knr=' + jq('#heknt').val(),"carrierWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
+		  window.open('tror_mainorder_childwindow_carrier.do?action=doFind&ctype=tror_car&knr=' + jq('#heknt').val(),"carrierWin","top=300px,left=150px,height=700px,width=1200px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorCarrierIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -192,7 +192,7 @@
 	  //Seller
 	  jq('#trorSellerIdLink').click(function() {
 		  jq('#trorSellerIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_se&knr=' + jq('#hekns').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_se&knr=' + jq('#hekns').val(),"customerWin","top=300px,left=150px,height=700px,width=1200px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorSellerIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -202,7 +202,7 @@
 	  //Seller addresses
 	  jq('#trorSellerAddressesIdLink').click(function() {
 		  jq('#trorSellerAddressesIdLink').attr('target','_blank');
-		  window.open('tror_mainorderlandimport_childwindow_seller_addresses.do?action=doFind&ctype=tror_seadr&kukun1=' + jq('#hekns').val(),"sellerAdrWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
+		  window.open('tror_mainorderlandimport_childwindow_seller_addresses.do?action=doFind&ctype=tror_seadr&kukun1=' + jq('#hekns').val(),"sellerAdrWin","top=300px,left=150px,height=700px,width=1200px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorSellerAddressesIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -222,7 +222,7 @@
 	  //Buyer
 	  jq('#trorBuyerIdLink').click(function() {
 		  jq('#trorBuyerIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_by&knr=' + jq('#heknk').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_by&knr=' + jq('#heknk').val(),"customerWin","top=300px,left=150px,height=700px,width=1200px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorBuyerIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -232,7 +232,7 @@
 	  //Buyer addresses
 	  jq('#trorBuyerAddressesIdLink').click(function() {
 		  jq('#trorBuyerAddressesIdLink').attr('target','_blank');
-		  window.open('tror_mainorderlandimport_childwindow_buyer_addresses.do?action=doFind&ctype=tror_byadr&kundnr=' + jq('#heknk').val(),"buyerAdrWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
+		  window.open('tror_mainorderlandimport_childwindow_buyer_addresses.do?action=doFind&ctype=tror_byadr&kundnr=' + jq('#heknk').val(),"buyerAdrWin","top=300px,left=150px,height=700px,width=1200px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorBuyerAddressesIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -242,7 +242,7 @@
 	  //Buyer FMott
 	  jq('#trorBuyerFmIdLink').click(function() {
 		  jq('#trorBuyerFmIdLink').attr('target','_blank');
-		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_byfm&knr=' + jq('#heknkf').val(),"customerWin","top=300px,left=150px,height=700px,width=1000px,scrollbars=no,status=no,location=no");
+		  window.open('mainmaintenance_childwindow_customer.do?action=doFind&ctype=tror_byfm&knr=' + jq('#heknkf').val(),"customerWin","top=300px,left=150px,height=700px,width=1200px,scrollbars=no,status=no,location=no");
 	  });
 	  jq('#trorBuyerFmIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
@@ -645,7 +645,7 @@
 	  	});
 	    
 	    function getConsignor(){
-	    	var id = jq('#hekns').val();
+	    	var id = jq.trim(jq('#hekns').val());
     		if(id!=null && id!=""){
 	    		jq.getJSON('getCustomer_Landimport.do', {
 				applicationUser : jq('#applicationUser').val(),
@@ -664,6 +664,8 @@
 						customer.adr3 = data[i].adr3;
 						customer.land = data[i].syland;
 						customer.orgnr = data[i].syrg;
+						customer.fmot = data[i].fmot;
+						customer.fmotname = data[i].fmotname;
 						//customer.auxtlf = data[i].auxtlf;
 						//customer.auxmail = data[i].auxmail;
 						map[customer.kundnr] = customer;
@@ -694,8 +696,8 @@
 						jq('#helka').val(customer.land); refreshCustomValidity(jq('#helka')[0]);
 						jq('#hesdf').val(customer.postnr); refreshCustomValidity(jq('#hesdf')[0]);
 						//Fakturapart
-						jq('#heknsf').val(jq('#hekns').val());
-						jq('#whenasf').val(jq('#whenas').val());
+						jq('#heknsf').val(customer.fmot);
+						jq('#whenasf').val(customer.fmotname);
 		    			
 						
 					}else{
@@ -729,7 +731,7 @@
 	    }
 	    
 	    function getConsignorByOrgnr(){
-	    	var id = jq('#syrg').val();
+	    	var id = jq.trim(jq('#syrg').val());
     		if(id!=null && id!=""){
 	    		jq.getJSON('getCustomerByOrgnr_Landimport.do', {
 				applicationUser : jq('#applicationUser').val(),
@@ -748,6 +750,8 @@
 						customer.adr3 = data[i].adr3;
 						customer.land = data[i].syland;
 						customer.orgnr = data[i].syrg;
+						customer.fmot = data[i].fmot;
+						customer.fmotname = data[i].fmotname;
 						//customer.auxtlf = data[i].auxtlf;
 						//customer.auxmail = data[i].auxmail;
 						map[customer.kundnr] = customer;
@@ -778,8 +782,8 @@
 						jq('#helka').val(customer.land); refreshCustomValidity(jq('#helka')[0]);
 						jq('#hesdf').val(customer.postnr); refreshCustomValidity(jq('#hesdf')[0]);
 						//Fakturapart
-						jq('#heknsf').val(jq('#hekns').val());
-						jq('#whenasf').val(jq('#whenas').val());
+						jq('#heknsf').val(customer.fmot);
+						jq('#whenasf').val(customer.fmotname);
 		    			
 						
 					}else{
@@ -840,11 +844,11 @@
 	  	});
 	    
 	    function getConsignee(){
-	    	var hekns = jq('#heknk').val();
-    		if(hekns!=null && hekns!=""){
+	    	var id = jq.trim(jq('#heknk').val());
+    		if(id!=null && id!=""){
 	    		jq.getJSON('getCustomer_Landimport.do', {
 				applicationUser : jq('#applicationUser').val(),
-				id : jq('#heknk').val(),
+				id : id,
 				ajax : 'true'
 	    		}, function(data) {
 					//alert("Hello");
@@ -859,6 +863,8 @@
 						customer.adr3 = data[i].adr3;
 						customer.land = data[i].syland;
 						customer.orgnr = data[i].syrg;
+						customer.fmot = data[i].fmot;
+						customer.fmotname = data[i].fmotname;
 						//customer.auxtlf = data[i].auxtlf;
 						//customer.auxmail = data[i].auxmail;
 						map[customer.kundnr] = customer;
@@ -887,8 +893,8 @@
 						jq('#hetri').val(customer.land);refreshCustomValidity(jq('#hetri')[0]);
 						jq('#hesdt').val(customer.postnr);refreshCustomValidity(jq('#hesdt')[0]);
 				  		//Fakturapart
-						jq('#heknkf').val(jq('#heknk').val());
-						jq('#whenakf').val(jq('#whenak').val());
+						jq('#heknkf').val(customer.fmot);
+						jq('#whenakf').val(customer.fmotname);
 		    			
 					}else{
 						//init fields
@@ -913,13 +919,14 @@
 						jq('#heknkf').val("");
 						jq('#whenakf').val("");
 						
+						 
 					}
 	    		});
     		}	
 	    }
 	    
 	    function getConsigneeByOrgnr(){
-	    	var id = jq('#syrgby').val();
+	    	var id = jq.trim(jq('#syrgby').val());
     		if(id!=null && id!=""){
 	    		jq.getJSON('getCustomerByOrgnr_Landimport.do', {
 				applicationUser : jq('#applicationUser').val(),
@@ -938,6 +945,8 @@
 						customer.adr3 = data[i].adr3;
 						customer.land = data[i].syland;
 						customer.orgnr = data[i].syrg;
+						customer.fmot = data[i].fmot;
+						customer.fmotname = data[i].fmotname;
 						//customer.auxtlf = data[i].auxtlf;
 						//customer.auxmail = data[i].auxmail;
 						map[customer.kundnr] = customer;
@@ -966,8 +975,8 @@
 						jq('#hetri').val(customer.land);refreshCustomValidity(jq('#hetri')[0]);
 						jq('#hesdt').val(customer.postnr);refreshCustomValidity(jq('#hesdt')[0]);
 				  		//Fakturapart
-						jq('#heknkf').val(jq('#heknk').val());
-						jq('#whenakf').val(jq('#whenak').val());
+						jq('#heknkf').val(customer.fmot);
+						jq('#whenakf').val(customer.fmotname);
 		    			
 					}else{
 						//init fields
@@ -997,7 +1006,14 @@
     		}
 	    }
 	    
-	    
+	    //Agent
+	    jq('#hekna').blur(function() {
+	    	getAgent();
+		});
+	    //Carrier
+	    jq('#heknt').blur(function() {
+	    	getCarrier();
+		});
 	    
 	    //Fakturapart Seller
 	    jq('#heknsf').blur(function() {
@@ -1027,19 +1043,6 @@
     					jq('#heknsf').removeClass ("isa_warning");
     					jq('#whenasf').removeClass ("isa_warning");
     					
-	    				/*
-	    				if(data[i].aktkod != 'I'){
-	    					jq('#whenasf').val(data[i].knavn);
-	    					//jq('#heknsf').addClass( "inputTextMediumBlueUPPERCASE" );
-	    					jq('#heknsf').removeClass ("isa_warning");
-	    					jq('#whenasf').removeClass ("isa_warning");
-	    				}else{
-	    					jq('#heknsf').addClass( "isa_warning" );
-	    					jq('#whenasf').addClass( "isa_warning" );
-	    					//jq('#heknsf').removeClass ("inputTextMediumBlueUPPERCASE");
-	    					jq('#whenasf').val("adr.kunde?" + data[i].knavn);
-	    				}
-	    				*/
 	    			}
 	    		});
     		}else{
@@ -1061,22 +1064,61 @@
 	    			var len = data.length;
 	    			for ( var i = 0; i < len; i++) {
 	    				jq('#whenakf').val(data[i].knavn + " " + data[i].adr3 + " " + data[i].postnr) ;
-	    				/*
-	    				if(data[i].aktkod != 'I'){
-	    					jq('#whenakf').val(data[i].knavn);
-	    					jq('#heknkf').removeClass ("isa_warning");
-	    					jq('#whenakf').removeClass ("isa_warning");
-	    				}else{
-	    					jq('#heknkf').addClass( "isa_warning" );
-	    					jq('#whenakf').addClass( "isa_warning" );
-	    					jq('#whenakf').val("adr.kunde?" + data[i].knavn);
-	    				}
-	    				*/
+	    				
 	    				
 	    			}
 	    		});
     		}else{
     			jq('#whenakf').val("");
+    		}
+		}
+	    
+	    //---------
+	    //getAgent
+	    //---------
+	    function getAgent() {
+    		var id = jq.trim(jq('#hekna').val());
+    		if(id!=null && id!=""){
+	    		jq.getJSON('getCustomer_Landimport.do', {
+				applicationUser : jq('#applicationUser').val(),
+				id : id,
+				ajax : 'true'
+	    		}, function(data) {
+	    			jq('#henaa').val("");
+	    			var len = data.length;
+	    			for ( var i = 0; i < len; i++) {
+	    				jq('#henaa').val(data[i].knavn + " " + data[i].adr3 + " " + data[i].postnr) ;
+	    				
+	    			}
+	    		});
+    		}else{
+    			jq('#henaa').val("");
+    		}
+		}
+	    
+	    //-----------
+	    //getCarrier
+	    //-----------
+	    function getCarrier() {
+    		var id = jq.trim(jq('#heknt').val());
+    		if(id!=null && id!=""){
+	    		jq.getJSON('getCarrier_Landimport.do', {
+				applicationUser : jq('#applicationUser').val(),
+				id : id,
+				ajax : 'true'
+	    		}, function(data) {
+	    			var len = data.length;
+	    			if(len > 0){
+	    				for ( var i = 0; i < len; i++) {
+	    					jq('#ownheknt').val(data[i].vmnavn) ;	    				
+	    				}
+	    			}else{
+	    				jq('#ownheknt').val("") ;
+	    			}
+	    		});
+    		}else{
+    			jq('#heknt').val("");
+    			
     		}
 		}
 	   

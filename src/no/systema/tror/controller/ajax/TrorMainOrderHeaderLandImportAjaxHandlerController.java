@@ -46,8 +46,12 @@ import no.systema.transportdisp.util.RpgReturnResponseHandler;
 import no.systema.transportdisp.util.manager.ControllerAjaxCommonFunctionsMgr;
 
 import no.systema.tror.model.jsonjackson.frisokvei.JsonTrorOrderHeaderFrisokveiContainer;
+import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorCarrierContainer;
+import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorCarrierRecord;
+import no.systema.tror.service.TrorMainOrderHeaderChildwindowService;
 import no.systema.tror.service.TrorMainOrderHeaderService;
 import no.systema.tror.url.store.TrorUrlDataStore;
+import no.systema.tror.util.TrorConstants;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCundfContainer;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCundfRecord;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainKodtot2Container;
@@ -124,6 +128,44 @@ public class TrorMainOrderHeaderLandImportAjaxHandlerController {
 		 * @param id
 		 * @return
 		 */
+		@RequestMapping(value = "getCarrier_Landimport.do", method = RequestMethod.GET)
+	    public @ResponseBody Collection<JsonTrorCarrierRecord> getCarrier (@RequestParam String applicationUser, @RequestParam String id){
+			 logger.info("Inside: getCarrier_Landimport");
+			 Collection<JsonTrorCarrierRecord> result = new ArrayList<JsonTrorCarrierRecord>();
+			
+			//prepare the access CGI with RPG back-end
+    		String BASE_URL = TrorUrlDataStore.TROR_BASE_CHILDWINDOW_CARRIER_URL;
+    		String urlRequestParamsKeys = "user=" + applicationUser + "&vmtran=" + id;
+    		logger.info("URL: " + BASE_URL);
+    		logger.info("PARAMS: " + urlRequestParamsKeys);
+    		logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
+    		String jsonPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParamsKeys);
+    		//Debug -->
+	    	logger.debug(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
+    		logger.info(Calendar.getInstance().getTime() +  " CGI-end timestamp");
+	    
+    		if(jsonPayload!=null){
+    			JsonTrorCarrierContainer container = this.trorMainOrderHeaderChildwindowService.getCarrierListContainer(jsonPayload);
+	    		if(container!=null){
+	    			List<JsonTrorCarrierRecord> list = new ArrayList<JsonTrorCarrierRecord>();
+	    			for(JsonTrorCarrierRecord  record : container.getDtoList()){
+	    				//logger.info("ID:" + record.getVmtran());
+	    				//logger.info("NAME:" + record.getVmnavn());
+	    				list.add(record);
+	    			}
+	    			result = list;
+	    		}
+    			
+    		}
+    		return result;
+		}
+		
+		/**
+		 * 
+		 * @param applicationUser
+		 * @param id
+		 * @return
+		 */
 		@RequestMapping(value = "getCustomer_Landimport.do", method = RequestMethod.GET)
 	    public @ResponseBody Collection<JsonMaintMainCundfRecord> getCustomer
 		  						(@RequestParam String applicationUser, @RequestParam String id){
@@ -146,10 +188,18 @@ public class TrorMainOrderHeaderLandImportAjaxHandlerController {
 					 jsonPayload = jsonPayload.replaceFirst("Customerlist", "customerlist");
 					 JsonMaintMainCundfContainer container = this.maintMainCundfService.getList(jsonPayload);
 					 if(container!=null){
-						 result = container.getList();
-						 for(JsonMaintMainCundfRecord  record : result){
-							 //logger.info("CUSTOMER via AJAX: " + record.getKnavn() + " NUMBER:" + record.getKundnr());
-							 //logger.info("KPERS: " + record.getKpers() + " TLF:" + record.getTlf());
+						 for(JsonMaintMainCundfRecord  record : container.getList()){
+							 //Faktura mottaker override if applicable
+							 if(strMgr.isNotNull(record.getFmot()) && !"0".equals(record.getFmot()) ){
+								 this.setFaktMottakerByKundnr(applicationUser, record);
+								 
+							 }else{
+								//default
+								 record.setFmot(record.getKundnr());
+								 record.setFmotname(record.getKnavn());
+								 
+							 }
+							 result.add(record);
 						 }
 					 }
 				 }
@@ -185,16 +235,57 @@ public class TrorMainOrderHeaderLandImportAjaxHandlerController {
 					 jsonPayload = jsonPayload.replaceFirst("Customerlist", "customerlist");
 					 JsonMaintMainCundfContainer container = this.maintMainCundfService.getList(jsonPayload);
 					 if(container!=null){
-						 result = container.getList();
-						 for(JsonMaintMainCundfRecord  record : result){
-							 //logger.info("CUSTOMER via AJAX: " + record.getKnavn() + " NUMBER:" + record.getKundnr());
-							 //logger.info("KPERS: " + record.getKpers() + " TLF:" + record.getTlf());
+						  for(JsonMaintMainCundfRecord  record : container.getList()){
+							 //Faktura mottaker override if applicable
+							 if( strMgr.isNotNull(record.getFmot()) && !"0".equals(record.getFmot()) ){
+								 this.setFaktMottakerByKundnr(applicationUser, record);
+								 
+							 }else{
+								//default
+								 record.setFmot(record.getKundnr());
+								 record.setFmotname(record.getKnavn());
+								 
+							 }
+							 result.add(record);
 						 }
 					 }
 				 }
 			 }
 			 return result;
 		}
+		
+		/**
+		 * 
+		 * @param applicationUser
+		 * @param id
+		 * @return
+		 */
+		private void setFaktMottakerByKundnr(String applicationUser, JsonMaintMainCundfRecord record ){
+			
+			if(applicationUser!=null && record!=null){
+				String BASE_URL = MaintenanceMainUrlDataStore.MAINTENANCE_MAIN_BASE_SYCUNDFR_GET_LIST_URL;
+			 	
+				String urlRequestParamsKeys = "user=" + applicationUser + "&kundnr=" + record.getFmot();
+				logger.info("URL: " + BASE_URL);
+				logger.info("PARAMS: " + urlRequestParamsKeys);
+				logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
+				String jsonPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParamsKeys);
+				//debugger
+				logger.debug(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
+				logger.info(Calendar.getInstance().getTime() +  " CGI-end timestamp");
+				if(jsonPayload!=null){
+					jsonPayload = jsonPayload.replaceFirst("Customerlist", "customerlist");
+					JsonMaintMainCundfContainer container = this.maintMainCundfService.getList(jsonPayload);
+					if(container!=null){
+						for(JsonMaintMainCundfRecord  tmpRecord : container.getList()){
+							record.setFmot(tmpRecord.getKundnr());
+							record.setFmotname(tmpRecord.getKnavn());
+						}
+					}
+				}
+			}
+		}
+		
 		/**
 		 * 
 		 * @param applicationUser
@@ -540,6 +631,14 @@ public class TrorMainOrderHeaderLandImportAjaxHandlerController {
 	  @Required	
 	  public void setMaintMainKodtot2Service(MaintMainKodtot2Service value){this.maintMainKodtot2Service = value;}
 	  public MaintMainKodtot2Service getMaintMainKodtot2Service(){ return this.maintMainKodtot2Service; }
+		
+	  
+	  @Qualifier ("trorMainOrderHeaderChildwindowService")
+	  private TrorMainOrderHeaderChildwindowService trorMainOrderHeaderChildwindowService;
+	  @Autowired
+	  @Required
+	  public void setTrorMainOrderHeaderChildwindowService (TrorMainOrderHeaderChildwindowService value){ this.trorMainOrderHeaderChildwindowService = value; }
+	  public TrorMainOrderHeaderChildwindowService getTrorMainOrderHeaderChildwindowService(){ return this.trorMainOrderHeaderChildwindowService; }
 		
 		
 }

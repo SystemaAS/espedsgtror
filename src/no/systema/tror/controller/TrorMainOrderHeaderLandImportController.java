@@ -300,8 +300,8 @@ public class TrorMainOrderHeaderLandImportController {
 			}
 			model.put("action", action);
 			//fill in some ready-only fields Fakturapart( avsend/mottak ) 
-			model.put("whenasf", request.getParameter("whenasf"));
-			model.put("whenakf", request.getParameter("whenakf"));
+			//model.put("whenasf", request.getParameter("whenasf"));
+			//model.put("whenakf", request.getParameter("whenakf"));
 			
 			//get dropdowns
 			Collection<JsonTransportDispWorkflowSpecificOrderArchivedDocsRecord> list = (ArrayList)model.get("archivedDocList");
@@ -578,7 +578,9 @@ public class TrorMainOrderHeaderLandImportController {
 				}
 			}
 		}
-		//CUNDF-related data
+		//---------------------------------------
+		//CUNDF-related data (read-only on GUI)
+		//---------------------------------------
 		if(strMgr.isNotNull(record.getHekns())){
 			JsonMaintMainCundfRecord sender = this.getCustomer(appUser.getUser(), record.getHekns());
 			if(sender!=null){
@@ -589,6 +591,26 @@ public class TrorMainOrderHeaderLandImportController {
 			JsonMaintMainCundfRecord receiver = this.getCustomer(appUser.getUser(), record.getHeknk());
 			if(receiver!=null){
 				model.put("syrgby", receiver.getSyrg());
+			}
+		}
+		//Fakt.mottaker
+		if(strMgr.isNotNull(record.getHeknsf())){
+			JsonMaintMainCundfRecord cundfRecord = this.getCustomer(appUser.getUser(), record.getHeknsf());
+			if(cundfRecord!=null){
+				model.put("whenasf", cundfRecord.getKnavn());
+			}
+		}
+		if(strMgr.isNotNull(record.getHeknkf())){
+			JsonMaintMainCundfRecord cundfRecord = this.getCustomer(appUser.getUser(), record.getHeknkf());
+			if(cundfRecord!=null){
+				model.put("whenakf", cundfRecord.getKnavn());
+			}
+		}
+		//Agent
+		if(strMgr.isNotNull(record.getHekna())){
+			JsonMaintMainCundfRecord cundfRecord = this.getCustomer(appUser.getUser(), record.getHekna());
+			if(cundfRecord!=null){
+				model.put("henaa", cundfRecord.getKnavn());
 			}
 		}
 		
@@ -985,11 +1007,11 @@ public class TrorMainOrderHeaderLandImportController {
 			 String urlRequestParamsKeys = "user=" + applicationUser + "&kundnr=" + id;
 			 logger.info("URL: " + BASE_URL);
 			 logger.info("PARAMS: " + urlRequestParamsKeys);
-			 logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
+			 //logger.info(Calendar.getInstance().getTime() +  " CGI-start timestamp");
 			 String jsonPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParamsKeys);
 			 //debugger
 			 //logger.debug(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
-			 logger.info(Calendar.getInstance().getTime() +  " CGI-end timestamp");
+			 //logger.info(Calendar.getInstance().getTime() +  " CGI-end timestamp");
 			 if(jsonPayload!=null){
 				 jsonPayload = jsonPayload.replaceFirst("Customerlist", "customerlist");
 				 JsonMaintMainCundfContainer container = this.maintMainCundfService.getList(jsonPayload);

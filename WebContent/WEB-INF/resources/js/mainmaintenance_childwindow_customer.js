@@ -24,6 +24,7 @@
 			  var adr2 = record[8].replace("kadr2", "");
 			  var firma = record[9].replace("firma", "");
 			  var orgnr = record[10].replace("syrg", "");
+			  var fmot = record[11].replace("fmot", "");
 			  
 			  //addressing a parent field from this child window
 			  //default on Generella Avd
@@ -48,6 +49,11 @@
 				  opener.jq('#heads2').val(adr2);
 				  opener.jq('#heads3').val(adr3 + " " + postnr);
 				  //opener.jq('#todo').val(land);
+				  if(fmot!='' && fmot!='0'){
+					  opener.jq('#heknsf').val(fmot);
+				  }else{
+					  opener.jq('#heknsf').val(knr);
+				  }
 			  
 			  }else if (callerType == 'tror_sefm'){ //Seller Fakt.mott.
 				  opener.jq('#heknsf').val(knr);
@@ -67,6 +73,11 @@
 				  opener.jq('#headk2').val(adr2);
 				  opener.jq('#headk3').val(adr3 + " " + postnr);
 				  //opener.jq('#todo').val(land);
+				  if(fmot!='' && fmot!='0'){
+					  opener.jq('#heknkf').val(fmot);
+				  }else{
+					  opener.jq('#heknkf').val(knr);
+				  }
 				  
 			  }else if (callerType == 'tror_byfm'){ //Buyer Faktmott.
 				  opener.jq('#heknkf').val(knr);

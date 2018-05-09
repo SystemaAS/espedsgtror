@@ -506,7 +506,7 @@
 						 						</c:choose>
 						 					</td>
 						 					<td class="text14" title="henaa">	
-						 						<input type="text" class="inputTextReadOnly" name="henaa" id="henaa" size="20" maxlength="30" value="${model.record.henaa}">
+						 						<input readonly type="text" class="inputTextReadOnly" name="henaa" id="henaa" size="20" maxlength="30" value="${model.henaa}">
 							 				</td>
 									 		<td class="text14" title="herfa">
 									 			<img onMouseOver="showPop('herfa_info');" onMouseOut="hidePop('herfa_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
@@ -546,7 +546,7 @@
 							 					</c:choose>
 							 				</td>
 							 				<td class="text14" title="ownheknt">	
-							 					<input type="text" class="inputTextReadOnly" name="ownheknt" id="ownheknt" size="30" maxlength="30" value="${Xmodel.record.ownTODO}">
+							 					<input readonly type="text" class="inputTextReadOnly" name="ownheknt" id="ownheknt" size="30" maxlength="30" value="${model.ownheknt}">
 							 				</td>
 							 				<td class="text14" title="file upload">	
 							 					<button tabindex=-1 name="fileUpladButton" class="buttonGrayWithGreenFrame" type="button" onClick="showDialogFileUploadDraggable();" >Last opp fil</button>
