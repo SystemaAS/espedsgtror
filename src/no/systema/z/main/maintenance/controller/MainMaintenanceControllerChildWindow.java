@@ -107,9 +107,9 @@ public class MainMaintenanceControllerChildWindow {
 		Map model = new HashMap();
 		String callerType = request.getParameter("ctype");
 		String firma = request.getParameter("firma");
-		String customerName = request.getParameter("sonavn");
-		String customerNr = request.getParameter("knr");
-		String syrg = request.getParameter("syrg");
+		String customerName = strMgr.trimValue(request.getParameter("sonavn"));
+		String customerNr = strMgr.trimValue(request.getParameter("knr"));
+		String syrg = strMgr.trimValue(request.getParameter("syrg"));
 		
 		logger.info("callerType:" + callerType);
 		logger.info("customerName:" + customerName);
@@ -125,7 +125,7 @@ public class MainMaintenanceControllerChildWindow {
 		}else{
 			Collection<JsonMaintMainCundfRecord> list = new ArrayList<JsonMaintMainCundfRecord>();
 			//prepare the access CGI with RPG back-end
-			if( (customerNr!=null && !"".equals(customerNr)) || (customerName!=null && !"".equals(customerName)) || (syrg!=null && !"".equals(syrg)) ){
+			if( strMgr.isNotNull(customerNr) || strMgr.isNotNull(customerName) || strMgr.isNotNull(syrg) ) {
 				
 				String BASE_URL = MaintenanceMainUrlDataStore.MAINTENANCE_MAIN_BASE_SYCUNDFR_GET_LIST_URL;
 				String urlRequestParamsKeys = this.getRequestUrlKeyParametersForSearchCustomer(appUser.getUser(), customerName, customerNr, firma, syrg);
@@ -164,6 +164,8 @@ public class MainMaintenanceControllerChildWindow {
 		}
 		
 	}
+	
+	
 	
 	/**
 	 * 

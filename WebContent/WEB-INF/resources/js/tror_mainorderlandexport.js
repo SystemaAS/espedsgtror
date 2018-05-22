@@ -588,7 +588,7 @@
   jq(function() {  
 	  	//SHIPPER/CONSIGNOR
 	    jq('#hekns').blur(function() {
-	    	if( (jq('#henas').val() == '' && jq('#heads1').val() == '') || jq('#henas').val() == NOT_EXISTS ){
+	    	if( (jq.trim(jq('#henas').val()) == '' && jq.trim(jq('#heads1').val()) == '') || jq.trim(jq('#henas').val()) == NOT_EXISTS ){
 	    		getConsignor();
 	    	}
 		});
@@ -691,7 +691,7 @@
 	    
 	    //CONSIGNEE
 	    jq('#heknk').blur(function() {
-	    	if( (jq('#henak').val() == '' && jq('#headk1').val() == '') || jq('#henak').val() == NOT_EXISTS ){
+	    	if( (jq.trim(jq('#henak').val()) == '' && jq.trim(jq('#headk1').val()) == '') || jq.trim(jq('#henak').val()) == NOT_EXISTS ){
 	    		getConsignee();
 	    	}
 		});
