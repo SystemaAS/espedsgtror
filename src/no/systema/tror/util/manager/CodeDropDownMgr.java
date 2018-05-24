@@ -17,9 +17,10 @@ import no.systema.transportdisp.util.TransportDispConstants;
 //eBooking
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.TrorConstants;
-import no.systema.tvinn.sad.z.maintenance.sadimport.model.jsonjackson.dbtable.gyldigekoder.JsonMaintSadImportKodts4Container;
-import no.systema.tvinn.sad.z.maintenance.sadimport.model.jsonjackson.dbtable.gyldigekoder.JsonMaintSadImportKodts4Record;
-import no.systema.tvinn.sad.z.maintenance.sadimport.url.store.TvinnSadMaintenanceImportUrlDataStoreGyldigeKoder;
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintSadImportKodts4Container;
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintSadImportKodts4Record;
+import no.systema.tror.external.tvinn.sad.service.MaintSadImportKodts4Service;
+import no.systema.tror.external.tvinn.sad.url.store.TvinnSadMaintenanceImportUrlDataStoreGyldigeKoder;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCodeRecord;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCountryCodeContainer;
@@ -42,7 +43,6 @@ import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainKodt
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainKodtaRecord;
 import no.systema.z.main.maintenance.service.MaintMainKodtaService;
 import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
-import no.systema.tvinn.sad.z.maintenance.sadimport.service.gyldigekoder.MaintSadImportKodts4Service;
 
 /**
  * The class handles general gui drop downs aspect population for Work with Trips - Transport Disponering

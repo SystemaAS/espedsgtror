@@ -29,8 +29,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.service.UrlCgiProxyService;
-import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowListContainer;
-import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowListRecord;
 import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripContainer;
 import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripRecord;
 import no.systema.transportdisp.model.jsonjackson.workflow.budget.JsonTransportDispWorkflowSpecificBudgetContainer;
@@ -42,7 +40,6 @@ import no.systema.transportdisp.model.jsonjackson.workflow.order.JsonTransportDi
 
 import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripArchivedDocsContainer;
 import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripArchivedDocsRecord;
-import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripMessageNoteContainer;
 import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripMessageNoteRecord;
 import no.systema.transportdisp.model.jsonjackson.workflow.order.childwindow.JsonTransportDispCustomerContainer;
 import no.systema.transportdisp.model.jsonjackson.workflow.order.childwindow.JsonTransportDispCustomerRecord;
@@ -72,10 +69,6 @@ import no.systema.transportdisp.model.jsonjackson.workflow.order.childwindow.Jso
 import no.systema.transportdisp.model.jsonjackson.workflow.order.childwindow.JsonTransportDispPackingCodesRecord;
 import no.systema.transportdisp.model.jsonjackson.workflow.order.childwindow.JsonTransportDispTollstedCodesContainer;
 import no.systema.transportdisp.model.jsonjackson.workflow.order.childwindow.JsonTransportDispTollstedCodesRecord;
-
-
-import no.systema.transportdisp.model.workflow.order.OrderLineValidationObject;
-
 import no.systema.main.model.jsonjackson.general.postalcodes.JsonPostalCodesContainer;
 import no.systema.main.model.jsonjackson.general.postalcodes.JsonPostalCodesRecord;
 
@@ -90,6 +83,7 @@ import no.systema.transportdisp.util.TransportDispConstants;
 import no.systema.main.util.StringManager;
 
 import no.systema.transportdisp.util.manager.ControllerAjaxCommonFunctionsMgr;
+import no.systema.tror.model.OrderLineValidationObject;
 
 /**
  * This Ajax handler is the class handling ajax request in Tranport Disp. 

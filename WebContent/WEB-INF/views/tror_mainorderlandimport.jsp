@@ -548,10 +548,12 @@
 							 				<td class="text14" title="ownheknt">	
 							 					<input readonly type="text" class="inputTextReadOnly" name="ownheknt" id="ownheknt" size="30" maxlength="30" value="${model.ownheknt}">
 							 				</td>
-							 				<td class="text14" title="file upload">	
-							 					<button tabindex=-1 name="fileUpladButton" class="buttonGrayWithGreenFrame" type="button" onClick="showDialogFileUploadDraggable();" >Last opp fil</button>
-							 					
-							 				</td>
+							 				<c:if test="${not empty model.record.heopd}">
+								 				<td class="text14" title="file upload">	
+								 					<button tabindex=-1 name="fileUpladButton" class="buttonGrayWithGreenFrame" type="button" onClick="showDialogFileUploadDraggable();" >Last opp fil</button>
+								 					
+								 				</td>
+							 				</c:if>
 							 				
 							 			</tr>
 							 			</table>

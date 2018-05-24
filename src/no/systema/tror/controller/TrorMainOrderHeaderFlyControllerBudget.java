@@ -59,7 +59,6 @@ import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWork
 import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripRecord;
 import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispGebyrCodeContainer;
 import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispGebyrCodeRecord;
-import no.systema.tvinn.sad.util.TvinnSadConstants;
 
 
 
@@ -224,7 +223,7 @@ public class TrorMainOrderHeaderFlyControllerBudget {
 		}else{
 			logger.info(Calendar.getInstance().getTime() + " CONTROLLER start - timestamp");
 			
-			if(TvinnSadConstants.ACTION_UPDATE.equals(action)){
+			if(TrorConstants.ACTION_UPDATE.equals(action)){
 				logger.info("[INFO] doUpdate action ...");
 				TrorOrderHeaderBudgetValidator validator = new TrorOrderHeaderBudgetValidator();
 				//Fetch some validation conditions
@@ -283,7 +282,7 @@ public class TrorMainOrderHeaderFlyControllerBudget {
 					logger.info("[INFO] UPDATE line nr: " + lineId + " end process. ");
 				}
 				
-			}else if(TvinnSadConstants.ACTION_DELETE.equals(action)){
+			}else if(TrorConstants.ACTION_DELETE.equals(action)){
 				String DELETE_MODE = "D";
 				JsonTrorOrderHeaderBudgetContainer container = this.executeUpdateLine(appUser, recordToValidate, DELETE_MODE, avd, opd, parentTrip);
 				if(container!=null){
@@ -370,7 +369,7 @@ public class TrorMainOrderHeaderFlyControllerBudget {
 	 * @param session
 	 */
 	private void populateAspectsOnBackendError(SystemaWebUser appUser, String errorMessage, JsonTrorOrderHeaderBudgetRecord recordToValidate, Map model, String parentTrip, HttpSession session ){
-		model.put(TvinnSadConstants.ASPECT_ERROR_MESSAGE, "Linenr:[" + recordToValidate.getBubnr() + "] " +  errorMessage);
+		model.put(TrorConstants.ASPECT_ERROR_MESSAGE, "Linenr:[" + recordToValidate.getBubnr() + "] " +  errorMessage);
 		//populate drop downs
 		this.setCodeDropDownMgr(appUser, model);
 		this.setDropDownsFromFiles(model);

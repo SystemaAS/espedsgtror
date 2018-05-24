@@ -17,7 +17,7 @@ import no.systema.transportdisp.filter.SearchFilterTransportDispWorkflowTripList
  */
 public class TransportDispWorkflowTripListValidator implements Validator {
 	private DateValidator dateValidator = new DateValidator();
-	private static Logger logger = Logger.getLogger(TransportDispWorkflowSpecificOrderValidator.class.getName());
+	private static Logger logger = Logger.getLogger(TransportDispWorkflowTripListValidator.class.getName());
 	
 	/**
 	 * 

@@ -33,16 +33,10 @@ import no.systema.main.validator.LoginValidator;
 //tror
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.TrorConstants;
-import no.systema.tvinn.sad.z.maintenance.sadimport.url.store.TvinnSadMaintenanceImportUrlDataStoreGyldigeKoder;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainKodtaContainer;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainKodtaRecord;
 import no.systema.z.main.maintenance.service.MaintMainKodtaService;
 import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.service.MaintNctsExportTrkodfService;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.url.store.TvinnNctsMaintenanceExportUrlDataStore;
-import no.systema.tvinn.sad.z.maintenance.sadimport.model.jsonjackson.dbtable.gyldigekoder.JsonMaintSadImportKodts4Container;
-import no.systema.tvinn.sad.z.maintenance.sadimport.model.jsonjackson.dbtable.gyldigekoder.JsonMaintSadImportKodts4Record;
-import no.systema.tvinn.sad.z.maintenance.sadimport.service.gyldigekoder.MaintSadImportKodts4Service;
 import no.systema.tror.service.TrorMainOrderHeaderChildwindowService;
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorCarrierContainer;
@@ -53,7 +47,14 @@ import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorTollstedConta
 import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorTollstedRecord;
 import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorLosseLasteStedContainer;
 import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorLosseLasteStedRecord;
-
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintNctsTrkodfContainer;
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintNctsTrkodfRecord;
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintSadImportKodts4Container;
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintSadImportKodts4Record;
+import no.systema.tror.external.tvinn.sad.service.MaintNctsExportTrkodfService;
+import no.systema.tror.external.tvinn.sad.service.MaintSadImportKodts4Service;
+import no.systema.tror.external.tvinn.sad.url.store.TvinnNctsMaintenanceExportUrlDataStore;
+import no.systema.tror.external.tvinn.sad.url.store.TvinnSadMaintenanceImportUrlDataStoreGyldigeKoder;
 //
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCodeRecord;
@@ -67,9 +68,6 @@ import no.systema.jservices.common.dao.DokufeDao;
 import no.systema.jservices.common.dao.DokufmDao;
 import no.systema.jservices.common.json.JsonDtoContainer;
 import no.systema.jservices.common.json.JsonReader;
-//
-import no.systema.tvinn.sad.z.maintenance.nctsexport.model.jsonjackson.dbtable.JsonMaintNctsTrkodfContainer;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.model.jsonjackson.dbtable.JsonMaintNctsTrkodfRecord;
 
 
 /**

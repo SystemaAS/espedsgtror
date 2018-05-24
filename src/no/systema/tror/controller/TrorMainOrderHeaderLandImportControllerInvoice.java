@@ -57,6 +57,7 @@ import no.systema.main.model.SystemaWebUser;
 
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.manager.CodeDropDownMgr;
+import no.systema.tror.util.TrorConstants;
 import no.systema.tror.model.jsonjackson.order.invoice.JsonTrorOrderLandImportInvoiceContainer;
 import no.systema.tror.model.jsonjackson.order.invoice.JsonTrorOrderLandImportInvoiceReadyMarkContainer;
 import no.systema.tror.model.jsonjackson.order.invoice.JsonTrorOrderLandImportInvoiceRecord;
@@ -65,7 +66,6 @@ import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecord;
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.service.landimport.TrorMainOrderHeaderLandimportService;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
-import no.systema.tvinn.sad.util.TvinnSadConstants;
 
 
 /**
@@ -256,7 +256,7 @@ public class TrorMainOrderHeaderLandImportControllerInvoice {
 			logger.info(Calendar.getInstance().getTime() + " CONTROLLER start - timestamp");
 			String lineId = recordToValidate.getFali();
 			
-			if(TvinnSadConstants.ACTION_UPDATE.equals(action)){
+			if(TrorConstants.ACTION_UPDATE.equals(action)){
 				logger.info("[INFO] doUpdate action ...");
 				TransportDispWorkflowSpecificOrderInvoiceValidator validator = new TransportDispWorkflowSpecificOrderInvoiceValidator();
 				//Fetch some validation conditions
@@ -308,7 +308,7 @@ public class TrorMainOrderHeaderLandImportControllerInvoice {
 					logger.info("[INFO] UPDATE line nr: " + lineId + " end process. ");
 				}
 				
-			}else if(TvinnSadConstants.ACTION_DELETE.equals(action)){
+			}else if(TrorConstants.ACTION_DELETE.equals(action)){
 				String DELETE_MODE = "D";
 				JsonTransportDispWorkflowSpecificOrderInvoiceContainer container = this.executeUpdateLine(appUser, recordToValidate, DELETE_MODE);
 				if(container!=null){
@@ -474,7 +474,7 @@ public class TrorMainOrderHeaderLandImportControllerInvoice {
 	 * @param session
 	 */
 	private void populateAspectsOnBackendError(SystemaWebUser appUser, JsonTransportDispWorkflowSpecificOrderInvoiceContainer container, JsonTransportDispWorkflowSpecificOrderInvoiceRecord recordToValidate, Map model, String parentTrip, HttpSession session ){
-		model.put(TvinnSadConstants.ASPECT_ERROR_MESSAGE, "BACK-END error --> Linenr:[" + container.getLin() + "] " +  container.getErrMsg());
+		model.put(TrorConstants.ASPECT_ERROR_MESSAGE, "BACK-END error --> Linenr:[" + container.getLin() + "] " +  container.getErrMsg());
 		logger.info(container.getErrMsg());
 		//populate drop downs
 		this.setCodeDropDownMgr(appUser, model);

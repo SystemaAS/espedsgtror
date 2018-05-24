@@ -71,7 +71,6 @@ import no.systema.z.main.maintenance.service.MaintMainKodtaService;
 import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
 import no.systema.z.main.maintenance.util.MainMaintenanceConstants;
 import no.systema.tror.validator.TrorOrderFlyFraktbrevImpValidator;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.service.MaintNctsExportTrkodfService;
 
 /**
  * Tror - Air Freight Bill Controller (flyfraktbrev) 
@@ -807,13 +806,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 	public void setTrorDropDownListPopulationService (TrorDropDownListPopulationService value){ this.trorDropDownListPopulationService = value; }
 	public TrorDropDownListPopulationService getTrorDropDownListPopulationService(){ return this.trorDropDownListPopulationService; }
 	
-	
-	@Qualifier ("maintNctsExportTrkodfService")
-	private MaintNctsExportTrkodfService  maintNctsExportTrkodfService;
-	@Autowired
-	@Required
-	public void setMaintNctsExportTrkodfService (MaintNctsExportTrkodfService value){ this.maintNctsExportTrkodfService = value; }
-	public MaintNctsExportTrkodfService getMaintNctsExportTrkodfService(){ return this.maintNctsExportTrkodfService; }
 
 	
 	@Qualifier ("trorMainOrderHeaderFlyimportService")

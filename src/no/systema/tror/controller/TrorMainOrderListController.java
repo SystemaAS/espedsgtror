@@ -58,10 +58,6 @@ import no.systema.tror.service.fellesutskrift.TrorMainOrderFellesutskriftService
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.manager.CodeDropDownMgr;
-import no.systema.tvinn.sad.sadimport.model.jsonjackson.topic.JsonSadImportTopicListContainer;
-import no.systema.tvinn.sad.sadimport.service.SadImportTopicListService;
-import no.systema.tvinn.sad.sadimport.url.store.SadImportUrlDataStore;
-import no.systema.tvinn.sad.sadexport.url.store.SadExportUrlDataStore;
 
 //import no.systema.tror.util.RpgReturnResponseHandler;
 import no.systema.tror.util.TrorConstants;
@@ -583,12 +579,6 @@ public class TrorMainOrderListController {
 	public void setMaintMainKodtaService (MaintMainKodtaService value){ this.maintMainKodtaService = value; }
 	public MaintMainKodtaService getMaintMainKodtaService(){ return this.maintMainKodtaService; }
 	
-	@Qualifier ("sadImportTopicListService")
-	private SadImportTopicListService sadImportTopicListService;
-	@Autowired
-	@Required
-	public void setSadImportTopicListService (SadImportTopicListService value){ this.sadImportTopicListService = value; }
-	public SadImportTopicListService getSadImportTopicListService(){ return this.sadImportTopicListService; }
 	
 	
 	@Qualifier ("trorMainOrderFellesutskriftService")

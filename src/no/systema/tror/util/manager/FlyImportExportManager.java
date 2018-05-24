@@ -12,13 +12,13 @@ import no.systema.jservices.common.json.JsonReader;
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.service.UrlCgiProxyService;
 import no.systema.main.util.JsonDebugger;
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintNctsTrkodfContainer;
+import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintNctsTrkodfRecord;
+import no.systema.tror.external.tvinn.sad.service.MaintNctsExportTrkodfService;
+import no.systema.tror.external.tvinn.sad.url.store.TvinnNctsMaintenanceExportUrlDataStore;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.TrorConstants;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.model.jsonjackson.dbtable.JsonMaintNctsTrkodfContainer;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.model.jsonjackson.dbtable.JsonMaintNctsTrkodfRecord;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.service.MaintNctsExportTrkodfService;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.url.store.TvinnNctsMaintenanceExportUrlDataStore;
 
 public class FlyImportExportManager {
 	

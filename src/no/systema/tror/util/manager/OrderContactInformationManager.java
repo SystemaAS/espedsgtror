@@ -34,8 +34,8 @@ import no.systema.main.util.AppConstants;
 import no.systema.main.util.JsonDebugger;
 import no.systema.main.util.MessageNoteManager;
 import no.systema.main.util.StringManager;
-import no.systema.transportdisp.model.workflow.order.OrderContactInformationObject;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
+import no.systema.tror.model.OrderContactInformationObject;
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.TrorConstants;
 

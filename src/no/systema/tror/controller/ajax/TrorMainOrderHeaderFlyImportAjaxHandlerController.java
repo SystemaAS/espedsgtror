@@ -42,7 +42,6 @@ import no.systema.transportdisp.service.TransportDispWorkflowSpecificTripService
 import no.systema.transportdisp.service.TransportDispWorkflowSpecificOrderService;
 
 import no.systema.transportdisp.url.store.TransportDispUrlDataStore;
-import no.systema.transportdisp.util.RpgReturnResponseHandler;
 import no.systema.transportdisp.util.manager.ControllerAjaxCommonFunctionsMgr;
 
 import no.systema.tror.model.jsonjackson.frisokvei.JsonTrorOrderHeaderFrisokveiContainer;
@@ -71,7 +70,6 @@ import no.systema.tror.model.jsonjackson.budget.JsonTrorOrderHeaderBudgetRecord;
 
 public class TrorMainOrderHeaderFlyImportAjaxHandlerController {
 	private static final Logger logger = Logger.getLogger(TrorMainOrderHeaderFlyImportAjaxHandlerController.class.getName());
-	private RpgReturnResponseHandler rpgReturnResponseHandler = new RpgReturnResponseHandler();
 	private ControllerAjaxCommonFunctionsMgr controllerAjaxCommonFunctionsMgr;
 	private StringManager strMgr = new StringManager();
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(800);

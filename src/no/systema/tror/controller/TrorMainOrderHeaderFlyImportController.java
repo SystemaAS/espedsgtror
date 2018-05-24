@@ -60,19 +60,18 @@ import no.systema.tror.util.manager.OrderContactInformationManager;
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderContainer;
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecordStatus;
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderDummyContainer;
-import no.systema.transportdisp.model.workflow.order.OrderContactInformationObject;
-
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecord;
+import no.systema.tror.model.OrderContactInformationObject;
 import no.systema.tror.model.jsonjackson.JsonMainOrderTypesNewRecord;
 import no.systema.jservices.common.dao.DokufeDao;
 import no.systema.jservices.common.dao.TrackfDao;
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.service.TrorMainOrderHeaderService;
 import no.systema.tror.service.flyimport.TrorMainOrderHeaderFlyimportService;
+import no.systema.tror.external.tvinn.sad.service.MaintNctsExportTrkodfService;
+import no.systema.tror.external.tvinn.sad.service.MaintSadImportKodts4Service;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
 import no.systema.tror.validator.TrorOrderHeaderValidator;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.service.MaintNctsExportTrkodfService;
-import no.systema.tvinn.sad.z.maintenance.sadimport.service.gyldigekoder.MaintSadImportKodts4Service;
 import no.systema.z.main.maintenance.service.MaintMainKodtaService;
 
 

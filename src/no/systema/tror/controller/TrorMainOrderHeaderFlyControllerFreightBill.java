@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import no.systema.tror.model.OrderContactInformationObject;
 import no.systema.tror.model.jsonjackson.JsonMainOrderTypesNewRecord;
 import no.systema.jservices.common.dao.DokufDao;
 import no.systema.jservices.common.dao.DokufeDao;
@@ -41,7 +42,6 @@ import no.systema.jservices.common.json.JsonReader;
 import no.systema.jservices.common.util.GSINCheckDigit;
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.util.StringManager;
-import no.systema.transportdisp.model.workflow.order.OrderContactInformationObject;
 import no.systema.main.service.UrlCgiProxyService;
 import no.systema.main.util.AppConstants;
 import no.systema.main.util.JsonDebugger;
@@ -56,6 +56,7 @@ import no.systema.tror.util.manager.CodeDropDownMgr;
 import no.systema.tror.util.manager.FlyImportExportManager;
 import no.systema.tror.util.manager.OrderContactInformationManager;
 import no.systema.tror.util.manager.FreightBillMessageNoteManager;
+import no.systema.tror.external.tvinn.sad.service.MaintNctsExportTrkodfService;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCundfContainer;
 import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCundfRecord;
@@ -69,7 +70,6 @@ import no.systema.z.main.maintenance.service.MaintMainKodtaService;
 import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
 import no.systema.z.main.maintenance.util.MainMaintenanceConstants;
 import no.systema.tror.validator.TrorOrderFraktbrevValidator;
-import no.systema.tvinn.sad.z.maintenance.nctsexport.service.MaintNctsExportTrkodfService;
 
 /**
  * Tror - Freight Bill Controller 

@@ -224,8 +224,8 @@
 			  
 			  //addressing a parent field from this child window
 			  if( caller =='tror_landimport'){ 
-				  opener.jq('#hekdtm').val(id);
-				  jq('#hekdtm').focus();
+				  opener.jq('#hetrm').val(id);
+				  jq('#hetrm').focus();
 			  }else if(caller =='todo'){ 
 				  //opener.jq('#hetri').val(countryCode);
 				  //opener.jq('#hesdt').val(postalCode);
