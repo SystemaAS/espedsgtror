@@ -36,17 +36,11 @@ import no.systema.main.util.AppConstants;
 import no.systema.main.util.DateTimeManager;
 import no.systema.main.util.JsonDebugger;
 import no.systema.main.model.SystemaWebUser;
-
-//Trans.Disp
-import no.systema.transportdisp.service.TransportDispChildWindowService;
-//import no.systema.transportdisp.service.TransportDispWorkflowSpecificTripService;
-//import no.systema.transportdisp.service.TransportDispWorkflowSpecificOrderService;
-//import no.systema.transportdisp.service.html.dropdown.TransportDispDropDownListPopulationService;
-import no.systema.transportdisp.mapper.url.request.UrlRequestParameterMapper;
-
 //tror
 import no.systema.tror.validator.TrorOrderHeaderFrisokveiValidator;
 import no.systema.tror.service.TrorMainOrderHeaderService;
+import no.systema.tror.external.transportdisp.mapper.url.request.UrlRequestParameterMapper;
+import no.systema.tror.external.transportdisp.service.TransportDispChildWindowService;
 import no.systema.tror.model.jsonjackson.frisokvei.JsonTrorOrderHeaderFrisokveiContainer;
 import no.systema.tror.model.jsonjackson.frisokvei.JsonTrorOrderHeaderFrisokveiRecord;
 import no.systema.tror.url.store.TrorUrlDataStore;

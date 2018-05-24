@@ -1,0 +1,45 @@
+/**
+ * 
+ */
+package no.systema.tror.external.transportdisp.service;
+
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispCustomerDeliveryAddressContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispFrisokveiGiltighetsListContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderArchivedDocsContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderFraktbrevContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderFraktbrevPdfContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderFrisokveiContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderInvoiceContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderInvoiceReadyMarkContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderLoggingContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderMessageNoteContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderValidationBackendContainer;
+
+
+/**
+ * 
+ * @author oscardelatorre
+ * @date Maj 8, 2015
+ * 
+ *
+ */
+public interface TransportDispWorkflowSpecificOrderService {
+	public JsonTransportDispWorkflowSpecificOrderContainer getContainer(String utfPayload);
+	public JsonTransportDispWorkflowSpecificOrderMessageNoteContainer getMessageNoteContainer(String utfPayload);
+	public JsonTransportDispWorkflowSpecificOrderFraktbrevContainer getFraktbrevContainer(String utfPayload);
+	public JsonTransportDispCustomerDeliveryAddressContainer getDeliveryAddressContainer(String utfPayload);
+	public JsonTransportDispWorkflowSpecificOrderValidationBackendContainer getOrderValidationBackendContainer(String utfPayload);
+	public JsonTransportDispWorkflowSpecificOrderFraktbrevPdfContainer getOrderFraktbrevPdfContainer(String utfPayload);
+	public JsonTransportDispWorkflowSpecificOrderArchivedDocsContainer getOrderArchivedDocsContainer(String utfPayload);
+	//Order invoice
+	public JsonTransportDispWorkflowSpecificOrderInvoiceContainer getOrderInvoiceContainer(String utfPayload);
+	public JsonTransportDispWorkflowSpecificOrderInvoiceReadyMarkContainer getOrderInvoiceReadyMarkContainer(String utfPayload);
+	//Frisokvei
+	public JsonTransportDispWorkflowSpecificOrderFrisokveiContainer getOrderFrisokveiContainer(String utfPayload);
+	
+	//Order Logging
+	public JsonTransportDispWorkflowSpecificOrderLoggingContainer getOrderLoggingContainer(String utfPayload);
+	
+}
+

@@ -9,14 +9,14 @@ import org.apache.log4j.Logger;
 
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.service.UrlCgiProxyService;
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispGebyrCodeContainer;
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispGebyrCodeRecord;
-import no.systema.transportdisp.service.html.dropdown.TransportDispDropDownListPopulationService;
-import no.systema.transportdisp.url.store.TransportDispUrlDataStore;
-import no.systema.transportdisp.util.TransportDispConstants;
 //eBooking
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.TrorConstants;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispGebyrCodeContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispGebyrCodeRecord;
+import no.systema.tror.external.transportdisp.service.TransportDispDropDownListPopulationService;
+import no.systema.tror.external.transportdisp.url.store.TransportDispUrlDataStore;
+import no.systema.tror.external.transportdisp.util.TransportDispConstants;
 import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintSadImportKodts4Container;
 import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintSadImportKodts4Record;
 import no.systema.tror.external.tvinn.sad.service.MaintSadImportKodts4Service;

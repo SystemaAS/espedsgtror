@@ -39,7 +39,16 @@ import no.systema.main.util.DateTimeManager;
 import no.systema.main.util.EncodingTransformer;
 import no.systema.main.util.JsonDebugger;
 import no.systema.main.model.SystemaWebUser;
-
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispGebyrCodeContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispGebyrCodeRecord;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificTripContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificTripRecord;
+import no.systema.tror.external.transportdisp.service.TransportDispChildWindowService;
+import no.systema.tror.external.transportdisp.service.TransportDispDropDownListPopulationService;
+import no.systema.tror.external.transportdisp.service.TransportDispWorkflowBudgetService;
+import no.systema.tror.external.transportdisp.service.TransportDispWorkflowSpecificTripService;
+import no.systema.tror.external.transportdisp.util.manager.CodeDropDownMgr;
+import no.systema.tror.external.transportdisp.util.manager.ControllerAjaxCommonFunctionsMgr;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
 import no.systema.tror.service.TrorMainOrderHeaderService;
 import no.systema.tror.validator.TrorOrderHeaderBudgetValidator;
@@ -47,18 +56,6 @@ import no.systema.tror.model.jsonjackson.budget.JsonTrorOrderHeaderBudgetContain
 import no.systema.tror.model.jsonjackson.budget.JsonTrorOrderHeaderBudgetRecord;
 import no.systema.tror.util.TrorConstants;
 import no.systema.tror.url.store.TrorUrlDataStore;
-
-//Borrowed from Transp.Disp until migration
-import no.systema.transportdisp.service.TransportDispChildWindowService;
-import no.systema.transportdisp.service.TransportDispWorkflowBudgetService;
-import no.systema.transportdisp.service.TransportDispWorkflowSpecificTripService;
-import no.systema.transportdisp.service.html.dropdown.TransportDispDropDownListPopulationService;
-import no.systema.transportdisp.util.manager.CodeDropDownMgr;
-import no.systema.transportdisp.util.manager.ControllerAjaxCommonFunctionsMgr;
-import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripContainer;
-import no.systema.transportdisp.model.jsonjackson.workflow.JsonTransportDispWorkflowSpecificTripRecord;
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispGebyrCodeContainer;
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispGebyrCodeRecord;
 
 
 

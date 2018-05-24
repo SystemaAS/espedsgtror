@@ -5,7 +5,7 @@ package no.systema.tror.model;
 
 import java.util.Collection;
 
-import no.systema.transportdisp.model.jsonjackson.workflow.order.JsonTransportDispWorkflowSpecificOrderRecord;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderRecord;
 /**
  * @author oscardelatorre
  * @date May 27, 2015

@@ -38,10 +38,7 @@ import no.systema.main.util.DateTimeManager;
 import no.systema.main.util.JsonDebugger;
 import no.systema.main.util.StringManager;
 import no.systema.main.model.SystemaWebUser;
-
-
-//Trans.Disp
-import no.systema.transportdisp.service.TransportDispChildWindowService;
+import no.systema.tror.external.transportdisp.service.TransportDispChildWindowService;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
 //common
 import no.systema.jservices.common.dao.TrackfDao;

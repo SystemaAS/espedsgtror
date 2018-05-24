@@ -30,20 +30,6 @@ import no.systema.main.model.SystemaWebUser;
 import no.systema.main.service.UrlCgiProxyService;
 import no.systema.main.util.JsonDebugger;
 import no.systema.main.util.StringManager;
-
-
-
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.JsonTransportDispWorkflowSpecificOrderInvoiceContainer;
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.JsonTransportDispWorkflowSpecificOrderInvoiceRecord;
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispSupplierContainer;
-import no.systema.transportdisp.model.jsonjackson.workflow.order.invoice.childwindow.JsonTransportDispSupplierRecord;
-import no.systema.transportdisp.service.TransportDispChildWindowService;
-import no.systema.transportdisp.service.TransportDispWorkflowSpecificTripService;
-import no.systema.transportdisp.service.TransportDispWorkflowSpecificOrderService;
-
-import no.systema.transportdisp.url.store.TransportDispUrlDataStore;
-import no.systema.transportdisp.util.manager.ControllerAjaxCommonFunctionsMgr;
-
 import no.systema.tror.model.jsonjackson.frisokvei.JsonTrorOrderHeaderFrisokveiContainer;
 import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorCarrierContainer;
 import no.systema.tror.model.jsonjackson.order.childwindow.JsonTrorCarrierRecord;
@@ -59,6 +45,15 @@ import no.systema.z.main.maintenance.service.MaintMainCundfService;
 import no.systema.z.main.maintenance.service.MaintMainKodtot2Service;
 import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
 import no.systema.z.main.maintenance.util.MainMaintenanceConstants;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispSupplierContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispSupplierRecord;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderInvoiceContainer;
+import no.systema.tror.external.transportdisp.model.jsonjackson.JsonTransportDispWorkflowSpecificOrderInvoiceRecord;
+import no.systema.tror.external.transportdisp.service.TransportDispChildWindowService;
+import no.systema.tror.external.transportdisp.service.TransportDispWorkflowSpecificOrderService;
+import no.systema.tror.external.transportdisp.service.TransportDispWorkflowSpecificTripService;
+import no.systema.tror.external.transportdisp.url.store.TransportDispUrlDataStore;
+import no.systema.tror.external.transportdisp.util.manager.ControllerAjaxCommonFunctionsMgr;
 import no.systema.tror.model.jsonjackson.budget.JsonTrorOrderHeaderBudgetContainer; 
 import no.systema.tror.model.jsonjackson.budget.JsonTrorOrderHeaderBudgetRecord; 
 /**
