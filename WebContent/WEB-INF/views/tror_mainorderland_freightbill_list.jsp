@@ -172,6 +172,8 @@
 							                
 							               <td align="center" width="2%" class="text14" >
 							     				<a id="recordUpdate_${record.dffbnr}" onClick="setBlockUI(this);" href="tror_mainorderland_freightbill_edit.do?dfavd=${record.dfavd}&sign=${record.dfsg}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
+							     					<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
+							     					<%-- is there some status criteria ?
 							     					<c:choose>
 								     					<c:when test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
 							     							<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
@@ -179,7 +181,8 @@
 							     						<c:otherwise>
 								     						<img title="Read" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
 								     					</c:otherwise>
-							     					</c:choose>							               				
+							     					</c:choose>			
+							     					 --%>				               				
 					               				</a>
 						               	   </td>
 						               	   <td align="center" class="text14" >${record.dffbnr}</td>

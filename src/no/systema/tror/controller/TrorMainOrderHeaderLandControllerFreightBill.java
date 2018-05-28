@@ -142,7 +142,7 @@ public class TrorMainOrderHeaderLandControllerFreightBill {
 			return this.loginView;
 		} else {
 			List<DokufDao> list = this.fetchFraktbrevList(appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDffbnr());
-			if(list!=null && list.size()>1){
+			if(list!=null && list.size()>=1){
 				successView = new ModelAndView("tror_mainorderland_freightbill_list");
 				model.put("list", list);
 				successView.addObject(MainMaintenanceConstants.DOMAIN_MODEL, model);
@@ -150,6 +150,7 @@ public class TrorMainOrderHeaderLandControllerFreightBill {
 				//this will send the request with an implicit action of doFetch
 				successView = new ModelAndView("redirect:tror_mainorderland_freightbill_edit.do?" + "&dfavd=" + recordToValidate.getDfavd() + "&sign=" + sign + "&dfopd=" + recordToValidate.getDfopd());
 			}
+			
 		}
 		return successView;
 	}
