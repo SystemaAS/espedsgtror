@@ -391,6 +391,76 @@ public class TrorMainOrderHeaderFlyControllerFreightBill {
 		}
 
 	}
+	
+	/**
+	 * 
+	 * @param recordToValidate
+	 * @param bindingResult
+	 * @param session
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value="tror_mainorderfly_freightbill_copy.do", method={RequestMethod.GET, RequestMethod.POST })
+	public ModelAndView tror_mainorderland_freightbill_copy(@ModelAttribute ("record") DokufDao recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
+		ModelAndView successView = new ModelAndView("tror_mainorderfly_freightbill");
+		SystemaWebUser appUser = (SystemaWebUser)session.getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
+		Map<String,Object> model = new HashMap<String,Object>();
+		
+		Map<String,Object> contactInfoMap = new HashMap<String,Object>();
+		this.setMapOrderContactInformationParams(model, contactInfoMap, request);
+		//
+		DokufDao recordDokufDao = null;
+		if (appUser == null) {
+			return this.loginView;
+		} else {
+			logger.info("FETCH ");
+			recordDokufDao = fetchRecord(appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDffbnr(), model);
+			if(recordDokufDao!=null){
+				this.fetchMessageNotes(model, appUser, recordDokufDao);
+				//fetch contact information
+				this.fetchContactInformation(appUser, recordDokufDao, model, contactInfoMap);
+			}
+			//Clean up key fields
+			this.cleanKeyFieldsWhenCopy(recordDokufDao);
+		}
+		
+		//get dropdowns
+		this.setCodeDropDownMgr(appUser, model);
+		
+		model.put("dfavd", recordToValidate.getDfavd());
+		model.put("dfopd", recordToValidate.getDfopd());
+		model.put("record", recordDokufDao);
+		model.put("action", MainMaintenanceConstants.ACTION_CREATE);
+		successView.addObject(MainMaintenanceConstants.DOMAIN_MODEL, model);
+		
+		return successView;		
+
+	}
+	
+	/**
+	 * 
+	 * @param recordDokufDao
+	 */
+	private void cleanKeyFieldsWhenCopy(DokufDao recordDokufDao){
+		recordDokufDao.setDf1004(null);
+		recordDokufDao.setDfknsm(0);
+		recordDokufDao.setDfst(null);
+		//Mottaker - delete all
+		/*recordDokufDao.setDfnavm(null);
+		recordDokufDao.setDfad1m(null);
+		recordDokufDao.setDfad2m(null);
+		recordDokufDao.setDfad3m(null);
+		recordDokufDao.setDfmref(null);*/
+		//Leveringsadress
+		/*
+		recordDokufDao.setDfnavl(null);
+		recordDokufDao.setDfad1l(null);
+		recordDokufDao.setDfad2l(null);
+		recordDokufDao.setDfpoul(0);
+		recordDokufDao.setDfadul(null);*/
+				
+	}
+	
 	/**
 	 * Get all contact information
 	 * @param appUser

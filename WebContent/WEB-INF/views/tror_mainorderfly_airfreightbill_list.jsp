@@ -33,11 +33,11 @@
 	
 	</style>
 	
-<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 	<tr>
 	<td>	
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 		<%-- This part right here allows for the dynamic allocation of a JSP depending on whether it is IMPORT or EXPORT --%>
 		<c:choose>
 			<c:when test="${recordOrderTrorFly.heur == 'C'}">
@@ -167,11 +167,11 @@
 				</td>
 				
 				<tr>
-					<td class="text11" >
+					<td class="text14" >
 					<%-- this table wrapper is needed for the datatables width --%>
 					<table width="90%" cellspacing="0" border="0">
 						<tr>
-							<td class="text11" >
+							<td class="text14" >
 								<table id="tblMain" class="display compact cell-border" >
 									<thead>
 									<tr style="background-color:#DDDDDD">

@@ -163,7 +163,8 @@
 										<th class="text14" width="5%" >&nbsp;<span title="dfvs">Vareslag</span></th>
 										<th class="text14" width="2%" >&nbsp;<span title="dfvkt">Vekt</span></th>
 										<th class="text14" >&nbsp;<span title="dfnavs">Transportør</span></th>
-					        			<th align="center" width="2%" class="text14" >&nbsp;Slett&nbsp;</th>
+										<th align="center" width="2%" class="text14" >&nbsp;Kopier</th>
+										<th align="center" width="2%" class="text14" >&nbsp;Slett&nbsp;</th>
 					               </tr> 
 					               </thead>
 					               <tbody>
@@ -194,8 +195,15 @@
 						               	   <td class="text14" width="5%" >${record.dfvs}</td>
 						               	   <td class="text14" width="2%" >${record.dfvkt}</td>
 						               	   <td class="text14" >${record.dfnavs}</td>
-							               
-							               <%-- DELETE cell --%>							           
+						               	   <%-- COPY record --%>
+						               	   <td width="2%" class="text14" align="center">
+								               <a style="cursor:pointer;" onClick="setBlockUI(this);" href="tror_mainorderland_freightbill_copy.do?dfavd=${record.dfavd}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
+					               					<span title="Kopiera Fraktbrev">
+						               					<img src="resources/images/copy.png" border="0" alt="copy">
+						               				</span>	
+					               			   </a>
+				               			   </td>
+							               <%-- DELETE record --%>							           
 							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.dffbnr && record.dfst != 'P'}"> <%-- status P = not removable --%>
 							               	   		<a style="cursor:pointer;" id="avd_${record.dfavd}@opd_${record.dfopd}@id_${record.dffbnr}@sign_${record.dfsg}" onClick="doDeleteItemLine(this);" tabindex=-1 >

@@ -33,11 +33,11 @@
 	
 	</style>
 	
-<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 	<tr>
 	<td>	
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text14" cellspacing="0" border="0" cellpadding="0">
 		<%-- This part right here allows for the dynamic allocation of a JSP depending on whether it is IMPORT or EXPORT --%>
 		<c:choose>
 			<c:when test="${recordOrderTrorFly.heur == 'C'}">
@@ -153,11 +153,11 @@
        			<tr height="10"><td></td></tr> 
 				
 				<tr>
-					<td class="text11" >
+					<td class="text14" >
 					<%-- this table wrapper is needed for the datatables width --%>
 					<table width="90%" cellspacing="0" border="0">
 						<tr>
-							<td class="text11" >
+							<td class="text14" >
 								<table id="tblMain" class="display compact cell-border" >
 									<thead>
 									<tr class="tableHeaderField" height="20">
@@ -171,6 +171,7 @@
 										<th class="text14" width="5%" >&nbsp;<span title="dfvs">Vareslag</span></th>
 										<th class="text14" width="2%" >&nbsp;<span title="dfvkt">Vekt</span></th>
 										<th class="text14" >&nbsp;<span title="dfnavs">Transportør</span></th>
+										<th align="center" width="2%" class="text14" >&nbsp;Kopier</th>
 					        			<th align="center" width="2%" class="text14" >&nbsp;Slett&nbsp;</th>
 					               </tr> 
 					               </thead>
@@ -178,7 +179,7 @@
 				 					  <c:forEach items="${model.list}" var="record" varStatus="counter">    
 							               <tr class="tableRow" height="20" >
 							                
-							               <td align="center" width="2%" class="text11" >
+							               <td align="center" width="2%" class="text14" >
 							               		<a id="recordUpdate_${record.dffbnr}" onClick="setBlockUI(this);" href="tror_mainorderfly_freightbill_edit.do?dfavd=${record.dfavd}&sign=${record.dfsg}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
 							               			<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
 							               			<%--
@@ -193,18 +194,26 @@
 							     					 --%>							               				
 					               				</a>
 						               	   </td>
-						               	   <td align="center" class="text11" >${record.dffbnr}</td>
-						               	   <td align="center" width="4%" class="text11" align="left">${record.df1004}</td>
-							               <td class="text11" >${record.dfnavm}</td>
-						               	   <td class="text11" >${record.dfad3m}</td>
-						               	   <td align="center" class="text11" width="2%" >${record.dfst}</td>
-						               	   <td class="text11" width="2%" >${record.dfnt}</td>
-						               	   <td class="text11" width="5%" >${record.dfvs}</td>
-						               	   <td class="text11" width="2%" >${record.dfvkt}</td>
-						               	   <td class="text11" >${record.dfnavs}</td>
+						               	   <td align="center" class="text14" >${record.dffbnr}</td>
+						               	   <td align="center" width="4%" class="text14" align="left">${record.df1004}</td>
+							               <td class="text14" >${record.dfnavm}</td>
+						               	   <td class="text14" >${record.dfad3m}</td>
+						               	   <td align="center" class="text14" width="2%" >${record.dfst}</td>
+						               	   <td class="text14" width="2%" >${record.dfnt}</td>
+						               	   <td class="text14" width="5%" >${record.dfvs}</td>
+						               	   <td class="text14" width="2%" >${record.dfvkt}</td>
+						               	   <td class="text14" >${record.dfnavs}</td>
 							               
+							               <%-- COPY record --%>
+						               	   <td width="2%" class="text14" align="center">
+								               <a style="cursor:pointer;" onClick="setBlockUI(this);" href="tror_mainorderfly_freightbill_copy.do?dfavd=${record.dfavd}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
+					               					<span title="Kopiera Fraktbrev">
+						               					<img src="resources/images/copy.png" border="0" alt="copy">
+						               				</span>	
+					               			   </a>
+				               			   </td>
 							               <%-- DELETE cell --%>							           
-							               <td width="2%" class="text11" align="center">
+							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.dffbnr && record.dfst != 'P'}"> <%-- status P = not removable --%>
 							               	   		<a style="cursor:pointer;" id="avd_${record.dfavd}@opd_${record.dfopd}@id_${record.dffbnr}@sign_${record.dfsg}" onClick="doDeleteItemLine(this);" tabindex=-1 >
 									               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
