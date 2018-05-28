@@ -142,7 +142,7 @@ public class TrorMainOrderHeaderFlyControllerFreightBill {
 			return this.loginView;
 		} else {
 			List<DokufDao> list = this.fetchFraktbrevList(appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDffbnr());
-			if(list!=null && list.size()>1){
+			if(list!=null && list.size()>=1){
 				successView = new ModelAndView("tror_mainorderfly_freightbill_list");
 				model.put("list", list);
 				successView.addObject(MainMaintenanceConstants.DOMAIN_MODEL, model);

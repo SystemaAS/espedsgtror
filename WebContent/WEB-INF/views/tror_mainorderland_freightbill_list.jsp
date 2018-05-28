@@ -198,12 +198,10 @@
 							               <%-- DELETE cell --%>							           
 							               <td width="2%" class="text14" align="center">
 							               	   <c:if test="${not empty record.dffbnr && record.dfst != 'P'}"> <%-- status P = not removable --%>
-							               	   		<c:if test="${empty recordOrderTrorLand.hest || recordOrderTrorLand.hest == 'U' || recordOrderTrorLand.hest == 'O' || recordOrderTrorLand.hest == 'F' || recordOrderTrorLand.hest == 'C' || recordOrderTrorLand.hest == 'K' }">
-							                   			<a style="cursor:pointer;" id="avd_${record.dfavd}@opd_${record.dfopd}@id_${record.dffbnr}@sign_${record.dfsg}" onClick="doDeleteItemLine(this);" tabindex=-1 >
-									               			<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
-									               		</a>&nbsp;
-									               	</c:if>
-								               	</c:if>
+							               	   		<a style="cursor:pointer;" id="avd_${record.dfavd}@opd_${record.dfopd}@id_${record.dffbnr}@sign_${record.dfsg}" onClick="doDeleteItemLine(this);" tabindex=-1 >
+								               			<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
+								               		</a>&nbsp;
+									            </c:if>
 					               		  </td> 
 							            </tr>
 								        
