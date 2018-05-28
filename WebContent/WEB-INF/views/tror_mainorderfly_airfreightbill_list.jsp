@@ -174,7 +174,7 @@
 							<td class="text14" >
 								<table id="tblMain" class="display compact cell-border" >
 									<thead>
-									<tr style="background-color:#DDDDDD">
+									<tr class="tableHeaderField" height="20">
 										<th align="center" width="2%" class="text14" >&nbsp;<span>Endre&nbsp;</span></th>
 										<th align="center" class="text14" width="2%" >&nbsp;<span title="imlop">Lnr.</span></th>  
 										<th align="left" class="text14" width="10%" >&nbsp;<span title="hehawb"><spring:message code="systema.tror.flyfraktbrev.import.dokefim.form.update.label.awbnr.manualOrAuto"/>&nbsp;</span></th>
@@ -213,11 +213,11 @@
 							               <%-- DELETE cell --%>							           
 							               <td width="2%" class="text14" align="center">
 							               	    <%-- <c:if test="${not empty record.imlop && record.todo != 'P'}"> <%-- status P = not removable --%>
-							               	    	<c:if test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">
+							               	    	<%-- <c:if test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">  --%>
 							                   			<a style="cursor:pointer;" id="avd_${record.imavd}@opd_${record.imopd}@id_${record.imlop}" onClick="doDeleteItemLine(this);" tabindex=-1 >
 									               			<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
 									               		</a>&nbsp;
-									               	</c:if>
+									               	<%-- </c:if>  --%>
 								               	<%--  </c:if> --%>
 					               		  </td> 
 							            </tr>
