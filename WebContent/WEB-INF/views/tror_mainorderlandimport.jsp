@@ -1302,7 +1302,7 @@
 	 										
 										</td>
 							 			<td class="text14">
-							 				<select name="hekdpl" id="hekdpl">
+							 				<select class="inputTextMediumBlue" name="hekdpl" id="hekdpl">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.produktList}" varStatus="counter">
 							 						<option value='${record.kfkod}' <c:if test="${record.kfkod == model.record.hekdpl}"> selected </c:if> >${record.kfkod}</option>
