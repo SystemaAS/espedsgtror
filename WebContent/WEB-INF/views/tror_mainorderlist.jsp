@@ -171,7 +171,7 @@
 			        	</tr>
 			        	<tr>
 				        	<td>
-				        		<select class="inputTextMediumBlue" name="avd" id="avd" autofocus>
+				        		<select class="selectMediumBlueE2" name="avd" id="avd" autofocus>
 			 						<option value="">-velg-</option>
 			 						<c:forEach var="record" items="${model.avdList}" >
 				 				  		<option value="${record.koakon}"<c:if test="${searchFilterTror.avd == record.koakon}"> selected </c:if> >${record.koakon}</option>
@@ -179,7 +179,7 @@
 								</select>
 				        	</td>
 					        <td>
-					        	<select class="inputTextMediumBlue" name="sign" id="sign" >
+					        	<select class="selectMediumBlueE2" name="sign" id="sign" >
 			 						<option value="">-velg-</option>
 			 						<c:forEach var="record" items="${model.signatureList}" >
 				 				  		<option value="${record.kosfsi}"<c:if test="${searchFilterTror.sign == record.kosfsi}"> selected </c:if> >${record.kosfsi}</option>
@@ -189,8 +189,8 @@
 				    		<td><input type="text" class="inputText" name="orderNr" id="orderNr" size="8" maxlength="7" value='${searchFilterTror.orderNr}'></td>
 					        <td><input type="text" class="inputText" name="date" id="date" size="9" maxlength="8" value='${searchFilterTror.date}'></td>
 					        <td>
-					        	<select class="inputTextMediumBlue" name="status" id="status">
-			            			<option value="">-vælg-</option>
+					        	<select class="selectMediumBlueE2" name="status" id="status">
+			            			<option value="">-velg-</option>
 			            			<option value=" " <c:if test="${searchFilterTror.status == ' '}"> selected </c:if> >Åpent</option>
 			            			<option value="U" <c:if test="${searchFilterTror.status == 'U'}"> selected </c:if> >U</option>
 									<option value="K" <c:if test="${searchFilterTror.status == 'K'}"> selected </c:if> >K</option>
@@ -206,7 +206,7 @@
 					        </td>
 					        
 					        <td>
-					        	<select class="inputTextMediumBlue" name="ttype" id="ttype">
+					        	<select class="selectMediumBlueE2" name="ttype" id="ttype">
 					        		<option value="">-velg-</option>
 									<option value="A" <c:if test="${searchFilterTror.ttype == 'A'}"> selected </c:if> ><spring:message code="systema.tror.order.suborder.landimport"/></option>
 									<option value="B" <c:if test="${searchFilterTror.ttype == 'B'}"> selected </c:if> ><spring:message code="systema.tror.order.suborder.landexport"/></option>
@@ -462,8 +462,8 @@
 									<tr>
 										<td class="text14" align="left" >Status</td>
 										<td class="text14MediumBlue">
-											<select class="inputTextMediumBlue" name="selectedStatus${counter.count}" id="selectedStatus${counter.count}">
-						            			<option value="">-vælg-</option>
+											<select class="selectMediumBlueE2" name="selectedStatus${counter.count}" id="selectedStatus${counter.count}">
+						            			<option value="">-velg-</option>
 						            			<option value=" ">Åpent</option>
 						            			<option value="U">U</option>
 												<option value="K">K</option>
@@ -526,7 +526,7 @@
 					<table>
 						<tr>
 							<td class="text14MediumBlue">Type&nbsp;
-								<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlue11MandatoryField" name="selectedType" id="selectedType">
+								<select required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" name="selectedType" id="selectedType">
 									<option value="A"><spring:message code="systema.tror.order.suborder.landimport"/></option>
 									<option value="B"><spring:message code="systema.tror.order.suborder.landexport"/></option>
 									<option value="C"><spring:message code="systema.tror.order.suborder.flyimport"/></option>
