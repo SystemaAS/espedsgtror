@@ -19,6 +19,7 @@ import no.systema.z.main.maintenance.model.jsonjackson.dbtable.JsonMaintMainCund
 import no.systema.z.main.maintenance.url.store.MaintenanceMainUrlDataStore;
 import no.systema.main.service.UrlCgiProxyService;
 import no.systema.main.service.UrlCgiProxyServiceImpl;
+import no.systema.main.validator.DateValidator;
 import no.systema.main.validator.EmailValidator;
 import no.systema.z.main.maintenance.service.MaintMainCundfService;
 import no.systema.z.main.maintenance.service.MaintMainCundfServiceImpl;
@@ -37,6 +38,7 @@ public class TrorOrderHeaderValidator implements Validator {
 	//private EbookingChildWindowService ebookingChildWindowService = new EbookingChildWindowServiceImpl();
 	private UrlCgiProxyService urlCgiProxyService = new UrlCgiProxyServiceImpl();
 	private MaintMainCundfService maintMainCundfService = new MaintMainCundfServiceImpl();
+	private DateValidator dateValidator = new DateValidator();
 	
 	//private EmailValidator emailValidator = new EmailValidator();
 	private StringManager strMgr = new StringManager();
@@ -69,6 +71,15 @@ public class TrorOrderHeaderValidator implements Validator {
 		
 		//Check rules
 		if(record!=null){
+			//------
+			//dates 
+			//------
+			if(strMgr.isNotNull(record.getHedtop())){
+				if(!dateValidator.validateDate(record.getHedtop(), DateValidator.DATE_MASK_ISO)){
+					errors.rejectValue("hedtop", "systema.tror.orders.form.update.error.rule.date.invalid"); 	
+				}
+			}
+			
 			//Godsnr (the number can not have empty fields in the precedent field. If field 2 is filled up then field 2 MUST be there ...
 			if(strMgr.isNull(record.getOwnHegn1()) && (strMgr.isNotNull(record.getOwnHegn2()) || strMgr.isNotNull(record.getOwnHegn3()) ) ){
 				errors.rejectValue("hegn", "systema.tror.orders.form.update.error.rule.godsnr.invalid");
