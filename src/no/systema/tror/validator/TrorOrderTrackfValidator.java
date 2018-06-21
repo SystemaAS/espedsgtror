@@ -72,6 +72,16 @@ public class TrorOrderTrackfValidator implements Validator {
 				errors.rejectValue("tttexl", "systema.tror.orders.tt.logging.form.error.null.text");
 			}
 			
+			//------
+			//dates 
+			//------
+			String dateStr = String.valueOf(record.getTtdate());
+			if(strMgr.isNotNull(dateStr)){
+				if(!dateValidator.validateDate(dateStr, DateValidator.DATE_MASK_ISO)){
+					errors.rejectValue("ttdate", "Dato er ugyldig", "Hendelsestidspunkt-dato er ugyldig"); 	
+				}
+			}
+			
 		}	
 	}
 	

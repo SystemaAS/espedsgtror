@@ -8,6 +8,7 @@ import no.systema.tror.model.jsonjackson.budget.JsonTrorOrderHeaderBudgetContain
 import no.systema.tror.model.jsonjackson.budget.JsonTrorOrderHeaderBudgetRecord;
 import no.systema.main.validator.DateValidator;
 import no.systema.main.util.NumberFormatterLocaleAware;
+import no.systema.main.util.StringManager;
 
 /**
  * 
@@ -20,7 +21,7 @@ public class TrorOrderHeaderBudgetValidator implements Validator {
 	private DateValidator dateValidator = new DateValidator();
 	private static Logger logger = Logger.getLogger(TrorOrderHeaderBudgetValidator.class.getName());
 	private NumberFormatterLocaleAware formatter = new NumberFormatterLocaleAware();
-	
+	private StringManager strMgr = new StringManager();
 	/**
 	 * 
 	 */
@@ -50,6 +51,15 @@ public class TrorOrderHeaderBudgetValidator implements Validator {
 				//If the budget record belongs to the Order-Use Case then this fields are mandatory
 				ValidationUtils.rejectIfEmptyOrWhitespace(errors, "buoavd", "systema.tror.budget.form.error.null.type.buoavd"); 
 				ValidationUtils.rejectIfEmptyOrWhitespace(errors, "buopd", "systema.tror.budget.form.error.null.type.buopd"); 
+			}
+			
+			//------
+			//dates 
+			//------
+			if(strMgr.isNotNull(record.getBufedt())){
+				if(!dateValidator.validateDate(record.getBufedt(), DateValidator.DATE_MASK_ISO)){
+					errors.rejectValue("bufedt", "Dato er ugyldig", "Dato er ugyldig"); 	
+				}
 			}
 		}	
 	}

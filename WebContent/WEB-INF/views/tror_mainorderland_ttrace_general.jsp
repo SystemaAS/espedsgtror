@@ -261,6 +261,34 @@
 						</tr>
 						<tr height="10px"><td class="text" align="left"></td></tr>
 						
+						
+						
+	<%-- --------------------------- --%>
+	<%-- Validation errors FRONT END --%>
+	<%-- --------------------------- --%>
+	<spring:hasBindErrors name="record"> <%-- name must equal the command object name in the Controller --%>
+	<tr height="5"><td></td></tr>
+	<tr>
+		<td colspan="10">
+           	<table class="tabThinBorderWhiteWithSideBorders" width="100%" align="left" border="0" cellspacing="0" cellpadding="0">
+           	<tr>
+			<td valign="bottom" class="textError">					
+	            <ul>
+	            <c:forEach var="error" items="${errors.allErrors}">
+	                <li >
+	                	<spring:message code="${error.code}" text="${error.defaultMessage}"/>
+	                </li>
+	            </c:forEach>
+	            </ul>
+			</td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</spring:hasBindErrors>	
+	
+						
+						
 						<%-- ------------------------------------------------- --%>
 			           	<%-- DETAIL Section - Create Item line PRIMARY SECTION --%>
 			           	<%-- ------------------------------------------------- --%>
