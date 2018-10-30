@@ -524,8 +524,8 @@ public class CodeDropDownMgr {
 		 * @param model
 		 * @param appUser
 		 */
-		public void populateCodesHtmlDropDownsFromJsonTransporttype(UrlCgiProxyService urlCgiProxyService, MaintSadImportKodts4Service specialListPopulationService,
-				Map model, SystemaWebUser appUser){
+	public void populateCodesHtmlDropDownsFromJsonTransporttype(UrlCgiProxyService urlCgiProxyService, MaintSadImportKodts4Service specialListPopulationService,
+		Map model, SystemaWebUser appUser){
 		String BASE_URL = TvinnSadMaintenanceImportUrlDataStoreGyldigeKoder.TVINN_SAD_MAINTENANCE_IMPORT_BASE_SAD002_KODTS4R_GET_LIST_URL;
 		StringBuffer urlRequestParams = new StringBuffer();
 		urlRequestParams.append("user="+ appUser.getUser());
@@ -544,7 +544,6 @@ public class CodeDropDownMgr {
 	        }
     	}
     	model.put(TrorConstants.RESOURCE_MODEL_KEY_TRANSPORTTYPE_CODE_LIST, list);
-    	
 	}
 		
 		/**
