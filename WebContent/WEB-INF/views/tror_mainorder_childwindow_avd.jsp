@@ -48,7 +48,7 @@
 		                <c:forEach var="record" items="${model.avdList}" varStatus="counter">    
 			               <tr class="text14" >
 			               
-			               <td class="text14MediumBlue" style="cursor:pointer;" id="id_${record.koakon}@name_${record.koanvn}@ctype_${model.ctype}@counter_${counter.count}">${record.koakon}</td>
+			               <td class="text14MediumBlue" style="cursor:pointer;" id="id_${record.koaavd}@name_${record.koanvn}@ctype_${model.ctype}@counter_${counter.count}">${record.koaavd}</td>
 			               <td class="text14" >&nbsp;${record.koanvn}</td>
 			            </tr> 
 			            </c:forEach>

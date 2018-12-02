@@ -361,7 +361,7 @@
 												<select autofocus name="heavd" id="heavd" required oninvalid="this.setCustomValidity('Obligatorisk')" oninput="setCustomValidity('')" class="inputTextMediumBlueMandatoryField" >
 							 						<option value="">-velg-</option>
 								 				  	<c:forEach var="record" items="${model.avdList}" >
-								 				  		<option value="${record.koakon}"<c:if test="${model.record.heavd == record.koakon}"> selected </c:if> >${record.koakon}</option>
+								 				  		<option value="${record.koaavd}"<c:if test="${model.record.heavd == record.koaavd}"> selected </c:if> >${record.koaavd}</option>
 													</c:forEach>  
 												</select>
 
