@@ -251,7 +251,8 @@
 	    //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
 	    jq('#tblMain').dataTable( {
 	  	  //"dom": '<"top">t<"bottom"f><"clear">',
-	  	  "dom": '<"top"i>rt<"bottom"f><"clear">',
+	    	"searchHighlight": true,
+	    	"dom": '<"top"i>rt<"bottom"f><"clear">',
 			  "scrollY":  "200px",
 			  "order": [ [ 1, "asc" ] ],
 			  "scrollCollapse":  true,

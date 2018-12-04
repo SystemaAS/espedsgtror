@@ -162,6 +162,7 @@
       //table [General Code List]
   	  //-----------------------
     	  jq('#customerList').dataTable( {
+    		  "searchHighlight": true,
     		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
     		  "lengthMenu": [ 75, 100, 200, 500]
     	  });

@@ -642,6 +642,7 @@
       //table [Avd]
   	  //-----------------------
     	  jq('#avdList').dataTable( {
+    		  "searchHighlight": true,
     		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
     		  "lengthMenu": [ 50, 75, 100]
     	  });
@@ -653,6 +654,7 @@
       //table [BilNr]
   	  //-----------------------
     	  jq('#bilnrList').dataTable( {
+    		  "searchHighlight": true,
     		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
     		  "lengthMenu": [ 50, 75, 100]
     	  });
@@ -664,6 +666,7 @@
       //table [BilCode]
   	  //-----------------------
     	  jq('#bilcodeList').dataTable( {
+    		  "searchHighlight": true,
     		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
     		  "lengthMenu": [ 50, 75, 100]
     	  });
@@ -675,6 +678,7 @@
       //table [Carrier]
   	  //-----------------------
     	  jq('#transpCarrierList').dataTable( {
+    		  "searchHighlight": true,
     		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
     		  "lengthMenu": [ 50, 75, 100]
     	  });
@@ -686,6 +690,7 @@
       //table [Driver]
   	  //-----------------------
     	  jq('#driverList').dataTable( {
+    		  "searchHighlight": true,
     		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
     		  "lengthMenu": [ 50, 75, 100]
     	  });
@@ -697,6 +702,7 @@
       //table [PostNr From]
 	  //--------------------------
 	  jq('#postNrFromList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -709,6 +715,7 @@
 	  //tables [PostNr To]
 	  //-----------------------
 	  jq('#postNrToList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -721,6 +728,7 @@
 	  //tables [Customer No.]
 	  //-----------------------
 	  jq('#customerList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -733,6 +741,7 @@
 	  //tables [Load/Unload places]
 	  //----------------------------
 	  jq('#loadUnloadPlacesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -745,6 +754,7 @@
 	  //tables [dangerous goods]
 	  //----------------------------
 	  jq('#dangerousGoodsList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -757,6 +767,7 @@
 	  //tables [packing codes]
 	  //----------------------------
 	  jq('#packingCodesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -769,6 +780,7 @@
 	  //tables [frie søkeveier codes]
 	  //----------------------------
 	  jq('#frisokveiCodesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"f>rt<"bottom"><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -780,6 +792,7 @@
 	  //tables [frie søkeveier doc.codes]
 	  //---------------------------------
 	  jq('#frisokveiDocCodesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"f>rt<"bottom"><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -792,6 +805,7 @@
 	  //tables [frie søkeveier giltihetslist]
 	  //--------------------------------------
 	  jq('#frisokveiCodesGiltighetsList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"f>rt<"bottom"><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -804,6 +818,7 @@
 	  //tables [tollsted codes]
 	  //----------------------------
 	  jq('#tollstedCodesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -816,6 +831,7 @@
 	  //tables [Supplier No.]
 	  //-----------------------
 	  jq('#supplierList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -828,6 +844,7 @@
 	  //tables [Gebyr codes]
 	  //-----------------------
 	  jq('#gebyrcodeList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });
@@ -840,6 +857,7 @@
 	  //tables [Country codes]
 	  //-----------------------
 	  jq('#countryCodeList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ]
 	  });

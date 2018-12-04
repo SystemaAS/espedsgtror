@@ -624,6 +624,7 @@
       //table [PostNr]
 	  //--------------------------
 	  jq('#postalCodeList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -637,6 +638,7 @@
       //table [PostNr PONRN]
 	  //--------------------------
 	  jq('#postalCodePonrnList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -664,6 +666,7 @@
 	  //tables [Customer No.]
 	  //-----------------------
 	  jq('#customerList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -674,6 +677,7 @@
 	  });
 	  //related table Customer Addresses
 	  jq('#customerAddressesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "order": [[ 1, "asc" ]],
@@ -688,6 +692,7 @@
 	  //tables [Carrier No.]
 	  //-----------------------
 	  jq('#carrierList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 20, 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -701,6 +706,7 @@
 	  //tables [Tollsted]
 	  //-----------------------
 	  jq('#tollstedList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20 ],
 		  "order": [[ 1, "asc" ]],
@@ -717,6 +723,7 @@
 	  //tables [avd]
 	  //-----------------------
 	  jq('#avdList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 15, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -731,6 +738,7 @@
 	  //tables [Tranporttyp]
 	  //-----------------------
 	  jq('#transporttypesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -745,6 +753,7 @@
 	  //tables [Incoterms]
 	  //-----------------------
 	  jq('#incotermsList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -758,6 +767,7 @@
 	  //tables [Oppdragstype]
 	  //-----------------------
 	  jq('#oppdragstypeList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -771,6 +781,7 @@
 	  //tables [Product codes]
 	  //-----------------------
 	  jq('#produktList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -784,6 +795,7 @@
 	  //tables [Load/Unload places]
 	  //----------------------------
 	  jq('#loadUnloadPlacesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -797,6 +809,7 @@
 	  //tables [uom codes]
 	  //----------------------------
 	  jq('#uomList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20, 50 ],
 		  "language": { "url": getLanguage(lang) }
@@ -810,6 +823,7 @@
 	  //tables [uom codes]
 	  //----------------------------
 	  jq('#loadunloadList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20, 50 ],
 		  "language": { "url": getLanguage(lang) }
@@ -823,6 +837,7 @@
 	  //tables merkelappList
 	  //----------------------------
 	  jq('#merkelappList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 10, 20, 50 ],
 		  "language": { "url": getLanguage(lang) }

@@ -2157,6 +2157,7 @@
 	  var lang = jq('#language').val(); 
 	  //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
       jq('#tblItemLines').dataTable( {
+    	  "searchHighlight": true,
     	  "dom": '<"top">t<"bottom"flip><"clear">',
     	  "scrollY":    "180px",
   		  "scrollCollapse":  true,

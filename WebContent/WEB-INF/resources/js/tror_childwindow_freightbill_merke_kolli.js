@@ -26,6 +26,7 @@
       //table 
 	  //--------
 	  jq('#list').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }

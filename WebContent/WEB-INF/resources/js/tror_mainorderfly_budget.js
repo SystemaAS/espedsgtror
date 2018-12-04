@@ -314,6 +314,7 @@
       //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
       jq('#tblBudget').dataTable( {
     	  //"dom": '<"top">t<"bottom"f><"clear">',
+    	  "searchHighlight": true,
     	  "dom": '<"top"i>rt<"bottom"f><"clear">',
   		  "scrollY":    "250px",
   		  "tabIndex":   -1,
