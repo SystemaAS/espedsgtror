@@ -411,12 +411,12 @@
 							 					</c:otherwise>
 							 					</c:choose>
 							 				</td>
-							 				<td class="text14" title="hepos1">
+							 				<td class="text14" title="hepos1/hepos2">
 							 					<img onMouseOver="showPop('hepos_info');" onMouseOut="hidePop('hepos_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.position"/>
 							 				</td>
 							 				<td>	
-							 					<input type="text" class="inputTextMediumBlue" name="hepos1" id="hepos1/hepos2" size="8" maxlength="7" value="${model.record.hepos1}">
+							 					<input type="text" class="inputTextMediumBlue" name="hepos1" id="hepos1" size="8" maxlength="7" value="${model.record.hepos1}">
 							 					<c:choose>
 						 						<c:when test="${'0' != model.record.hepos2}">
 							 						<input type="text" class="inputTextMediumBlue" name="hepos2" id="hepos2" size="5" maxlength="4" value="${model.record.hepos2}">
@@ -428,7 +428,7 @@
 							 					<div class="text11" style="position: relative;" align="left" >
 									 				<span style="position:absolute; top:2px; width:200px;" id="hepos_info" class="popupWithInputText text11"  >
 										           		<p><b><spring:message code="systema.tror.orders.form.update.label.position"/></b></p> 
-									           			Hovedposisjon er 4 lang. Underposisjon er 4 lang. Overføres til rubrikk 49 på SAD-dokumentet
+									           			Hovedposisjon er 7 lang. Underposisjon er 4 lang. Overføres til rubrikk 49 på SAD-dokumentet
 														( konnossement nr. ).
 													</span>	
 												</div>

@@ -459,6 +459,7 @@ public class TrorMainOrderListController {
 	    		model.put(TrorConstants.DOMAIN_CONTAINER_OPEN_ORDERS, orderListContainer);
 	    		if(orderListContainer!=null){
 	    			outputListOpenOrders = orderListContainer.getDtoList();
+	    			
 	    			/*
 	    			for(JsonTrorOrderListRecord record: orderListContainer.getDtoList()){
 	    				//remove invalid cases for this UCase
@@ -468,7 +469,8 @@ public class TrorMainOrderListController {
 	    			}*/
 		    		
 	    		}
-	    	}		
+	    	}	
+	    	logger.info("List size:" + outputListOpenOrders.size());
 
 		return outputListOpenOrders;
 	}

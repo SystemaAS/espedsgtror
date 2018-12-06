@@ -161,7 +161,7 @@
 								</div>
 				        	</td>
 				        	<td>&nbsp;<font title="orderNr" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.delsystem"/></font></td>
-				        	<td>&nbsp;<font title="orderNr" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.godsnr"/></font></td>
+				        	<td>&nbsp;<font title="godsNr" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.godsnr"/></font></td>
 				        	<%--<td>&nbsp;</td> --%>
 				        	<td>&nbsp;<font title="sender" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.sender"/></font></td>
 				        	<td>&nbsp;<font title="receiver" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.receiver"/></font></td>
@@ -214,7 +214,7 @@
 									<option value="D" <c:if test="${searchFilterTror.ttype == 'D'}"> selected </c:if> ><spring:message code="systema.tror.order.suborder.flyexport"/></option>
 								</select>
 					        </td>
-					        <td><input type="text" class="inputText" name="godsNr" id="godsNr" size="10" maxlength="20" value='${searchFilterTror.godsNr}'></td>
+					        <td><input type="text" class="inputText" name="godsNr" id="godsNr" size="15" maxlength="20" value='${searchFilterTror.godsNr}'></td>
 					        <%--
 					        <td nowrap>	
 				        		<font title="fromDate/fromDate" class="text14"></font>
@@ -259,6 +259,7 @@
 	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.status"/></th>
 	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.delsystem"/></th>
 	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.godsnr"/></th>
+	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.hepos1"/></th>
 	                    <th width="20%" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.sender"/></th>
 	                    <th width="20%" class="text14"><spring:message code="systema.tror.orders.open.list.search.label.receiver"/></th>
 	                    <th class="text14"><spring:message code="systema.tror.orders.open.list.search.label.antall"/></th>
@@ -367,6 +368,7 @@
 	           				</c:if>
 			           </td>
 		               <td align="left" class="text14MediumBlue">&nbsp;${record.hegn}</td>
+		               <td align="left" class="text14MediumBlue">&nbsp;${record.hepos1}</td>
 		               <td width="20%" align="left" class="text14MediumBlue">&nbsp;${record.henas}</td>
 		               <td width="20%" align="left" class="text14MediumBlue">&nbsp;${record.henak}</td>
 		               <td align="center" class="text14MediumBlue">&nbsp;${record.hent}</td>
