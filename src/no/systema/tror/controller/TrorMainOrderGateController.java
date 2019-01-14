@@ -90,11 +90,11 @@ public class TrorMainOrderGateController {
 		if("A".equals(selectedTypeWithCreateNew)){
 			successView = new ModelAndView("redirect:tror_mainorderlandimport.do?action=doInit&heavd=" + recordToValidate.getHeavd());
 		}else if("B".equals(selectedTypeWithCreateNew)){
-			successView = new ModelAndView("redirect:tror_mainorderlandexport.do?action=doInit");
+			successView = new ModelAndView("redirect:tror_mainorderlandexport.do?action=doInit&heavd=" + recordToValidate.getHeavd());
 		}else if("C".equals(selectedTypeWithCreateNew)){
-			successView = new ModelAndView("redirect:tror_mainorderairimport.do?action=doInit");
+			successView = new ModelAndView("redirect:tror_mainorderairimport.do?action=doInit&heavd=" + recordToValidate.getHeavd());
 		}else if("D".equals(selectedTypeWithCreateNew)){
-			successView = new ModelAndView("redirect:tror_mainorderairexport.do?action=doInit");
+			successView = new ModelAndView("redirect:tror_mainorderairexport.do?action=doInit&heavd=" + recordToValidate.getHeavd());
 		}
 		
 		SystemaWebUser appUser = this.loginValidator.getValidUser(session);

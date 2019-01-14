@@ -316,6 +316,12 @@
 		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">
 		    		    			</a>
 	    		    			</c:if>
+	    		    			<c:if test="${ record.heur == 'D' }">
+					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
+					           			onClick="setBlockUI(this);" href="tror_mainorderflyexport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
+		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">
+		    		    			</a>
+	    		    			</c:if>
     		    			</c:when>
     		    			<c:otherwise>
     		    				<c:if test="${ record.heur == 'A' }">
@@ -333,6 +339,12 @@
 	    		    			<c:if test="${ record.heur == 'C' }">
 					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
 					           			onClick="setBlockUI(this);" href="tror_mainorderflyimport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
+		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
+		    		    			</a>
+	    		    			</c:if>
+	    		    			<c:if test="${ record.heur == 'D' }">
+					           		<a style="cursor:pointer;" id="@opd_${record.heopd}@alinkOpenOrdersListId_${counter.count}"
+					           			onClick="setBlockUI(this);" href="tror_mainorderflyexport.do?action=doFetch&heavd=${record.heavd}&heopd=${record.heopd}">
 		    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/eye.png" height="18px" width="18px" border="0" alt="read">
 		    		    			</a>
 	    		    			</c:if>

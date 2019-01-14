@@ -142,6 +142,10 @@ public class GeneralNotisblockController {
 			//Oppdragsreg. Land import
 			successView = new ModelAndView("tror_mainorderflyimport_notisblock");
 		
+		}else if("tror_fe".equals(subsystem)){
+			//Oppdragsreg. Land import
+			successView = new ModelAndView("tror_mainorderflyexport_notisblock");
+		
 		}//ADD MORE as the notisblock is used for more modules 
 		
 		logger.info("ACTION: " + action);
