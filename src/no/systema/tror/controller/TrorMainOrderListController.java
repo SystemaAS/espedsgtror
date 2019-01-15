@@ -494,8 +494,7 @@ public class TrorMainOrderListController {
 	private void setCodeDropDownMgr(SystemaWebUser appUser, Map model){
 		//Sign / AVD
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonSignature(this.urlCgiProxyService, trorDropDownListPopulationService, model, appUser);
-		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonAvdelning(this.urlCgiProxyService, maintMainKodtaService, model, appUser);
-				
+		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonAvdelning(this.urlCgiProxyService, maintMainKodtaService, model, appUser);	
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonString(urlCgiProxyService, trorDropDownListPopulationService, model, appUser, this.codeDropDownMgr.CODE_TYPE_DELSYSTEM);
 	}
 
