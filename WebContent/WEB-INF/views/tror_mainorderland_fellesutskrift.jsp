@@ -315,7 +315,7 @@
 									 				</table>
 									 			</td>
 									 			<td valign="bottom">
-									 				<input onClick="setBlockUI(this);" class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.submit.save"/>'>
+									 				<input onClick="setBlockUI(this);" class="inputFormSubmit" type="submit" name="submit" id="submit" value='<spring:message code="systema.tror.print"/>'>
 									 			</td>
 									        </tr>
 									        
