@@ -166,6 +166,17 @@
 		  }
 	  });  
 	  
+	//produktkoder AIR
+	  jq('#produktkodeAirIdLink').click(function() {
+		  jq('#produktkodeAirIdLink').attr('target','_blank');
+		  window.open('tror_mainorderflyexport_childwindow_airproducts.do?action=doFind',"airproductsWin","top=300px,left=400px,height=700px,width=900px,scrollbars=no,status=no,location=no");
+	  });
+	  jq('#produktkodeAirIdLink').keypress(function(e){ //extra feature for the end user
+		  if(e.which == 13) {
+			  jq('#produktkodeAirIdLink').click();
+		  }
+	  });  
+	  
 	  //Seller
 	  jq('#trorSellerIdLink').click(function() {
 		  jq('#trorSellerIdLink').attr('target','_blank');

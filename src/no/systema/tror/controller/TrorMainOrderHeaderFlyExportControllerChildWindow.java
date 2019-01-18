@@ -87,14 +87,14 @@ public class TrorMainOrderHeaderFlyExportControllerChildWindow {
 	 * @param request
 	 * @return
 	 */
-	/*
-	@RequestMapping(value="tror_mainorderflyimport_childwindow_airproducts.do", params="action=doFind",  method={RequestMethod.GET, RequestMethod.POST} )
+	
+	@RequestMapping(value="tror_mainorderflyexport_childwindow_airproducts.do", params="action=doFind",  method={RequestMethod.GET, RequestMethod.POST} )
 	public ModelAndView doFindAirProducts(@ModelAttribute ("record") KodtflpDao recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
 		this.context = TdsAppContext.getApplicationContext();
 		logger.info("Inside: doFindAirProducts");
 		Collection outputList = new ArrayList();
 		Map model = new HashMap();
-		ModelAndView successView = new ModelAndView("tror_mainorderflyimport_childwindow_airproducts");
+		ModelAndView successView = new ModelAndView("tror_mainorderflyexport_childwindow_airproducts");
 		SystemaWebUser appUser = this.loginValidator.getValidUser(session);
 		//check user (should be in session already)
 		if(appUser==null){
@@ -110,7 +110,7 @@ public class TrorMainOrderHeaderFlyExportControllerChildWindow {
 			/*FraktkalkulatorChildWindowSearchCustomerValidator validator = new FraktkalkulatorChildWindowSearchCustomerValidator();
 			logger.info("Host via HttpServletRequest.getHeader('Host'): " + request.getHeader("Host"));
 		    validator.validate(recordToValidate, bindingResult);
-		    
+		    */
 		    //check for ERRORS
 			if(bindingResult.hasErrors()){
 	    		logger.info("[ERROR Validation] search-filter does not validate)");
@@ -149,7 +149,7 @@ public class TrorMainOrderHeaderFlyExportControllerChildWindow {
 		    }
 		}
 	}
-	*/
+	
 	/**
 	 * 
 	 * @param recordToValidate

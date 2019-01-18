@@ -7,6 +7,10 @@ import java.util.*;
 
 import org.apache.log4j.Logger;
 
+import no.systema.jservices.common.dao.DokufDao;
+import no.systema.jservices.common.dao.KodtflpDao;
+import no.systema.jservices.common.json.JsonDtoContainer;
+import no.systema.jservices.common.json.JsonReader;
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.service.UrlCgiProxyService;
 //eBooking
@@ -353,6 +357,42 @@ public class CodeDropDownMgr {
 					}
 					
 					model.put(TrorConstants.RESOURCE_MODEL_KEY_PRODUCT_CODE_LIST, list);
+
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+		}
+		
+		/**
+		 * 
+		 * @param urlCgiProxyService
+		 * @param listPopulationService
+		 * @param model
+		 * @param appUser
+		 */
+		public void populateCodesHtmlDropDownsFromJsonProductCodesAir(UrlCgiProxyService urlCgiProxyService, TrorDropDownListPopulationService listPopulationService,
+				Map model, SystemaWebUser appUser){
+				//fill in html lists here
+				try{
+					JsonReader<JsonDtoContainer<KodtflpDao>> jsonReader = new JsonReader<JsonDtoContainer<KodtflpDao>>();
+					jsonReader.set(new JsonDtoContainer<KodtflpDao>());
+					String BASE_URL = TrorUrlDataStore.TROR_BASE_CHILDWINDOW_AIRPRODUCTS_KODTFLP_URL;
+					StringBuffer urlRequestParams = new StringBuffer();
+					urlRequestParams.append("user=" + appUser.getUser());
+					
+					logger.info("URL: " + BASE_URL);
+					logger.info("PARAMS: " + urlRequestParams.toString());
+					String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+					//logger.info(jsonPayload);
+					DokufDao record = null;
+					Collection outputList = new ArrayList();
+					JsonDtoContainer<KodtflpDao> container = (JsonDtoContainer<KodtflpDao>) jsonReader.get(jsonPayload);
+					if (container != null) {
+						for (KodtflpDao dao : container.getDtoList()) {
+							outputList.add(dao);
+						}
+					}
+					model.put(TrorConstants.RESOURCE_MODEL_KEY_PRODUCT_CODE_AIR_LIST, outputList);
 					
 				
 				}catch(Exception e){

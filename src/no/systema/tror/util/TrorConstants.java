@@ -55,6 +55,7 @@ public final class TrorConstants {
 	public static final String RESOURCE_MODEL_KEY_GEBYRCODES_LIST = "gebyrCodesList";
 	public static final String RESOURCE_MODEL_KEY_DELSYSTEM_CODE_LIST = "delsystemList";
 	public static final String RESOURCE_MODEL_KEY_PRODUCT_CODE_LIST = "produktList";
+	public static final String RESOURCE_MODEL_KEY_PRODUCT_CODE_AIR_LIST = "produktAirList";
 	public static final String RESOURCE_MODEL_KEY_ENHET_CODE_LIST = "enhetList";
 	public static final String RESOURCE_MODEL_KEY_TRANSPORTTYPE_CODE_LIST = "transporttypeList";
 	public static final String RESOURCE_MODEL_KEY_LOADUNLOAD_CODE_LIST = "loadUnloadList";

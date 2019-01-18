@@ -969,6 +969,7 @@ public class TrorMainOrderHeaderFlyExportController {
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonIncoterms(this.urlCgiProxyService, this.trorDropDownListPopulationService, model, appUser);
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonOppdragsType(this.urlCgiProxyService, this.trorDropDownListPopulationService, model, appUser);
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonProduct(this.urlCgiProxyService, this.trorDropDownListPopulationService, model, appUser);
+		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonProductCodesAir(this.urlCgiProxyService, this.trorDropDownListPopulationService, model, appUser);
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonEnhet(this.urlCgiProxyService, this.trorDropDownListPopulationService, model, appUser);
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonTransporttype(this.urlCgiProxyService, this.maintSadImportKodts4Service, model, appUser);
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonCurrency(this.urlCgiProxyService, this.trorDropDownListPopulationService, model, appUser);

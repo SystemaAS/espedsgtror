@@ -492,6 +492,32 @@
 						 				</tr>
 						 				
 						 				
+						 				<tr>	
+							 				<td class="text14" title="trsta4">
+							 					<img onMouseOver="showPop('trsta4_info');" onMouseOut="hidePop('trsta4_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
+							 					<spring:message code="systema.tror.orders.form.update.label.produktkode"/>
+							 					<a tabindex="-1" id="produktkodeAirIdLink" >
+		 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
+		 										</a>
+							 					<div class="text11" style="position: relative;" align="left" >
+									 				<span style="position:absolute; top:2px; width:200px;" id="trsta4_info" class="popupWithInputText text11"  >
+										           		<p><b><spring:message code="systema.tror.orders.form.update.label.produktkode"/></b></p> 
+									           			 E=eksport I=innland J=jetpakke, eller andre koder dere selv har bygget opp.
+													</span>	
+												</div>
+							 				</td>
+							 				
+							 				<td colspan="3" class="text14">
+							 					<select class="inputText" name="trsta4" id="trsta4">
+								 					<option value="" >-velg-</option>
+								 					<c:forEach var="record" items="${model.produktAirList}" varStatus="counter">
+								 						<option value='${record.kofmko}' <c:if test="${ model.record.trsta4 == record.kofmko }"> selected </c:if> >${record.kofmko}</option>
+								 					</c:forEach>
+												</select>
+												
+							 				</td>
+							 			</tr>
+						 				
 						 				</table>
 					 				</td>
 					 				
@@ -578,110 +604,6 @@
 						 			</td>
 					 			</tr>
 					 			
-					 			<tr>
-					 				<td align="left" width="50%">&nbsp;</td>
-								 	
-								 	<td align="left" width="50%">
-						 				<table width="97%" class="tableBorderWithRoundCornersLightGray" border="0">
-						 				<tr>		
-								 			<td class="text14">
-								 				<img onMouseOver="showPop('hekdtm_info');" onMouseOut="hidePop('hekdtm_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-							 					<span title="hekdtm"><spring:message code="systema.tror.orders.form.update.label.transporttype"/></span>
-								 				<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_transporttypes.do?action=doFind&ctype=tror_flyexport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
-		 											<img id="imgTransporttype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
-		 										</a>
-		 										<div class="text11" style="position: relative;" align="left" >
-									 				<span style="position:absolute; top:2px; width:200px;" id="hekdtm_info" class="popupWithInputText text11"  >
-										           		<p><b><spring:message code="systema.tror.orders.form.update.label.transporttype"/></b></p> 
-									           			Tast gyldig kode for transportmåte ved grense. Overføres SAD:
-									           			<ul>
-									           				<li><b>10</b>&nbsp;Fartøy, norske utenlandske.
-									           				<li><b>12</b>&nbsp;Jernbanevogn på fartøy.</li>
-									           				<li><b>16</b>&nbsp;Bil på fartøy.</li>
-									           				<li><b>17</b>&nbsp;Tilhenger på fartøy.</li>	
-									           				<li><b>20</b>&nbsp;Jernbane.</li>	
-									           				<li><b>23</b>&nbsp;Bil/tilhenger på jernbanevogn.</li>	
-									           				<li><b>30</b>&nbsp;Bil (vegtransport).</li>	
-									           				<li><b>40</b>&nbsp;Luftfartøy.</li>	
-									           				<li><b>50</b>&nbsp;Post.</li>	
-									           				<li><b>70</b>&nbsp;Faste installasjoner (rør, kabler etc..).</li>	
-									           				<li><b>80</b>&nbsp;Transport på innenlandske vannveier.</li>
-									           				<li><b>90</b>&nbsp;Egen framdrift.</li>
-									           						
-									           			</ul>
-													</span>	
-												</div>
-								 			</td>
-								 			<td class="text14">
-								 				<select class="inputText" name="hekdtm" id="hekdtm">
-								 					<option value="" >-velg-</option>
-								 					<c:forEach var="record" items="${model.transporttypeList}" varStatus="counter">
-								 						<option value='${record.ks4trm}' <c:if test="${ model.record.hekdtm == record.ks4trm }"> selected </c:if> >${record.ks4trm}</option>
-								 					</c:forEach>
-												</select>
-												
-								 			</td>
-								 			<td class="text14">
-												<img onMouseOver="showPop('hetrm_info');" onMouseOut="hidePop('hetrm_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-												<span title="hetrm"><spring:message code="systema.tror.orders.form.update.label.transportland"/></span>
-												<div class="text11" style="position: relative;" align="left" >
-									 				<span style="position:absolute; top:2px; width:200px;" id="hetrm_info" class="popupWithInputText text11"  >
-										           		<p><b><spring:message code="systema.tror.orders.form.update.label.transportland"/></b></p> 
-									           			Tast landkode (tobokstavs) for transportmidlets hjemland.
-									           			
-													</span>	
-												</div>
-								 			</td>
-								 			<td class="text14">
-								 				<select class="inputText" name="hetrm" id="hetrm">
-								 					<option value="" >-landkode-</option>
-								 					<c:forEach var="record" items="${model.countryCodeList}" varStatus="counter">
-								 						<option value='${record.klklk}' <c:if test="${ model.record.hetrm == record.klklk}"> selected </c:if> >${record.klklk}</option>
-								 					</c:forEach>
-												</select>												
-								 			</td>
-								 		</tr>
-								 		
-								 		<tr>
-								 			<td class="text14">
-								 				<img onMouseOver="showPop('hetrc_info');" onMouseOut="hidePop('hetrc_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-												<span title="hetrc"><spring:message code="systema.tror.orders.form.update.label.container"/></span>
-												<div class="text11" style="position: relative;" align="left" >
-									 				<span style="position:absolute; top:2px; width:200px;" id="hetrc_info" class="popupWithInputText text11"  >
-										           		<p><b><spring:message code="systema.tror.orders.form.update.label.container"/></b></p> 
-									           			Tast gyldig kode for å angi om varen ble fraktet i container ved grensepassering.
-									           			<ul>
-									           				<li><b>0</b>&nbsp;ikke i container.
-									           				<li><b>1</b>&nbsp;i container.</li>
-									           			</ul>	
-													</span>	
-												</div>
-								 			</td>
-								 			<td class="text14">
-								 				<select class="inputText" name="hetrc" id="hetrc" >
-								 				  <option value="1"<c:if test="${ model.record.hetrc == '1' }"> selected </c:if> >1</option>
-												  <option value="0"<c:if test="${ model.record.hetrc == '0' || empty model.record.hetrc }"> selected </c:if> >0</option>
-												</select>
-								 			</td>
-								 				
-								 			<td class="text14">
-								 			<img onMouseOver="showPop('hetrcn_info');" onMouseOut="hidePop('hetrcn_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-								 			<span title="hetrcn"><spring:message code="systema.tror.orders.form.update.label.containernr"/></span>
-								 			<div class="text11" style="position: relative;" align="left" >
-									 				<span style="position:absolute; top:2px; width:200px;" id="hetrcn_info" class="popupWithInputText text11"  >
-										           		<p><b><spring:message code="systema.tror.orders.form.update.label.containernr"/></b></p> 
-									           			Tast containernr dersom 1 er svart i foregående felt.
-									           			KRAV til feltet dersom CONT = 1.
-													</span>	
-											</div>
-								 			</td>
-								 			<td colspan="2" class="text14">
-								 				<input type="text" class="inputTextMediumBlue" name="hetrcn" id="hetrcn" size="18" maxlength="17" value="${model.record.hetrcn}">
-								 			</td>
-							 			</tr>
-							 			</table>
-						 			</td>
-					 			</tr>
 					 			
 					 			</table>
 						 			
