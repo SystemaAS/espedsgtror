@@ -1205,6 +1205,7 @@
 							 					
 											</select>
 							 			</td>
+							 			<%--
 										<td class="text14">
 											<img onMouseOver="showPop('hekdpl_info');" onMouseOut="hidePop('hekdpl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 											<span title="hekdpl"><spring:message code="systema.tror.orders.form.update.label.productcode"/></span>
@@ -1233,26 +1234,18 @@
 							 					</c:forEach>
 											</select>
 							 			</td>
-							 			
-										<%--	
-							 			<td class="text14" title="todo"><spring:message code="systema.tror.orders.form.update.label.forpassing"/></td>
-							    		<td class="text14">
-							    			<select class="inputTextMediumBlue" name="hepk2" id="hepk2" >
-							 				  <option value="">-velg-</option>
-											  <option value="J"<c:if test="${model.record.hepk2 == 'J'}"> selected </c:if> >Ja</option>
-											  <option value="N"<c:if test="${model.record.hepk2 == 'N'}"> selected </c:if> >Nei</option>
-											</select>
-						    			</td>
-						    			--%>
-							    		<td class="text14" title="hepk3">&nbsp;<spring:message code="systema.tror.orders.form.update.label.kkvittering"/></td>
-							    		<td class="text14">
-							    			<select class="inputText" name="hepk3" id="hepk3" >
-							 				  <option value="">-velg-</option>
-											  <option value="J"<c:if test="${model.record.hepk3 == 'J'}"> selected </c:if> >Ja</option>
-											  <option value="N"<c:if test="${model.record.hepk3 == 'N'}"> selected </c:if> >Nei</option>
-											  <option value="P"<c:if test="${model.record.hepk3 == 'P'}"> selected </c:if> >P</option>
-											</select>
-						    			</td>
+							 			 
+										
+								    		<td class="text14" title="hepk3">&nbsp;<spring:message code="systema.tror.orders.form.update.label.kkvittering"/></td>
+								    		<td class="text14">
+								    			<select class="inputText" name="hepk3" id="hepk3" >
+								 				  <option value="">-velg-</option>
+												  <option value="J"<c:if test="${model.record.hepk3 == 'J'}"> selected </c:if> >Ja</option>
+												  <option value="N"<c:if test="${model.record.hepk3 == 'N'}"> selected </c:if> >Nei</option>
+												  <option value="P"<c:if test="${model.record.hepk3 == 'P'}"> selected </c:if> >P</option>
+												</select>
+							    			</td>
+							    			--%>
 						    			<td class="text14" title="hepk4">&nbsp;<spring:message code="systema.tror.orders.form.update.label.tolldekl"/></td>
 							    		<td class="text14">
 							    			<select class="inputText" name="hepk4" id="hepk4" >
