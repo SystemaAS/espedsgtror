@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import no.systema.jservices.common.dao.DokufDao;
+import no.systema.jservices.common.dao.KodtfsDao;
 import no.systema.jservices.common.dao.TrackfDao;
 import no.systema.jservices.common.json.JsonDtoContainer;
 import no.systema.jservices.common.json.JsonReader;
@@ -17,6 +19,7 @@ import no.systema.tror.external.tvinn.sad.model.jsonjackson.dbtable.JsonMaintNct
 import no.systema.tror.external.tvinn.sad.service.MaintNctsExportTrkodfService;
 import no.systema.tror.external.tvinn.sad.url.store.TvinnNctsMaintenanceExportUrlDataStore;
 import no.systema.tror.mapper.url.request.UrlRequestParameterMapper;
+import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecord;
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.TrorConstants;
 
@@ -96,4 +99,34 @@ public class FlyImportExportManager {
 
 		return retval;
 	}	
+	
+	/**
+	 * 
+	 * @param urlCgiProxyService
+	 * @param appUser
+	 * @param headerOrderRecord
+	 */
+	public void getFlyselskapName(UrlCgiProxyService urlCgiProxyService, SystemaWebUser appUser, JsonTrorOrderHeaderRecord headerOrderRecord){
+		String retval = "";
+		JsonReader<JsonDtoContainer<KodtfsDao>> jsonReader = new JsonReader<JsonDtoContainer<KodtfsDao>>();
+		jsonReader.set(new JsonDtoContainer<KodtfsDao>());
+		String BASE_URL = TrorUrlDataStore.TROR_BASE_CHILDWINDOW_AIRLINES_KODTFS_URL;
+		StringBuilder urlRequestParams = new StringBuilder();
+		urlRequestParams.append("user=" + appUser.getUser());
+		urlRequestParams.append("&kfsfnr=" + headerOrderRecord.getHeknt());
+		
+		
+		logger.info("URL: " + BASE_URL);
+		logger.info("PARAMS: " + urlRequestParams.toString());
+		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+		//logger.info(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
+		DokufDao record = null;
+		JsonDtoContainer<KodtfsDao> container = (JsonDtoContainer<KodtfsDao>) jsonReader.get(jsonPayload);
+		if (container != null) {
+			for (KodtfsDao dao : container.getDtoList()) {
+				 headerOrderRecord.setOwnHeknt(dao.getKfsnav());
+			}
+			
+		}
+	}
 }

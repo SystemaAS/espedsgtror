@@ -203,7 +203,7 @@
 								<input type="hidden" name="wsopd" id="wsopd" value='${model.record.heopd}'>
 								<input type="hidden" name="userDate" id="userDate" value=''>
 								<input type="hidden" name="userTime" id="userTime" value=''>
-								<input type="hidden" name="callerModule" id="callerModule" value='trorFlyimport'>
+								<input type="hidden" name="callerModule" id="callerModule" value='trorFlyexport'>
 								
 									<table id="containerdatatableTable" cellspacing="2" align="left">
 										<tr>
@@ -256,7 +256,7 @@
 		
 		<tr>
 		<td>
-			<form action="tror_mainorderflyimport.do" name="trorOrderForm" id="trorOrderForm" method="post">
+			<form action="tror_mainorderflyexport.do" name="trorOrderForm" id="trorOrderForm" method="post">
 			<%-- this table wrapper is necessary to apply the css class with the thin border --%>
 			<table style="width:100%" id="wrapperTable" class="tabThinBorderWhite" cellspacing="0" border="0">
 			<tr height="10"><td>&nbsp;</td></tr> 
@@ -367,7 +367,7 @@
 							 				<td class="text14" width="15px" >&nbsp;</td>
 							 				<td class="text14" >
 							 					&nbsp;<font class="text16RedBold" >*</font><span title="heavd"><spring:message code="systema.tror.orders.form.update.label.avdelning"/></span>
-							 					<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_avd.do?action=doFind&ctype=tror_flyimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+							 					<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_avd.do?action=doFind&ctype=tror_flyexport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 		 											<img id="imgAvdList" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 							 				</td>
@@ -453,11 +453,11 @@
 							 			<tr>	
 							 				<td class="text14" title="hegn:${model.record.hegn}">
 							 					<img onMouseOver="showPop('hegn_info');" onMouseOut="hidePop('hegn_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-							 					<spring:message code="systema.tror.orders.form.update.label.godsnr"/>
+							 					<spring:message code="systema.tror.orders.form.update.label.mawb"/>
 							 					<div class="text11" style="position: relative;" align="left" >
 									 				<span style="position:absolute; top:2px; width:200px;" id="hegn_info" class="popupWithInputText text11"  >
 										           		<p><b><spring:message code="systema.tror.orders.form.update.label.godsnr"/></b></p> 
-									           			Her tastes forsendelsens godsnummer/awb.
+									           			Her tastes forsendelsens Mawb.
 													</span>	
 												</div>
 							 				</td>
@@ -472,8 +472,8 @@
 							 				</td>
 							 				<td class="text14">
 							 					<img onMouseOver="showPop('hesdl_info');" onMouseOut="hidePop('hesdl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-							 					<span title="hesdl"><spring:message code="systema.tror.orders.form.update.label.unload"/></span>
-				 								<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_loadunloadplaces.do?action=doFind&ctype=tror_flyimport','loadunloadWin','top=300px,left=50px,height=600px,width=800px,scrollbars=no,status=no,location=no')">						 				
+							 					<span title="hesdl"><spring:message code="systema.tror.orders.form.update.label.load"/></span>
+				 								<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_loadunloadplaces.do?action=doFind&ctype=tror_flyexport','loadunloadWin','top=300px,left=50px,height=600px,width=800px,scrollbars=no,status=no,location=no')">						 				
 						 							<img id="imgToSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 						 						</a>
 						 						<img style="vertical-align:middle;" src="resources/images/loading.png" width="15px" height="15px" border="0" alt="load/unload">
@@ -483,8 +483,8 @@
 				 								<input type="text" class="inputTextMediumBlue" name="hesdl" id="hesdl" size="25" maxlength="20" value="${model.record.hesdl}">
 				 								<div class="text11" style="position: relative;" align="left" >
 									 				<span style="position:absolute; top:2px; width:200px;" id="hesdl_info" class="popupWithInputText text11"  >
-										           		<p><b><spring:message code="systema.tror.orders.form.update.label.unload"/></b></p> 
-									           			Lossested. Det som står i dette feltet skrives på ankomstmelding og losseliste.
+										           		<p><b><spring:message code="systema.tror.orders.form.update.label.load"/></b></p> 
+									           			Lastested. F.eks: <b>L</b> = Eget lager, <b>S</b> = Speditørterminalen
 														Det er ikke krav til feltet.
 													</span>	
 												</div>
@@ -500,7 +500,9 @@
 						 				<tr>
 						 					<td class="text14" title="hekna">
 						 						<img onMouseOver="showPop('hekna_info');" onMouseOut="hidePop('hekna_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-						 						<spring:message code="systema.tror.orders.form.update.label.agent"/>
+						 						<spring:message code="systema.tror.orders.form.update.label.agent"/>/
+						 						<spring:message code="systema.tror.orders.form.update.label.baerer"/>
+						 						
 						 						<a tabindex="-1" id="trorAgentIdLink" >
 		 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
@@ -541,8 +543,8 @@
 							 			<tr>
 							 				<td class="text14" title="heknt">
 							 					<img onMouseOver="showPop('heknt_info');" onMouseOut="hidePop('heknt_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-							 					<spring:message code="systema.tror.orders.form.update.label.transport"/>
-							 					<a tabindex="-1" id="trorCarrierIdLink" >
+							 					<spring:message code="systema.tror.orders.form.update.label.flyselskap"/>
+							 					<a tabindex="-1" id="flyselskapIdLink" >
 		 											<img align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 		 										<div class="text11" style="position: relative;"" align="left" >
@@ -563,7 +565,7 @@
 							 					</c:choose>
 							 				</td>
 							 				<td class="text14" title="ownheknt">	
-							 					<input type="text" class="inputTextReadOnly" name="ownheknt" id="ownheknt" size="30" maxlength="30" value="${Xmodel.record.ownTODO}">
+							 					<input type="text" class="inputTextReadOnly" name="ownHeknt" id="ownHeknt" size="30" maxlength="30" value="${model.record.ownHeknt}">
 							 				</td>
 							 				<c:if test="${not empty model.record.heopd}">
 								 				<td class="text14" title="file upload">	
@@ -585,7 +587,7 @@
 								 			<td class="text14">
 								 				<img onMouseOver="showPop('hekdtm_info');" onMouseOut="hidePop('hekdtm_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<span title="hekdtm"><spring:message code="systema.tror.orders.form.update.label.transporttype"/></span>
-								 				<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_transporttypes.do?action=doFind&ctype=tror_flyimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+								 				<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_transporttypes.do?action=doFind&ctype=tror_flyexport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 		 											<img id="imgTransporttype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 										</a>
 		 										<div class="text11" style="position: relative;" align="left" >
@@ -1226,7 +1228,7 @@
 						 				<td class="text14">
 						 					<img onMouseOver="showPop('heot_info');" onMouseOut="hidePop('heot_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 					<span title="heot"><spring:message code="systema.tror.orders.form.update.label.oppdragstype"/></span>
-						 					<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_oppdragstype.do?action=doFind&ctype=flyimport','opptypeWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+						 					<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_oppdragstype.do?action=doFind&ctype=flyexport','opptypeWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 	 											<img id="imgOpptype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 	 										<div class="text11" style="position: relative;" align="left">
@@ -1255,7 +1257,7 @@
 										<td class="text14">
 											<img onMouseOver="showPop('hefr_info');" onMouseOut="hidePop('hefr_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 						 					<span title="hefr"><spring:message code="systema.tror.orders.form.update.label.incoterms"/></span>
-											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_incoterms.do?action=doFind&ctype=flyimport','incotermsWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_incoterms.do?action=doFind&ctype=flyexport','incotermsWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 	 											<img id="imgIncoterms" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 	 										<div class="text11" style="position: relative;" align="left">
@@ -1284,7 +1286,7 @@
 										<td class="text14">
 											<img onMouseOver="showPop('hekdpl_info');" onMouseOut="hidePop('hekdpl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 											<span title="hekdpl"><spring:message code="systema.tror.orders.form.update.label.productcode"/></span>
-											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_productcodes.do?action=doFind&ctype=flyimport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+											<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_productcodes.do?action=doFind&ctype=flyexport','customerWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 	 											<img id="imgProductcodes" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 	 										</a>
 	 										<div class="text11" style="position: relative;" align="left">
@@ -1473,7 +1475,7 @@
 										 					</c:forEach>
 														</select>
 														
-														<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_unitcodes.do?action=doFind&ctype=tror_flyimport_e1','unitWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
+														<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_unitcodes.do?action=doFind&ctype=tror_flyexport_e1','unitWin','top=300px,left=150px,height=600px,width=800px,scrollbars=no,status=no,location=no')">
 				 											<img id="imgTransporttype" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="12px" width="12px" border="0" alt="search">
 				 										</a>
 														
@@ -1590,7 +1592,7 @@
 			 <tr>
 				<td>
 					<div id="dialogUpdateStatus" title="Dialog">
-						 	<form action="tror_mainorderflyimport_updateStatus.do" name="updateStatusForm" id="updateStatusForm" >
+						 	<form action="tror_mainorderflyexport_updateStatus.do" name="updateStatusForm" id="updateStatusForm" >
 						 	<input type="hidden" name="currentAvd" id="currentAvd" value='${model.record.heavd}'>
 						 	<input type="hidden" name="currentOpd" id="currentOpd" value='${model.record.heopd}'>
 							<p class="text14" >Change status as needed.</p>

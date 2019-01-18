@@ -61,8 +61,12 @@ import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderDummyContainer;
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecord;
 import no.systema.tror.model.OrderContactInformationObject;
 import no.systema.tror.model.jsonjackson.JsonMainOrderTypesNewRecord;
+import no.systema.jservices.common.dao.DokufDao;
 import no.systema.jservices.common.dao.DokufeDao;
+import no.systema.jservices.common.dao.KodtfsDao;
 import no.systema.jservices.common.dao.TrackfDao;
+import no.systema.jservices.common.json.JsonDtoContainer;
+import no.systema.jservices.common.json.JsonReader;
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.service.TrorMainOrderHeaderService;
 import no.systema.tror.service.flyexport.TrorMainOrderHeaderFlyexportService;
@@ -102,6 +106,7 @@ public class TrorMainOrderHeaderFlyExportController {
 	private StringManager strMgr = new StringManager();
 	private DateTimeManager dateMgr = new DateTimeManager();
 	private OrderContactInformationManager orderContactInformationMgr = null;
+	
 	
 	//private ReflectionUrlStoreMgr reflectionUrlStoreMgr = new ReflectionUrlStoreMgr();
 	private final String DELSYSTEM_FLY_EXPORT = "D";
@@ -261,7 +266,10 @@ public class TrorMainOrderHeaderFlyExportController {
 					this.orderContactInformationMgr.getContactInformation(appUser, this.setDokufeDao(orderContactInformationObject), this.PARTY_CONSIGNOR_CN, true, orderContactInformationObject);
 					this.orderContactInformationMgr.getContactInformation(appUser, this.setDokufeDao(orderContactInformationObject), this.PARTY_CONSIGNEE_CZ, true, orderContactInformationObject);
 					this.setHeaderRecordContactInformation(headerOrderRecord, orderContactInformationObject);				
-					
+					//populate flyselskap_name if needed since headerOrder might include ONLY id from HEADF
+					if(headerOrderRecord!=null && strMgr.isNotNull(headerOrderRecord.getHeknt())){
+						flyMgr.getFlyselskapName(urlCgiProxyService, appUser, headerOrderRecord);
+					}
 					
 					//set always status as in list (since we do not get this value from back-end)
 					//TODO headerOrderRecord.setStatus(orderStatus);
@@ -1033,6 +1041,33 @@ public class TrorMainOrderHeaderFlyExportController {
 		model.put(TrorConstants.ASPECT_ERROR_META_INFO, errorMetaInformation);
 	}
 	
+	/**
+	 * 
+	 * @param appUser
+	 * @return
+	 */
+	private void getFlyselskapName(SystemaWebUser appUser, JsonTrorOrderHeaderRecord headerOrderRecord){
+		String retval = "";
+		JsonReader<JsonDtoContainer<KodtfsDao>> jsonReader = new JsonReader<JsonDtoContainer<KodtfsDao>>();
+		jsonReader.set(new JsonDtoContainer<KodtfsDao>());
+		String BASE_URL = TrorUrlDataStore.TROR_BASE_CHILDWINDOW_AIRLINES_KODTFS_URL;
+		StringBuilder urlRequestParams = new StringBuilder();
+		urlRequestParams.append("user=" + appUser.getUser());
+		
+		
+		logger.info("URL: " + BASE_URL);
+		logger.info("PARAMS: " + urlRequestParams.toString());
+		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+		logger.info(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
+		DokufDao record = null;
+		JsonDtoContainer<KodtfsDao> container = (JsonDtoContainer<KodtfsDao>) jsonReader.get(jsonPayload);
+		if (container != null) {
+			for (KodtfsDao dao : container.getDtoList()) {
+				 headerOrderRecord.setOwnHeknt(dao.getKfsnav());
+			}
+			
+		}
+	}
 	
 	//SERVICES
 	@Qualifier ("urlCgiProxyService")

@@ -436,6 +436,8 @@
 		  }else if(opener.jq('#hesdla').length && caller=='hesdla'){ //only way to check if field exists.(Order)
 			  opener.jq('#hesdla').val(loadPlaceName);
 		  }
+		  //
+		  
 		  //close child window
 		  window.close();
 	  });
@@ -475,14 +477,11 @@
 		  var id = record[0].replace("id_", "");
 		  var name = record[1].replace("name_", "");
 		  var caller= jq("#ctype").val();
-		  
-		  if ( caller =='tror_landimport' || caller =='tror_landexport'){ 
-			  opener.jq('#hesdl').val(name);
-			  opener.jq('#hesdl').focus();
+		  //if exists = will be populated
+		  opener.jq('#hesdl').val(name);
+		  opener.jq('#hesdl').focus();
 			  
-		  }else if(caller =='todo'){
-			 //TODO
-		  } 
+		  
 		  //close child window
 		  window.close();
 		  

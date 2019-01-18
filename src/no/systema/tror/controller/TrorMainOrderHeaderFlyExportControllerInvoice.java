@@ -46,6 +46,7 @@ import no.systema.main.model.SystemaWebUser;
 
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.manager.CodeDropDownMgr;
+import no.systema.tror.util.manager.FlyImportExportManager;
 import no.systema.tror.model.jsonjackson.order.invoice.JsonTrorOrderFlyExportInvoiceContainer;
 import no.systema.tror.model.jsonjackson.order.invoice.JsonTrorOrderFlyExportInvoiceReadyMarkContainer;
 import no.systema.tror.model.jsonjackson.order.invoice.JsonTrorOrderFlyExportInvoiceRecord;
@@ -90,6 +91,7 @@ public class TrorMainOrderHeaderFlyExportControllerInvoice {
 	private NumberFormatterLocaleAware numberFormatter = new NumberFormatterLocaleAware();
 	private StringManager strMgr = new StringManager();
 	private DateTimeManager dateMgr = new DateTimeManager();
+	
 	//private ReflectionUrlStoreMgr reflectionUrlStoreMgr = new ReflectionUrlStoreMgr();
 	@PostConstruct
 	public void initIt() throws Exception {

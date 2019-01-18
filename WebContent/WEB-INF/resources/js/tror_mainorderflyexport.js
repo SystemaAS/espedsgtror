@@ -154,16 +154,18 @@
 			  jq('#trorAgentIdLink').click();
 		  }
 	  });
-	  //Carrier
-	  jq('#trorCarrierIdLink').click(function() {
-		  jq('#trorCarrierIdLink').attr('target','_blank');
-		  window.open('tror_mainorder_childwindow_carrier.do?action=doFind&ctype=tror_car&knr=' + jq('#heknt').val(),"carrierWin","top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+	  
+	  //Flyselskap
+	  jq('#flyselskapIdLink').click(function() {
+		  jq('#flyselskapIdLink').attr('target','_blank');
+		  window.open('tror_mainorderflyexport_childwindow_airlines.do?action=doFind',"airlineWin","top=300px,left=400px,height=700px,width=900px,scrollbars=no,status=no,location=no");
 	  });
-	  jq('#trorCarrierIdLink').keypress(function(e){ //extra feature for the end user
+	  jq('#flyselskapIdLink').keypress(function(e){ //extra feature for the end user
 		  if(e.which == 13) {
-			  jq('#trorCarrierIdLink').click();
+			  jq('#flyselskapIdLink').click();
 		  }
-	  });
+	  });  
+	  
 	  //Seller
 	  jq('#trorSellerIdLink').click(function() {
 		  jq('#trorSellerIdLink').attr('target','_blank');
