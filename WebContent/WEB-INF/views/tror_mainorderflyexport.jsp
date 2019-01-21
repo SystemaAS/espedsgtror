@@ -425,6 +425,7 @@
 							 					</c:otherwise>
 							 					</c:choose>
 							 				</td>
+							 				<%--
 							 				<td class="text14" title="hepos1">
 							 					<img onMouseOver="showPop('hepos_info');" onMouseOut="hidePop('hepos_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.position"/>
@@ -448,29 +449,8 @@
 												</div>
 							 					
 							 				</td>
-							 				
-							 			</tr>
-							 			<tr>	
-							 				<td class="text14" title="hegn:${model.record.hegn}">
-							 					<img onMouseOver="showPop('hegn_info');" onMouseOut="hidePop('hegn_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
-							 					<spring:message code="systema.tror.orders.form.update.label.mawb"/>
-							 					<div class="text11" style="position: relative;" align="left" >
-									 				<span style="position:absolute; top:2px; width:200px;" id="hegn_info" class="popupWithInputText text11"  >
-										           		<p><b><spring:message code="systema.tror.orders.form.update.label.godsnr"/></b></p> 
-									           			Her tastes forsendelsens Mawb.
-													</span>	
-												</div>
-							 				</td>
-							 				
-							 				<td colspan="3" class="text14">
-							 					<input type="text" class="inputTextMediumBlue" name="hegn" id="hegn" size="16" maxlength="15" value="${model.record.hegn}">
-							 					<%--
-							 					<input type="text" class="inputTextMediumBlue" name="ownHegn1" id="ownHegn1" size="5" maxlength="4" value="${model.record.ownHegn1}">
-							 					<input type="text" class="inputTextMediumBlue" name="ownHegn2" id="ownHegn2" size="6" maxlength="5" value="${model.record.ownHegn2}">
-							 					<input type="text" class="inputTextMediumBlue" name="ownHegn3" id="ownHegn3" size="7" maxlength="6" value="${model.record.ownHegn3}">
-							 					 --%>
-							 				</td>
-							 				<td class="text14">
+							 				 --%>
+							 				 <td class="text14">
 							 					<img onMouseOver="showPop('hesdl_info');" onMouseOut="hidePop('hesdl_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<span title="hesdl"><spring:message code="systema.tror.orders.form.update.label.load"/></span>
 				 								<a href="javascript:void(0);" onClick="window.open('tror_mainorder_childwindow_loadunloadplaces.do?action=doFind&ctype=tror_flyexport','loadunloadWin','top=300px,left=50px,height=600px,width=800px,scrollbars=no,status=no,location=no')">						 				
@@ -489,10 +469,23 @@
 													</span>	
 												</div>
 											</td>
-						 				</tr>
-						 				
-						 				
-						 				<tr>	
+							 			</tr>
+							 			<tr>	
+							 				<td class="text14" title="hegn:${model.record.hegn}">
+							 					<img onMouseOver="showPop('hegn_info');" onMouseOut="hidePop('hegn_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
+							 					<spring:message code="systema.tror.orders.form.update.label.mawb"/>
+							 					<div class="text11" style="position: relative;" align="left" >
+									 				<span style="position:absolute; top:2px; width:200px;" id="hegn_info" class="popupWithInputText text11"  >
+										           		<p><b><spring:message code="systema.tror.orders.form.update.label.godsnr"/></b></p> 
+									           			Her tastes forsendelsens Mawb.
+													</span>	
+												</div>
+							 				</td>
+							 				
+							 				<td colspan="3" class="text14">
+							 					<input type="text" class="inputTextMediumBlue" name="hegn" id="hegn" size="16" maxlength="15" value="${model.record.hegn}">
+							 				</td>
+							 				
 							 				<td class="text14" title="trsta4">
 							 					<img onMouseOver="showPop('trsta4_info');" onMouseOut="hidePop('trsta4_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.produktkode"/>
@@ -507,7 +500,7 @@
 												</div>
 							 				</td>
 							 				
-							 				<td colspan="3" class="text14">
+							 				<td class="text14">
 							 					<select class="inputText" name="trsta4" id="trsta4">
 								 					<option value="" >-velg-</option>
 								 					<c:forEach var="record" items="${model.produktAirList}" varStatus="counter">
@@ -516,7 +509,9 @@
 												</select>
 												
 							 				</td>
-							 			</tr>
+							 				
+						 				</tr>
+						 				
 						 				
 						 				</table>
 					 				</td>
@@ -1170,7 +1165,7 @@
 							 				<select class="inputText" name="heot" id="heot">
 							 					<option value="" >-velg-</option>
 							 					<c:forEach var="record" items="${model.oppdragstypeList}" varStatus="counter">
-							 						<option value='${record.ko1kod}' <c:if test="${record.ko1kod == model.record.heot}"> selected </c:if> >${record.ko1kod}</option>
+							 						<option title="${record.ko1ntx}" value='${record.ko1kod}' <c:if test="${record.ko1kod == model.record.heot}"> selected </c:if> >${record.ko1kod}</option>
 							 						<c:set var="listSizeHeot" value="${counter.count}" scope="request" /> 
 							 					</c:forEach>
 											</select>
@@ -1234,34 +1229,35 @@
 							 					</c:forEach>
 											</select>
 							 			</td>
-							 			 
+							 			--%> 
+									<td class="text14" width="50px">&nbsp;</td>
 										
-								    		<td class="text14" title="hepk3">&nbsp;<spring:message code="systema.tror.orders.form.update.label.kkvittering"/></td>
-								    		<td class="text14">
-								    			<select class="inputText" name="hepk3" id="hepk3" >
-								 				  <option value="">-velg-</option>
-												  <option value="J"<c:if test="${model.record.hepk3 == 'J'}"> selected </c:if> >Ja</option>
-												  <option value="N"<c:if test="${model.record.hepk3 == 'N'}"> selected </c:if> >Nei</option>
-												  <option value="P"<c:if test="${model.record.hepk3 == 'P'}"> selected </c:if> >P</option>
-												</select>
-							    			</td>
-							    			--%>
-						    			<td class="text14" title="hepk4">&nbsp;<spring:message code="systema.tror.orders.form.update.label.tolldekl"/></td>
+							    		<td class="text14" title="hepk3">&nbsp;<spring:message code="systema.tror.orders.form.update.label.henteorder"/></td>
 							    		<td class="text14">
-							    			<select class="inputText" name="hepk4" id="hepk4" >
+							    			<select class="inputText" name="hepk3" id="hepk3" >
 							 				  <option value="">-velg-</option>
-											  <option value="J"<c:if test="${model.record.hepk4 == 'J'}"> selected </c:if> >Ja</option>
-											  <option value="N"<c:if test="${model.record.hepk4 == 'N'}"> selected </c:if> >Nei</option>
-											  <option value="P"<c:if test="${model.record.hepk4 == 'P'}"> selected </c:if> >P</option>
+											  <option value="J"<c:if test="${model.record.hepk3 == 'J'}"> selected </c:if> >Ja</option>
+											  <option value="N"<c:if test="${model.record.hepk3 == 'N'}"> selected </c:if> >Nei</option>
+											  <option value="P"<c:if test="${model.record.hepk3 == 'P'}"> selected </c:if> >P</option>
 											</select>
 						    			</td>
-						    			<td class="text14" title="hepk5">&nbsp;<spring:message code="systema.tror.orders.form.update.label.flyfraktbrev"/></td>
+							    			
+						    			<td class="text14" title="hepk6">&nbsp;<spring:message code="systema.tror.orders.form.update.label.tolldekl"/></td>
 							    		<td class="text14">
-							    			<select class="inputText" name="hepk5" id="hepk5" >
+							    			<select class="inputText" name="hepk6" id="hepk6" >
 							 				  <option value="">-velg-</option>
-											  <option value="J"<c:if test="${model.record.hepk5 == 'J'}"> selected </c:if> >Ja</option>
-											  <option value="N"<c:if test="${model.record.hepk5 == 'N'}"> selected </c:if> >Nei</option>
-											  <option value="P"<c:if test="${model.record.hepk5 == 'P'}"> selected </c:if> >P</option>
+											  <option value="J"<c:if test="${model.record.hepk6 == 'J'}"> selected </c:if> >Ja</option>
+											  <option value="N"<c:if test="${model.record.hepk6 == 'N'}"> selected </c:if> >Nei</option>
+											  <option value="P"<c:if test="${model.record.hepk6 == 'P'}"> selected </c:if> >P</option>
+											</select>
+						    			</td>
+						    			<td class="text14" title="hepk8">&nbsp;<spring:message code="systema.tror.orders.form.update.label.flyfraktbrev"/></td>
+							    		<td class="text14">
+							    			<select class="inputText" name="hepk8" id="hepk8" >
+							 				  <option value="">-velg-</option>
+											  <option value="J"<c:if test="${model.record.hepk8 == 'J'}"> selected </c:if> >Ja</option>
+											  <option value="N"<c:if test="${model.record.hepk8 == 'N'}"> selected </c:if> >Nei</option>
+											  <option value="P"<c:if test="${model.record.hepk8 == 'P'}"> selected </c:if> >P</option>
 											</select>
 						    			</td>
 						 			
@@ -1329,6 +1325,27 @@
 							 			<%------------------------ --%>
 							 			<%-- END Fraktbrev section --%>
 							 			<%------------------------ --%>
+							 		
+							 		<%-- CMR --%>
+							 		<td class="text14" title="hepk7">&nbsp;<spring:message code="systema.tror.orders.form.update.label.cmr"/></td>
+							    		<td class="text14">
+							    			<select class="inputText" name="hepk7" id="hepk7" >
+							 				  <option value="">-velg-</option>
+											  <option value="C"<c:if test="${model.record.hepk7 == 'C'}"> selected </c:if> >Ja -Bilfraktb.</option>
+											  <option value="B"<c:if test="${model.record.hepk7 == 'B'}"> selected </c:if> >Ja -Bill of lading</option>
+											  <option value="P"<c:if test="${model.record.hepk7 == 'P'}"> selected </c:if> >P</option>
+											</select>
+						    			</td>
+						    			
+						    			<td class="text14" width="20px">&nbsp;</td>
+						    			<%-- Lager --%>
+							 		<td class="text14" title="hekdl">&nbsp;<spring:message code="systema.tror.orders.form.update.label.lager"/></td>
+							    		<td class="text14">
+							    			<input  type="text" class="inputTextMediumBlue" name="hekdl" id="hekdl" size="15" maxlength="15" value="${model.record.hekdl}">
+						    			</td>	
+							 			
+							 			
+							 			
 							 		</tr>
 
 							 		</table>
