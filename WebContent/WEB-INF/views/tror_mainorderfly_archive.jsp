@@ -136,7 +136,7 @@
 					</c:if>
 				</c:otherwise>
 			</c:choose>		
-	    	<%-- separator --%>
+	    		<%-- separator --%>
 	        <tr height="20"><td></td></tr> 
 	        
 	        <tr> <!-- Second tab row... -->
@@ -144,17 +144,17 @@
  					<table class="formFrameHeaderTransparent" width="99%" cellspacing="0" border="0" cellpadding="0">
 						<tr height="20"> 
 							<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
-								<a id="alinkMoreTrackTrace" onClick="setBlockUI(this);" href="tror_mainorderfly_ttrace.do?avd=${recordOrderTrorFly.heavd}&sign=${recordOrderTrorFly.hesg}&opd=${recordOrderTrorFly.heopd}">
+								<a style="display:block" id="alinkMoreTrackTrace" onClick="setBlockUI(this);" href="tror_mainorderfly_ttrace.do?avd=${recordOrderTrorFly.heavd}&sign=${recordOrderTrorFly.hesg}&opd=${recordOrderTrorFly.heopd}">
 									<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.tracktrace.subtab"/></font>&nbsp;						
 								</a>
 							</td>
 							<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
-								<a id="alinkMoreTrackTraceGeneral" onClick="setBlockUI(this);" href="tror_mainorderfly_ttrace_general.do?ttavd=${recordOrderTrorFly.heavd}&ttopd=${recordOrderTrorFly.heopd}">
+								<a style="display:block" id="alinkMoreTrackTraceGeneral" onClick="setBlockUI(this);" href="tror_mainorderfly_ttrace_general.do?ttavd=${recordOrderTrorFly.heavd}&ttopd=${recordOrderTrorFly.heopd}">
 									<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.tracktracegrl.subtab"/></font>&nbsp;					
 								</a>
 							</td>
 							<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
-								<a id="alinkEdiLogging" onClick="setBlockUI(this);" href="tror_mainorderfly_logging.do?avd=${recordOrderTrorFly.heavd}&sign=${recordOrderTrorFly.hesg}&opd=${recordOrderTrorFly.heopd}">
+								<a style="display:block" id="alinkEdiLogging" onClick="setBlockUI(this);" href="tror_mainorderfly_logging.do?avd=${recordOrderTrorFly.heavd}&sign=${recordOrderTrorFly.hesg}&opd=${recordOrderTrorFly.heopd}">
 									<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.edilog.subtab"/></font>&nbsp;					
 								</a>
 							</td>
@@ -163,7 +163,7 @@
 							</td>
 							
 							<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
-								<a id="alinkBudget" onClick="setBlockUI(this);" href="tror_mainorderfly_budget.do?avd=${recordOrderTrorFly.heavd}&sign=${recordOrderTrorFly.hesg}&opd=${recordOrderTrorFly.heopd}">
+								<a style="display:block" id="alinkBudget" onClick="setBlockUI(this);" href="tror_mainorderfly_budget.do?avd=${recordOrderTrorFly.heavd}&sign=${recordOrderTrorFly.hesg}&opd=${recordOrderTrorFly.heopd}">
 									<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.budget.tab"/></font>&nbsp;					
 								</a>
 							</td>
