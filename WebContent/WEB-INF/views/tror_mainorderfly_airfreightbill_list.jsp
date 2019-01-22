@@ -191,7 +191,7 @@
 							               <tr class="tableHeaderField" height="20">
 							                
 							               <td align="center" width="2%" class="text14" >
-							     				<a id="recordUpdate_${record.imlop}" onClick="setBlockUI(this);" href="tror_mainorderfly_airfreightbill_imp_edit.do?action=doFetch&imavd=${record.imavd}&sign=${Xrecord.imsg}&imopd=${record.imopd}&imlop=${record.imlop}">
+							     				<a style="display:block" id="recordUpdate_${record.imlop}" onClick="setBlockUI(this);" href="tror_mainorderfly_airfreightbill_imp_edit.do?action=doFetch&imavd=${record.imavd}&sign=${Xrecord.imsg}&imopd=${record.imopd}&imlop=${record.imlop}">
 							     					<c:choose>
 								     					<c:when test="${empty recordOrderTrorFly.hest || recordOrderTrorFly.hest == 'U' || recordOrderTrorFly.hest == 'O' || recordOrderTrorFly.hest == 'F' || recordOrderTrorFly.hest == 'C' || recordOrderTrorFly.hest == 'K' }">		
 								     						<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;						               				

@@ -180,7 +180,7 @@
 							               <tr class="tableRow" height="20" >
 							                
 							               <td align="center" width="2%" class="text14" >
-							               		<a id="recordUpdate_${record.dffbnr}" onClick="setBlockUI(this);" href="tror_mainorderfly_freightbill_edit.do?dfavd=${record.dfavd}&sign=${record.dfsg}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
+							               		<a style="display:block" id="recordUpdate_${record.dffbnr}" onClick="setBlockUI(this);" href="tror_mainorderfly_freightbill_edit.do?dfavd=${record.dfavd}&sign=${record.dfsg}&dfopd=${record.dfopd}&dffbnr=${record.dffbnr}">
 							               			<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
 							               			<%--
 							               			<c:choose>
