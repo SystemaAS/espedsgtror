@@ -97,15 +97,27 @@
 				</a>
 			</td>
 
-			<c:if test="${recordOrderTrorFly.hepk5 == 'J' || recordOrderTrorFly.hepk5 == 'P'}">
-				<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
-				<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
-					<a class="text14" onClick="setBlockUI(this);" href="tror_mainorderfly_airfreightbill_gate.do?avd=${recordOrderTrorFly.heavd}&sign=${recordOrderTrorFly.hesg}&opd=${recordOrderTrorFly.heopd}">
+			<c:choose>
+			<c:when test="${recordOrderTrorFly.heur == 'C'}">
+				<c:if test="${recordOrderTrorFly.hepk5 == 'J' || recordOrderTrorFly.hepk5 == 'P'}">
+					<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
+					<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
 						<img style="vertical-align: bottom" src="resources/images/pen.png" width="16" height="16" border="0" alt="Awb">
 						<font class="tabDisabledLink">&nbsp;<spring:message code="systema.tror.order.flyfraktbrev.tab"/></font>&nbsp;<font class="text10Orange">F8</font>
-					</a>
-				</td>
-			</c:if>
+					</td>
+				</c:if>	
+			</c:when>
+			<c:otherwise> <%-- meaning Flyeksport --%>
+				<c:if test="${recordOrderTrorFly.hepk8 == 'J' || recordOrderTrorFly.hepk8 == 'P'}">
+					<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
+					<td width="12%" valign="bottom" class="tabDisabled" align="center" nowrap>
+						<img style="vertical-align: bottom" src="resources/images/pen.png" width="16" height="16" border="0" alt="Awb">
+						<font class="tabDisabledLink">&nbsp;<spring:message code="systema.tror.order.flyfraktbrev.tab"/></font>&nbsp;<font class="text10Orange">F8</font>
+					</td>
+				</c:if>					
+			</c:otherwise>
+			</c:choose>
+			
 			<c:if test="${recordOrderTrorFly.hepk1 == 'J' || recordOrderTrorFly.hepk1 == 'P'}">
 				<td width="1px" class="tabFantomSpace" align="center" nowrap><font class="tabDisabledLink">&nbsp;</font></td>
 				<td width="12%" valign="bottom" class="tab" align="center" nowrap>
