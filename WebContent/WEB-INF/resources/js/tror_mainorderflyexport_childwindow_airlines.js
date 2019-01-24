@@ -16,7 +16,7 @@
 			var name = record[1].replace("name_","");
 			//Different openers
 			opener.jq('#heknt').val(id);
-			opener.jq('#ownheknt').val(name);
+			opener.jq('#ownHeknt').val(name);
 			//
 			opener.jq('#hegn5_7').val(id);
 			

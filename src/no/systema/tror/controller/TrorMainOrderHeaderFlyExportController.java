@@ -179,7 +179,7 @@ public class TrorMainOrderHeaderFlyExportController {
 		
 		ModelAndView successView = new ModelAndView("tror_mainorderflyexport");
 		SystemaWebUser appUser = this.loginValidator.getValidUser(session);
-		
+		logger.info("Tradevision-flag:" + appUser.getTradevisionFlag());
 		//check user (should be in session already)
 		if(appUser==null){
 			return loginView;
@@ -268,7 +268,9 @@ public class TrorMainOrderHeaderFlyExportController {
 					this.setHeaderRecordContactInformation(headerOrderRecord, orderContactInformationObject);				
 					//populate flyselskap_name if needed since headerOrder might include ONLY id from HEADF
 					if(headerOrderRecord!=null && strMgr.isNotNull(headerOrderRecord.getHeknt())){
-						flyMgr.getFlyselskapName(urlCgiProxyService, appUser, headerOrderRecord);
+						if( !"0".equals(headerOrderRecord.getHeknt()) ){
+							flyMgr.getFlyselskapName(urlCgiProxyService, appUser, headerOrderRecord);
+						}
 					}
 					
 					//set always status as in list (since we do not get this value from back-end)

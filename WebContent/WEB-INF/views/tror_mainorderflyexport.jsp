@@ -562,7 +562,7 @@
 							 				
 							 			</tr>
 							 			<tr>
-							 				<td class="text14" title="heknt">
+							 				<td class="text14" title="heknt/ownHeknt">
 							 					<img onMouseOver="showPop('heknt_info');" onMouseOut="hidePop('heknt_info');"style="vertical-align:middle;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 					<spring:message code="systema.tror.orders.form.update.label.flyselskap"/>
 							 					<a tabindex="-1" id="flyselskapIdLink" >
