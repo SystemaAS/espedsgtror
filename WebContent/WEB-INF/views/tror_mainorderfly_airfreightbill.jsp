@@ -9,6 +9,7 @@
 	<SCRIPT type="text/javascript" src="resources/js/tror_mainorderfly_airfreightbill.js?ver=${user.versionEspedsg}"></SCRIPT>
 	<SCRIPT type="text/javascript" src="resources/js/trorFkeys_flyimport.js?ver=${user.versionEspedsg}"></SCRIPT>
 	
+	
 	<%-- for dialog popup --%>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	
@@ -204,11 +205,11 @@
 								<tr height="20"> 
 										
 										<td width="12%" valign="bottom" class="tabSub" align="center" nowrap>
-											<font class="tabLinkMinor">&nbsp;Flyfraktbrev</font>&nbsp;						
+											<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
 										</td>
 										<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
 											<a style="display:block" id="alinkTradevision" onClick="setBlockUI(this);" href="TODOtror_mainorderfly_ttrace_general.do?ttavd=${recordOrderTrorFly.heavd}&ttopd=${recordOrderTrorFly.heopd}">
-												<font class="tabDisabledLinkMinor">&nbsp;Tradevision</font>&nbsp;					
+												<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.tradevision.subtab"/></font>&nbsp;					
 											</a>
 										</td>
 										<td width="80%" class="tabFantomSpace" align="center" nowrap></td>
@@ -224,10 +225,10 @@
 								<tr height="20"> 
 										
 										<td width="12%" valign="bottom" class="tabSub" align="center" nowrap>
-											<font class="tabLinkMinor">&nbsp;Flyfraktbrev</font>&nbsp;						
+											<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
 										</td>
 										<td width="18%" valign="bottom" class="tabDisabledSub" style="background-color:#FFBABA;" align="center" nowrap>
-											<font class="tabDisabledLinkMinor" style="color:#D8000C;">&nbsp;Tradevision (user not valid)</font>&nbsp;					
+											<font class="tabDisabledLinkMinor" style="color:#D8000C;">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.tradevision.subtab"/>&nbsp;(user not valid)</font>&nbsp;					
 										</td>
 										<td width="80%" class="tabFantomSpace" align="center" nowrap></td>
 								</tr>
@@ -251,8 +252,10 @@
 					 			<td align="left" class="text14White">
 									&nbsp;<img style="vertical-align:bottom;" src="resources/images/complete-icon.png" width="16" hight="16" border="0" alt="edit">	
 									&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.title"/>
-									&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.mawb"/>:&nbsp;<font style="color: yellow"><b>${recordFlyfraktbrevImportHeaderTrorFly.hegn}</b></font>
 									&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: black"><b>${model.record.dfavd} / ${model.record.dfopd} / ${model.record.dflop} / ${model.record.dfsg}</b></font>
+									&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.mawb"/>:&nbsp;<font style="color: yellow"><b>${recordOrderTrorFly.hegn}</b></font>
+									&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hawb"/>:&nbsp;<font style="color: yellow"><b>${recordOrderTrorFly.hehawb}</b></font>
+									
 									&nbsp;&nbsp;
 									
 				 				</td>

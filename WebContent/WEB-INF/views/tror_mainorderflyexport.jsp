@@ -273,6 +273,8 @@
 									&nbsp;<spring:message code="systema.tror.orders.form.update.label.header.edit"/>
 									&nbsp;&nbsp;<font style="color: yellow"><b>${model.record.heavd} / ${model.record.heopd} / ${model.record.hesg}</b></font>
 									&nbsp;&nbsp;&nbsp;<b><spring:message code="systema.tror.order.suborder.flyexport"/></b>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="systema.tror.orders.form.update.label.hawb"/>:&nbsp;${model.record.hehawb}
+									
 				 				</td >
 			 				</c:when>
 			 				<c:otherwise>
