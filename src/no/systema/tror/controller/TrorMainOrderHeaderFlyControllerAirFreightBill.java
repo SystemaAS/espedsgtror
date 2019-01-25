@@ -35,6 +35,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import no.systema.jservices.common.dao.DokefDao;
 import no.systema.jservices.common.dao.DokefimDao;
+import no.systema.jservices.common.dao.LocfDao;
 
 import no.systema.jservices.common.json.JsonDtoContainer;
 import no.systema.jservices.common.json.JsonReader;
@@ -394,7 +395,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		String updateId = request.getParameter("updateId");
 		StringBuffer errMsg = new StringBuffer();
 		
-		DokefimDao savedRecord = null;
 		
 		if (appUser == null) {
 			return this.loginView;
@@ -474,8 +474,12 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 				logger.info("FETCH branch");
 				DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDflop());
 				
+				if("J".equals(appUser.getTradevisionFlag())){
+					if(this.isTradevisionUserValid(appUser)){
+						model.put("tradevisionUserExists", "J");
+					}
+				}
 				if(recordDokefDao!=null && recordDokefDao.getDflop()>0){
-					
 					model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
 					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefDao);
 				}else{
@@ -645,6 +649,39 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 						model.put("fvektTotal", x);
 					}
 				}
+			}	
+			
+		}
+		return retval;
+	
+	}
+	
+	/**
+	 * Checks if tradevision user exists
+	 * @param model
+	 * @param appUser
+	 * @return
+	 */
+	private boolean isTradevisionUserValid(SystemaWebUser appUser) {
+		boolean retval = false;
+		
+		JsonReader<JsonDtoContainer<LocfDao>> jsonReader = new JsonReader<JsonDtoContainer<LocfDao>>();
+		jsonReader.set(new JsonDtoContainer<LocfDao>());
+		final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_LOCF_URL;
+		StringBuilder urlRequestParams = new StringBuilder();
+		urlRequestParams.append("user=" + appUser.getUser());
+		
+		logger.info("URL: " + BASE_URL);
+		logger.info("PARAMS: " + urlRequestParams.toString());
+		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+		logger.info("jsonPayload=" + jsonPayload);
+		JsonDtoContainer<LocfDao> container = (JsonDtoContainer<LocfDao>) jsonReader.get(jsonPayload);
+		if (container != null) {
+			
+			List<LocfDao> tmpList = container.getDtoList();
+			if(tmpList!=null && tmpList.size()>0){
+				retval = true;
+				
 			}	
 			
 		}
