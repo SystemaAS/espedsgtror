@@ -195,48 +195,51 @@
 			<table style="width:100%" id="wrapperTable" class="tabThinBorderWhite" cellspacing="0">
 			<tr height="10"><td>&nbsp;</td></tr> 
 			
-			<!-- Second tab row... ONLY export since Tradevision module MUST be handled -->
+			<%-- Second tab row... ONLY export since Tradevision module MUST be handled --%>
 			<c:if test="${recordOrderTrorFly.heur == 'D' && user.tradevisionFlag == 'J'}">
-				<c:choose>
-				<c:when test="${model.tradevisionUserExists == 'J'}">
-					<tr> 
-		 	   	 		<td align="left" width="99%">
-		 					<table class="formFrameHeaderTransparent" width="98%" cellspacing="0" border="0" cellpadding="0">
-								<tr height="20"> 
-										
-										<td width="12%" valign="bottom" class="tabSub" align="center" nowrap>
-											<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
-										</td>
-										<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
-											<a style="display:block" id="alinkTradevision" onClick="setBlockUI(this);" href="TODOtror_mainorderfly_ttrace_general.do?ttavd=${recordOrderTrorFly.heavd}&ttopd=${recordOrderTrorFly.heopd}">
-												<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.tradevision.subtab"/></font>&nbsp;					
-											</a>
-										</td>
-										<td width="80%" class="tabFantomSpace" align="center" nowrap></td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</c:when>
-				<c:otherwise>
-					<tr> 
-		 	   	 		<td align="left" width="99%">
-		 					<table class="formFrameHeaderTransparent" width="98%" cellspacing="0" border="0" cellpadding="0">
-								<tr height="20"> 
-										
-										<td width="12%" valign="bottom" class="tabSub" align="center" nowrap>
-											<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
-										</td>
-										<td width="18%" valign="bottom" class="tabDisabledSub" style="background-color:#FFBABA;" align="center" nowrap>
-											<font class="tabDisabledLinkMinor" style="color:#D8000C;">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.tradevision.subtab"/>&nbsp;(user not valid)</font>&nbsp;					
-										</td>
-										<td width="80%" class="tabFantomSpace" align="center" nowrap></td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</c:otherwise>
-				</c:choose>
+				<%-- ONLY if FWB(dfcm), meaning EDIFACT FWB ELECTRONIC is required  --%>
+				<c:if test="${model.record.dfcmn == 'J'}">
+					<c:choose>
+					<c:when test="${model.tradevisionUserExists == 'J'}">
+						<tr> 
+			 	   	 		<td align="left" width="99%">
+			 					<table class="formFrameHeaderTransparent" width="98%" cellspacing="0" border="0" cellpadding="0">
+									<tr height="20"> 
+											
+											<td width="12%" valign="bottom" class="tabSub" align="center" nowrap>
+												<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
+											</td>
+											<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
+												<a style="display:block" id="alinkTradevision" onClick="setBlockUI(this);" href="TODOtror_mainorderfly_ttrace_general.do?ttavd=${recordOrderTrorFly.heavd}&ttopd=${recordOrderTrorFly.heopd}">
+													<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.tradevision.subtab"/></font>&nbsp;					
+												</a>
+											</td>
+											<td width="80%" class="tabFantomSpace" align="center" nowrap></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<tr> 
+			 	   	 		<td align="left" width="99%">
+			 					<table class="formFrameHeaderTransparent" width="98%" cellspacing="0" border="0" cellpadding="0">
+									<tr height="20"> 
+											
+											<td width="12%" valign="bottom" class="tabSub" align="center" nowrap>
+												<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
+											</td>
+											<td width="18%" valign="bottom" class="tabDisabledSub" style="background-color:#FFBABA;" align="center" nowrap>
+												<font class="tabDisabledLinkMinor" style="color:#D8000C;">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.tradevision.subtab"/>&nbsp;(user not valid)</font>&nbsp;					
+											</td>
+											<td width="80%" class="tabFantomSpace" align="center" nowrap></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</c:otherwise>
+					</c:choose>
+				</c:if>
 			</c:if>
 			<!-- End second tab row -->	
 			

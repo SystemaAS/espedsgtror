@@ -1263,11 +1263,10 @@
 											</select>
 						    			</td>
 						 			
-							 			<td class="text14" width="50px">&nbsp;</td>	
 							 			<%-------------------------- --%>
 							 			<%-- START Fraktbrev section --%>
 							 			<%-------------------------- --%>
-							 			<td class="text14">
+							 			<td class="text14">&nbsp;&nbsp;
 							 				<img onMouseOver="showPop('fraktbrev_info');" onMouseOut="hidePop('fraktbrev_info');"style="vertical-align:bottom;" width="12px" height="12px" src="resources/images/info3.png" border="0" alt="info">
 							 				<span title="hepk1"><b><spring:message code="systema.tror.orders.form.update.label.fraktbrev"/></b></span>
 							 				<div class="text14" style="position: relative;" align="left">
