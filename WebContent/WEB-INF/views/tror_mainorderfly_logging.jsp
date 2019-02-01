@@ -7,7 +7,6 @@
 <SCRIPT type="text/javascript" src="resources/js/tror_mainorderfly_logging.js?ver=${user.versionEspedsg}"></SCRIPT>
 <SCRIPT type="text/javascript" src="resources/js/trorFkeys_flyimport.js?ver=${user.versionEspedsg}"></SCRIPT>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
 <table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
 	<tr>
