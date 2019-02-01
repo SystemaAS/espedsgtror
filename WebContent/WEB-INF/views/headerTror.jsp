@@ -21,8 +21,10 @@
 			</c:otherwise>
 		</c:choose>
 		
-		<%-- for dialog popup --%>
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<%-- for dialog popup  --%>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		
+		
 		<style type = "text/css">
 			.ui-datepicker { font-size:10pt;}
 			.ui-dialog{font-size:10pt;}
@@ -40,8 +42,9 @@
 	</head>
 	<body>
 	<%-- include som javascript functions --%>
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js""></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js""></script>
+
 	<script type="text/javascript" src="resources/js/jquery.blockUI.js"></script>
 	<script type="text/javascript" src="resources/js/systemaWebGlobal.js?ver=${user.versionEspedsg}"></script>
 	<SCRIPT type="text/javascript" src="resources/js/headerTror.js?ver=${user.versionEspedsg}"></SCRIPT>
