@@ -43,6 +43,9 @@ public class TrorUrlDataStore {
 		
 	//http://gw.systema.no:8080/syjservicestror/syjsFFR00F.do?user=OSCAR
 	static public String TROR_BASE_FETCH_FFR00F_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsFFR00F.do?";
+	
+	//http://gw.systema.no:8080/syjservicestror/syjsLOGF.do?user=OSCAR
+	static public String TROR_BASE_FETCH_LOGF_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsLOGF.do?";
 		
 	
 	

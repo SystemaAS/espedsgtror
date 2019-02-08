@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.log4j.Logger;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
@@ -35,6 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import no.systema.jservices.common.dao.DokefDao;
 import no.systema.jservices.common.dao.DokefimDao;
+import no.systema.jservices.common.dao.Ffr00fDao;
 import no.systema.jservices.common.dao.LocfDao;
 
 import no.systema.jservices.common.json.JsonDtoContainer;
@@ -49,6 +51,9 @@ import no.systema.main.util.AppConstants;
 import no.systema.main.util.JsonDebugger;
 import no.systema.main.util.MessageNoteManager;
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecord;
+import no.systema.tror.model.jsonjackson.DokefDto;
+import no.systema.tror.converter.DaoConverter;
+
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.service.flyimport.TrorMainOrderHeaderFlyimportService;
 import no.systema.tror.url.store.TrorUrlDataStore;
@@ -94,7 +99,9 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 	//
 	private final String HEUR_TYPE_FLY_IMPORT = "C";
 	private final String HEUR_TYPE_FLY_EXPORT = "D";
-	
+	//Converter for Dto's to Dao's
+	private DaoConverter daoConverter = new DaoConverter();
+		
 	@PostConstruct
 	public void initIt() throws Exception {
 		//init managers
@@ -386,7 +393,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 	 * @return
 	 */
 	@RequestMapping(value="tror_mainorderfly_airfreightbill_edit.do", method={RequestMethod.GET, RequestMethod.POST })
-	public ModelAndView tror_mainorderfly_airfreightbill_edit(@ModelAttribute ("record") DokefDao recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
+	public ModelAndView tror_mainorderfly_airfreightbill_edit(@ModelAttribute ("record") DokefDto recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
 		ModelAndView successView = new ModelAndView("tror_mainorderfly_airfreightbill");
 		
 		SystemaWebUser appUser = (SystemaWebUser)session.getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
@@ -472,11 +479,19 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 					*/
 			} else { // Fetch
 				logger.info("FETCH branch");
-				DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDflop());
+				//mapper converters
+				ModelMapper modelMapper = new ModelMapper();
+				modelMapper.addConverter(this.daoConverter.doBigDecimal());
+				modelMapper.addConverter(this.daoConverter.doInteger());
+				//handover from dto to dao
+				DokefDao daoSource = modelMapper.map(recordToValidate, DokefDao.class);
+				
+				DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, daoSource.getDfavd(), daoSource.getDfopd(), daoSource.getDflop());
 				
 				if("J".equals(appUser.getTradevisionFlag())){
 					if(this.isTradevisionUserValid(appUser)){
 						model.put("tradevisionUserExists", "J");
+						logger.info("tradevisionUser is valid!!!");
 					}
 				}
 				if(recordDokefDao!=null && recordDokefDao.getDflop()>0){

@@ -6,7 +6,7 @@
 	<%-- specific jQuery functions for this JSP (must reside under the resource map since this has been
 		specified in servlet.xml as static <mvc:resources mapping="/resources/**" location="WEB-INF/resources/" order="1"/> --%>
 	<SCRIPT type="text/javascript" src="resources/js/trorglobal_edit.js?ver=${user.versionEspedsg}"></SCRIPT>	
-	<SCRIPT type="text/javascript" src="resources/js/tror_mainorderfly_airfreightbill_trvision.js?ver=${user.versionEspedsg}"></SCRIPT>
+	<SCRIPT type="text/javascript" src="resources/js/tror_mainorderfly_airfreightbill_trvision_edit.js?ver=${user.versionEspedsg}"></SCRIPT>
 	<SCRIPT type="text/javascript" src="resources/js/trorFkeys_flyimport.js?ver=${user.versionEspedsg}"></SCRIPT>
 	
 	
@@ -222,9 +222,16 @@
 							&nbsp;<img style="vertical-align:bottom;" src="resources/images/complete-icon.png" width="16" hight="16" border="0" alt="edit">	
 							&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.title"/>
 							&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: black"><b>${recordOrderTrorFly.heavd} / ${recordOrderTrorFly.heopd} / ${recordOrderTrorFly.hesg}</b></font>
-							&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.mawb"/>:&nbsp;<font style="color: yellow"><b>${recordOrderTrorFly.hegn}</b></font>
-							&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hawb"/>:&nbsp;<font style="color: yellow"><b>${recordOrderTrorFly.hehawb}</b></font>
+							&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.mawb"/>:&nbsp;<font style="color: black"><b>${recordOrderTrorFly.hegn}</b></font>
+							&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hawb"/>:&nbsp;<font style="color: black"><b>${recordOrderTrorFly.hehawb}</b></font>
 							&nbsp;&nbsp;
+		 				</td>
+		 				<td align="right" class="text14White">
+		 					<c:if test="${not empty model.bookingExists}">
+		 						<img style="vertical-align:middle;" src="resources/images/airplaneBlue.png" height="12px" width="12px" border="0" alt="booking exists">
+		 						<font style="color: yellow"><b>Booking exists</b></font>
+		 					</c:if>
+		 					&nbsp;&nbsp;TRADEVISION&nbsp;
 		 				</td>
 	 				</tr>
  					</table>
@@ -277,7 +284,14 @@
 										</div>
 					 				</td>
 					 				<td class="text14" >
-					 					<input type="text" class="inputTextMediumBlue" name="ownAwb" id="ownAwb" size="20" maxlength="20" value="${model.record.f0211}${model.record.f0213}">
+					 					<c:choose>
+						 					<c:when test="${model.record.f0213 > 0}">
+						 						<input type="text" class="inputTextMediumBlue" name="ownAwb" id="ownAwb" size="20" maxlength="20" value="${model.record.f0211}${model.record.f0213}">
+						 					</c:when>
+						 					<c:otherwise>
+						 						<input type="text" class="inputTextMediumBlue" name="ownAwb" id="ownAwb" size="20" maxlength="20" value="${model.awb}">
+						 					</c:otherwise>
+					 					</c:choose>
 									</td>
 									<td class="text14" >
 					 					<input tabindex=-1 readonly type="text" class="inputTextReadOnly" size="11" value="${model.record.f00rec}">

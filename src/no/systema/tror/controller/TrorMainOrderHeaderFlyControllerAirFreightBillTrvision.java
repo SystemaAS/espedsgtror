@@ -36,6 +36,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import no.systema.jservices.common.dao.Ffr00fDao;
 import no.systema.jservices.common.dao.LocfDao;
+import no.systema.jservices.common.dao.LogfDao;
 import no.systema.jservices.common.dto.KostaDto;
 import no.systema.tror.model.jsonjackson.Ffr00fDto;
 import org.modelmapper.ModelMapper;
@@ -47,6 +48,8 @@ import no.systema.jservices.common.json.JsonReader;
 
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.util.StringManager;
+import no.systema.main.util.NumberFormatterLocaleAware;
+
 import no.systema.main.validator.UserValidator;
 
 import no.systema.main.service.UrlCgiProxyService;
@@ -54,11 +57,14 @@ import no.systema.main.util.AppConstants;
 import no.systema.main.util.JsonDebugger;
 import no.systema.main.util.MessageNoteManager;
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecord;
+import no.systema.tror.converter.DaoConverter;
+
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.service.flyimport.TrorMainOrderHeaderFlyimportService;
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.RpgReturnResponseHandler;
 import no.systema.tror.util.TrorConstants;
+import no.systema.tror.util.manager.AWBManager;
 import no.systema.tror.util.manager.CodeDropDownMgr;
 import no.systema.tror.util.manager.FlyImportExportManager;
 import no.systema.tror.util.manager.OrderContactInformationManager;
@@ -99,6 +105,9 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	//
 	private final String HEUR_TYPE_FLY_IMPORT = "C";
 	private final String HEUR_TYPE_FLY_EXPORT = "D";
+	//Converter for Dto's to Dao's
+	private DaoConverter daoConverter = new DaoConverter();
+	private NumberFormatterLocaleAware numberFormatter = new NumberFormatterLocaleAware();
 	
 	@PostConstruct
 	public void initIt() throws Exception {
@@ -114,7 +123,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value="tror_mainorderfly_airfreightbill_trvision.do", method={RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value="tror_mainorderfly_airfreightbill_trvision_edit.do", method={RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView tror_mainorderfly_airfreightbill_trvision(@ModelAttribute ("record") Ffr00fDto recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
 		ModelAndView successView = new ModelAndView("tror_mainorderfly_airfreightbill_trvision");
 		
@@ -123,8 +132,15 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 		String action = request.getParameter("action");
 		String updateId = request.getParameter("updateId");
 		StringBuffer errMsg = new StringBuffer();
-		
-		
+		String mawb = request.getParameter("mawb");
+		String awb = "";
+		if(strMgr.isNotNull(mawb)){
+			if(mawb.length()>=11){
+				awb = mawb.substring(mawb.length()-11);
+				model.put("awb",awb);
+			}
+		}
+	
 		if (appUser == null) {
 			return this.loginView;
 		} else {
@@ -201,21 +217,28 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 					*/
 			} else { // Fetch
 				logger.info("FETCH branch");
-				recordToValidate.setF0235("1,55");
-				recordToValidate.setF0221("aeo");
+				//recordToValidate.setF0235("1,55");
+				//recordToValidate.setF0221("aeo");
 				//mapper converters
 				ModelMapper modelMapper = new ModelMapper();
-				modelMapper.addConverter(this.doBigDecimal());
+				modelMapper.addConverter(this.daoConverter.doBigDecimal());
+				modelMapper.addConverter(this.daoConverter.doInteger());
 				//handover from dto to dao
 				Ffr00fDao daoSource = modelMapper.map(recordToValidate, Ffr00fDao.class);
-				daoSource.setF0211(898);
-				daoSource.setF0213(98980000);
-				logger.info("F0221:" + daoSource.getF0221());
-				logger.info("F0235:" + daoSource.getF0235());
-			
-				Ffr00fDao dao = this.fetchTrvisionParentRecord(model,appUser, daoSource);
+				
+				//Extract awb-numbers
+				AWBManager mgr = new AWBManager();
+				daoSource.setF0211(mgr.getAwbPrefix(awb));
+				daoSource.setF0213(mgr.getAwbSuffix(awb));
+				//Parent
+				Ffr00fDao dao = this.fetchTrvisionParentRecord(appUser, daoSource);
 				model.put(MainMaintenanceConstants.DOMAIN_RECORD, dao);
 				
+				//Check if the booking exists and if so: send a flag
+				if(this.bookingExists( appUser, dao.getF00rec())){
+					model.put("bookingExists", "J");
+					logger.info("booking previously registrated ...");
+				}
 				
 				/*DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDflop());
 				
@@ -251,27 +274,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 		}
 		
 	}
-	/**
-	 * Converter for managing decimal format (EU)
-	 * String format may contain comma. The converter ensures that only decimal point is in place before converting to BigDecimal
-	 * Otherwise a runtime error will be thrown
-	 * @return
-	 */
-	private Converter<String, BigDecimal> doBigDecimal(){
-		Converter<String, BigDecimal> converterStringToBigDec = new AbstractConverter<String, BigDecimal>() {
-			protected BigDecimal convert(String source) {
-				String tmp = source == null ? null : source.replaceFirst(",", ".");
-				BigDecimal bd = new BigDecimal(0);
-				if(tmp!=null && !"".equals(tmp)){
-					 bd = new BigDecimal(Double.parseDouble(tmp));
-					 bd = bd.setScale(2, RoundingMode.HALF_UP);
-				}
-				return bd;
-			  }
-		};
-		
-		return converterStringToBigDec;
-	}
 	
 	/**
 	 * 
@@ -282,19 +284,16 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @param lop
 	 * @return
 	 */
-	private Ffr00fDao fetchTrvisionParentRecord(Map model, SystemaWebUser appUser, Ffr00fDao recordToValidate) {
+	private Ffr00fDao fetchTrvisionParentRecord(SystemaWebUser appUser, Ffr00fDao recordToValidate) {
 		Ffr00fDao record = new Ffr00fDao();
-		record.setF0211(recordToValidate.getF0211());
-		record.setF0213(recordToValidate.getF0213());
-		record.setF0235(recordToValidate.getF0235().setScale(2, RoundingMode.HALF_UP));
-
 		
-		/*
 		JsonReader<JsonDtoContainer<Ffr00fDao>> jsonReader = new JsonReader<JsonDtoContainer<Ffr00fDao>>();
 		jsonReader.set(new JsonDtoContainer<Ffr00fDao>());
 		final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_FFR00F_URL;
 		StringBuilder urlRequestParams = new StringBuilder();
 		urlRequestParams.append("user=" + appUser.getUser());
+		urlRequestParams.append("&f0211=" + recordToValidate.getF0211());
+		urlRequestParams.append("&f0213=" + recordToValidate.getF0213());
 		
 		logger.info("URL: " + BASE_URL);
 		logger.info("PARAMS: " + urlRequestParams.toString());
@@ -307,15 +306,54 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 			if(tmpList!=null && tmpList.size()>0){
 				for(Ffr00fDao dao : tmpList){
 					if(dao!=null){
+						dao.setF0235(numberFormatter.formatBigDecimal(2, dao.getF0235()));
 						record = dao;
 					}
 				}
 			}	
 			
 		}
-		*/
+		
 
 		return record;
+	
+	}
+	/**
+	 * Check if the booking has previously been carried out ...
+	 * @param model
+	 * @param appUser
+	 * @param id
+	 * @return
+	 */
+	private boolean bookingExists(SystemaWebUser appUser, Integer id) {
+		boolean retval = false;
+		
+		JsonReader<JsonDtoContainer<LogfDao>> jsonReader = new JsonReader<JsonDtoContainer<LogfDao>>();
+		jsonReader.set(new JsonDtoContainer<LogfDao>());
+		final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_LOGF_URL;
+		StringBuilder urlRequestParams = new StringBuilder();
+		urlRequestParams.append("user=" + appUser.getUser());
+		urlRequestParams.append("&lgrecn=" + id);
+		
+		logger.info("URL: " + BASE_URL);
+		logger.info("PARAMS: " + urlRequestParams.toString());
+		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+		logger.info("jsonPayload=" + jsonPayload);
+		
+		JsonDtoContainer<LogfDao> container = (JsonDtoContainer<LogfDao>) jsonReader.get(jsonPayload);
+		if (container != null) {
+			List<LogfDao> tmpList = container.getDtoList();
+			if(tmpList!=null && tmpList.size()>0){
+				for(LogfDao dao : tmpList){
+					if(dao!=null && "FFR".equals(dao.getLgmsid())){
+						logger.info("MATCH!");
+						retval = true;
+						break;
+					}
+				}
+			}		
+		}
+		return retval;
 	
 	}
 	/**

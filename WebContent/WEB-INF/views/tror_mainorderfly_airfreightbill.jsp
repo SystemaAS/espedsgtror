@@ -207,7 +207,7 @@
 												<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
 											</td>
 											<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
-												<a style="display:block" id="alinkTradevision" onClick="setBlockUI(this);" href="tror_mainorderfly_airfreightbill_trvision.do?avd=${recordOrderTrorFly.heavd}&opd=${recordOrderTrorFly.heopd}&sign=${recordOrderTrorFly.hesg}&mawb=${recordOrderTrorFly.hegn}&hawb=${recordOrderTrorFly.hehawb}">
+												<a style="display:block" id="alinkTradevision" onClick="setBlockUI(this);" href="tror_mainorderfly_airfreightbill_trvision_edit.do?avd=${recordOrderTrorFly.heavd}&opd=${recordOrderTrorFly.heopd}&sign=${recordOrderTrorFly.hesg}&mawb=${recordOrderTrorFly.hegn}&hawb=${recordOrderTrorFly.hehawb}">
 													<font class="tabDisabledLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.tradevision.subtab"/></font>&nbsp;					
 												</a>
 											</td>
