@@ -87,6 +87,23 @@ import no.systema.tror.validator.TrorOrderFlyFraktbrevImpValidator;
 /**
  * Tror - Air Freight Bill - Tradevision Controller (flyfraktbrev) 
  * 
+ * Tradevision model is as follows:
+ * FFR00F: Parent file for booking - Key field: F00REC
+ * FFR03F: Child file - Key field: F03REC
+ * FFR04F: Child file (ULD) - Key field: F04REC
+ * FFR08F: Child file (Dimensions) - Key field: F08REC
+ * FFR10F: Child file (Shipper) - Key field: F10REC
+ * FFR11F: Child file (Consignee) - Key field: F11REC
+ * --adjacent files for a tradevision booking to work
+ * LOGF: log file - Key field towards FFR00F: LGRECN
+ * CNFF: config file - Key field towards FFR00F: CNRECN
+ * PARF: participant file - Key field towards FFR00F: PAID
+ * LOCF: local file - Key field towards FFR00F: LOID
+ * ISUF: issuing carrier file (validation towards airlines)
+ * NCTF: not valid city codes
+ * CPFF: data on IATA return (to read the data text send by IATA)
+ * 
+ * 	
  * @author oscardelatorre
  * @date Feb, 2019
  * 
