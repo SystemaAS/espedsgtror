@@ -286,10 +286,10 @@
 					 				<td class="text14" >
 					 					<c:choose>
 						 					<c:when test="${model.record.f0213 > 0}">
-						 						<input type="text" class="inputTextMediumBlue" name="ownAwb" id="ownAwb" size="20" maxlength="20" value="${model.record.f0211}${model.record.f0213}">
+						 						<input type="text" class="inputTextMediumBlue" name="ownAwb" id="ownAwb" size="12" maxlength="11" value="${model.record.f0211}${model.record.f0213}">
 						 					</c:when>
 						 					<c:otherwise>
-						 						<input type="text" class="inputTextMediumBlue" name="ownAwb" id="ownAwb" size="20" maxlength="20" value="${model.awb}">
+						 						<input type="text" class="inputTextMediumBlue" name="ownAwb" id="ownAwb" size="12" maxlength="11" value="${model.awb}">
 						 					</c:otherwise>
 					 					</c:choose>
 									</td>
@@ -365,14 +365,6 @@
 					 	<tr>
 				 			<td colspan="2" valign="top">
 				 			<table class="tableBorderWithRoundCorners" width="99%">
-				 				<%--
-							 	<tr>
-				 					<td class="text14Bold">&nbsp;
-				 						<img style="vertical-align: bottom;" width="24px" height="24px" src="resources/images/lorry.png" border="0" alt="lorry">
-				 						10.&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.carrier"/>
-				 					</td>
-								</tr>
-								 --%>
 				 				<tr>
 				 					<td >
 				 					<table border="0">
@@ -381,98 +373,23 @@
 				 							<table class="tableBorderWithRoundCornersLightGray">
 					 						<tr>
 					 					
-								 				<td class="text14">&nbsp;<span title="dfroa1"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/></b></span></td>
+								 				<td class="text14">&nbsp;<span title="todo"><b><spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.origin"/></b></span></td>
 								 				<td class="text14" >
-								 					<input type="text" class="inputTextMediumBlue" name="dfroa1" id="dfroa1" size="4" maxlength="3" value="${Xmodel.record.dfroa1}">
+								 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="4" maxlength="3" value="${Xmodel.record.todo}">
 								 				</td>
-							 					<td class="text14" >
-								 					<input type="text" class="inputTextMediumBlue" name="dfrob1" id="dfrob1" size="8" maxlength="7" value="${Xmodel.record.dfrob1}">
-							 					</td>
-							 					<td class="text14" >
-								 					<input type="text" class="inputTextMediumBlue" name="dfroc1" id="dfroc1" size="3" maxlength="2" value="${Xmodel.record.dfroc1}">
-							 					</td>
-							 					<td width="5">&nbsp;</td>
-							 					<td class="text14SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
+							 					<td class="text14">&nbsp;<span title="todo"><b><spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.destination"/></b></span></td>
 								 				<td class="text14" >
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfetd1" id="dfetd1" size="5" maxlength="4" value="${Xmodel.record.dfetd1}">
-								 				</td>
-								 				<td class="text14SkyBlue" >	
-							 						<span title="dfeta1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.eta"/></span>
+								 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="4" maxlength="3" value="${Xmodel.record.todo}">
 							 					</td>
-							 					<td class="text14" >	
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeta1" id="dfeta1" size="5" maxlength="4" value="${Xmodel.record.dfeta1}">
-								 				</td>
-								 				<td class="text14SkyBlue" >	
-							 						<span title="dfeda1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.estday"/></span>
-							 					</td>
-							 					<td class="text14" >	
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeda1" id="dfeda1" size="3" maxlength="2" value="${Xmodel.record.dfeda1}">							 					
-							 					</td>
-							 					
-							 					<td width="10">
-								 				<td class="text14">&nbsp;<span title="dfroa2"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-2</b></span></td>
+							 					<td class="text14">&nbsp;<span title="todo"><b><spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.content"/></b></span></td>
 								 				<td class="text14" >
-								 					<input type="text" class="inputTextMediumBlue" name="dfroa2" id="dfroa2" size="4" maxlength="3" value="${Xmodel.record.dfroa2}">
-								 				</td>
-								 				<td class="text14" >	
-								 					<input type="text" class="inputTextMediumBlue" name="dfrob2" id="dfrob2" size="8" maxlength="7" value="${Xmodel.record.dfrob2}">
-								 				</td>
-								 				<td class="text14" >	
-								 					<input type="text" class="inputTextMediumBlue" name="dfroc2" id="dfroc2" size="3" maxlength="2" value="${Xmodel.record.dfroc2}">
-							 					</td>
-							 					<td width="5">&nbsp;</td>
-							 					<td class="text14SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
-								 				<td class="text14" >
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfetd2" id="dfetd2" size="5" maxlength="4" value="${Xmodel.record.dfetd2}">
-								 				</td>	
-								 				<td class="text14SkyBlue" >	
-							 						<span title="dfeta1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.eta"/></span>
-							 					</td>
-							 					<td class="text14" >	
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeta2" id="dfeta2" size="5" maxlength="4" value="${Xmodel.record.dfeta2}">
-								 				</td>
-								 				<td class="text14SkyBlue" >	
-							 						<span title="dfeda1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.estday"/></span>
-							 					</td>
-							 					<td class="text14" >	
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeda2" id="dfeda2" size="3" maxlength="2" value="${Xmodel.record.dfeda2}">							 					
-							 					</td>
-						 					</tr>
-						 					
-					 						<tr>
-							 					<td class="text14">&nbsp;<span title="dfroa3"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-3</b></span></td>
-								 				<td class="text14" >
-								 					<input type="text" class="inputTextMediumBlue" name="dfroa3" id="dfroa3" size="4" maxlength="3" value="${Xmodel.record.dfroa3}">
-								 				</td>	
-								 				<td class="text14" >	
-								 					<input type="text" class="inputTextMediumBlue" name="dfrob3" id="dfrob3" size="8" maxlength="7" value="${Xmodel.record.dfrob3}">
-								 				</td>
-								 				<td class="text14" >	
-								 					<input type="text" class="inputTextMediumBlue" name="dfroc3" id="dfroc3" size="3" maxlength="2" value="${Xmodel.record.dfroc3}">
-							 					</td>
-							 					<td width="5">&nbsp;</td>
-							 					<td class="text14SkyBlue">&nbsp;<span title="dfetd1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.etd"/></span></td>
-								 				<td class="text14" >
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfetd3" id="dfetd3" size="5" maxlength="4" value="${Xmodel.record.dfetd3}">
-								 				</td>
-								 				<td class="text14SkyBlue" >	
-							 						<span title="dfeta1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.eta"/></span>
-							 					</td>
-							 					<td class="text14" >	
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeta3" id="dfeta3" size="5" maxlength="4" value="${Xmodel.record.dfeta3}">
-								 				</td>
-								 				<td class="text14SkyBlue" >	
-							 						<span title="dfeda1"><spring:message code="systema.tror.flyfraktbrev.form.update.label.estday"/></span>
-							 					</td>
-							 					<td class="text14" >	
-								 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfeda3" id="dfeda3" size="3" maxlength="2" value="${Xmodel.record.dfeda3}">							 					
+								 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="20" maxlength="15" value="${Xmodel.record.todo}">
 							 					</td>
 						 					</tr>
 						 					</table>
 						 					</td>
 						 				</tr>
-						 				
-						 				
+
 									</table>
 									</td>				 				
 					 			</tr>
@@ -484,89 +401,140 @@
 				 			<td colspan="2" valign="top" width="100%" >
 				 			<table width="99%">
 				 				<tr height="4"><td ></td></tr>
-				 				<tr>
-				 					<td >
-				 					<table class="tableBorderWithRoundCorners" width="100%" border="0">
+					 					<tr>
+					 					<td colspan="2">
+					 					<table class="tableBorderWithRoundCorners" width="100%" border="0">
+					 						<tr>
+					 						<td width="100%">
+					 							<table width="100%" >
+					 								<tr>	
+											 			<td class="text14">
+											 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.nopieces"/></span>
+									 					</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="5" maxlength="4" value="${Xmodel.record.todo}">
+										 				</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="1" maxlength="1" value="${Xmodel.record.todo}">
+										 				</td>
+										 				<td class="text14">
+											 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.weight"/></span>
+									 					</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="10" maxlength="9" value="${Xmodel.record.todo}">
+										 				</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="1" maxlength="1" value="${Xmodel.record.todo}">
+										 				</td>
+										 				<td class="text14">
+											 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.volume"/></span>
+									 					</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="15" maxlength="13" value="${Xmodel.record.todo}">
+										 				</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="2" maxlength="2" value="${Xmodel.record.todo}">
+										 				</td>
+										 			
+											 			<td class="text14">
+											 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.spechandlecode"/></span>
+									 					</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="3" maxlength="3" value="${Xmodel.record.todo}">
+										 				</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="3" maxlength="3" value="${Xmodel.record.todo}">
+										 				</td>
+										 			
+											 			<td class="text14">
+											 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.bookingref"/></span>
+									 					</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="8" maxlength="7" value="${Xmodel.record.todo}">
+										 				</td>
+										 				
+										 				<td class="text14">
+											 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.numberuld"/></span>
+									 					</td>
+										 				<td class="text14">
+										 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="2" maxlength="2" value="${Xmodel.record.todo}">
+										 				</td>
+										 				
+										 			</tr>
+										 				
+										 		</table>
+										 	</td>
+										 	</tr>		
+										</table>
+										</td>
+										</tr>	 	
 				 						<tr>
-				 						<td>
-				 							<table width="80%" >
+				 						<td width="50%">
+				 							<table width="100%" >
 				 								<tr>	
 										 			<td class="text14">
-										 				<span title="dfinfa">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.info"/></span>
+										 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.special"/></span>
 								 					</td>
 									 				<td colspan="10" class="text14">
-									 					<input type="text" class="inputTextMediumBlue" name="dfinf1" id="dfinf1" size="36" maxlength="35" value="${Xmodel.record.dfinf1}">
-									 					&nbsp;<input type="text" class="inputTextMediumBlue" name="dfinf2" id="dfinf2" size="36" maxlength="35" value="${Xmodel.record.dfinf2}">
+									 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="70" maxlength="65" value="${Xmodel.record.todo}">
 									 				</td>
 									 			</tr>	
-				 								<tr>	
+									 			<tr>	
 										 			<td class="text14">
-										 				<span title="dfval">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.currency"/></span>
+										 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.servreq"/></span>
 								 					</td>
-									 				<td class="text14">
-									 					<select name="dfval" id="dfval">
-									 						<option value="">-valuta-</option>
-										 				  	<c:forEach var="record" items="${model.currencyCodeList}" >
-										 				  		<option value="${record.kvakod}"<c:if test="${Xmodel.record.dfval == record.kvakod || (empty Xmodel.record.dfval && record.kvakod=='NOK')}"> selected </c:if> >${record.kvakod}</option>
-															</c:forEach>  
-														</select>
-									 				</td>
-										 			<td class="text14">
-										 				<span title="dffvcu"><spring:message code="systema.tror.flyfraktbrev.form.update.label.oclca"/></span>
-								 					</td>
-									 				<td class="text14">
-									 					<input type="text" class="inputTextMediumBlue" name="dfdvca" id="dfdvca" size="8" maxlength="7" value="${Xmodel.record.dfdvca}">
-									 				</td>
-										 			<td class="text14">
-										 				<span title="dfpoli">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.oslcu"/></span>
-								 					</td>
-									 				<td class="text14">
-									 					<input type="text" class="inputTextMediumBlue" name="dfdvcu" id="dfdvcu" size="8" maxlength="7" value="${Xmodel.record.dfdvcu}">
-									 				</td>
-									 				<td class="text14">
-										 				<span title="dfbelf">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.forsikring"/></span>
-								 					</td>
-									 				<td class="text14">
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dfbelf" id="dfbelf" size="8" maxlength="7" value="${Xmodel.record.dfbelf}">
-									 				</td>
-										 			<td class="text14">
-										 				<span title="dftols">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.tollstatus"/></span>
-								 					</td>
-									 				<td class="text14">
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" name="dftols" id="dftols" size="3" maxlength="2" value="${Xmodel.record.dftols}">
+									 				<td colspan="10" class="text14">
+									 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="70" maxlength="65" value="${Xmodel.record.todo}">
 									 				</td>
 									 			</tr>
+									 			<tr>	
+										 			<td class="text14">
+										 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.other"/></span>
+								 					</td>
+									 				<td colspan="10" class="text14">
+									 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="70" maxlength="65" value="${Xmodel.record.todo}">
+									 				</td>
+									 			</tr>	
+				 								
+									 			<tr height="5"><td colspan="2" ></td></tr>
+									 		</table>
+									 	</td>
+									 	
+									 	<td valign="top" width="50%">
+				 							<table width="100%" >
+				 								<tr>	
+										 			<td class="text14">
+										 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.servinfo"/></span>
+								 					</td>
+									 				<td class="text14">
+									 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="70" maxlength="65" value="${Xmodel.record.todo}">
+									 				</td>
+									 			</tr>	
+									 			<tr>	
+										 			<td class="text14">
+										 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.regno"/></span>
+								 					</td>
+									 				<td class="text14">
+									 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="15" maxlength="14" value="${Xmodel.record.todo}">
+									 				</td>
+									 			</tr>
+									 			<tr>	
+										 			<td class="text14">
+										 				<span title="todo">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.label.supp.shipp.info"/></span>
+								 					</td>
+									 				<td class="text14">
+									 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="15" maxlength="12" value="${Xmodel.record.todo}">
+									 					&nbsp;&nbsp;
+									 					<input type="text" class="inputTextMediumBlue" name="todo" id="todo" size="15" maxlength="12" value="${Xmodel.record.todo}">
+									 				</td>
+									 			</tr>
+									 			
+				 								
 									 			<tr height="5"><td colspan="2" ></td></tr>
 									 		</table>
 									 	</td>
 									 	</tr>
-									 	<tr>
-				 							<td colspan="10">
-				 							<table width="85%" >
-				 								<tr height="5"><td ></td></tr>	
-							 					<tr>	
-										 			<td class="text14">
-										 				<span title="dfinfa">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hinfo"/></span>
-								 					</td>
-									 				<td class="text14">
-									 					<input type="text" class="inputTextMediumBlue" name="dfinfa" id="dfinfa" size="75" maxlength="71" value="${Xmodel.record.dfinfa}">
-									 				</td>
-									 				<td class="text14">
-									 					<input type="text" class="inputTextMediumBlue" name="dfinfb" id="dfinfb" size="75" maxlength="71" value="${Xmodel.record.dfinfb}">
-									 				</td>
-									 				
-									 			</tr>
-									 			<tr>	
-										 			<td class="text14">
-										 				<span title="dfinfc">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.rdest"/></span>
-								 					</td>
-									 				<td class="text14">
-									 					<input type="text" class="inputTextMediumBlue" name="dfinfc" id="dfinfc" size="75" maxlength="71" value="${Xmodel.record.dfinfc}">
-									 				</td>
-									 			</tr>
-							 				</table>
-						 				</td>
-						 				</tr>
+									 	
 									</table>
 									</td>				 				 				
 					 			</tr>
