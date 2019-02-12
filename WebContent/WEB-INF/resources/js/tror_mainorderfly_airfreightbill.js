@@ -88,7 +88,7 @@
     jq('#logfList').dataTable( {
   	  //"dom": '<"top">t<"bottom"f><"clear">',
   	  "dom": '<"top">t<"bottom"><"clear">',
-      "order": [ [ 0, "desc" ], [ 1, "desc" ] ],
+      "order": [ [ 0, "desc" ], [ 1, "asc" ] ],
       "scrollY":  "180px",
       "scrollCollapse":  true,
       "tabIndex": -1
