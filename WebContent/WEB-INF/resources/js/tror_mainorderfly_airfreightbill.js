@@ -73,9 +73,37 @@
 			  jq('#flyselskapIdLink').click();
 		  }
 	  });
-	  //END - CHILDWINDOWS
-	  */
-	  
+      //END - CHILDWINDOWS
+      */
+ });
+  //-------------------
+  //Datatables jquery
+  //-------------------
+  
+  jq(document).ready(function() {
+	//init economy-matrix draggable poput 
+	showDialogDraggableTradevisionBookingLog();
+	    
+    //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
+    jq('#logfList').dataTable( {
+  	  //"dom": '<"top">t<"bottom"f><"clear">',
+  	  "dom": '<"top">t<"bottom"><"clear">',
+      "order": [ [ 0, "desc" ], [ 1, "desc" ] ],
+      "scrollY":  "180px",
+      "scrollCollapse":  true,
+      "tabIndex": -1
+	});
+
   });
-	  
-	  
+
+
+  //draggable window
+  function showDialogDraggableTradevisionBookingLog(){
+	  jq( "#dialogDraggableTradevisionBookingLog" ).dialog({
+		  minHeight: 210,
+		  minWidth:280,
+		  position: { my: "right top", at: "right top", of: "#topTableLocal" }
+	  }); 
+	  jq( "#dialogDraggableTradevisionBookingLog" ).focus();
+  }
+

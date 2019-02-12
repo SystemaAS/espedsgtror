@@ -19,7 +19,7 @@
 <form action="tror_mainorderfly_airfreightbill_edit.do" name="formRecord" id="formRecord" method="post">
 	
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table id="topTableLocal" width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
 		<%-- This part right here allows for the dynamic allocation of a JSP depending on whether it is IMPORT or EXPORT --%>
 		<c:choose>
 			<c:when test="${recordOrderTrorFly.heur == 'C'}">
@@ -204,7 +204,15 @@
 									<tr height="20"> 
 											
 											<td width="12%" valign="bottom" class="tabSub" align="center" nowrap>
-												<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;						
+												<font class="tabLinkMinor">&nbsp;<spring:message code="systema.tror.order.more.tab.flyfraktbrev.subtab"/></font>&nbsp;
+												&nbsp;
+												<c:if test="${recordOrderTrorFly.heur == 'D' && user.tradevisionFlag == 'J' }">
+	 												<c:if test="${model.tradevisionUserExists == 'J' && not empty model.tradevisionLog}">
+														<div title="Booking log" style="display:inline-block; cursor:pointer;" onClick="showDialogDraggableTradevisionBookingLog();" >
+															<font class="text14OrangeBold">e</font>
+														</div>
+													</c:if>
+												</c:if>							
 											</td>
 											<td width="12%" valign="bottom" class="tabDisabledSub" align="center" nowrap>
 												<a style="display:block" id="alinkTradevision" onClick="setBlockUI(this);" href="tror_mainorderfly_airfreightbill_trvision_edit.do?avd=${recordOrderTrorFly.heavd}&opd=${recordOrderTrorFly.heopd}&sign=${recordOrderTrorFly.hesg}&mawb=${recordOrderTrorFly.hegn}&hawb=${recordOrderTrorFly.hehawb}">
@@ -302,11 +310,9 @@
 					<table class="tableBorderWithRoundCorners3D_RoundOnlyOnBottom" width="98%" align="left" border="0" cellspacing="0" cellpadding="0">
 				 		<tr height="5"><td ></td></tr>
 				 		<tr>
-							<td colspan="8">
-								
+							<td valign="top" >
 								<table class="text14" border="0">
-								
-					 			<tr>
+								<tr>
 					 				<td class="text14">
 					 					<img style="vertical-align: middle;" onMouseOver="showPop('fwb_info');" onMouseOut="hidePop('fwb_info');" width="9px" height="9px" src="resources/images/info3.png" border="0" alt="info">
 					 					<span title="dfcmn"><spring:message code="systema.tror.flyfraktbrev.form.update.label.fwb"/></span>
@@ -361,10 +367,13 @@
 						 					<input class="inputFormSubmitGray" type="button" name="backToFlyfraktbrevGateButton" id="backToFlyfraktbrevGateButton" value='Tilbake til flyfraktb.lista'>
 						 				</td> 
 					 				</c:if>
-					 				 
+					 				
+					 				
 					 			</tr>
 					 			</table>
 							</td>
+							
+							
 						</tr>
 						
 						<tr height="10"><td ></td></tr>
@@ -1129,6 +1138,50 @@
             <tr height="2"><td></td></tr>
             
 			<tr height="10"><td ></td></tr>
+			
+			<%-- ------------------------------------------- --%>
+			<%-- Floating window for tradevision booking log --%>
+			<%-- ------------------------------------------- --%>
+				<c:if test="${recordOrderTrorFly.heur == 'D' && user.tradevisionFlag == 'J' }">
+ 					<c:if test="${model.tradevisionUserExists == 'J' && not empty model.tradevisionLog}">
+	 					<tr>
+	 					<td valign="bottom" class="ownScrollableSubWindowDynamicWidthHeight">
+	 					<div id="dialogDraggableTradevisionBookingLog" title="Booking log">
+		           		<p>
+		           		<table >
+						<tr height="2"><td></td></tr>
+						<tr>
+						<td width="80%" valign="top"> 
+						<%-- this is the datatables grid (content) --%>
+						<table style="width:100%;" id="logfList" class="display compact cell-border" >
+							<thead>
+							<tr class="tableHeaderField11" >
+							    <th class="text11">&nbsp;Day</th>   
+			                    <th class="text11">&nbsp;Time</th>
+			                    <th class="text11">&nbsp;Type</th>
+			                </tr> 
+			                </thead>
+			                
+			                <tbody>
+			                <c:forEach var="record" items="${model.tradevisionLog}" varStatus="counter">    
+				               	<tr class="text11" >
+					               <td class="text11">${record.lgdate}</td>
+					               <td class="text11">${record.lgtime}</td>
+					               <td class="text11">${record.lgtr}</td>
+					            </tr> 
+				            </c:forEach>
+				            </tbody>
+			            </table>
+			            </td>
+			            </tr>
+			            </table>
+			            </div>
+			            </td>
+			            </tr>
+			            
+		            </c:if>
+				</c:if>
+			
 	</table>
 </form>
 		

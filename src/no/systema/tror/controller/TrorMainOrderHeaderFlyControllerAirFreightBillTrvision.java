@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import no.systema.jservices.common.dao.DokefDao;
 import no.systema.jservices.common.dao.Ffr00fDao;
 import no.systema.jservices.common.dao.LocfDao;
 import no.systema.jservices.common.dao.LogfDao;
@@ -144,17 +144,26 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	public ModelAndView tror_mainorderfly_airfreightbill_trvision(@ModelAttribute ("record") Ffr00fDto recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
 		ModelAndView successView = new ModelAndView("tror_mainorderfly_airfreightbill_trvision");
 		
+		AWBManager awbMgr = new AWBManager();
 		SystemaWebUser appUser = (SystemaWebUser)session.getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
+		//get mother HEADF from session 
+		JsonTrorOrderHeaderRecord headerOrderRecord = (JsonTrorOrderHeaderRecord)session.getAttribute(TrorConstants.SESSION_RECORD_ORDER_TROR_FLY);
+				
 		Map<String,Object> model = new HashMap<String,Object>();
 		String action = request.getParameter("action");
 		String updateId = request.getParameter("updateId");
 		StringBuffer errMsg = new StringBuffer();
 		String mawb = request.getParameter("mawb");
+		String avd = request.getParameter("opd");
+		String opd = request.getParameter("avd");
+		String sign = request.getParameter("sign");
+		
 		String awb = "";
 		if(strMgr.isNotNull(mawb)){
 			if(mawb.length()>=11){
 				awb = mawb.substring(mawb.length()-11);
-				model.put("awb",awb);
+				model.put("awbPrefix", awbMgr.getAwbPrefix(awb));
+				model.put("awbSuffix", awbMgr.getAwbSuffix(awb));
 			}
 		}
 	
@@ -236,23 +245,29 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 				logger.info("FETCH branch");
 				//recordToValidate.setF0235("1,55");
 				//recordToValidate.setF0221("aeo");
-				//mapper converters
+				
+				//handover from dto to dao with some converters
 				ModelMapper modelMapper = new ModelMapper();
 				modelMapper.addConverter(this.daoConverter.doBigDecimal());
 				modelMapper.addConverter(this.daoConverter.doInteger());
-				//handover from dto to dao
-				Ffr00fDao daoSource = modelMapper.map(recordToValidate, Ffr00fDao.class);
-				
+				Ffr00fDao dao = modelMapper.map(recordToValidate, Ffr00fDao.class);
 				//Extract awb-numbers
-				AWBManager mgr = new AWBManager();
-				daoSource.setF0211(mgr.getAwbPrefix(awb));
-				daoSource.setF0213(mgr.getAwbSuffix(awb));
+				dao.setF0211(awbMgr.getAwbPrefix(awb));
+				dao.setF0213(awbMgr.getAwbSuffix(awb));
 				//Parent
-				Ffr00fDao dao = this.fetchTrvisionParentRecord(appUser, daoSource);
-				model.put(MainMaintenanceConstants.DOMAIN_RECORD, dao);
+				Ffr00fDao daoTarget = this.fetchTrvisionParentRecord(appUser, dao);
+				if(daoTarget.getF0235().compareTo(new BigDecimal(0)) == 0){
+					logger.info("Getting default values ...");
+					//DokefDao daoDefault = this.fetchRecordDokef(model, appUser, avd, opd, 1);
+					daoTarget.setF0211(dao.getF0211());
+					daoTarget.setF0213(dao.getF0213());
+					daoTarget.setF0221(headerOrderRecord.getHesdf());
+					daoTarget.setF0222(headerOrderRecord.getHesdt());
+				}
+				model.put(MainMaintenanceConstants.DOMAIN_RECORD, daoTarget);
 				
 				//Check if the booking exists and if so: send a flag
-				if(this.bookingExists( appUser, dao.getF00rec())){
+				if(this.bookingExists( appUser, daoTarget.getF00rec())){
 					model.put("bookingExists", "J");
 					logger.info("booking previously registrated ...");
 				}
@@ -290,6 +305,76 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 			return successView;		
 		}
 		
+	}
+	/**
+	 * Get default info from Fraktbrev
+	 * 
+	 * @param model
+	 * @param appUser
+	 * @param avd
+	 * @param opd
+	 * @param lop
+	 * @return
+	 */
+	private DokefDao fetchRecordDokef(Map model, SystemaWebUser appUser, String avd, String opd, int lop) {
+		DokefDao dao = null;
+		if(lop>0){
+			List<DokefDao> list = this.fetchFlyFraktbrev(model, appUser, avd, opd, lop);
+			for (DokefDao record : list ){
+				dao = record;
+			}
+		}
+		return dao;
+	
+	}
+	/**
+	 * 
+	 * @param model
+	 * @param appUser
+	 * @param dfavd
+	 * @param dfopd
+	 * @param dflop
+	 * @return
+	 */
+	private List<DokefDao> fetchFlyFraktbrev(Map model, SystemaWebUser appUser, String dfavd, String dfopd, int dflop) {
+		List<DokefDao> retval = new ArrayList<DokefDao>();
+		
+		JsonReader<JsonDtoContainer<DokefDao>> jsonReader = new JsonReader<JsonDtoContainer<DokefDao>>();
+		jsonReader.set(new JsonDtoContainer<DokefDao>());
+		final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_DOKEF_URL;
+		StringBuilder urlRequestParams = new StringBuilder();
+		urlRequestParams.append("user=" + appUser.getUser());
+		urlRequestParams.append("&dfavd=" + dfavd);
+		urlRequestParams.append("&dfopd=" + dfopd);
+		if(dflop>0){
+			urlRequestParams.append("&dflop=" + dflop);
+		}
+		
+		
+		logger.info("URL: " + BASE_URL);
+		logger.info("PARAMS: " + urlRequestParams.toString());
+		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+		logger.info("jsonPayload=" + jsonPayload);
+		DokefDao record = null;
+		JsonDtoContainer<DokefDao> container = (JsonDtoContainer<DokefDao>) jsonReader.get(jsonPayload);
+		if (container != null) {
+			
+			List<DokefDao> tmpList = container.getDtoList();
+			if(tmpList!=null && tmpList.size()>0){
+				retval = tmpList;
+				for(DokefDao dao : tmpList){
+					if(dao!=null){
+						//this variable is not serialized on db as all other totals...
+						BigDecimal x = dao.getDffbv1().add(dao.getDffbv2().add(dao.getDffbv3().add(dao.getDffbv4().add(dao.getDffbv5().add(dao.getDffbv6())))));
+						//logger.info("FVekt:!!!!!!!:" + x);
+						model.put("fvektTotal", x);
+					}
+				}
+			}	
+			
+		}
+		return retval;
+	
 	}
 	
 	/**

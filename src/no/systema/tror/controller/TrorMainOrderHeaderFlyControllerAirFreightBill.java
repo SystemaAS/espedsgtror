@@ -38,6 +38,7 @@ import no.systema.jservices.common.dao.DokefDao;
 import no.systema.jservices.common.dao.DokefimDao;
 import no.systema.jservices.common.dao.Ffr00fDao;
 import no.systema.jservices.common.dao.LocfDao;
+import no.systema.jservices.common.dao.LogfDao;
 
 import no.systema.jservices.common.json.JsonDtoContainer;
 import no.systema.jservices.common.json.JsonReader;
@@ -59,6 +60,7 @@ import no.systema.tror.service.flyimport.TrorMainOrderHeaderFlyimportService;
 import no.systema.tror.url.store.TrorUrlDataStore;
 import no.systema.tror.util.RpgReturnResponseHandler;
 import no.systema.tror.util.TrorConstants;
+import no.systema.tror.util.manager.AWBManager;
 import no.systema.tror.util.manager.CodeDropDownMgr;
 import no.systema.tror.util.manager.FlyImportExportManager;
 import no.systema.tror.util.manager.OrderContactInformationManager;
@@ -401,7 +403,8 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		String action = request.getParameter("action");
 		String updateId = request.getParameter("updateId");
 		StringBuffer errMsg = new StringBuffer();
-		
+		//get mother HEADF from session 
+		JsonTrorOrderHeaderRecord headerOrderRecord = (JsonTrorOrderHeaderRecord)session.getAttribute(TrorConstants.SESSION_RECORD_ORDER_TROR_FLY);
 		
 		if (appUser == null) {
 			return this.loginView;
@@ -492,6 +495,8 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 					if(this.isTradevisionUserValid(appUser)){
 						model.put("tradevisionUserExists", "J");
 						logger.info("tradevisionUser is valid!!!");
+						//Fetch tradevision log
+						this.getTradevisionLog(model, headerOrderRecord.getHegn(), appUser);
 					}
 				}
 				if(recordDokefDao!=null && recordDokefDao.getDflop()>0){
@@ -520,6 +525,36 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 			return successView;		
 		}
 		
+	}
+	/**
+	 * 
+	 * @param model
+	 * @param awb
+	 * @param appUser
+	 */
+	private void getTradevisionLog(Map model, String awb, SystemaWebUser appUser){
+		AWBManager awbMgr = new AWBManager();
+		if(strMgr.isNotNull(awb)){
+			JsonReader<JsonDtoContainer<LogfDao>> jsonReader = new JsonReader<JsonDtoContainer<LogfDao>>();
+			jsonReader.set(new JsonDtoContainer<LogfDao>());
+			final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_LOGF_URL;
+			StringBuilder urlRequestParams = new StringBuilder();
+			urlRequestParams.append("user=" + appUser.getUser());
+			urlRequestParams.append("&lgref2=" + awbMgr.getAwbPrefix(awb) + "-" + awbMgr.getAwbSuffix(awb));
+			
+			logger.info("URL: " + BASE_URL);
+			logger.info("PARAMS: " + urlRequestParams.toString());
+			String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+			logger.info("jsonPayload=" + jsonPayload);
+			LogfDao record = null;
+			JsonDtoContainer<LogfDao> container = (JsonDtoContainer<LogfDao>) jsonReader.get(jsonPayload);
+			if (container != null) {
+				if(container.getDtoList()!=null && container.getDtoList().size()>0){
+					model.put("tradevisionLog", container.getDtoList());
+					logger.info("tradevisionLog contains data ...");
+				}
+			}
+		}
 	}
 	/**
 	 * 
