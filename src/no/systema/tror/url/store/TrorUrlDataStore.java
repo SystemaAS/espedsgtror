@@ -47,7 +47,8 @@ public class TrorUrlDataStore {
 	//http://gw.systema.no:8080/syjservicestror/syjsLOGF.do?user=OSCAR
 	static public String TROR_BASE_FETCH_LOGF_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsLOGF.do?";
 		
-	
+	//http://localhost:8080/syjservicestror/syjsRATCDF.do?user=OSCAR
+	static public String TROR_BASE_FETCH_RATCDF_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsRATCDF.do?";
 	
 	//http://gw.systema.no:8080/syjservicestror/syjsDOK29.do?user=OSCAR&d29avd=1&d29opd=52919&d29fnr=1
 	static public String TROR_BASE_FETCH_DOK29_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsDOK29.do?";

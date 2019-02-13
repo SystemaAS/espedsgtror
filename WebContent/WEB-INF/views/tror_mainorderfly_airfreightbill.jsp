@@ -439,16 +439,8 @@
 					 	<tr>
 				 			<td colspan="2" valign="top">
 				 			<table class="tableBorderWithRoundCorners" width="99%">
-				 				<%--
-							 	<tr>
-				 					<td class="text14Bold">&nbsp;
-				 						<img style="vertical-align: bottom;" width="24px" height="24px" src="resources/images/lorry.png" border="0" alt="lorry">
-				 						10.&nbsp;<spring:message code="systema.tror.fraktbrev.form.update.label.carrier"/>
-				 					</td>
-								</tr>
-								 --%>
 				 				<tr>
-				 					<td >
+				 					<td colspan="4" >
 				 					<table border="0">
 				 						<tr>
 					 						<td valign="top" >
@@ -586,13 +578,13 @@
 														</select>
 									 				</td>
 										 			<td class="text14">
-										 				<span title="dffvcu"><spring:message code="systema.tror.flyfraktbrev.form.update.label.oclca"/></span>
+										 				<span title="dfdvca"><spring:message code="systema.tror.flyfraktbrev.form.update.label.oclca"/></span>
 								 					</td>
 									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfdvca" id="dfdvca" size="8" maxlength="7" value="${model.record.dfdvca}">
 									 				</td>
 										 			<td class="text14">
-										 				<span title="dfpoli">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.oslcu"/></span>
+										 				<span title="dfdvcu">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.oslcu"/></span>
 								 					</td>
 									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfdvcu" id="dfdvcu" size="8" maxlength="7" value="${model.record.dfdvcu}">
@@ -620,7 +612,7 @@
 				 								<tr height="5"><td ></td></tr>	
 							 					<tr>	
 										 			<td class="text14">
-										 				<span title="dfinfa">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hinfo"/></span>
+										 				<span title="dfinfa/dfinfb">&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hinfo"/></span>
 								 					</td>
 									 				<td class="text14">
 									 					<input type="text" class="inputTextMediumBlue" name="dfinfa" id="dfinfa" size="75" maxlength="71" value="${model.record.dfinfa}">
@@ -690,21 +682,11 @@
 											 				<span style="position:absolute;top:-55px; width:400px;" id="rc_info" class="popupWithInputText text11"  >
 												           		<p>Feltet må fylles ut med en av følgende gyldige koder:</p> 
 											           			<ul>
-											           				<li><b>B</b>&nbsp;BASIC CHARGE
-											           				<li><b>C</b>&nbsp;SPECIFIC COMMODITY RATE</li>
-											           				<li><b>E</b>&nbsp;ULD ADDITIONAL RATE</li>
-											           				<li><b>K</b>&nbsp;RATE PER KILOGRAMME</li>	
+											           				<c:forEach var="record" items="${model.rateClassCodeList}" >
+										 				  				<li><b>${record.raracd}</b>&nbsp;${record.rabesk}</li>
+										 				  			</c:forEach>
 											           				
-											           				<li><b>M</b>&nbsp;MINIMUM CHARGE</li>	
-											           				<li><b>N</b>&nbsp;NORMAL RATE</li>	
-											           				<li><b>Q</b>&nbsp;QUANTITY RATE</li>	
-											           				<li><b>R</b>&nbsp;CLASS RATE REDUCTION</li>	
-											           				<li><b>S</b>&nbsp;CLASS RATE SURCHARGE</li>	
-											           				<li><b>U</b>&nbsp;ULD BASIC CHARGE OR RATE</li>	
-											           				<li><b>X</b>&nbsp;ULD ADDITIONAL INFORMATION</li>	
-											           				<li><b>Y</b>&nbsp;ULD DISCOUNT</li>	
-							
-										           			</ul>
+										           				</ul>
 										           			<p>
 										           			Ved å benytte F-4 kan man søke i kode/tekstregister for gyldige rate class koder (MENU MAINT2, punkt 13).Ved M/N/Q i RC tastes normalt kun en ratelinje.
 															Skal Base + kg rate benyttes er det krav til at det tastes to ratelinjer.På første ratelinje tastes kode B i RC og baseprisen i ratefeltet.
@@ -776,7 +758,7 @@
 									 					<select name="dfrc1" id="dfrc1">
 									 					<option value="">-velg-</option>
 										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${model.record.dfrc1 == record }"> selected </c:if> >${record}</option>
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc1 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -811,7 +793,7 @@
 									 					<select name="dfrc2" id="dfrc2">
 									 					<option value="">-velg-</option>
 										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${model.record.dfrc2 == record }"> selected </c:if> >${record}</option>
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc2 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -848,7 +830,7 @@
 									 					<select name="dfrc3" id="dfrc3">
 									 					<option value="">-velg-</option>
 										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${model.record.dfrc3 == record }"> selected </c:if> >${record}</option>
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc3 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -886,7 +868,7 @@
 									 					<select name="dfrc4" id="dfrc4">
 									 					<option value="">-velg-</option>
 										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${model.record.dfrc4 == record }"> selected </c:if> >${record}</option>
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc4 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -923,7 +905,7 @@
 									 					<select name="dfrc5" id="dfrc5">
 									 					<option value="">-velg-</option>
 										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${model.record.dfrc5 == record }"> selected </c:if> >${record}</option>
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc5 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -960,7 +942,7 @@
 									 					<select name="dfrc6" id="dfrc6">
 									 					<option value="">-velg-</option>
 										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${model.record.dfrc6 == record }"> selected </c:if> >${record}</option>
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc6 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>

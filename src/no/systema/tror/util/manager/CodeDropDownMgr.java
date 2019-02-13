@@ -31,6 +31,8 @@ import no.systema.tror.model.jsonjackson.codes.JsonTrorCountryCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCountryCodeRecord;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCurrencyCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCurrencyCodeRecord;
+import no.systema.tror.model.jsonjackson.codes.JsonTrorRateClassCodeContainer;
+import no.systema.tror.model.jsonjackson.codes.JsonTrorRateClassCodeRecord;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorOppdragsTypeCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorOppdragsTypeCodeRecord;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorIncotermsCodeContainer;
@@ -207,8 +209,7 @@ public class CodeDropDownMgr {
 			Map model, SystemaWebUser appUser){
 		//fill in html lists here
 		try{
-			/*
-			String CODES_URL = TrorUrlDataStore.TROR_TODO_RATECLASS_CODES_URL;
+			String CODES_URL = TrorUrlDataStore.TROR_BASE_FETCH_RATCDF_URL;
 			StringBuffer urlRequestParamsKeys = new StringBuffer();
 			urlRequestParamsKeys.append("user=" + appUser.getUser());
 			
@@ -218,21 +219,15 @@ public class CodeDropDownMgr {
 			String utfPayload = urlCgiProxyService.getJsonContent(CODES_URL, urlRequestParamsKeys.toString());
 			//debug
 			//logger.info(utfPayload);
-			JsonTrorCurrencyCodeContainer codeContainer = listPopulationService.getCurrencyContainer(utfPayload);
-			List<JsonTrorCurrencyCodeRecord> list = new ArrayList();
+			JsonTrorRateClassCodeContainer codeContainer = listPopulationService.getRateClassCodeContainer(utfPayload);
+			List<JsonTrorRateClassCodeRecord> list = new ArrayList();
 			
 			//Take some exception into consideration here or run the default to populate the final list
-			for(JsonTrorCurrencyCodeRecord codeRecord: codeContainer.getDtoList()){
+			for(JsonTrorRateClassCodeRecord codeRecord: codeContainer.getDtoList()){
 				//default
 				list.add(codeRecord);
 			}
-			*/
-			List<String> list = new ArrayList();
-			list.add("B");list.add("C");list.add("E");
-			list.add("K");list.add("M");list.add("N");
-			list.add("Q");list.add("R");list.add("S");
-			list.add("U");list.add("X");list.add("Y");
-			
+		
 			model.put(TrorConstants.RESOURCE_MODEL_KEY_RATE_CLASS_CODE_LIST, list);
 			
 		

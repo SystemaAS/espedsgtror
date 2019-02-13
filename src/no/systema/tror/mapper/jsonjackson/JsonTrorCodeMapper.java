@@ -15,6 +15,7 @@ import no.systema.tror.model.jsonjackson.codes.JsonTrorCountryCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCountryCodeRecord;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCurrencyCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorCurrencyCodeRecord;
+import no.systema.tror.model.jsonjackson.codes.JsonTrorRateClassCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorOppdragsTypeCodeContainer;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorOppdragsTypeCodeRecord;
 import no.systema.tror.model.jsonjackson.codes.JsonTrorIncotermsCodeContainer;
@@ -113,6 +114,31 @@ public class JsonTrorCodeMapper {
 		}	
 		return codeContainer;
 	}
+	/**
+	 * 
+	 * @param utfPayload
+	 * @return
+	 * @throws Exception
+	 */
+	public JsonTrorRateClassCodeContainer getRateClassCodeContainer(String utfPayload) throws Exception{
+		ObjectMapper mapper = new ObjectMapper();  
+		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
+		
+		JsonTrorRateClassCodeContainer codeContainer = null;
+		
+		if(utfPayload!=null){
+			//At this point we now have an UTF-8 payload
+			codeContainer = mapper.readValue(utfPayload.getBytes(), JsonTrorRateClassCodeContainer.class); 
+			//logger.info("Mapping Code object from JSON payload...");
+			//logger.info("[JSON-String payload status=OK]  " + codeContainer.getUser());
+			
+		}	
+		return codeContainer;
+	}
+	
+	
+	
+	
 	/**
 	 * 
 	 * @param utfPayload

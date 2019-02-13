@@ -488,9 +488,9 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 				modelMapper.addConverter(this.daoConverter.doInteger());
 				//handover from dto to dao
 				DokefDao daoSource = modelMapper.map(recordToValidate, DokefDao.class);
-				
+				//get the fraktbrev's record
 				DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, daoSource.getDfavd(), daoSource.getDfopd(), daoSource.getDflop());
-				
+				//set tradevision flag if any
 				if("J".equals(appUser.getTradevisionFlag())){
 					if(this.isTradevisionUserValid(appUser)){
 						model.put("tradevisionUserExists", "J");
@@ -499,12 +499,14 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 						this.getTradevisionLog(model, headerOrderRecord.getHegn(), appUser);
 					}
 				}
+				//Check for update or create new
 				if(recordDokefDao!=null && recordDokefDao.getDflop()>0){
 					model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
 					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefDao);
 				}else{
+					this.setFraktbrevDefaultValuesFromOrderHeader(recordToValidate, headerOrderRecord);
 					//get the lopenr (increase +1 from the last lopnr in table)
-					//TODO ? -->> recordToValidate.setDflop(this.getNewLopenr(model, appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDflop()));
+					//TODO ---> recordToValidate.setDflop(1);
 					//Prepare the view for a future create-new fraktbrev.
 					model.put("action", MainMaintenanceConstants.ACTION_CREATE);
 					//Here we prepare the form with default values from the "Oppdrag"
@@ -526,6 +528,26 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		}
 		
 	}
+	/**
+	 * 
+	 * @param recordToValidate
+	 * @param headerOrderRecord
+	 */
+	private void setFraktbrevDefaultValuesFromOrderHeader(DokefDto recordToValidate, JsonTrorOrderHeaderRecord headerOrderRecord){
+		//header values
+		recordToValidate.setDftlfk(headerOrderRecord.getHefr());
+		recordToValidate.setDftlfs(headerOrderRecord.getOwnSenderMobile());
+		recordToValidate.setDftlfk(headerOrderRecord.getOwnReceiverMobile());
+		
+		recordToValidate.setDfdvca("NVD");
+		recordToValidate.setDfdvcu("NVD");
+		
+		//item lines
+		recordToValidate.setDfnt1(headerOrderRecord.getHent());
+		recordToValidate.setDfvs1(headerOrderRecord.getHevs1());
+		recordToValidate.setDfvkt1(headerOrderRecord.getHevkt());
+		recordToValidate.setDffbv1(headerOrderRecord.getHevkt());
+	}	
 	/**
 	 * 
 	 * @param model
