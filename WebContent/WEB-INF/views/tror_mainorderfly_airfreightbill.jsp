@@ -16,7 +16,7 @@
 	</style>
 	
 
-<form action="tror_mainorderfly_airfreightbill_edit.do" name="formRecord" id="formRecord" method="post">
+<form action="tror_mainorderfly_airfreightbill_edit.do" name="trorFlyfraktForm" id="trorFlyfraktForm" method="post">
 	
 	<%-- tab container component --%>
 	<table id="topTableLocal" width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">

@@ -398,6 +398,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 	public ModelAndView tror_mainorderfly_airfreightbill_edit(@ModelAttribute ("record") DokefDto recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
 		ModelAndView successView = new ModelAndView("tror_mainorderfly_airfreightbill");
 		
+		boolean updateOk = true;
 		SystemaWebUser appUser = (SystemaWebUser)session.getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
 		Map<String,Object> model = new HashMap<String,Object>();
 		String action = request.getParameter("action");
@@ -405,6 +406,13 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		StringBuffer errMsg = new StringBuffer();
 		//get mother HEADF from session 
 		JsonTrorOrderHeaderRecord headerOrderRecord = (JsonTrorOrderHeaderRecord)session.getAttribute(TrorConstants.SESSION_RECORD_ORDER_TROR_FLY);
+		
+		//Convert DTO to DAO ... + mapper converters
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.addConverter(this.daoConverter.doBigDecimal());
+		modelMapper.addConverter(this.daoConverter.doInteger());
+		//handover from dto to dao
+		DokefDao daoSource = modelMapper.map(recordToValidate, DokefDao.class);
 		
 		if (appUser == null) {
 			return this.loginView;
@@ -442,31 +450,28 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 
 			} else if (MainMaintenanceConstants.ACTION_UPDATE.equals(action)) { //Update
 				logger.info("Inside - UPDATE...");
-				/*
+			
 				//Validate
 				TrorOrderFlyFraktbrevImpValidator validator = new TrorOrderFlyFraktbrevImpValidator();
-				validator.validate(recordToValidate, bindingResult);
+				//TODO ...validator.validate(recordToValidate, bindingResult);
 				if (bindingResult.hasErrors()) {
-					logger.info("[ERROR Validation] Record does not validate)");
-					model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
-					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
+					//TODO ...logger.info("[ERROR Validation] Record does not validate)");
+					//TODO ...model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
+					//TODO ...model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
 					
 				} else {
-					
-					savedRecord = updateRecord(appUser, recordToValidate, MainMaintenanceConstants.MODE_UPDATE, errMsg);
-					if (savedRecord == null) {
+					daoSource = this.updateRecordDokef(appUser, daoSource, MainMaintenanceConstants.MODE_UPDATE, errMsg);
+					if (daoSource == null) {
+						updateOk = false;
 						logger.info("[ERROR Validation] Record does not validate)");
 						model.put(MainMaintenanceConstants.ASPECT_ERROR_MESSAGE, errMsg.toString());
 						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
-					} else {
-						
-						//get record now (refreshed)
-						DokefimDao recordDokefimDao = this.fetchRecord(model, appUser, recordToValidate.getImavd(), recordToValidate.getImopd(), recordToValidate.getImlop());
-						model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
-						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefimDao);
+					}else{
+						//nothing ...
+						//The FETCH (refresh) down below will take care of the new updated record 
 					}
 					
-				} */
+				} 
 				
 			} else if (MainMaintenanceConstants.ACTION_DELETE.equals(action)) { //Delete
 					/*
@@ -480,14 +485,13 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefimDao);
 					}
 					*/
-			} else { // Fetch
+			} 
+			
+			//---------------------
+			//FETCH record
+			//---------------------
+			if(updateOk){
 				logger.info("FETCH branch");
-				//mapper converters
-				ModelMapper modelMapper = new ModelMapper();
-				modelMapper.addConverter(this.daoConverter.doBigDecimal());
-				modelMapper.addConverter(this.daoConverter.doInteger());
-				//handover from dto to dao
-				DokefDao daoSource = modelMapper.map(recordToValidate, DokefDao.class);
 				//get the fraktbrev's record
 				DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, daoSource.getDfavd(), daoSource.getDfopd(), daoSource.getDflop());
 				//set tradevision flag if any
@@ -512,9 +516,10 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 					//Here we prepare the form with default values from the "Oppdrag"
 					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
 				}
-				
-				
+			}else{
+				//TODO ...
 			}
+
 			//get dropdowns
 			this.setCodeDropDownMgr(appUser, model);
 			
@@ -863,6 +868,47 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 				}
 				list = (List<DokefimDao>) container.getDtoList();
 				for (DokefimDao dao : list) {
+					savedRecord = dao;
+				}
+			}
+			
+		}
+		logger.info("savedRecord="+ReflectionToStringBuilder.toString(savedRecord));
+		return savedRecord;
+	}	
+	/**
+	 * Updates the DOKEF-table (fraktbrevs update)
+	 * @param appUser
+	 * @param record
+	 * @param mode
+	 * @param errMsg
+	 * @return
+	 */
+	private DokefDao updateRecordDokef(SystemaWebUser appUser, DokefDao record, String mode, StringBuffer errMsg) {
+		DokefDao savedRecord = null;
+		JsonReader<JsonDtoContainer<DokefDao>> jsonReader = new JsonReader<JsonDtoContainer<DokefDao>>();
+		jsonReader.set(new JsonDtoContainer<DokefDao>());
+		final String BASE_URL = TrorUrlDataStore.TROR_BASE_DOKEF_DML_UPDATE_URL;
+		String urlRequestParamsKeys = "user=" + appUser.getUser() + "&mode=" + mode + "&lang=" +appUser.getUsrLang();
+		String urlRequestParams = this.urlRequestParameterMapper.getUrlParameterValidString(record);
+		urlRequestParams = urlRequestParamsKeys + urlRequestParams;
+
+		logger.info(Calendar.getInstance().getTime() + " CGI-start timestamp");
+		logger.info("URL: " + jsonDebugger.getBASE_URL_NoHostName(BASE_URL));
+		logger.info("URL PARAMS: " + urlRequestParams);
+		List<DokefDao> list = new ArrayList<DokefDao>();
+		String jsonPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams);
+		logger.debug(jsonDebugger.debugJsonPayloadWithLog4J(jsonPayload));
+		
+		if (jsonPayload != null) {
+			JsonDtoContainer<DokefDao> container = (JsonDtoContainer<DokefDao>) jsonReader.get(jsonPayload);
+			if (container != null) {
+				if (container.getErrMsg() != null && !"".equals(container.getErrMsg())) {
+					errMsg.append(container.getErrMsg());
+					return null;
+				}
+				list = (List<DokefDao>) container.getDtoList();
+				for (DokefDao dao : list) {
 					savedRecord = dao;
 				}
 			}
