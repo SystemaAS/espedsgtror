@@ -56,6 +56,11 @@
 	  jq('#backToFlyfraktbrevGateButton').click(function() {
 		  jq.blockUI({ message : BLOCKUI_OVERLAY_MESSAGE_DEFAULT });
 		  window.location = "tror_mainorderfly_airfreightbill_imp_gate.do?imavd=" + jq('#dfavd').val() + "&sign=" + jq('#sign').val() + "&imopd=" + jq('#dfopd').val() ;
+      });
+      //deleteButton
+	  jq('#deleteFlyfraktbrevButton').click(function() {
+		  jq.blockUI({ message : BLOCKUI_OVERLAY_MESSAGE_DEFAULT });
+		  window.location = "tror_mainorderfly_airfreightbill_edit.do?action=doDelete&dfavd=" + jq('#dfavd').val() + "&dfopd=" + jq('#dfopd').val() + "&dflop=" + jq('#dflop').val();
 	  });
 	  
 	  
@@ -112,6 +117,6 @@
 		  minWidth:280,
 		  position: { my: "right top", at: "right top", of: "#topTableLocal" }
 	  }); 
-	  jq( "#dialogDraggableTradevisionBookingLog" ).focus();
+	  //jq( "#dialogDraggableTradevisionBookingLog" ).focus();
   }
 

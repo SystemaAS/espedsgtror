@@ -420,71 +420,49 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 			
 			if (MainMaintenanceConstants.ACTION_CREATE.equals(action)) {  //New
 				logger.info("Inside - CREATE NEW");
-				
-				/*
-				//this.adjustFields( recordToValidate,  headf);
 				// Validate
-				TrorOrderFlyFraktbrevImpValidator validator = new TrorOrderFlyFraktbrevImpValidator();
-				validator.validate(recordToValidate, bindingResult);
+				//TODO TrorOrderFlyFraktbrevImpValidator validator = new TrorOrderFlyFraktbrevImpValidator();
+				//TODO validator.validate(recordToValidate, bindingResult);
 				if (bindingResult.hasErrors()) {
-					logger.info("[ERROR Validation] Record does not validate)");
-					model.put("action", MainMaintenanceConstants.ACTION_CREATE);
-					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
+					//TODO updateOk = false;
+					//TODO logger.info("[ERROR Validation] Record does not validate)");
+					//TODO model.put("action", MainMaintenanceConstants.ACTION_CREATE);
+					//TODO model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
 				} else {
 					
-					savedRecord = updateRecord(appUser, recordToValidate, MainMaintenanceConstants.MODE_ADD, errMsg);
-					if (savedRecord == null) {
-						logger.info("[ERROR Validation] Record does not validate)");
-						model.put(MainMaintenanceConstants.ASPECT_ERROR_MESSAGE, errMsg.toString());
-						model.put("action", MainMaintenanceConstants.ACTION_CREATE);
-						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
-					} else {
-						
-						DokefimDao recordDokefimDao = this.fetchRecord(model, appUser, recordToValidate.getImavd(), recordToValidate.getImopd(), recordToValidate.getImlop());
-						
-						model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
-						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefimDao);
+					daoSource = this.updateRecordDokef(appUser, daoSource, MainMaintenanceConstants.MODE_ADD, errMsg);
+					if (daoSource == null) {
+						updateOk = false;
+						this.setErrorsOnUpdate(model, recordToValidate, action, "[ERROR CREATE] Record create unsuccessful", errMsg);
 					}
 					
-				} */
+				}
 
 			} else if (MainMaintenanceConstants.ACTION_UPDATE.equals(action)) { //Update
 				logger.info("Inside - UPDATE...");
 			
 				//Validate
-				TrorOrderFlyFraktbrevImpValidator validator = new TrorOrderFlyFraktbrevImpValidator();
+				//TrorOrderFlyFraktbrevImpValidator validator = new TrorOrderFlyFraktbrevImpValidator();
 				//TODO ...validator.validate(recordToValidate, bindingResult);
 				if (bindingResult.hasErrors()) {
 					//TODO ...logger.info("[ERROR Validation] Record does not validate)");
 					//TODO ...model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
 					//TODO ...model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
-					
 				} else {
 					daoSource = this.updateRecordDokef(appUser, daoSource, MainMaintenanceConstants.MODE_UPDATE, errMsg);
 					if (daoSource == null) {
 						updateOk = false;
-						logger.info("[ERROR Validation] Record does not validate)");
-						model.put(MainMaintenanceConstants.ASPECT_ERROR_MESSAGE, errMsg.toString());
-						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
-					}else{
-						//nothing ...
-						//The FETCH (refresh) down below will take care of the new updated record 
+						this.setErrorsOnUpdate(model, recordToValidate, action, "[ERROR UPDATE] Record update unsuccessful", errMsg);
 					}
-					
 				} 
 				
-			} else if (MainMaintenanceConstants.ACTION_DELETE.equals(action)) { //Delete
-					/*
-					savedRecord = updateRecord(appUser, recordToValidate, MainMaintenanceConstants.MODE_DELETE, errMsg);
-					if (savedRecord == null) {
-						logger.info("[ERROR Validation] Record does not validate)");
-						model.put(MainMaintenanceConstants.ASPECT_ERROR_MESSAGE, errMsg.toString());
-						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
-					} else {
-						DokefimDao recordDokefimDao = this.fetchRecord(model, appUser, recordToValidate.getImavd(), recordToValidate.getImopd(), recordToValidate.getImlop());
-						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefimDao);
-					}
-					*/
+			} else if (MainMaintenanceConstants.ACTION_DELETE.equals(action)) { 
+				
+				daoSource = this.updateRecordDokef(appUser, daoSource, MainMaintenanceConstants.MODE_DELETE, errMsg);
+				if (daoSource == null) {
+					updateOk = false;
+					this.setErrorsOnUpdate(model, recordToValidate, action, "[ERROR DELETE] Record delete unsuccessful", errMsg);
+				}
 			} 
 			
 			//---------------------
@@ -494,32 +472,33 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 				logger.info("FETCH branch");
 				//get the fraktbrev's record
 				DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, daoSource.getDfavd(), daoSource.getDfopd(), daoSource.getDflop());
-				//set tradevision flag if any
-				if("J".equals(appUser.getTradevisionFlag())){
-					if(this.isTradevisionUserValid(appUser)){
-						model.put("tradevisionUserExists", "J");
-						logger.info("tradevisionUser is valid!!!");
-						//Fetch tradevision log
-						this.getTradevisionLog(model, headerOrderRecord.getHegn(), appUser);
-					}
-				}
+				
 				//Check for update or create new
 				if(recordDokefDao!=null && recordDokefDao.getDflop()>0){
 					model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
 					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefDao);
 				}else{
+					logger.info("getting default values");
 					this.setFraktbrevDefaultValuesFromOrderHeader(recordToValidate, headerOrderRecord);
 					//get the lopenr (increase +1 from the last lopnr in table)
 					//TODO ---> recordToValidate.setDflop(1);
 					//Prepare the view for a future create-new fraktbrev.
 					model.put("action", MainMaintenanceConstants.ACTION_CREATE);
+					model.put("firstAWB", "J");
 					//Here we prepare the form with default values from the "Oppdrag"
 					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
 				}
-			}else{
-				//TODO ...
 			}
-
+			
+			//set tradevision flag if any
+			if("J".equals(appUser.getTradevisionFlag())){
+				if(this.isTradevisionUserValid(appUser)){
+					model.put("tradevisionUserExists", "J");
+					logger.info("tradevisionUser is valid!!!");
+					//Fetch tradevision log
+					this.getTradevisionLog(model, headerOrderRecord.getHegn(), appUser);
+				}
+			}
 			//get dropdowns
 			this.setCodeDropDownMgr(appUser, model);
 			
@@ -532,6 +511,20 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 			return successView;		
 		}
 		
+	}
+	/**
+	 * 
+	 * @param model
+	 * @param recordToValidate
+	 * @param action
+	 * @param errorLegend
+	 * @param errMsg
+	 */
+	private void setErrorsOnUpdate(Map model, DokefDto recordToValidate, String action, String errorLegend, StringBuffer errMsg){
+		logger.info("[ERROR CREATE NEW] Record creation unsuccessful ... ?)");
+		model.put(MainMaintenanceConstants.ASPECT_ERROR_MESSAGE, errMsg.toString());
+		model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
+		model.put("action", action);
 	}
 	/**
 	 * 

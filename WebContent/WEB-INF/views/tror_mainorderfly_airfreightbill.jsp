@@ -258,15 +258,22 @@
 			 			<c:choose>
 				 			<c:when test="${not empty model.record.dflop}">
 					 			<td align="left" class="text14White">
-									&nbsp;<img style="vertical-align:bottom;" src="resources/images/complete-icon.png" width="16" hight="16" border="0" alt="edit">	
+					 				<c:choose>
+					 				<c:when test="${not empty model.firstAWB}">
+									&nbsp;<img style="vertical-align:bottom;" src="resources/images/add.png" width="14" height="14" border="0" alt="edit">
+									</c:when>
+									<c:otherwise>	
+									&nbsp;<img style="vertical-align:bottom;" src="resources/images/complete-icon.png" width="14" height="14" border="0" alt="edit">
+									</c:otherwise>
+									</c:choose>	
 									&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.title"/>
 									&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: black"><b>${model.record.dfavd} / ${model.record.dfopd} / ${model.record.dflop} / ${model.record.dfsg}</b></font>
 									&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.mawb"/>:&nbsp;<font style="color: yellow"><b>${recordOrderTrorFly.hegn}</b></font>
 									&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hawb"/>:&nbsp;<font style="color: yellow"><b>${recordOrderTrorFly.hehawb}</b></font>
-									
 									&nbsp;&nbsp;
-									
+																	
 				 				</td>
+				 				
 			 				</c:when>
 			 				<c:otherwise>
 			 					<td align="left" class="text14White">
@@ -287,7 +294,16 @@
 					<input type="hidden" name="action" id="action" value='${model.action}'>
 					<input type="hidden" name="dfavd" id="dfavd" value='${recordOrderTrorFly.heavd}'>
 					<input type="hidden" name="dfopd" id="dfopd" value='${recordOrderTrorFly.heopd}'>
-					<input type="hidden" name="dflop" id="dflop" value='${recordFlyfraktbrevImportHeaderTrorFly.imlop}'>
+					<c:choose>
+						<c:when test="${recordOrderTrorFly.heur == 'C'}">
+							<input type="hidden" name="dflop" id="dflop" value='${recordFlyfraktbrevImportHeaderTrorFly.imlop}'>
+						</c:when>
+						<c:otherwise>
+							<%-- Flyeksport (heur=D) will always have one-and-only-one AWB --%>
+							<input type="hidden" name="dflop" id="dflop" value='1'>
+						</c:otherwise>
+					</c:choose>
+					
 					<input type="hidden" name="sign" id="sign" value='${recordOrderTrorFly.hesg}'>
 						
 					<%-- dfri = F as offsett. Always. Old rule in order to acquire status "active" ... --%>
@@ -335,7 +351,7 @@
 					 					<select  name="dfcmn" id="dfcmn" class="inputTextMediumBlue" >
 					 						<option value="">-velg-</option>
 						 				  	<option value="N"<c:if test="${model.record.dfcmn == 'N'}"> selected </c:if> >Nei</option>
-						 				  	<option value="J"<c:if test="${model.record.dfcmn == 'J'}"> selected </c:if> >Ja</option>
+						 				  	<option value="J"<c:if test="${model.record.dfcmn == 'J' || empty model.record.dfcmn}"> selected </c:if> >Ja</option>
 										</select>
 									</td>
 									
@@ -367,7 +383,13 @@
 						 					<input class="inputFormSubmitGray" type="button" name="backToFlyfraktbrevGateButton" id="backToFlyfraktbrevGateButton" value='Tilbake til flyfraktb.lista'>
 						 				</td> 
 					 				</c:if>
-					 				
+					 				<%-- delete icon ONLY if the record exists in back end --%>
+					 				<c:if test="${recordOrderTrorFly.heur == 'D' && empty model.firstAWB}">
+					 					<td width="5px" class="text14" >&nbsp;</td>
+						 				<td class="text14" >
+						 					<input class="inputFormSubmitGray" type="button" name="deleteFlyfraktbrevButton" id="deleteFlyfraktbrevButton" value='Delete AWB'>
+						 				</td>
+					 				</c:if>
 					 				
 					 			</tr>
 					 			</table>
@@ -778,7 +800,7 @@
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfblt1" id="dfblt1" size="14" maxlength="13" value="${fn:replace(model.record.dfblt1,'.',',')}">
 									 				</td>
 									 				<td align="left" class="tableCell" >
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="dfvs1" id="dfvs1" size="26" maxlength="25" value="${model.record.dfvs1}">
+									 					<input type="text" class="inputTextMediumBlue11" name="dfvs1" id="dfvs1" size="26" maxlength="25" value="${model.record.dfvs1}">
 									 				</td>
 									 				
 									 			</tr>
@@ -815,7 +837,7 @@
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfblt2" id="dfblt2" size="14" maxlength="13" value="${fn:replace(model.record.dfblt2,'.',',')}">
 									 				</td>
 									 				<td align="left" class="tableCell" >
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="dfvs2" id="dfvs2" size="26" maxlength="25" value="${model.record.dfvs2}">
+									 					<input type="text" class="inputTextMediumBlue11" name="dfvs2" id="dfvs2" size="26" maxlength="25" value="${model.record.dfvs2}">
 									 				</td>
 									 				
 									 			</tr>
@@ -852,7 +874,7 @@
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfblt3" id="dfblt3" size="14" maxlength="13" value="${fn:replace(model.record.dfblt3,'.',',')}">
 									 				</td>
 									 				<td align="left" class="tableCell" >
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="dfvs3" id="dfvs3" size="26" maxlength="25" value="${model.record.dfvs3}">
+									 					<input type="text" class="inputTextMediumBlue11" name="dfvs3" id="dfvs3" size="26" maxlength="25" value="${model.record.dfvs3}">
 									 				</td>
 									 				
 									 			</tr>
@@ -890,7 +912,7 @@
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfblt4" id="dfblt4" size="14" maxlength="13" value="${fn:replace(model.record.dfblt4,'.',',')}">
 									 				</td>
 									 				<td align="left" class="tableCell" >
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="dfvs4" id="dfvs4" size="26" maxlength="25" value="${model.record.dfvs4}">
+									 					<input type="text" class="inputTextMediumBlue11" name="dfvs4" id="dfvs4" size="26" maxlength="25" value="${model.record.dfvs4}">
 									 				</td>
 									 				
 									 			</tr>
@@ -927,7 +949,7 @@
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfblt5" id="dfblt5" size="14" maxlength="13" value="${fn:replace(model.record.dfblt5,'.',',')}">
 									 				</td>
 									 				<td align="left" class="tableCell" >
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="dfvs5" id="dfvs5" size="26" maxlength="25" value="${model.record.dfvs5}">
+									 					<input type="text" class="inputTextMediumBlue11" name="dfvs5" id="dfvs5" size="26" maxlength="25" value="${model.record.dfvs5}">
 									 				</td>
 									 				
 									 			</tr>
@@ -964,7 +986,7 @@
 									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" style="text-align:right;" name="dfblt6" id="dfblt6" size="14" maxlength="13" value="${fn:replace(model.record.dfblt6,'.',',')}">
 									 				</td>
 									 				<td align="left" class="tableCell" >
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="dfvs6" id="dfvs6" size="26" maxlength="25" value="${model.record.dfvs6}">
+									 					<input type="text" class="inputTextMediumBlue11" name="dfvs6" id="dfvs6" size="26" maxlength="25" value="${model.record.dfvs6}">
 									 				</td>
 									 			</tr>
 									 			<tr class="tableRow">
@@ -982,7 +1004,7 @@
 									 				<td align="right" class="tableCell" >&nbsp;<input readonly type="text" class="inputTextReadOnly" style="font-weight: bold;text-align: right;" name="dfblt" id="dfblt" size="10" maxlength="12" value="${fn:replace(model.record.dfblt,'.',',')}"></td>
 									 				
 										 			<td align="left" class="tableCell" >
-									 					<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue11" name="dfvs7" id="dfvs7" size="26" maxlength="25" value="${model.record.dfvs7}">
+									 					<input type="text" class="inputTextMediumBlue11" name="dfvs7" id="dfvs7" size="26" maxlength="25" value="${model.record.dfvs7}">
 									 				</td>
 									 				
 									 			</tr>
@@ -1128,7 +1150,7 @@
  					<c:if test="${model.tradevisionUserExists == 'J' && not empty model.tradevisionLog}">
 	 					<tr>
 	 					<td valign="bottom" class="ownScrollableSubWindowDynamicWidthHeight">
-	 					<div id="dialogDraggableTradevisionBookingLog" title="Booking log">
+	 					<div id="dialogDraggableTradevisionBookingLog" title="Tradevision log">
 		           		<p>
 		           		<table >
 						<tr height="2"><td></td></tr>
