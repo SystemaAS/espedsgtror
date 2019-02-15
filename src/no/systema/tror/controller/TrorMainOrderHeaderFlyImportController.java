@@ -676,15 +676,11 @@ public class TrorMainOrderHeaderFlyImportController {
 		if(strMgr.isNotNull(recordToValidate.getOwnEnhet1()) && strMgr.isNotNull(recordToValidate.getHevs1()) ){
 			recordToValidate.setHevs1(recordToValidate.getOwnEnhet1() + SPACE + recordToValidate.getHevs1());
 		}
-		//OBSOLETE 
-		/*
-		if(strMgr.isNotNull(recordToValidate.getOwnEnhet2()) && strMgr.isNotNull(recordToValidate.getHevs2()) ){
-			recordToValidate.setHevs2(recordToValidate.getOwnEnhet2() + SPACE + recordToValidate.getHevs2());
-		}
-		*/
 		
-		//Godsnr (NO need in Flyg...)
-		//recordToValidate.setHegn(recordToValidate.getOwnHegn1() + recordToValidate.getOwnHegn2() + recordToValidate.getOwnHegn3());
+		//Godsnr=AWB (Special treatment since the AWB-nr is always 11-chars)
+		String tmpStr = recordToValidate.getHegn();
+		String validAwbnr = strMgr.leadingStringWithNumericFiller(tmpStr, 11, "0"); 
+		recordToValidate.setHegn(strMgr.leadingStringWithNumericFiller(validAwbnr, 15, SPACE));
 		
 		//Decimal numbers for db update
 		recordToValidate.setHevalp(this.strMgr.adjustNullStringToDecimalForDbUpdate(recordToValidate.getHevalp()));

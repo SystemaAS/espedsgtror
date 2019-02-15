@@ -483,7 +483,7 @@
 							 				</td>
 							 				
 							 				<td colspan="3" class="text14">
-							 					<input type="text" class="inputTextMediumBlue" name="hegn" id="hegn" size="16" maxlength="15" value="${model.record.hegn}">
+							 					<input type="text" class="inputTextMediumBlue" name="hegn" id="hegn" size="12" maxlength="11" value="${model.record.hegn}">
 							 				</td>
 							 				
 							 				<td class="text14" title="trsta4">

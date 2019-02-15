@@ -635,47 +635,7 @@ public class TrorMainOrderHeaderFlyExportController {
 	
 		return record;
 	}
-	/**
-	 * Special split on Goods no.
-	 * 
-	 * @param recordToValidate
-	 */
-	private void splitGodsnrX(JsonTrorOrderHeaderRecord recordToValidate){
-		String str = recordToValidate.getHegn();
-		if(strMgr.isNotNull(str)){
-			if(str.length()>=4){
-				String ownHegn1 = str.substring(0, 4);
-				//logger.info("A:"+ ownHegn1);
-				recordToValidate.setOwnHegn1(ownHegn1);
-				if(str.length()>=9){
-					String ownHegn2 = str.substring(4,9);
-					//logger.info("B:"+ ownHegn2);
-					recordToValidate.setOwnHegn2(ownHegn2);
-					if(str.length()>=10){
-						if(str.length()>=15){
-							String ownHegn3 = str.substring(9,15);
-							//logger.info("C:"+ ownHegn3);
-							recordToValidate.setOwnHegn3(ownHegn3);
-						}else{
-							String ownHegn3 = str.substring(9);
-							//logger.info("D:"+ ownHegn3);
-							recordToValidate.setOwnHegn3(ownHegn3);
-						}
-					}
-				}else{
-					String ownHegn2 = str.substring(4);
-					//logger.info("Y:"+ ownHegn2);
-					recordToValidate.setOwnHegn2(ownHegn2);
-				}
-			}else{
-				String ownHegn1 = str;
-				//logger.info("Z:"+ ownHegn1);
-				recordToValidate.setOwnHegn1(ownHegn1);
-			}
-		}
-		
-	}
-
+	
 	/**
 	 * 
 	 * @param recordToValidate
@@ -686,15 +646,11 @@ public class TrorMainOrderHeaderFlyExportController {
 		if(strMgr.isNotNull(recordToValidate.getOwnEnhet1()) && strMgr.isNotNull(recordToValidate.getHevs1()) ){
 			recordToValidate.setHevs1(recordToValidate.getOwnEnhet1() + SPACE + recordToValidate.getHevs1());
 		}
-		//OBSOLETE 
-		/*
-		if(strMgr.isNotNull(recordToValidate.getOwnEnhet2()) && strMgr.isNotNull(recordToValidate.getHevs2()) ){
-			recordToValidate.setHevs2(recordToValidate.getOwnEnhet2() + SPACE + recordToValidate.getHevs2());
-		}
-		*/
 		
-		//Godsnr (NO need in Flyg...)
-		//recordToValidate.setHegn(recordToValidate.getOwnHegn1() + recordToValidate.getOwnHegn2() + recordToValidate.getOwnHegn3());
+		//Godsnr=AWB (Special treatment since the AWB-nr is always 11-chars)
+		String tmpStr = recordToValidate.getHegn();
+		String validAwbnr = strMgr.leadingStringWithNumericFiller(tmpStr, 11, "0"); 
+		recordToValidate.setHegn(strMgr.leadingStringWithNumericFiller(validAwbnr, 15, SPACE));
 		
 		//Decimal numbers for db update
 		recordToValidate.setHevalp(this.strMgr.adjustNullStringToDecimalForDbUpdate(recordToValidate.getHevalp()));

@@ -377,6 +377,7 @@
 						 				  	
 										</select>	
 					 				</td>
+					 				
 					 				<c:if test="${recordOrderTrorFly.heur == 'C'}">
 						 				<td width="5px" class="text14" >&nbsp;</td>	
 						 				<td class="text14" >
@@ -421,10 +422,19 @@
 						 				
 						 			</tr>
 						 			<tr>	
-						 				<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="ownSenderName" id="ownSenderName" size="30" maxlength="50" value="${ownSenderName}"></td>
-					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hesdf" id="header_imp.hesdf" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdf}"></td>
-					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hesdt" id="header_imp.hesdt" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdt}"></td>
-					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="header_imp.hefr" id="header_imp.hefr" size="4" maxlength="3" value="${recordFlyfraktbrevImportHeaderTrorFly.hefr}"></td>
+						 				<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="ownSenderName" id="ownSenderName" size="30" maxlength="50" value="${ownSenderName}"></td>
+						 				<c:choose>
+							 				<c:when test="">
+						 						<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="header_imp.hesdf" id="header_imp.hesdf" size="4" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdf}"></td>
+						 						<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="header_imp.hesdt" id="header_imp.hesdt" size="4" value="${recordFlyfraktbrevImportHeaderTrorFly.hesdt}"></td>
+						 						<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="header_imp.hefr" id="header_imp.hefr" size="4" value="${recordFlyfraktbrevImportHeaderTrorFly.hefr}"></td>
+						 					</c:when>
+						 					<c:otherwise>
+						 						<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="header_imp.hesdf" id="header_imp.hesdf" size="4" value="${recordOrderTrorFly.hesdf}"></td>
+						 						<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="header_imp.hesdt" id="header_imp.hesdt" size="4" value="${recordOrderTrorFly.hesdt}"></td>
+						 						<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="header_imp.hefr" id="header_imp.hefr" size="4" value="${recordOrderTrorFly.hefr}"></td>
+						 					</c:otherwise>
+					 					</c:choose>
 					 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dftlfs" id="dftlfs" size="16" maxlength="15" value="${model.record.dftlfs}"></td>
 					 				</tr>
 					 				</table>
@@ -446,7 +456,7 @@
 						 				
 						 			</tr>
 						 			<tr>	<%--${model[model.record.hekns]} --%>
-					 					<td class="text14"><input readonly type="text" class="inputTextReadOnly" name="todo" id="todo" size="30" maxlength="50" value="${recordOrderTrorFly.henak}"></td>
+					 					<td class="text14"><input tabindex=-1 readonly type="text" class="inputTextReadOnly" name="todo" id="todo" size="30" maxlength="50" value="${recordOrderTrorFly.henak}"></td>
 					 					<td class="text14"><input type="text" class="inputTextMediumBlue" name="dftlfk" id="dftlfk" size="16" maxlength="15" value="${model.record.dftlfk}"></td>
 					 				</tr>
 					 				</table>
@@ -468,7 +478,9 @@
 					 						<td valign="top" >
 				 							<table class="tableBorderWithRoundCornersLightGray">
 					 						<tr>
-					 					
+					 							<td class="text14">&nbsp;<b>Airline:</b>&nbsp;<font style="color:darkblue;">${recordOrderTrorFly.ownHeknt}</font>&nbsp;[${recordOrderTrorFly.heknt}]</td>
+					 						</tr>
+					 						<tr>	
 								 				<td class="text14">&nbsp;<span title="dfroa1"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/></b></span></td>
 								 				<td class="text14" >
 								 					<input type="text" class="inputTextMediumBlue" name="dfroa1" id="dfroa1" size="4" maxlength="3" value="${model.record.dfroa1}">
@@ -528,7 +540,7 @@
 						 					</tr>
 						 					
 					 						<tr>
-							 					<td class="text14">&nbsp;<span title="dfroa3"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-3</b></span></td>
+					 							<td class="text14">&nbsp;<span title="dfroa3"><b><spring:message code="systema.tror.flyfraktbrev.form.update.label.routing"/>-3</b></span></td>
 								 				<td class="text14" >
 								 					<input type="text" class="inputTextMediumBlue" name="dfroa3" id="dfroa3" size="4" maxlength="3" value="${model.record.dfroa3}">
 								 				</td>	

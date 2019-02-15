@@ -3,7 +3,7 @@
   var BLOCKUI_OVERLAY_MESSAGE_DEFAULT = "Please wait...";
 
   function setBlockUI(element){
-	  jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
+	   jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
   }
   
   
@@ -46,7 +46,7 @@
 	  
 	  //backButton
 	  jq('#backToFlyfraktbrevGateButton').click(function() {
-		  jq.blockUI({ message : BLOCKUI_OVERLAY_MESSAGE_DEFAULT });
+		  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 		  window.location = "tror_mainorderfly_airfreightbill_imp_gate.do?imavd=" + jq('#dfavd').val() + "&sign=" + jq('#sign').val() + "&imopd=" + jq('#dfopd').val() ;
 	  });
 	  

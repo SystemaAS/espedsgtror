@@ -402,7 +402,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		SystemaWebUser appUser = (SystemaWebUser)session.getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
 		Map<String,Object> model = new HashMap<String,Object>();
 		String action = request.getParameter("action");
-		String updateId = request.getParameter("updateId");
 		StringBuffer errMsg = new StringBuffer();
 		//get mother HEADF from session 
 		JsonTrorOrderHeaderRecord headerOrderRecord = (JsonTrorOrderHeaderRecord)session.getAttribute(TrorConstants.SESSION_RECORD_ORDER_TROR_FLY);
@@ -501,11 +500,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 			}
 			//get dropdowns
 			this.setCodeDropDownMgr(appUser, model);
-			
-		
-			//model.put("dfavd", recordToValidate.getDfavd());
-			//model.put("dfopd", recordToValidate.getDfopd());
-			//model.put("dffbnr", recordToValidate.getDffbnr());
 			successView.addObject(MainMaintenanceConstants.DOMAIN_MODEL, model);
 			
 			return successView;		
