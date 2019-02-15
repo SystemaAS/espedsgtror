@@ -119,6 +119,8 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	private UrlRequestParameterMapper urlRequestParameterMapper = new UrlRequestParameterMapper();
 	private CodeDropDownMgr codeDropDownMgr = new CodeDropDownMgr();
 	private StringManager strMgr = new StringManager();
+	private AWBManager awbMgr = new AWBManager();
+	
 	//
 	private final String HEUR_TYPE_FLY_IMPORT = "C";
 	private final String HEUR_TYPE_FLY_EXPORT = "D";
@@ -144,7 +146,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	public ModelAndView tror_mainorderfly_airfreightbill_trvision(@ModelAttribute ("record") Ffr00fDto recordToValidate, BindingResult bindingResult, HttpSession session, HttpServletRequest request){
 		ModelAndView successView = new ModelAndView("tror_mainorderfly_airfreightbill_trvision");
 		
-		AWBManager awbMgr = new AWBManager();
 		SystemaWebUser appUser = (SystemaWebUser)session.getAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
 		//get mother HEADF from session 
 		JsonTrorOrderHeaderRecord headerOrderRecord = (JsonTrorOrderHeaderRecord)session.getAttribute(TrorConstants.SESSION_RECORD_ORDER_TROR_FLY);
@@ -158,15 +159,21 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 		String opd = request.getParameter("avd");
 		String sign = request.getParameter("sign");
 		
+		ModelMapper modelMapper = new ModelMapper();
+		modelMapper.addConverter(this.daoConverter.doBigDecimal());
+		modelMapper.addConverter(this.daoConverter.doInteger());
+		//handover
+		Ffr00fDao dao = modelMapper.map(recordToValidate, Ffr00fDao.class);
+		//adjust awb
 		String awb = "";
 		if(strMgr.isNotNull(mawb)){
 			if(mawb.length()>=11){
 				awb = mawb.substring(mawb.length()-11);
-				model.put("awbPrefix", awbMgr.getAwbPrefix(awb));
-				model.put("awbSuffix", awbMgr.getAwbSuffix(awb));
+				dao.setF0211(awbMgr.getAwbPrefix(awb));
+				dao.setF0213(awbMgr.getAwbSuffix(awb));
 			}
 		}
-	
+		
 		if (appUser == null) {
 			return this.loginView;
 		} else {
@@ -241,71 +248,53 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefimDao);
 					}
 					*/
-			} else { // Fetch
-				logger.info("FETCH branch");
-				//recordToValidate.setF0235("1,55");
-				//recordToValidate.setF0221("aeo");
-				
-				//handover from dto to dao with some converters
-				ModelMapper modelMapper = new ModelMapper();
-				modelMapper.addConverter(this.daoConverter.doBigDecimal());
-				modelMapper.addConverter(this.daoConverter.doInteger());
-				Ffr00fDao dao = modelMapper.map(recordToValidate, Ffr00fDao.class);
-				//Extract awb-numbers
-				dao.setF0211(awbMgr.getAwbPrefix(awb));
-				dao.setF0213(awbMgr.getAwbSuffix(awb));
-				//Parent
-				Ffr00fDao daoTarget = this.fetchTrvisionParentRecord(appUser, dao);
-				if(daoTarget.getF0235().compareTo(new BigDecimal(0)) == 0){
-					logger.info("Getting default values ...");
-					//DokefDao daoDefault = this.fetchRecordDokef(model, appUser, avd, opd, 1);
-					daoTarget.setF0211(dao.getF0211());
-					daoTarget.setF0213(dao.getF0213());
-					daoTarget.setF0221(headerOrderRecord.getHesdf());
-					daoTarget.setF0222(headerOrderRecord.getHesdt());
-				}
-				model.put(MainMaintenanceConstants.DOMAIN_RECORD, daoTarget);
-				
+			}
+			// Fetch
+			logger.info("FETCH branch");
+			//get tradevision parent record
+			Ffr00fDao recordFfr00fDao = this.fetchTrvisionParentRecord(appUser, dao);
+			//Check for update or create new
+			if(recordFfr00fDao!=null){
+				model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
+				model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordFfr00fDao);
 				//Check if the booking exists and if so: send a flag
-				if(this.bookingExists( appUser, daoTarget.getF00rec())){
+				if(this.bookingExists( appUser, recordFfr00fDao.getF00rec())){
 					model.put("bookingExists", "J");
 					logger.info("booking previously registrated ...");
 				}
-				
-				/*DokefDao recordDokefDao = this.fetchRecordDokef(model, appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDflop());
-				
-				if("J".equals(appUser.getTradevisionFlag())){
-					if(this.isTradevisionUserValid(appUser)){
-						model.put("tradevisionUserExists", "J");
-					}
-				}
-				if(recordDokefDao!=null && recordDokefDao.getDflop()>0){
-					model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
-					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefDao);
-				}else{
-					//get the lopenr (increase +1 from the last lopnr in table)
-					//TODO ? -->> recordToValidate.setDflop(this.getNewLopenr(model, appUser, recordToValidate.getDfavd(), recordToValidate.getDfopd(), recordToValidate.getDflop()));
-					//Prepare the view for a future create-new fraktbrev.
-					model.put("action", MainMaintenanceConstants.ACTION_CREATE);
-					//Here we prepare the form with default values from the "Oppdrag"
-					model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
-				}
-				*/
-				
+			}else{
+				logger.info("getting default values");
+				this.setDefaultValuesFromOrderHeader(awb, recordToValidate, headerOrderRecord);
+				model.put("action", MainMaintenanceConstants.ACTION_CREATE);
+				model.put("firstBooking", "J");
+				model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
 			}
+			
 			//get dropdowns
 			this.setCodeDropDownMgr(appUser, model);
-			
-		
-			//model.put("dfavd", recordToValidate.getDfavd());
-			//model.put("dfopd", recordToValidate.getDfopd());
-			//model.put("dffbnr", recordToValidate.getDffbnr());
 			successView.addObject(MainMaintenanceConstants.DOMAIN_MODEL, model);
 			
 			return successView;		
 		}
 		
 	}
+	/**
+	 * 
+	 * @param awb
+	 * @param recordToValidate
+	 * @param headerOrderRecord
+	 */
+	private void setDefaultValuesFromOrderHeader(String awb, Ffr00fDto recordToValidate, JsonTrorOrderHeaderRecord headerOrderRecord){
+		if(strMgr.isNotNull(awb)){
+			recordToValidate.setF0211(this.awbMgr.getAwbPrefix(awb).toString());
+			recordToValidate.setF0213(this.awbMgr.getAwbSuffix(awb).toString());
+		}
+		recordToValidate.setF0221(headerOrderRecord.getHesdf());
+		recordToValidate.setF0222(headerOrderRecord.getHesdt());
+		recordToValidate.setF0272(headerOrderRecord.getHevs1());
+	}
+	
+	
 	/**
 	 * Get default info from Fraktbrev
 	 * 
@@ -387,7 +376,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @return
 	 */
 	private Ffr00fDao fetchTrvisionParentRecord(SystemaWebUser appUser, Ffr00fDao recordToValidate) {
-		Ffr00fDao record = new Ffr00fDao();
+		Ffr00fDao record = null;
 		
 		JsonReader<JsonDtoContainer<Ffr00fDao>> jsonReader = new JsonReader<JsonDtoContainer<Ffr00fDao>>();
 		jsonReader.set(new JsonDtoContainer<Ffr00fDao>());

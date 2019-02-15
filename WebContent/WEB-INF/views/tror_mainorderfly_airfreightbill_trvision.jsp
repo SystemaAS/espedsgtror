@@ -219,8 +219,15 @@
         			<table class="dashboardFrameHeader" width="98%" align="left" border="0" cellspacing="0" cellpadding="0">
 			 		<tr height="15">
 			 			<td align="left" class="text14White">
-							&nbsp;<img style="vertical-align:bottom;" src="resources/images/complete-icon.png" width="16" hight="16" border="0" alt="edit">	
-							&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.title"/>
+			 				<c:choose>
+			 				<c:when test="${not empty model.firstBooking}">
+							&nbsp;<img style="vertical-align:bottom;" src="resources/images/add.png" width="14" height="14" border="0" alt="edit">
+							</c:when>
+							<c:otherwise>	
+							&nbsp;<img style="vertical-align:bottom;" src="resources/images/complete-icon.png" width="14" height="14" border="0" alt="edit">
+							</c:otherwise>
+							</c:choose>	
+			 				&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.title"/>
 							&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: black"><b>${recordOrderTrorFly.heavd} / ${recordOrderTrorFly.heopd} / ${recordOrderTrorFly.hesg}</b></font>
 							&nbsp;&nbsp;&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.mawb"/>:&nbsp;<font style="color: black"><b>${recordOrderTrorFly.hegn}</b></font>
 							&nbsp;&nbsp;<spring:message code="systema.tror.flyfraktbrev.form.update.label.hawb"/>:&nbsp;<font style="color: black"><b>${recordOrderTrorFly.hehawb}</b></font>
@@ -579,20 +586,10 @@
 											 				<span style="position:absolute;top:-55px; width:400px;" id="rc_info" class="popupWithInputText text11"  >
 												           		<p>Feltet må fylles ut med en av følgende gyldige koder:</p> 
 											           			<ul>
-											           				<li><b>B</b>&nbsp;BASIC CHARGE
-											           				<li><b>C</b>&nbsp;SPECIFIC COMMODITY RATE</li>
-											           				<li><b>E</b>&nbsp;ULD ADDITIONAL RATE</li>
-											           				<li><b>K</b>&nbsp;RATE PER KILOGRAMME</li>	
-											           				
-											           				<li><b>M</b>&nbsp;MINIMUM CHARGE</li>	
-											           				<li><b>N</b>&nbsp;NORMAL RATE</li>	
-											           				<li><b>Q</b>&nbsp;QUANTITY RATE</li>	
-											           				<li><b>R</b>&nbsp;CLASS RATE REDUCTION</li>	
-											           				<li><b>S</b>&nbsp;CLASS RATE SURCHARGE</li>	
-											           				<li><b>U</b>&nbsp;ULD BASIC CHARGE OR RATE</li>	
-											           				<li><b>X</b>&nbsp;ULD ADDITIONAL INFORMATION</li>	
-											           				<li><b>Y</b>&nbsp;ULD DISCOUNT</li>	
-							
+											           				<c:forEach var="record" items="${model.rateClassCodeList}" >
+										 				  				<li><b>${record.raracd}</b>&nbsp;${record.rabesk}</li>
+										 				  			</c:forEach>
+											           			
 										           			</ul>
 										           			<p>
 										           			Ved å benytte F-4 kan man søke i kode/tekstregister for gyldige rate class koder (MENU MAINT2, punkt 13).Ved M/N/Q i RC tastes normalt kun en ratelinje.
@@ -664,8 +661,8 @@
 									 				<td align="right" class="tableCell" >
 									 					<select name="dfrc1" id="dfrc1">
 									 					<option value="">-velg-</option>
-										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${Xmodel.record.dfrc1 == record }"> selected </c:if> >${record}</option>
+										 				  	<c:forEach var="record" items="${Xmodel.rateClassCodeList}" >
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc1 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -699,8 +696,8 @@
 									 				<td align="right" class="tableCell" >
 									 					<select name="dfrc2" id="dfrc2">
 									 					<option value="">-velg-</option>
-										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${Xmodel.record.dfrc2 == record }"> selected </c:if> >${record}</option>
+										 				  	<c:forEach var="record" items="${Xmodel.rateClassCodeList}" >
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc2 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -736,8 +733,8 @@
 									 				<td align="right" class="tableCell" >
 									 					<select name="dfrc3" id="dfrc3">
 									 					<option value="">-velg-</option>
-										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${Xmodel.record.dfrc3 == record }"> selected </c:if> >${record}</option>
+										 				  	<c:forEach var="record" items="${Xmodel.rateClassCodeList}" >
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc3 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -774,8 +771,8 @@
 									 				<td align="right" class="tableCell" >
 									 					<select name="dfrc4" id="dfrc4">
 									 					<option value="">-velg-</option>
-										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${Xmodel.record.dfrc4 == record }"> selected </c:if> >${record}</option>
+										 				  	<c:forEach var="record" items="${Xmodel.rateClassCodeList}" >
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc4 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -811,8 +808,8 @@
 									 				<td align="right" class="tableCell" >
 									 					<select name="dfrc5" id="dfrc5">
 									 					<option value="">-velg-</option>
-										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${Xmodel.record.dfrc5 == record }"> selected </c:if> >${record}</option>
+										 				  	<c:forEach var="record" items="${Xmodel.rateClassCodeList}" >
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc5 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>
@@ -848,8 +845,8 @@
 									 				<td align="right" class="tableCell" >
 									 					<select name="dfrc6" id="dfrc6">
 									 					<option value="">-velg-</option>
-										 				  	<c:forEach var="record" items="${model.rateClassCodeList}" >
-										 				  		<option value="${record}"<c:if test="${Xmodel.record.dfrc6 == record }"> selected </c:if> >${record}</option>
+										 				  	<c:forEach var="record" items="${Xmodel.rateClassCodeList}" >
+										 				  		<option title="${record.rabesk}" value="${record.raracd}"<c:if test="${model.record.dfrc6 == record.raracd }"> selected </c:if> >${record.raracd}</option>
 															</c:forEach>
 									 					</select>
 									 				</td>

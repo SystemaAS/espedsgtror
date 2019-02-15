@@ -410,7 +410,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBill {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.addConverter(this.daoConverter.doBigDecimal());
 		modelMapper.addConverter(this.daoConverter.doInteger());
-		//handover from dto to dao
+		//handover
 		DokefDao daoSource = modelMapper.map(recordToValidate, DokefDao.class);
 		
 		if (appUser == null) {
