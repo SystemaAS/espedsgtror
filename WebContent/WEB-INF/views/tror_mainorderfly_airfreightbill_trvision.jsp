@@ -281,7 +281,7 @@
 					 			<tr>
 					 				<td class="text14">
 					 					<img style="vertical-align: middle;" onMouseOver="showPop('fwb_info');" onMouseOut="hidePop('fwb_info');" width="9px" height="9px" src="resources/images/info3.png" border="0" alt="info">
-					 					<span title="dfcmn">AWB</span>
+					 					<span title="f0211/f0213">AWB</span>
 					 					<div class="text11" style="position: relative; display: inline;" align="left" >
 							 				<span style="position:absolute;left:20px; width:250px;" id="fwb_info" class="popupWithInputText text11"  >
 							           		<p>
