@@ -96,7 +96,10 @@ public class TrorUrlDataStore {
 	static public String TROR_BASE_DOKEFIM_DML_UPDATE_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsDOKEFIM_U.do?";
 	//http://gw.systema.no:8080/syjservicestror/syjsDOKEF_U.do?user=OSCAR&dfavd=1&dfopd=100&dflop=1&....and all the rest...&mode=U/A/D
     static public String TROR_BASE_DOKEF_DML_UPDATE_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsDOKEF_U.do?";
-		
+	
+    //TRADEVISION BOOKING
+    //http://gw.systema.no:8080/syjservicestror/syjsFFR00F_U.do?user=OSCAR....and all the rest in FFR00F and child tables...&mode=U/A/D
+    static public String TROR_BASE_FFR00F_DML_UPDATE_URL = AppConstants.HTTP_ROOT_SERVLET_JSERVICES + "/syjservicestror/syjsFFR00F_U.do?";
 
 	/**
 	//[2.1] Message Note management (Consignee, Carrier, Internal)
