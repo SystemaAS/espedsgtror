@@ -276,11 +276,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @return
 	 */
 	private Ffr00fDto updateRecord(SystemaWebUser appUser, Ffr00fDto dtoRecord, String mode, StringBuffer errMsg) {
-		//ModelMapper
-		//ModelMapper modelMapper = new ModelMapper();
-		//modelMapper.addConverter(this.daoConverter.doBigDecimal());
-		//modelMapper.addConverter(this.daoConverter.doInteger());
-		//handover
 		Ffr00fDto dtoResult = new Ffr00fDto();
 				
 		JsonReader<JsonDtoContainer<Ffr00fDto>> jsonReader = new JsonReader<JsonDtoContainer<Ffr00fDto>>();
@@ -310,7 +305,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 				}
 			}
 		}
-		logger.info("daoRecord="+ReflectionToStringBuilder.toString(dtoResult));
+		logger.info("dtoRecord="+ReflectionToStringBuilder.toString(dtoResult));
 		
 		return dtoResult;
 		
@@ -347,9 +342,13 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 		//2 - FFR03 - Child table
 		//TODO
 		
+		
 		//handover to DTO for GUI
-		ModelMapper modelMapper = new ModelMapper();
-		dto = modelMapper.map(dao, Ffr00fDto.class);
+		if(dao!=null){
+			ModelMapper modelMapper = new ModelMapper();
+			dto = modelMapper.map(dao, Ffr00fDto.class);
+		}
+		
 		
 		return dto;
 	
@@ -392,7 +391,9 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 						dao = daoLocal;
 					}
 				}
-			}	
+			}else{
+				dao = null;
+			}
 		}
 		return dao;
 	}
