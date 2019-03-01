@@ -39,6 +39,7 @@ import no.systema.jservices.common.dao.DokefimDao;
 import no.systema.jservices.common.dao.Ffr00fDao;
 import no.systema.jservices.common.dao.LocfDao;
 import no.systema.jservices.common.dao.LogfDao;
+import no.systema.jservices.common.dao.modelmapper.converter.DaoConverter;
 
 import no.systema.jservices.common.json.JsonDtoContainer;
 import no.systema.jservices.common.json.JsonReader;
@@ -53,7 +54,6 @@ import no.systema.main.util.JsonDebugger;
 import no.systema.main.util.MessageNoteManager;
 import no.systema.tror.model.jsonjackson.JsonTrorOrderHeaderRecord;
 import no.systema.tror.model.jsonjackson.DokefDto;
-import no.systema.tror.converter.DaoConverter;
 
 import no.systema.tror.service.html.dropdown.TrorDropDownListPopulationService;
 import no.systema.tror.service.flyimport.TrorMainOrderHeaderFlyimportService;
