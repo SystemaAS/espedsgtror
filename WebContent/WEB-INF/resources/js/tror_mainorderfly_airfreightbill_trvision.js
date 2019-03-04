@@ -51,12 +51,6 @@
 	  });
 	  */
 	  
-	  //backButton
-	  jq('#backToFlyfraktbrevGateButton').click(function() {
-		  jq.blockUI({ css: { fontSize: '22px' }, message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
-		  window.location = "tror_mainorderfly_airfreightbill_imp_gate.do?imavd=" + jq('#dfavd').val() + "&sign=" + jq('#sign').val() + "&imopd=" + jq('#dfopd').val() ;
-	  });
-	  
 	  
 	  /*
 	  //START - CHILDWINDOWS

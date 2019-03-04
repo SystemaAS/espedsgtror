@@ -178,7 +178,6 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 			
 			if (MainMaintenanceConstants.ACTION_CREATE.equals(action)) {  //New
 				logger.info("Inside - CREATE NEW");
-				//this.adjustFields( recordToValidate,  headf);
 				// Validate
 				validator.validate(recordToValidate, bindingResult);
 				if (bindingResult.hasErrors()) {
@@ -194,14 +193,11 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 						model.put("action", MainMaintenanceConstants.ACTION_CREATE);
 						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
 					} 
-					
 				}
 
 			} else if (MainMaintenanceConstants.ACTION_UPDATE.equals(action)) { //Update
 				logger.info("Inside - UPDATE...");
-				/*
 				//Validate
-				TrorOrderFlyFraktbrevImpValidator validator = new TrorOrderFlyFraktbrevImpValidator();
 				validator.validate(recordToValidate, bindingResult);
 				if (bindingResult.hasErrors()) {
 					logger.info("[ERROR Validation] Record does not validate)");
@@ -215,15 +211,8 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 						logger.info("[ERROR Validation] Record does not validate)");
 						model.put(MainMaintenanceConstants.ASPECT_ERROR_MESSAGE, errMsg.toString());
 						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordToValidate);
-					} else {
-						
-						//get record now (refreshed)
-						DokefimDao recordDokefimDao = this.fetchRecord(model, appUser, recordToValidate.getImavd(), recordToValidate.getImopd(), recordToValidate.getImlop());
-						model.put("action", MainMaintenanceConstants.ACTION_UPDATE);
-						model.put(MainMaintenanceConstants.DOMAIN_RECORD, recordDokefimDao);
-					}
-					
-				} */
+					} 
+				}
 				
 			} else if (MainMaintenanceConstants.ACTION_DELETE.equals(action)) { //Delete
 					/*
