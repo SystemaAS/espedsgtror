@@ -36,6 +36,11 @@ import org.springframework.web.servlet.ModelAndView;
 import no.systema.jservices.common.dao.DokefDao;
 import no.systema.jservices.common.dao.DokefimDao;
 import no.systema.jservices.common.dao.Ffr00fDao;
+import no.systema.jservices.common.dao.Ffr03fDao;
+import no.systema.jservices.common.dao.Ffr04fDao;
+import no.systema.jservices.common.dao.Ffr08fDao;
+import no.systema.jservices.common.dao.Ffr10fDao;
+import no.systema.jservices.common.dao.Ffr11fDao;
 import no.systema.jservices.common.dao.LocfDao;
 import no.systema.jservices.common.dao.LogfDao;
 import no.systema.jservices.common.dto.KostaDto;
@@ -325,19 +330,9 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @return
 	 */
 	private Ffr00fDto fetchTrvisionRecord(SystemaWebUser appUser, Ffr00fDto recordToValidate) {
-		Ffr00fDto dto = null;
-		//1 - FFR00F - Parent table 
-		Ffr00fDao dao = this.fetchFfr00f(appUser, recordToValidate);
-		//2 - FFR03 - Child table
-		//TODO
-		
-		
-		//handover to DTO for GUI
-		if(dao!=null){
-			ModelMapper modelMapper = new ModelMapper();
-			dto = modelMapper.map(dao, Ffr00fDto.class);
-		}
-		
+		ModelMapper modelMapper = new ModelMapper();
+		//Get all fields in parent tabel and all child tables.
+		Ffr00fDto dto = this.fetchFfr00f(appUser, recordToValidate);
 		
 		return dto;
 	
@@ -349,43 +344,41 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @param recordToValidate
 	 * @return
 	 */
-	private Ffr00fDao fetchFfr00f(SystemaWebUser appUser, Ffr00fDto recordToValidate){
-		
+	private Ffr00fDto fetchFfr00f(SystemaWebUser appUser, Ffr00fDto recordToValidate){
+		Ffr00fDto dto = null;
 		//ModelMapper
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.addConverter(this.daoConverter.doBigDecimal());
 		modelMapper.addConverter(this.daoConverter.doInteger());
-		//handover
-		Ffr00fDao dao = modelMapper.map(recordToValidate, Ffr00fDao.class);
 		
-		JsonReader<JsonDtoContainer<Ffr00fDao>> jsonReader = new JsonReader<JsonDtoContainer<Ffr00fDao>>();
-		jsonReader.set(new JsonDtoContainer<Ffr00fDao>());
+		JsonReader<JsonDtoContainer<Ffr00fDto>> jsonReader = new JsonReader<JsonDtoContainer<Ffr00fDto>>();
+		jsonReader.set(new JsonDtoContainer<Ffr00fDto>());
 		final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_FFR00F_URL;
 		StringBuilder urlRequestParams = new StringBuilder();
 		urlRequestParams.append("user=" + appUser.getUser());
-		urlRequestParams.append("&f0211=" + dao.getF0211());
-		urlRequestParams.append("&f0213=" + dao.getF0213());
+		urlRequestParams.append("&f0211=" + recordToValidate.getF0211());
+		urlRequestParams.append("&f0213=" + recordToValidate.getF0213());
 		
 		logger.info("URL: " + BASE_URL);
 		logger.info("PARAMS: " + urlRequestParams.toString());
 		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
 		logger.info("jsonPayload=" + jsonPayload);
-		JsonDtoContainer<Ffr00fDao> container = (JsonDtoContainer<Ffr00fDao>) jsonReader.get(jsonPayload);
+		JsonDtoContainer<Ffr00fDto> container = (JsonDtoContainer<Ffr00fDto>) jsonReader.get(jsonPayload);
 		if (container != null) {
 			
-			List<Ffr00fDao> tmpList = container.getDtoList();
+			List<Ffr00fDto> tmpList = container.getDtoList();
 			if(tmpList!=null && tmpList.size()>0){
-				for(Ffr00fDao daoLocal : tmpList){
-					if(daoLocal!=null){
-						dao = daoLocal;
+				for(Ffr00fDto dtoLocal : tmpList){
+					if(dtoLocal!=null){
+						dto = dtoLocal;
 					}
 				}
-			}else{
-				dao = null;
 			}
 		}
-		return dao;
+		return dto;
 	}
+	
+	
 	/**
 	 * Check if the booking has previously been carried out ...
 	 * @param model
