@@ -550,9 +550,11 @@
 					 	
 					 	<tr height="5"><td ></td></tr>
 					 </table>
+					
 				</td>
+			
 			</tr>
-			<tr height="5"><td ></td></tr>
+			<tr height="5"><td></td></tr>
 			<%-- X --%>
 			<tr>
             		<td>
@@ -564,14 +566,14 @@
 						
 						<tr>
 			            		<td>
-				        			<table width="98%" id="containerdatatableTable" cellspacing="0" align="left" >
-								<tr height="5"><td align="left" ></td></tr>
+				        			<table width="80%" id="containerdatatableTable" cellspacing="0" align="left" >
+								<tr height="2"><td align="left" ></td></tr>
 								
-						 		<tr>
-									<td colspan="2" style="padding: 0px;">
-										<table style="width:100%;" >
-										<thead>
+			            			<tr>
+									<td >
+										<table >
 										<tr >
+											
 											<th align="left" width="2%" valign="bottom" class="tableHeaderFieldFirst12"><span title="f0311">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.carrier"/></span></th>
 								 			<th align="left" width="2%" valign="bottom" class="tableHeaderField12"><span title="f0312">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.flightnumber"/>&nbsp;</span></th>
 								 			<th align="left" width="2%" valign="bottom" class="tableHeaderField12"><span title="f0314">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.day"/>&nbsp;</span></th>
@@ -581,40 +583,92 @@
 								 			<th align="left" width="2%" valign="bottom" class="tableHeaderField12"><span title="f035">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.speccode"/>&nbsp;</span></th>
 								 			<th align="left" width="2%" valign="bottom" class="tableHeaderField12"><span title="f0362">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.allotmentid"/>&nbsp;</span></th>
 								 		</tr>
-								 		</thead>
-								 		<tbody>
 								 		<tr class="tableRow">
-								 			<td width="2%" class="tableCellFirst" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f0311" id="f0311" size="3" maxlength="2" value="${model.record.f0311}">
+								 			<td width="2%" class="tableCellFirst11" >
+								 				<input type="hidden" name="f03rec" id="f03rec" value='${model.record.f03rec}'>
+							 					<input type="text" class="inputTextMediumBlue11" name="f0311" id="f0311" size="3" maxlength="2" value="${model.record.f0311}">
 							 				</td>
-							 				<td width="2%" class="tableCell" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f0312" id="f0312" size="6" maxlength="5" value="${model.record.f0312}">
+							 				<td width="2%" class="tableCell11" >
+							 					<input type="text" class="inputTextMediumBlue11" name="f0312" id="f0312" size="6" maxlength="5" value="${model.record.f0312}">
 							 				</td>
-							 				<td width="2%" class="tableCell" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f0314" id="f0314" size="3" maxlength="2" value="${model.record.f0314}">
+							 				<td width="2%" class="tableCell11" >
+							 					<input type="text" class="inputTextMediumBlue11" name="f0314" id="f0314" size="3" maxlength="2" value="${model.record.f0314}">
 							 				</td>
-							 				<td width="2%" class="tableCell" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f0315" id="f0315" size="4" maxlength="3" value="${model.record.f0315}">
+							 				<td width="2%" class="tableCell11" >
+							 					<input type="text" class="inputTextMediumBlue11" name="f0315" id="f0315" size="4" maxlength="3" value="${model.record.f0315}">
 							 				</td>
-							 				<td width="2%" class="tableCell" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f0331" id="f0331" size="4" maxlength="3" value="${model.record.f0331}">
+							 				<td width="2%" class="tableCell11" >
+							 					<input type="text" class="inputTextMediumBlue11" name="f0331" id="f0331" size="4" maxlength="3" value="${model.record.f0331}">
 							 				</td>
-							 				<td width="2%" class="tableCell" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f0332" id="f0332" size="4" maxlength="3" value="${model.record.f0332}">
+							 				<td width="2%" class="tableCell11" >
+							 					<input type="text" class="inputTextMediumBlue11" name="f0332" id="f0332" size="4" maxlength="3" value="${model.record.f0332}">
 							 				</td>
-							 				<td width="2%" class="tableCell" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f035" id="f035" size="3" maxlength="2" value="${model.record.f035}">
+							 				<td width="2%" class="tableCell11" >
+							 					<input type="text" class="inputTextMediumBlue11" name="f035" id="f035" size="3" maxlength="2" value="${model.record.f035}">
 							 				</td>
-							 				<td width="2%" class="tableCell" >
-							 					<input type="text" class="inputTextMediumBlue12" name="f0362" id="f0362" size="15" maxlength="14" value="${model.record.f0362}">
+							 				<td width="2%" class="tableCell11" >
+							 					<input type="text" class="inputTextMediumBlue11" name="f0362" id="f0362" size="15" maxlength="14" value="${model.record.f0362}">
 							 				</td>
 							 			</tr>
-							 			</tbody>
-									<tr height="5"><td ></td></tr>
-				 					</table>
-			           			</td>
-			            		</tr>
-	 				</table>
+							 			<tr height="5"><td ></td></tr>
+				 						</table>
+		           					</td>
+			           			</tr>
+								<tr height="3"><td align="left" ></td></tr>
+						 		
+						 		<tr>		
+			           				<td>
+				            				<table id="tblF03" class="display compact cell-border" >
+										<thead>
+										<tr style="background-color:wheat;" >
+											<th align="center" width="2%" class="text12" >Endre</th>
+											<th align="left" width="2%" valign="bottom" class="text12"><span title="f0311">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.carrier"/></span></th>
+								 			<th align="left" width="2%" valign="bottom" class="text12"><span title="f0312">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.flightnumber"/>&nbsp;</span></th>
+								 			<th align="left" width="2%" valign="bottom" class="text12"><span title="f0314">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.day"/>&nbsp;</span></th>
+								 			<th align="left" width="2%" valign="bottom" class="text12"><span title="f0315">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.month"/>&nbsp;</span></th>
+								 			<th align="left" width="2%" valign="bottom" class="text12"><span title="f0331">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.airport.departure"/>&nbsp;</span></th>
+								 			<th align="left" width="2%" valign="bottom" class="text12"><span title="f0332">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.airport.arrival"/>&nbsp;</span></th>
+								 			<th align="left" width="2%" valign="bottom" class="text12"><span title="f035">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.speccode"/>&nbsp;</span></th>
+								 			<th align="left" width="2%" valign="bottom" class="text12"><span title="f0362">&nbsp;<spring:message code="systema.tror.flyfraktbrev.tradevision.form.update.itemlines.label.allotmentid"/>&nbsp;</span></th>
+						        				<th align="center" width="2%" class="text12" >&nbsp;Slett&nbsp;</th>
+						               </tr> 
+						               </thead>
+						               <tbody>
+					 					  <c:forEach items="${model.record.listFfr03fDao}" var="record" varStatus="counter">    
+								               <tr >
+								               <td align="center" width="2%" class="text12" >
+								     				<a tabindex=-1 id="recordUpdate_${record.f03rec}" href="#" onClick="getItemData(this);">
+								     					<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">&nbsp;
+							               			</a>
+							               	   </td>
+							               	   <td class="text12">${record.f0311}</td>
+							               	   <td class="text12">${record.f0312}</td>
+							               	   <td class="text12">${record.f0314}</td>
+							               	   <td class="text12">${record.f0315}</td>
+							               	   <td class="text12">${record.f0331}</td>
+							               	   <td class="text12">${record.f0332}</td>
+							               	   <td class="text12">${record.f035}</td>
+							               	   <td class="text12">${record.f0362}</td>
+							               	   
+								               <%-- DELETE cell --%>							           
+								               <td width="2%" class="text12" align="center">
+							               	   		<c:if test="${record.f03rec > 0}">
+								               	   		<a style="cursor:pointer;" id="id_${record.f03rec}@f0311_${record.f0311}@f0312_${record.f0312}@f0314_${record.f0314}" onClick="doDeleteItemLine(this);" tabindex=-1 >
+										               		<img valign="bottom" src="resources/images/delete.gif" border="0" alt="remove">
+										               	</a>&nbsp;
+									               	</c:if>
+						               		  </td> 
+								            </tr>
+									        <%-- this param is used throughout the Controller --%>
+									        <c:set var="numberOfItemLinesInTopic" value="${Xrecord.todo}" scope="request" /> 
+									        </c:forEach>
+							           	</tbody>
+							        		</table>
+			            				</td>
+			            			</tr>
+			            			
+			           			
+		 				</table>
             		</td>
             </tr>
             <tr height="2"><td></td></tr>

@@ -303,7 +303,7 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 		
 		return dtoResult;
 		
-	}	
+	}
 	/**
 	 * 
 	 * @param awb
@@ -330,10 +330,13 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @return
 	 */
 	private Ffr00fDto fetchTrvisionRecord(SystemaWebUser appUser, Ffr00fDto recordToValidate) {
-		ModelMapper modelMapper = new ModelMapper();
 		//Get all fields in parent tabel and all child tables.
 		Ffr00fDto dto = this.fetchFfr00f(appUser, recordToValidate);
 		
+		//child tables
+		if(dto!=null){
+			this.fetchFfr03f(appUser, dto);
+		}
 		return dto;
 	
 	}
@@ -345,14 +348,18 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 	 * @return
 	 */
 	private Ffr00fDto fetchFfr00f(SystemaWebUser appUser, Ffr00fDto recordToValidate){
-		Ffr00fDto dto = null;
+		Ffr00fDto dtoResult = null;
+		Ffr00fDao daoResult = null;
+		logger.info("fetchFfr00f");
 		//ModelMapper
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.addConverter(this.daoConverter.doBigDecimal());
 		modelMapper.addConverter(this.daoConverter.doInteger());
-		
-		JsonReader<JsonDtoContainer<Ffr00fDto>> jsonReader = new JsonReader<JsonDtoContainer<Ffr00fDto>>();
-		jsonReader.set(new JsonDtoContainer<Ffr00fDto>());
+		Ffr00fDao dao = new Ffr00fDao();
+		modelMapper.map(recordToValidate, dao);
+		//execute
+		JsonReader<JsonDtoContainer<Ffr00fDao>> jsonReader = new JsonReader<JsonDtoContainer<Ffr00fDao>>();
+		jsonReader.set(new JsonDtoContainer<Ffr00fDao>());
 		final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_FFR00F_URL;
 		StringBuilder urlRequestParams = new StringBuilder();
 		urlRequestParams.append("user=" + appUser.getUser());
@@ -363,19 +370,53 @@ public class TrorMainOrderHeaderFlyControllerAirFreightBillTrvision {
 		logger.info("PARAMS: " + urlRequestParams.toString());
 		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
 		logger.info("jsonPayload=" + jsonPayload);
-		JsonDtoContainer<Ffr00fDto> container = (JsonDtoContainer<Ffr00fDto>) jsonReader.get(jsonPayload);
+		JsonDtoContainer<Ffr00fDao> container = (JsonDtoContainer<Ffr00fDao>) jsonReader.get(jsonPayload);
 		if (container != null) {
-			
-			List<Ffr00fDto> tmpList = container.getDtoList();
+			List<Ffr00fDao> tmpList = container.getDtoList();
 			if(tmpList!=null && tmpList.size()>0){
-				for(Ffr00fDto dtoLocal : tmpList){
-					if(dtoLocal!=null){
-						dto = dtoLocal;
+				for(Ffr00fDao daoLocal : tmpList){
+					if(daoLocal!=null){
+						daoResult = daoLocal;
 					}
 				}
 			}
 		}
-		return dto;
+		//back to dto
+		if(daoResult!=null){
+			dtoResult = new Ffr00fDto();
+			modelMapper.map(daoResult, dtoResult);
+		}
+		
+		return dtoResult;
+	}
+	/**
+	 * 
+	 * @param appUser
+	 * @param dto
+	 */
+	private void fetchFfr03f(SystemaWebUser appUser, Ffr00fDto dto){
+		
+		logger.info("fetchFfr03f");
+		//execute
+		JsonReader<JsonDtoContainer<Ffr03fDao>> jsonReader = new JsonReader<JsonDtoContainer<Ffr03fDao>>();
+		jsonReader.set(new JsonDtoContainer<Ffr03fDao>());
+		final String BASE_URL = TrorUrlDataStore.TROR_BASE_FETCH_FFR03F_URL;
+		StringBuilder urlRequestParams = new StringBuilder();
+		urlRequestParams.append("user=" + appUser.getUser());
+		urlRequestParams.append("&f03rec=" + dto.getF00rec());
+		
+		logger.info("URL: " + BASE_URL);
+		logger.info("PARAMS: " + urlRequestParams.toString());
+		String jsonPayload = urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams.toString());
+		logger.info("jsonPayload=" + jsonPayload);
+		JsonDtoContainer<Ffr03fDao> container = (JsonDtoContainer<Ffr03fDao>) jsonReader.get(jsonPayload);
+		if (container != null) {
+			List<Ffr03fDao> tmpList = container.getDtoList();
+			if(tmpList!=null && tmpList.size()>0){
+				dto.setListFfr03fDao(tmpList);
+				logger.info("03_list size:" + dto.getListFfr03fDao().size());
+			}
+		}
 	}
 	
 	

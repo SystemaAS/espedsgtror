@@ -279,9 +279,9 @@
 	  jq(document).ready(function() {
 	    //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
 	    jq('#tblMain').dataTable( {
-	  	  //"dom": '<"top">t<"bottom"f><"clear">',
-	  	  "dom": '<"top"i>rt<"bottom"f><"clear">',
-			  "scrollY":  "200px",
+            "dom": '<"top"i>rt<"bottom"f><"clear">',
+            "tabIndex": -1,
+            "scrollY":  "200px",
 			  "order": [ [ 1, "asc" ] ],
 			  "scrollCollapse":  true,
 			  "lengthMenu": [ 25, 50]

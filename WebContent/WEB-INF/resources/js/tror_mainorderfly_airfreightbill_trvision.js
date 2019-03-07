@@ -15,67 +15,22 @@
   });
   
   jq(function() {
-	  //custom validity
-	  /*
-	  jq('#trsta4').focus(function() {
-	    	if(jq('#trsta4').val()!=''){
-	    		refreshCustomValidity(jq('#trsta4')[0]);
-	  		}
-	  });
+	  //-------------------
+	  //Datatables jquery
+	  //-------------------
 	  
-	  jq('#hekns').focus(function() {
-	    	if(jq('#hekns').val()!=''){
-	    		refreshCustomValidity(jq('#hekns')[0]);
-	  		}
+	  jq(document).ready(function() {
+	    //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
+	    jq('#tblF03').dataTable( {
+            "tabIndex": -1,  
+            "dom": '<"top">t<"bottom"><"clear">',
+			  "scrollY":  "200px",
+			  //"order": [ [ 1, "asc" ] ],
+			  "scrollCollapse":  true
+			  //"lengthMenu": [ 25, 50]
+		  });
+	    
 	  });
-	  
-	  jq('#hesdf').focus(function() {
-	    	if(jq('#hesdf').val()!=''){
-	    		refreshCustomValidity(jq('#hesdf')[0]);
-	  		}
-	  });
-	  jq('#hesdt').focus(function() {
-	    	if(jq('#hesdt').val()!=''){
-	    		refreshCustomValidity(jq('#hesdt')[0]);
-	  		}
-	  });
-	  jq('#hefr').focus(function() {
-	    	if(jq('#hefr').val()!=''){
-	    		refreshCustomValidity(jq('#hefr')[0]);
-	  		}
-	  });
-	  jq('#domoms').focus(function() {
-	    	if(jq('#domoms').val()!=''){
-	    		refreshCustomValidity(jq('#domoms')[0]);
-	  		}
-	  });
-	  */
-	  
-	  
-	  /*
-	  //START - CHILDWINDOWS
-	  //Produktkode
-	  jq('#prodKodeIdLink').click(function() {
-		  jq('#prodKodeIdLink').attr('target','_blank');
-		  window.open('tror_mainorderflyimport_childwindow_airproducts.do?action=doFind',"produktKodeWin","top=300px,left=400px,height=600px,width=900px,scrollbars=no,status=no,location=no");
-	  });
-	  jq('#prodKodeIdLink').keypress(function(e){ //extra feature for the end user
-		  if(e.which == 13) {
-			  jq('#prodKodeIdLink').click();
-		  }
-	  });
-	  //Flyselskap
-	  jq('#flyselskapIdLink').click(function() {
-		  jq('#flyselskapIdLink').attr('target','_blank');
-		  window.open('tror_mainorderflyimport_childwindow_airlines.do?action=doFind',"airlineWin","top=300px,left=400px,height=700px,width=900px,scrollbars=no,status=no,location=no");
-	  });
-	  jq('#flyselskapIdLink').keypress(function(e){ //extra feature for the end user
-		  if(e.which == 13) {
-			  jq('#flyselskapIdLink').click();
-		  }
-	  });
-	  //END - CHILDWINDOWS
-	  */
 	  
   });
 	  
